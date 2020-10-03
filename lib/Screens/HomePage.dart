@@ -1,3 +1,5 @@
+import 'package:envyweb/Screens/AdminPage.dart';
+import 'package:envyweb/Screens/LoginPage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,16 +13,103 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    Size screen = MediaQuery.of(context).size;
+    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: Size(screenSize.width, 1000),
+        child: Container(
+          // color: Colors.blue,
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Row(
+              children: [
+                Text(
+                  'EXPLORE',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: Text(
+                          'Discover',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      SizedBox(width: screenSize.width / 20),
+                      InkWell(
+                        onTap: () {},
+                        child: Text(
+                          'Contact Us',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AdminPage()));
+                  },
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                SizedBox(
+                  width: screenSize.width / 50,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => LoginPage()));
+                  },
+                  child: Text(
+                    'Login',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-      body: Container(
-        height: screen.height,
-        width: screen.width,
-        color: Colors.amber,
-      ),
+      body: Stack(children: [
+        SizedBox(
+            height: screenSize.height,
+            width: screenSize.width,
+            child: Image.network(
+              "https://wallpaperaccess.com/full/2109.jpg",
+              fit: BoxFit.cover,
+            )),
+        Center(
+          child: Text(
+            "Envy Editor",
+            style: TextStyle(
+                fontSize: 45, color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        )
+
+        // Container(color: Colors.white,
+        //   child: Row(
+        //     children: [
+        //       RaisedButton(
+        //           onPressed: () => Navigator.push(context,
+        //               MaterialPageRoute(builder: (context) => AdminPage())),
+        //           child: Text("Admin Page")),
+        //       RaisedButton(
+        //           onPressed: () => Navigator.push(context,
+        //               MaterialPageRoute(builder: (context) => AdminPage())),
+        //           child: Text("Editor Page"))
+        //     ],
+        //   ),
+        // ),
+      ]),
     );
   }
 }

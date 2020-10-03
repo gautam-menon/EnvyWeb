@@ -10,10 +10,17 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-
+  http: 0.12.1
+  intl: ^0.16.1
+  firebase: any
+  firebase_auth: any
+  firebase_core: any
+  firebase_storage: any
+  cached_network_image: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 flutter:
 
   uses-material-design: true

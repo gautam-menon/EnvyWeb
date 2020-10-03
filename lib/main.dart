@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         
       ),
-      home: HomePage(title: 'Envy Backend'),
+      home: HomePage(title: 'Envy Backend '),
     );
   }
 }
