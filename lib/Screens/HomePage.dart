@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
                 Text(
                      "Envy Editor",
                   style: TextStyle(
+                    fontSize: 30,
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 Expanded(
