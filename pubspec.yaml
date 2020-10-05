@@ -13,7 +13,8 @@ dependencies:
   http: 0.12.1
   intl: ^0.16.1
   firebase: any
-  firebase_auth: any
+  firebase_auth: ^0.18.1+1
+  firebase_auth_web: any
   firebase_core: any
   firebase_storage: any
   cached_network_image: any

@@ -1,8 +1,15 @@
+import 'package:envyweb/Screens/HomePage.dart';
+import 'package:envyweb/Services/ApiFunctions.dart';
+import 'package:envyweb/Services/Auth.dart';
+import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Editors -Admin.dart';
 
 class AdminPage extends StatefulWidget {
+  final name;
+
+  const AdminPage({Key key, this.name}) : super(key: key);
   @override
   _AdminPageState createState() => _AdminPageState();
 }
@@ -20,25 +27,27 @@ class _AdminPageState extends State<AdminPage> {
           child: ListView(
             children: [
               Customize("Dashboard", () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AdminPage(
-                           
-                            )));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AdminPage()));
               }),
               Customize("Pending Orders", () {}),
               Customize("Completed Orders", () {}),
               Customize("Profile", () {}),
               Customize("Editors", () {
-                   Navigator.push(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => EditorList(
-                                media: _media,
+                              media: _media,
                             )));
               }),
-              Customize("Log out", () {}),
+              Customize("Log out", () async {
+                await AuthService().logOut();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => HomePage()),
+                    (Route<dynamic> route) => false);
+              }),
             ],
           ),
         ),
@@ -55,7 +64,7 @@ class _AdminPageState extends State<AdminPage> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Admin, 'name'",
+                        "Admin, " + widget.name.toString(),
                         style: TextStyle(
                             fontSize: 35,
                             color: Colors.black,
@@ -213,44 +222,35 @@ class OrderFunction extends StatelessWidget {
                 ],
               ),
               FlatButton(
-                onPressed: () {},
+                onPressed: () async {
+                  showDialog(
+                    context: context,
+                    builder: (context) => Dialog(
+                      child: Container(
+                        child: FutureBuilder(
+                            future: ApiFunctions().getEditors(),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return Container(
+                                  child: Text(snapshot.data.toString()),
+                                );
+                              } else {
+                                return CupertinoActivityIndicator();
+                              }
+                            }),
+                        // EditorList(
+                        //   media: _media,
+                        // ),
+                        color: Colors.amber,
+                      ),
+                    ),
+                  );
+                },
                 child: Text("Assign"),
                 color: Colors.amber,
               ),
             ],
           ),
         ));
-  }
-}
-
-class Customize extends StatelessWidget {
-  Customize(this.text, this.onTap);
-  final String text;
-  final Function onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        height: 60,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    text,
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
   }
 }

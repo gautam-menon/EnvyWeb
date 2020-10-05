@@ -1,5 +1,6 @@
-import 'package:envyweb/Screens/HomePage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:envyweb/Screens/Admin/Dashboard.dart';
+
+import 'package:envyweb/Services/Auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,23 +23,12 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Future signingInWithEmailAndPassword(String email, String pass) async {
-    try {
-      AuthResult result = (await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: pass));
-      FirebaseUser user = result.user;
-      return user.email;
-    } catch (error) {
-      print(error.toString());
-    }
-  }
-
   void performLogin() async {
     setState(() {
       _isLoading = true;
     });
-    var result = await signingInWithEmailAndPassword(
-        emailController.text, passwordController.text);
+    var result = await AuthService()
+        .logIn(emailController.text, passwordController.text);
     if (result == null) {
       setState(() {
         _isLoading = false;
@@ -46,9 +36,19 @@ class _LoginPageState extends State<LoginPage> {
       showAlertDialog(context, "Incorrect email or password");
     } else {
       print("YAAY");
+      // if (result.credential.accessToken.isEmpty) {
       Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (BuildContext context) => HomePage()),
+          MaterialPageRoute(
+              builder: (BuildContext context) =>
+                  AdminPage(name: result.user.displayName)),
           (Route<dynamic> route) => false);
+      // } else {
+      //   Navigator.of(context).pushAndRemoveUntil(
+      //       MaterialPageRoute(
+      //           builder: (BuildContext context) =>
+      //               EditorPage(name: result.user.displayName)),
+      //       (Route<dynamic> route) => false);
+      // }
     }
   }
 

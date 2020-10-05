@@ -1,8 +1,6 @@
 import 'package:envyweb/Screens/LoginPage.dart';
 import 'package:flutter/material.dart';
 
-import 'Admin/Dashboard.dart';
-
 class HomePage extends StatefulWidget {
   final String title;
 
@@ -26,10 +24,11 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 Text(
-                     "Envy Editor",
+                  "Envy Editor",
                   style: TextStyle(
-                    fontSize: 30,
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
                 Expanded(
                   child: Row(
@@ -54,10 +53,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AdminPage()));
-                  },
+                  onTap: () {},
                   child: Text(
                     'Sign Up',
                     style: TextStyle(color: Colors.white),
@@ -89,9 +85,6 @@ class _HomePageState extends State<HomePage> {
               "https://wallpaperaccess.com/full/2109.jpg",
               fit: BoxFit.cover,
             )),
-
-
-  
       ]),
     );
   }
