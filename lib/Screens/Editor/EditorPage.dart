@@ -52,7 +52,7 @@ class _EditorPageState extends State<EditorPage> {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "Admin, " + widget.name.toString(),
+                            "Editor, " + widget.name.toString(),
                             style: TextStyle(
                                 fontSize: 35,
                                 color: Colors.black,
