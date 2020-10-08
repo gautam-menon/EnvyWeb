@@ -1,6 +1,9 @@
 import 'package:envyweb/Screens/LoginPage.dart';
 import 'package:flutter/material.dart';
 
+import 'Admin/Dashboard.dart';
+import 'Editor/EditorPage.dart';
+
 class HomePage extends StatefulWidget {
   final String title;
 
@@ -35,7 +38,10 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                               Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => EditorPage()));
+                        },
                         child: Text(
                           'Discover',
                           style: TextStyle(color: Colors.white),
@@ -43,7 +49,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                       SizedBox(width: screenSize.width / 20),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AdminPage()));
+                        },
                         child: Text(
                           'Contact Us',
                           style: TextStyle(color: Colors.white),

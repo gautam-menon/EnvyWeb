@@ -18,7 +18,6 @@ class _AdminPageState extends State<AdminPage> {
   @override
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
-    int tier = 1;
     return Scaffold(
       appBar: AppBar(),
       drawer: Drawer(
@@ -85,33 +84,9 @@ class _AdminPageState extends State<AdminPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      buttons(
-                          "Basic",
-                          tier == 1
-                              ? null
-                              : () {
-                                  setState(() {
-                                    tier = 1;
-                                  });
-                                }),
-                      buttons(
-                          "Premium",
-                          tier == 2
-                              ? null
-                              : () {
-                                  setState(() {
-                                    tier = 1;
-                                  });
-                                }),
-                      buttons(
-                          "Pro",
-                          tier == 3
-                              ? null
-                              : () {
-                                  setState(() {
-                                    tier = 1;
-                                  });
-                                })
+                      buttons("Basic", 1),
+                      buttons("Premium", 2),
+                      buttons("Pro", 3)
                     ],
                   ),
                   ordersWidget(),
@@ -149,14 +124,21 @@ class _AdminPageState extends State<AdminPage> {
     );
   }
 
-  Widget buttons(String text, function) {
+  int tier = 1;
+  Widget buttons(String text, int selectedTier) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width * 0.2,
       child: RaisedButton(
         color: Colors.white,
         child: Text(text),
-        onPressed: () => function,
+        onPressed: selectedTier == tier
+            ? null
+            : () {
+                setState(() {
+                  tier = selectedTier;
+                });
+              },
       ),
     );
   }
@@ -211,7 +193,6 @@ class OrderFunction extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 2),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -221,7 +202,7 @@ class OrderFunction extends StatelessWidget {
                   Text(date.toString())
                 ],
               ),
-              FlatButton(
+              RaisedButton(
                 onPressed: () async {
                   showDialog(
                     context: context,

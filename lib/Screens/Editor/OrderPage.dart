@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class OrderPage extends StatefulWidget {
@@ -8,23 +9,63 @@ class OrderPage extends StatefulWidget {
 class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
+    var screen = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(),
       body: Container(
-        child: Column(
-          children: [
-            Image.network("src"),
-            Text(
-              "Instructions",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Order Details",
+                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                ),
+                Container(
+                  height: screen.height * 0.3,
+                  width: screen.width * 0.3,
+                  child: CachedNetworkImage(
+                      imageUrl:
+                          "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"),
+                ),
+                Text(
+                  "Features requested",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "Features",
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                Text(
+                  "Date of Ordering",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "Date",
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                Text(
+                  "Deadline",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "Deadline",
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+                RaisedButton(
+                  onPressed: () {},
+                  child: Text("Download Image"),
+                )
+              ],
             ),
-            Text("Features requested"),
-            Text("Date of Ordering"),
-            Text("Deadline"),
-            RaisedButton(
-              onPressed: () {},
-              child: Text("Download Image"),
-            )
-          ],
+          ),
         ),
       ),
     );
