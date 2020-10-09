@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   http: 0.12.1
   intl: ^0.16.1
+  image_picker_web: any
   firebase: any
   firebase_auth: ^0.18.1+1
   firebase_auth_web: any

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -12,16 +11,19 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        child: Column(
-          children: [
-            CircleAvatar(
-                child: CachedNetworkImage(
-              imageUrl:
-                  "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-            )),
-            Text("Name"),
-            Text("Date joined"),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+ 
+            children: [
+              CircleAvatar(
+                  radius: 100,
+               backgroundImage: NetworkImage( "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"),
+            ),
+              Text("Name"),
+              Text("Date joined"),
+            ],
+          ),
         ),
       ),
     );

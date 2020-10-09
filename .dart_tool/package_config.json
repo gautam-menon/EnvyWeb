@@ -170,6 +170,12 @@
       "languageVersion": "2.3"
     },
     {
+      "name": "image_picker_web",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker_web-1.0.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "intl",
       "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.16.1",
       "packageUri": "lib/",
@@ -368,7 +374,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-10-05T15:19:09.294309Z",
+  "generated": "2020-10-09T14:58:27.944342Z",
   "generator": "pub",
   "generatorVersion": "2.10.0"
 }

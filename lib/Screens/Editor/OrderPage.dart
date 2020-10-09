@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:envyweb/Screens/Editor/SubmitPage.dart';
 import 'package:flutter/material.dart';
 
 class OrderPage extends StatefulWidget {
@@ -23,8 +24,8 @@ class _OrderPageState extends State<OrderPage> {
                   style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 ),
                 Container(
-                  height: screen.height * 0.3,
-                  width: screen.width * 0.3,
+                  height: screen.height * 0.5,
+                  width: screen.width * 0.4,
                   child: CachedNetworkImage(
                       imageUrl:
                           "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"),
@@ -59,9 +60,22 @@ class _OrderPageState extends State<OrderPage> {
                     fontSize: 15,
                   ),
                 ),
-                RaisedButton(
-                  onPressed: () {},
-                  child: Text("Download Image"),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    RaisedButton(
+                      onPressed: () {},
+                      child: Text("Download Image"),
+                    ),
+                    RaisedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SubmitPage()));
+                      },
+                      child: Text("Upload Edited Image"),
+                    ),
+                  ],
                 )
               ],
             ),
