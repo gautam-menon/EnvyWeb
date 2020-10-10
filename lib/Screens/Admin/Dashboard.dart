@@ -19,7 +19,10 @@ class _AdminPageState extends State<AdminPage> {
   Widget build(BuildContext context) {
     final _media = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Dashboard"),
+        centerTitle: true,
+      ),
       drawer: Drawer(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -208,21 +211,43 @@ class OrderFunction extends StatelessWidget {
                     context: context,
                     builder: (context) => Dialog(
                       child: Container(
-                        child: FutureBuilder(
-                            future: ApiFunctions().getEditors(),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return Container(
-                                  child: Text(snapshot.data.toString()),
-                                );
-                              } else {
-                                return CupertinoActivityIndicator();
-                              }
-                            }),
-                        // EditorList(
-                        //   media: _media,
-                        // ),
-                        color: Colors.amber,
+                        height: _media.height * 0.7,
+                        width: _media.width * 0.7,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Align(
+                                  alignment: Alignment.topRight,
+                                  child: IconButton(
+                                    icon: Icon(Icons.cancel),
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(),
+                                  )),
+                              Text(
+                                "Assign to Editors",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 30),
+                              ),
+                              Divider(),
+                              editors("Editors 1"),
+                              editors("Editors 2"),
+                              editors("Editors 3"),
+                            ],
+                          ),
+                        ),
+                        // child: FutureBuilder(
+                        //     future: ApiFunctions().getEditors(),
+                        //     builder: (context, snapshot) {
+                        //       if (snapshot.hasData) {
+                        //         return Container(
+                        //           child: Text(snapshot.data.toString()),
+                        //         );
+                        //       } else {
+                        //         return CupertinoActivityIndicator();
+                        //       }
+                        //     }),
                       ),
                     ),
                   );
@@ -233,5 +258,19 @@ class OrderFunction extends StatelessWidget {
             ],
           ),
         ));
+  }
+
+  Widget editors(String name) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(name),
+        RaisedButton(
+          onPressed: () {},
+          child: Text("Assign"),
+          color: Colors.amber,
+        )
+      ],
+    );
   }
 }
