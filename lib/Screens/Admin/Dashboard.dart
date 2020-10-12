@@ -1,3 +1,5 @@
+import 'package:envyweb/Screens/Admin/OnGoingOrders.dart';
+import 'package:envyweb/Screens/Admin/Status.dart';
 import 'package:envyweb/Screens/HomePage.dart';
 import 'package:envyweb/Services/ApiFunctions.dart';
 import 'package:envyweb/Services/Auth.dart';
@@ -32,9 +34,13 @@ class _AdminPageState extends State<AdminPage> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AdminPage()));
               }),
-              Customize("Pending Orders", () {}),
-              Customize("Completed Orders", () {}),
-              Customize("Profile", () {}),
+              // Customize("Pending Orders", () {      Navigator.push(
+              //       context, MaterialPageRoute(builder: (context) => OnGoingOrders()));}),
+              Customize("Status", () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Status()));
+              }),
+       
               Customize("Editors", () {
                 Navigator.push(
                     context,
