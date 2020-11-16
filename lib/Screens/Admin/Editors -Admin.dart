@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../model.dart';
 
-class EditorList extends StatelessWidget {
+class EditorList extends StatefulWidget {
   const EditorList({
     Key key,
     @required Size media,
@@ -11,14 +11,19 @@ class EditorList extends StatelessWidget {
   final Size _media;
 
   @override
+  _EditorListState createState() => _EditorListState();
+}
+
+class _EditorListState extends State<EditorList> {
+  @override
   Widget build(BuildContext context) {
     return Material(
       elevation: 10,
       shadowColor: Colors.grey,
       borderRadius: BorderRadius.circular(4),
       child: Container(
-        height: _media.height / 1.9,
-        width: _media.width / 3 + 20,
+        height: widget._media.height,
+        width: widget._media.width *0.37,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(4),

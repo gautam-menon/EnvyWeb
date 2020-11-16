@@ -1,5 +1,4 @@
 import 'package:envyweb/Screens/Editor/OrderPage.dart';
-import 'package:envyweb/Services/ApiFunctions%20-Admin.dart';
 import 'package:envyweb/Services/Auth.dart';
 import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,7 +18,7 @@ class EditorPage extends StatefulWidget {
 class _EditorPageState extends State<EditorPage> {
   @override
   void initState() {
-    ApiFunctions();
+    //ApiFunctions();
     super.initState();
   }
 
