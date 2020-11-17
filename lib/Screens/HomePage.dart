@@ -90,10 +90,11 @@ class _HomePageState extends State<HomePage> {
         SizedBox(
             height: screenSize.height,
             width: screenSize.width,
-            child: Image.network(
-              "https://wallpaperaccess.com/full/2109.jpg",
-              fit: BoxFit.cover,
-            )),
+            // child: Image.network(
+            //   "https://wallpaperaccess.com/full/2109.jpg",
+            //   fit: BoxFit.cover,
+            // )
+            ),
       ]),
     );
   }

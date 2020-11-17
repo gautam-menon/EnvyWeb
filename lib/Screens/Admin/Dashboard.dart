@@ -1,5 +1,6 @@
 import 'package:envyweb/Screens/Admin/Status.dart';
 import 'package:envyweb/Screens/HomePage.dart';
+import 'package:envyweb/Services/ApiFunctions%20-Admin.dart';
 import 'package:envyweb/Services/Auth.dart';
 import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
@@ -97,7 +98,7 @@ class _AdminPageState extends State<AdminPage> {
                       buttons("Pro", 3)
                     ],
                   ),
-                  isLoading ? CircularProgressIndicator() : ordersWidget(),
+                  ordersWidget(),
                 ],
               ),
             ),
@@ -110,25 +111,32 @@ class _AdminPageState extends State<AdminPage> {
   Widget ordersWidget() {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(border: Border.all()),
-        child: Column(
-          children: [
-            OrderFunction(
-              orderID: "ncjdcn",
-              status: "Pending",
-              price: 50,
-              date: 185030,
-            ),
-            OrderFunction(
-              orderID: "ncjdcn",
-              status: "Pending",
-              price: 50,
-              date: 185030,
-            ),
-          ],
-        ),
-      ),
+      child: FutureBuilder(
+          future: ApiFunctionsAdmin().getAllUnassignedOrders(),
+          initialData: {"status": "true"},
+          builder: (context, snapshot) {
+            return snapshot.hasData
+                ? Container(
+                    decoration: BoxDecoration(border: Border.all()),
+                    child: Column(
+                      children: [
+                        Text(snapshot.data['status']),
+                        OrderFunction(
+                          orderID: "ncjdcn",
+                          status: "Pending",
+                          price: 50,
+                          date: 185030,
+                        ),
+                        OrderFunction(
+                          orderID: "ncjdcn",
+                          status: "Pending",
+                          price: 50,
+                          date: 185030,
+                        ),
+                      ],
+                    ))
+                : CircularProgressIndicator();
+          }),
     );
   }
 

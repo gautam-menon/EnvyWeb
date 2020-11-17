@@ -3,21 +3,21 @@ import 'package:http/http.dart' as http;
 
 class ApiFunctionsAdmin {
   String getAllEditorsUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetAllEditors";
+      "https://envytestserver.herokuapp.com/AdminPage/GetAllEditors";
   String getAllBasicEditorsUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetAllBasicEditors";
+      "https://envytestserver.herokuapp.com/AdminPage/GetAllBasicEditors";
   String getAllPremiumEditorsUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetAllPremiumEditors";
+      "https://envytestserver.herokuapp.com/AdminPage/GetAllPremiumEditors";
   String getAllProEditorsUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetAllProOrders";
+      "https://envytestserver.herokuapp.com/AdminPage/GetAllProEditors";
   String assignToEditorUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/AssignToEditor";
+      "https://envytestserver.herokuapp.com/AdminPage/AssignToEditor";
   String getAllAssignedOrdersUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetAllProOrders";
+      "https://envytestserver.herokuapp.com/AdminPage/GetAllAssignedOrders";
   String getAllOrdersUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetAllProOrders";
+      "https://envytestserver.herokuapp.com/AdminPage/GetAllOrders";
   String getAllUnassignedOrdersUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetAllProOrders";
+      "https://envytestserver.herokuapp.com/AdminPage/GetAllUnassignedOrders";
 
   Future getAllEditors() async {
     var response = await http.get(getAllEditorsUrl);
@@ -54,6 +54,7 @@ class ApiFunctionsAdmin {
   Future getAllAssignedOrders() async {
     var response = await http.get(getAllAssignedOrdersUrl);
     var data = json.decode(response.body);
+    print(data.toString());
     return data;
   }
 

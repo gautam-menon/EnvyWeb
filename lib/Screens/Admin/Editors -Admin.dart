@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model.dart';
+import '../../Models/model.dart';
 
 class EditorList extends StatefulWidget {
   const EditorList({
