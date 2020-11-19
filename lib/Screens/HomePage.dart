@@ -87,9 +87,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Stack(children: [
-        SizedBox(
+        Container(
             height: screenSize.height,
             width: screenSize.width,
+            color: Colors.amber
             // child: Image.network(
             //   "https://wallpaperaccess.com/full/2109.jpg",
             //   fit: BoxFit.cover,

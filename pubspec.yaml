@@ -15,15 +15,11 @@ dependencies:
   image_picker_web: any
   firebase: any
   firebase_auth: ^0.18.1+1
-  firebase_auth_web: any
-  firebase_core: any
-  firebase_storage: any
   cached_network_image: any
   
 
 dev_dependencies:
-  build_runner: any
-  build_web_compilers: any
+
   flutter_test:
     sdk: flutter
 

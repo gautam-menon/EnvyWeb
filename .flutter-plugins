@@ -1,9 +1,8 @@
 # This is a generated file; do not edit or check into version control.
-firebase_auth=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth-0.18.1+1\\
-firebase_auth_web=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth_web-0.3.1\\
-firebase_core=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.5.0\\
-firebase_core_web=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.2.0\\
-firebase_storage=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_storage-4.0.1\\
+firebase_auth=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth-0.18.3\\
+firebase_auth_web=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_auth_web-0.3.2\\
+firebase_core=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core-0.5.2\\
+firebase_core_web=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.2.1\\
 image_picker_web=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\image_picker_web-1.0.9\\
 path_provider=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider-1.6.18\\
 path_provider_linux=F:\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\path_provider_linux-0.0.1+2\\

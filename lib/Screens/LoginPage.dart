@@ -35,20 +35,11 @@ class _LoginPageState extends State<LoginPage> {
       });
       showAlertDialog(context, "Incorrect email or password");
     } else {
-      print("YAAY");
-      // if (result.credential.accessToken.isEmpty) {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
               builder: (BuildContext context) =>
                   AdminPage(name: result.user.displayName)),
           (Route<dynamic> route) => false);
-      // } else {
-      //   Navigator.of(context).pushAndRemoveUntil(
-      //       MaterialPageRoute(
-      //           builder: (BuildContext context) =>
-      //               EditorPage(name: result.user.displayName)),
-      //       (Route<dynamic> route) => false);
-      // }
     }
   }
 

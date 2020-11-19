@@ -10,8 +10,7 @@ class ApiFunctionsEditors {
       "https://envytestserver.herokuapp.com/EditorPage/showOrderDetails";
   String submitOrderUrl =
       "https://envytestserver.herokuapp.com/EditorPage/SubmitOrder";
-  String addEditorUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/AddEditor";
+
   String getWorkOrdersUrl =
       "https://envytestserver.herokuapp.com/EditorPage/GetWorkOrders";
 
@@ -38,14 +37,6 @@ class ApiFunctionsEditors {
   Future submitOrder(String base64image, int orderID, int editorID) async {
     var response = await http.post(submitOrderUrl,
         body: {"image": base64image, "orderID": orderID, "editorID": editorID});
-    var data = json.decode(response.body);
-    return data['status'];
-  }
-
-  Future addEditor(String name, String email, String tier, int phoneNo) async {
-    //ToDo: add random uid assigning in web service.
-    var response = await http
-        .post(addEditorUrl, body: {"uid": 99, "name": name, "email": email, "tier": tier, "phoneNo": phoneNo});
     var data = json.decode(response.body);
     return data['status'];
   }

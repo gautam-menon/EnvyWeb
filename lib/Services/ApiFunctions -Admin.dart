@@ -18,11 +18,29 @@ class ApiFunctionsAdmin {
       "https://envytestserver.herokuapp.com/AdminPage/GetAllOrders";
   String getAllUnassignedOrdersUrl =
       "https://envytestserver.herokuapp.com/AdminPage/GetAllUnassignedOrders";
+  String addEditorUrl =
+      "https://envytestserver.herokuapp.com/EditorPage/AddEditor";
+
+  Future addEditor(String name, String email, String tier, int phoneNo) async {
+    //TODO: add random uid assigning in web service.
+    var response = await http.post(addEditorUrl, body: {
+      "uid": 99,
+      "name": name,
+      "email": email,
+      "tier": tier,
+      "phoneNo": phoneNo
+    });
+    var data = json.decode(response.body);
+    return data['status'];
+  }
 
   Future getAllEditors() async {
     var response = await http.get(getAllEditorsUrl);
-    var data = json.decode(response.body);
-    return data;
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      print(data);
+      return data['req'];
+    }
   }
 
   Future getAllBasicEditors() async {
@@ -66,7 +84,10 @@ class ApiFunctionsAdmin {
 
   Future getAllUnassignedOrders() async {
     var response = await http.get(getAllUnassignedOrdersUrl);
-    var data = json.decode(response.body);
-    return data;
+    print(response.body);
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return data['data'];
+    }
   }
 }

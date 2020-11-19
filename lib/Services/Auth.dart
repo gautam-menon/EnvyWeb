@@ -1,7 +1,9 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-    Future logIn(String email, String pass) async {
+  Future logIn(String email, String pass) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: pass);
@@ -14,10 +16,22 @@ class AuthService {
       }
     }
   }
+
   logOut() async {
- await FirebaseAuth.instance.signOut();
+    await FirebaseAuth.instance.signOut();
   }
-  signUp(){
-    
+
+  signUp(
+      String email, String password, String name, int tier, int phoneNo) async {
+    String signUpUrl = "";
+    var response = await http.post(signUpUrl, body: {
+      "email": email,
+      "password": password,
+      "name": name,
+      "tier": tier,
+      "phoneNo": phoneNo
+    });
+    var data = json.decode(response.body);
+    return data['status'];
   }
 }

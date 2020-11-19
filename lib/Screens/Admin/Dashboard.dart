@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:envyweb/Screens/Admin/Status.dart';
 import 'package:envyweb/Screens/HomePage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Admin.dart';
@@ -72,7 +73,7 @@ class _AdminPageState extends State<AdminPage> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Admin, " + widget.name.toString(),
+                        "Amin, " + widget.name.toString(),
                         style: TextStyle(
                             fontSize: 35,
                             color: Colors.black,
@@ -108,33 +109,49 @@ class _AdminPageState extends State<AdminPage> {
     );
   }
 
+  getOrderFunction() {
+    ApiFunctionsAdmin adminClass = ApiFunctionsAdmin();
+    return adminClass.getAllUnassignedOrders();
+    //TODO make an api for each tier orders
+    // switch (tier){
+    // case 1: admin.get
+    // break;
+    // case 2:
+    // break;
+    // case 3:
+    // break;
+    // default:
+    // break;}
+  }
+
   Widget ordersWidget() {
+    var _media = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FutureBuilder(
-          future: ApiFunctionsAdmin().getAllUnassignedOrders(),
-          initialData: {"status": "true"},
+          future: getOrderFunction(),
+          // initialData: {"status": "true"},
           builder: (context, snapshot) {
             return snapshot.hasData
                 ? Container(
                     decoration: BoxDecoration(border: Border.all()),
-                    child: Column(
-                      children: [
-                        Text(snapshot.data['status']),
-                        OrderFunction(
-                          orderID: "ncjdcn",
-                          status: "Pending",
-                          price: 50,
-                          date: 185030,
-                        ),
-                        OrderFunction(
-                          orderID: "ncjdcn",
-                          status: "Pending",
-                          price: 50,
-                          date: 185030,
-                        ),
-                      ],
-                    ))
+                    width: _media.width,
+                    height: _media.height * 0.9,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return OrderFunction(
+                          orderID: snapshot.data[index]['orderid'],
+                          status: snapshot.data[index]['isComplete'],
+                          date: int.parse(snapshot.data[index]['timestamp']),
+                          price: int.parse(snapshot.data[index]['timestamp']),
+                          tierId: int.parse(snapshot.data[index]['tierId']),
+                          imgUrl: snapshot.data[index]['rawBase64'],
+                        );
+                      },
+                    ),
+                  )
                 : CircularProgressIndicator();
           }),
     );
@@ -165,9 +182,17 @@ class OrderFunction extends StatelessWidget {
   final String status;
   final int price;
   final int date;
+  final int tierId;
+  final String imgUrl;
 
   const OrderFunction(
-      {Key key, @required this.orderID, this.status, this.price, this.date})
+      {Key key,
+      @required this.orderID,
+      this.status,
+      this.price,
+      this.date,
+      this.tierId,
+      this.imgUrl})
       : super(key: key);
 
   @override
@@ -188,6 +213,15 @@ class OrderFunction extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) => CircularProgressIndicator(),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    imageUrl:
+                        imgUrl ?? "https://wallpaperaccess.com/full/2109.jpg",
+                  ),
+                  height: _media.height * 0.2,
+                  width: _media.width * 0.1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -207,6 +241,10 @@ class OrderFunction extends StatelessWidget {
                     'Date',
                     style: TextStyle(color: Colors.grey),
                   ),
+                  Text(
+                    'Tier',
+                    style: TextStyle(color: Colors.grey),
+                  ),
                 ],
               ),
               Row(
@@ -215,55 +253,51 @@ class OrderFunction extends StatelessWidget {
                   Text(orderID),
                   Text(status),
                   Text(price.toString()),
-                  Text(date.toString())
+                  Text(DateTime.fromMillisecondsSinceEpoch(date).toString()),
+                  Text(getTier(tierId)),
                 ],
               ),
               RaisedButton(
                 onPressed: () async {
                   showDialog(
-                    context: context,
-                    builder: (context) => Dialog(
-                      child: Container(
-                        height: _media.height * 0.7,
-                        width: _media.width * 0.7,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Align(
-                                  alignment: Alignment.topRight,
-                                  child: IconButton(
-                                    icon: Icon(Icons.cancel),
-                                    onPressed: () =>
-                                        Navigator.of(context).pop(),
-                                  )),
-                              Text(
-                                "Assign to Editors",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 30),
-                              ),
-                              Divider(),
-                              editors("Editors 1"),
-                              editors("Editors 2"),
-                              editors("Editors 3"),
-                            ],
-                          ),
-                        ),
-                        // child: FutureBuilder(
-                        //     future: ApiFunctions().getEditors(),
-                        //     builder: (context, snapshot) {
-                        //       if (snapshot.hasData) {
-                        //         return Container(
-                        //           child: Text(snapshot.data.toString()),
-                        //         );
-                        //       } else {
-                        //         return CupertinoActivityIndicator();
-                        //       }
-                        //     }),
-                      ),
-                    ),
-                  );
+                      context: context,
+                      builder: (context) => Dialog(
+                            child: FutureBuilder(
+                                future: getEditorFunction(tierId),
+                                builder: (context, snapshot) {
+                                  return snapshot.hasData
+                                      ? Container(
+                                          height: _media.height * 0.7,
+                                          width: _media.width * 0.7,
+                                          decoration: BoxDecoration(
+                                              border: Border.all()),
+                                          child: Column(
+                                            children: [
+                                              Text("Assiign To Editor",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 20)),
+                                              ListView.builder(
+                                                shrinkWrap: true,
+                                                itemCount: snapshot.data.length,
+                                                itemBuilder: (context, index) {
+                                                  return editors(
+                                                      snapshot.data[index]
+                                                          ['name'],
+                                                      snapshot.data[index]
+                                                          ['uid'],
+                                                      orderID,
+                                                      snapshot.data[index]
+                                                          ['tier']);
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                        )
+                                      : CircularProgressIndicator();
+                                }),
+                          ));
                 },
                 child: Text("Assign"),
                 color: Colors.amber,
@@ -273,16 +307,59 @@ class OrderFunction extends StatelessWidget {
         ));
   }
 
-  Widget editors(String name) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  getEditorFunction(int tier) {
+    ApiFunctionsAdmin adminClass = ApiFunctionsAdmin();
+    return adminClass.getAllEditors();
+    // switch (tier) {
+    //   case 1:
+    //     return adminClass.getAllBasicEditors();
+    //     break;
+    //   case 2:
+    //     adminClass.getAllPremiumEditors();
+    //     break;
+    //   case 3:
+    //     adminClass.getAllProEditors();
+    //     break;
+    //   default:
+    //     adminClass.getAllEditors();
+    //     break;
+    //}
+  }
+
+  String getTier(int tier) {
+    switch (tier) {
+      case 1:
+        return "Basic";
+        break;
+      case 2:
+        return "Premium";
+        break;
+      case 3:
+        return "Pro";
+        break;
+      default:
+        return "Tier not found";
+        break;
+    }
+  }
+
+  Widget editors(String name, String id, String orderid, String tier) {
+    return Column(
       children: [
-        Text(name),
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Text(name,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              )),
+          Text(id),
+          Text(tier)
+        ]),
         RaisedButton(
           onPressed: () {},
           child: Text("Assign"),
           color: Colors.amber,
-        )
+        ),
+        Divider(),
       ],
     );
   }

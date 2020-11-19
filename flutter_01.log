@@ -1,0 +1,107 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d chrome --release
+
+## exception
+
+FileSystemException: FileSystemException: Deletion failed, path = 'build\web' (OS Error: The process cannot access the file because it is being used by another process.
+, errno = 32)
+
+```
+#0      _Directory._deleteSync (dart:io/directory_impl.dart:201:7)
+#1      FileSystemEntity.deleteSync (dart:io/file_system_entity.dart:455:47)
+#2      ForwardingFileSystemEntity.deleteSync (package:file/src/forwarding/forwarding_file_system_entity.dart:72:16)
+#3      ErrorHandlingDirectory.deleteSync.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:389:22)
+#4      _runSync (package:flutter_tools/src/base/error_handling_io.dart:486:14)
+#5      ErrorHandlingDirectory.deleteSync (package:flutter_tools/src/base/error_handling_io.dart:388:12)
+#6      buildWeb (package:flutter_tools/src/web/compile.dart:41:21)
+<asynchronous suspension>
+#7      _ResidentWebRunner.restart (package:flutter_tools/src/isolated/resident_web_runner.dart:598:15)
+#8      TerminalHandler._commonTerminalInputHandler (package:flutter_tools/src/resident_runner.dart:1531:61)
+#9      TerminalHandler.processTerminalInput (package:flutter_tools/src/resident_runner.dart:1588:13)
+#10     _rootRunUnary (dart:async/zone.dart:1198:47)
+#11     _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#12     _CustomZone.runUnaryGuarded (dart:async/zone.dart:1005:7)
+#13     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:357:11)
+#14     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:285:7)
+#15     _SyncBroadcastStreamController._sendData (dart:async/broadcast_stream_controller.dart:385:25)
+#16     _BroadcastStreamController.add (dart:async/broadcast_stream_controller.dart:250:5)
+#17     _AsBroadcastStreamController.add (dart:async/broadcast_stream_controller.dart:484:11)
+#18     _rootRunUnary (dart:async/zone.dart:1198:47)
+#19     _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#20     _CustomZone.runUnaryGuarded (dart:async/zone.dart:1005:7)
+#21     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:357:11)
+#22     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:285:7)
+#23     _SinkTransformerStreamSubscription._add (dart:async/stream_transformers.dart:69:11)
+#24     _EventSinkWrapper.add (dart:async/stream_transformers.dart:15:11)
+#25     _StringAdapterSink.add (dart:convert/string_conversion.dart:238:11)
+#26     _StringAdapterSink.addSlice (dart:convert/string_conversion.dart:243:7)
+#27     _Utf8ConversionSink.addSlice (dart:convert/string_conversion.dart:317:20)
+#28     _ErrorHandlingAsciiDecoderSink.addSlice (dart:convert/ascii.dart:256:17)
+#29     _ErrorHandlingAsciiDecoderSink.add (dart:convert/ascii.dart:242:5)
+#30     _ConverterStreamEventSink.add (dart:convert/chunked_conversion.dart:72:18)
+#31     _SinkTransformerStreamSubscription._handleData (dart:async/stream_transformers.dart:121:24)
+#32     _rootRunUnary (dart:async/zone.dart:1198:47)
+#33     _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#34     _CustomZone.runUnaryGuarded (dart:async/zone.dart:1005:7)
+#35     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:357:11)
+#36     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:285:7)
+#37     _SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:808:19)
+#38     _StreamController._add (dart:async/stream_controller.dart:682:7)
+#39     _StreamController.add (dart:async/stream_controller.dart:624:5)
+#40     _Socket._onData (dart:io-patch/socket_patch.dart:1969:41)
+#41     _rootRunUnary (dart:async/zone.dart:1206:13)
+#42     _CustomZone.runUnary (dart:async/zone.dart:1100:19)
+#43     _CustomZone.runUnaryGuarded (dart:async/zone.dart:1005:7)
+#44     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:357:11)
+#45     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:285:7)
+#46     _SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:808:19)
+#47     _StreamController._add (dart:async/stream_controller.dart:682:7)
+#48     _StreamController.add (dart:async/stream_controller.dart:624:5)
+#49     new _RawSocket.<anonymous closure> (dart:io-patch/socket_patch.dart:1505:33)
+#50     _NativeSocket.issueReadEvent.issue (dart:io-patch/socket_patch.dart:1017:14)
+#51     _microtaskLoop (dart:async/schedule_microtask.dart:41:21)
+#52     _startMicrotaskLoop (dart:async/schedule_microtask.dart:50:5)
+#53     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:118:13)
+#54     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:169:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, 1.23.0-18.1.pre, on Microsoft Windows [Version 10.0.19041.630], locale en-IN)
+    • Flutter version 1.23.0-18.1.pre at F:\flutter
+    • Framework revision 198df796aa (5 weeks ago), 2020-10-15 12:04:33 -0700
+    • Engine revision 1d12d82d9c
+    • Dart version 2.11.0 (build 2.11.0-213.1.beta)
+
+[✗] Android toolchain - develop for Android devices
+    ✗ Unable to locate Android SDK.
+      Install Android Studio from: https://developer.android.com/studio/index.html
+      On first launch it will assist you in installing the Android SDK components.
+      (or visit https://flutter.dev/docs/get-started/install/windows#android-setup for detailed instructions).
+      If the Android SDK has been installed to a custom location, please use
+      `flutter config --android-sdk` to update to that location.
+
+
+[✓] Chrome - develop for the web
+    • Chrome at C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+
+[!] Android Studio (not installed)
+    • Android Studio not found; download from https://developer.android.com/studio/index.html
+      (or visit https://flutter.dev/docs/get-started/install/windows#android-setup for detailed instructions).
+
+[✓] VS Code (version 1.51.1)
+    • VS Code at C:\Users\Lenovo\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.16.0
+
+[✓] Connected device (3 available)
+    • Web Server (web) • web-server • web-javascript • Flutter Tools
+    • Chrome (web)     • chrome     • web-javascript • Google Chrome 86.0.4240.198
+    • Edge (web)       • edge       • web-javascript • Microsoft Edge 86.0.622.69
+
+! Doctor found issues in 2 categories.
+```
