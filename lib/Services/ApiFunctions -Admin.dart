@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'Auth.dart';
+
 class ApiFunctionsAdmin {
   String getAllEditorsUrl =
       "https://envytestserver.herokuapp.com/AdminPage/GetAllEditors";
@@ -21,18 +23,22 @@ class ApiFunctionsAdmin {
   String addEditorUrl =
       "https://envytestserver.herokuapp.com/EditorPage/AddEditor";
 
-  Future addEditor(String name, String email, String tier, int phoneNo) async {
-    //TODO: add random uid assigning in web service.
+  Future<bool> addEditor(
+      String name, String email, String password, String tier, String phoneNo) async {
+    String uid = await AuthService().createAccount(email, password);
     var response = await http.post(addEditorUrl, body: {
-      "uid": 99,
+      "uid": uid,
       "name": name,
       "email": email,
       "tier": tier,
       "phoneNo": phoneNo
     });
-    var data = json.decode(response.body);
-    print(data);
-    return data['status'];
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return data['status'];
+    } else {
+      return false;
+    }
   }
 
   Future getAllEditors() async {
@@ -62,15 +68,12 @@ class ApiFunctionsAdmin {
   }
 
   Future<bool> assignToEditor(String uid, orderID, tier) async {
-    //change uid to editorID in webservice
     var body = {"uid": uid, "orderID": orderID, "tier": tier};
     var response = await http.post(assignToEditorUrl, body: body);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      print(data);
       return data['status'];
     } else {
-      print("false");
       return false;
     }
   }
@@ -90,7 +93,6 @@ class ApiFunctionsAdmin {
 
   Future getAllUnassignedOrders() async {
     var response = await http.get(getAllUnassignedOrdersUrl);
-    print(response.body);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       return data['data'];
