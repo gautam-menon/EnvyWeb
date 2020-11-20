@@ -23,5 +23,6 @@ class AuthService {
     UserCredential usercredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
     return usercredential.user.uid;
+    //if user exists, return the uid of that account.
   }
 }

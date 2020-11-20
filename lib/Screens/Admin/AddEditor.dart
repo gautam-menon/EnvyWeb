@@ -9,26 +9,27 @@ class AddEditor extends StatefulWidget {
 class _AddEditorState extends State<AddEditor> {
   bool visible = false;
   void _submit(context) {
-    setState(() {
-      visible = true;
-    });
     final form = formKey.currentState;
     if (form.validate()) {
       form.save();
+      setState(() {
+        visible = true;
+      });
       createEditor(context);
     }
   }
 
   createEditor(context) async {
-    bool response = await ApiFunctionsAdmin().addEditor(
+    var response = await ApiFunctionsAdmin().addEditor(
       name.text,
       email.text,
       password.text,
       tier.text,
-     phoneNo.text,
+      phoneNo.text,
     );
     print(response);
-    if (response) {
+    bool condition = response['status'];
+    if (condition) {
       showDialog(
           context: context,
           builder: (context) => Dialog(
@@ -36,7 +37,11 @@ class _AddEditorState extends State<AddEditor> {
                   height: MediaQuery.of(context).size.height / 2,
                   width: MediaQuery.of(context).size.width / 2,
                   child: Column(children: [
-                    Icon(Icons.done, size: 50),
+                    Icon(
+                      Icons.done,
+                      size: 50,
+                      color: Colors.green,
+                    ),
                     Text("Account Created Successfully!"),
                     RaisedButton(
                       onPressed: () {
@@ -54,19 +59,25 @@ class _AddEditorState extends State<AddEditor> {
               child: Container(
                   height: MediaQuery.of(context).size.height / 2,
                   width: MediaQuery.of(context).size.width / 2,
-                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                    Icon(Icons.error, size: 50),
-                    Text("Account Could not be created"),
-                    RaisedButton(child: Text("Okay"),
-                      onPressed: () {
-                        setState(() {
-                          visible = false;
-                        });
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ]))));
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          Icons.error,
+                          size: 50,
+                          color: Colors.red,
+                        ),
+                        Text(response['req'] ?? "Account could not be created"),
+                        RaisedButton(
+                          child: Text("Okay"),
+                          onPressed: () {
+                            setState(() {
+                              visible = false;
+                            });
+                            Navigator.of(context).pop();
+                          },
+                        )
+                      ]))));
     }
   }
 
@@ -103,10 +114,16 @@ class _AddEditorState extends State<AddEditor> {
                         width: screenSize.width,
                         height: screenSize.height * 0.1,
                         color: Colors.green,
-                        child: Center(
-                          child: Text("Creating account...",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Creating account...",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold)),
+                            CircularProgressIndicator()
+                          ],
                         )),
                   ),
                   TextFormField(
@@ -144,10 +161,18 @@ class _AddEditorState extends State<AddEditor> {
                             TextStyle(color: Colors.black, fontSize: 12.0)),
                   ),
                   TextFormField(
-                    validator: (val) =>
-                        val != 'basic' || val == 'premium' || val == 'pro'
-                            ? 'Invalid tier'
-                            : null,
+                    validator: (val) => val.length < 8
+                        ? 'Number too short (Should be at least 9 characters)'
+                        : null,
+                    controller: phoneNo,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        hintText: "Phone Number",
+                        hintStyle:
+                            TextStyle(color: Colors.black, fontSize: 12.0)),
+                  ),
+                  TextFormField(
+                    validator: (val) => val != 'basic' ? 'Invalid tier' : null,
                     controller: tier,
                     style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(

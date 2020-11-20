@@ -21,23 +21,29 @@ class ApiFunctionsAdmin {
   String getAllUnassignedOrdersUrl =
       "https://envytestserver.herokuapp.com/AdminPage/GetAllUnassignedOrders";
   String addEditorUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/AddEditor";
+      "https://envytestserver.herokuapp.com/AdminPage/AddEditor";
 
-  Future<bool> addEditor(
-      String name, String email, String password, String tier, String phoneNo) async {
+  Future addEditor(String name, String email, String password, String tier,
+      String phoneNo) async {
     String uid = await AuthService().createAccount(email, password);
-    var response = await http.post(addEditorUrl, body: {
+    if (uid == null) {
+      return {"status": false, "req": "Firebase error"};
+    }
+    var body = {
       "uid": uid,
       "name": name,
       "email": email,
       "tier": tier,
       "phoneNo": phoneNo
-    });
+    };
+    print(body);
+    var response = await http.post(addEditorUrl, body: body);
+    print(response);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      return data['status'];
+      return data;
     } else {
-      return false;
+      return {"status": false};
     }
   }
 
