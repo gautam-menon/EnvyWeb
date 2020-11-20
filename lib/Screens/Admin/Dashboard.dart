@@ -6,6 +6,7 @@ import 'package:envyweb/Services/Auth.dart';
 import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'AddEditor.dart';
 import 'Editors -Admin.dart';
 
 class AdminPage extends StatefulWidget {
@@ -48,6 +49,14 @@ class _AdminPageState extends State<AdminPage> {
                     MaterialPageRoute(
                         builder: (context) => EditorList(
                               media: _media,
+                            )));
+              }),
+               Customize("Add Editor", () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AddEditor(
+                         
                             )));
               }),
               Customize("Log out", () async {
@@ -269,15 +278,28 @@ class OrderFunction extends StatelessWidget {
                                       ? Container(
                                           height: _media.height * 0.7,
                                           width: _media.width * 0.7,
-                                          decoration: BoxDecoration(
-                                              border: Border.all()),
                                           child: Column(
                                             children: [
-                                              Text("Assiign To Editor",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 20)),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Text("Assign To Editor",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25)),
+                                                  IconButton(
+                                                    onPressed: () =>
+                                                        Navigator.of(context)
+                                                            .pop(),
+                                                    color: Colors.red,
+                                                    icon: Icon(Icons.cancel),
+                                                  )
+                                                ],
+                                              ),
+                                              Divider(),
                                               ListView.builder(
                                                 shrinkWrap: true,
                                                 itemCount: snapshot.data.length,
@@ -289,7 +311,8 @@ class OrderFunction extends StatelessWidget {
                                                           ['uid'],
                                                       orderID,
                                                       snapshot.data[index]
-                                                          ['tier']);
+                                                          ['tier'],
+                                                      context);
                                                 },
                                               ),
                                             ],
@@ -343,24 +366,70 @@ class OrderFunction extends StatelessWidget {
     }
   }
 
-  Widget editors(String name, String id, String orderid, String tier) {
-    return Column(
-      children: [
-        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Text(name,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              )),
-          Text(id),
-          Text(tier)
-        ]),
-        RaisedButton(
-          onPressed: () {},
-          child: Text("Assign"),
-          color: Colors.amber,
-        ),
-        Divider(),
-      ],
+  Widget editors(String name, String id, String orderid, String tier,
+       context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+          decoration: BoxDecoration(border: Border.all()),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            Column(children: [
+              Text(name,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  )),
+              Text(id),
+              Text(tier)
+            ]),
+            RaisedButton(
+              onPressed: () async {
+                Navigator.of(context).pop();
+                print(id + orderid + tier);
+                var response = await ApiFunctionsAdmin()
+                    .assignToEditor(id, orderid, tier);
+                
+                print(response);
+                if (response == true) {
+                  showDialog(
+                      context: context,
+                      builder: (context) => Dialog(
+                              child: Container(
+                                  child: Column(
+                            children: [
+                              Icon(
+                                Icons.done,
+                                color: Colors.green,
+                              ),
+                              RaisedButton(
+                                child: Text("Okay"),
+                                onPressed: () => Navigator.of(context).pop(),
+                              )
+                            ],
+                          ))));
+                } else {
+                  showDialog(
+                      context: context,
+                      builder: (context) => Dialog(
+                              child: Container(
+                                  child: Column(
+                            children: [
+                              Icon(
+                                Icons.error,
+                                color: Colors.red,
+                              ),
+                              RaisedButton(
+                                child: Text("Okay"),
+                                onPressed: () => Navigator.of(context).pop(),
+                              )
+                            ],
+                          ))));
+                }
+              },
+              child: Text("Assign"),
+              color: Colors.amber,
+            ),
+          ])),
     );
   }
 }

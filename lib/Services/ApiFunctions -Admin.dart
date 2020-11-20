@@ -31,6 +31,7 @@ class ApiFunctionsAdmin {
       "phoneNo": phoneNo
     });
     var data = json.decode(response.body);
+    print(data);
     return data['status'];
   }
 
@@ -38,7 +39,6 @@ class ApiFunctionsAdmin {
     var response = await http.get(getAllEditorsUrl);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      print(data);
       return data['req'];
     }
   }
@@ -61,12 +61,21 @@ class ApiFunctionsAdmin {
     return data;
   }
 
-  Future assignToEditor(int uid, int orderID) async {
+  Future assignToEditor(String uid, orderID, tier) async {
     //change uid to editorID in webservice
-    var response = await http
-        .post(assignToEditorUrl, body: {"uid": uid, "orderID": orderID});
-    var data = json.decode(response.body);
-    return data;
+    var body = {"uid": uid, "orderID": orderID, "tier": tier};
+    var response = await http.post(assignToEditorUrl, body: body);
+    print(body);
+    print(response.body);
+    if (response.statusCode == 200) {
+      print("true");
+      var data = json.decode(response.body);
+      print(data);
+      return data['status'];
+    } else {
+      print("false");
+      return false;
+    }
   }
 
   Future getAllAssignedOrders() async {
