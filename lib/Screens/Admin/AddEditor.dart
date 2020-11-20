@@ -15,23 +15,25 @@ class _AddEditorState extends State<AddEditor> {
     }
   }
 
-  createEditor(context) async {
-    return showDialog(
+  createEditor(context) {
+    showDialog(
         context: context,
         builder: (context) => Dialog(
-                child: FutureBuilder(
+                child: Container(
+                  child: FutureBuilder(
               future: ApiFunctionsAdmin().addEditor(
-                name.text,
-                email.text,
-                tier.text,
-                int.parse(phoneNo.text),
+                  name.text,
+                  email.text,
+                  tier.text,
+                  int.parse(phoneNo.text),
               ),
               builder: (context, snapshot) {
-                return snapshot.hasData
-                    ? Container(child: Text("Editor Created!"))
-                    : CircularProgressIndicator();
+                  return snapshot.hasData
+                      ? Container(child: Text("Editor Created!"))
+                      : CircularProgressIndicator();
               },
-            )));
+            ),
+                )));
   }
 
   final TextEditingController name = new TextEditingController();
@@ -52,59 +54,61 @@ class _AddEditorState extends State<AddEditor> {
           color: Colors.grey,
           child: Form(
             key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TextFormField(
-                  validator: (val) => val.length < 1 ? 'Name too short' : null,
-                  controller: name,
-                  obscureText: true,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                      hintText: "Name",
-                      hintStyle:
-                          TextStyle(color: Colors.black, fontSize: 12.0)),
-                ),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (val) => !val.contains('@')
-                      ? 'Please enter a valid email address.'
-                      : null,
-                  controller: email,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                      hintText: "Email",
-                      hintStyle:
-                          TextStyle(color: Colors.black, fontSize: 12.0)),
-                ),
-                TextFormField(
-                  validator: (val) => val.length < 8
-                      ? 'Password too short (Should be at least 8 characters)'
-                      : null,
-                  controller: password,
-                  obscureText: true,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                      hintText: "Password",
-                      hintStyle:
-                          TextStyle(color: Colors.black, fontSize: 12.0)),
-                ),
-                TextFormField(
-                  validator: (val) =>
-                      val == 'basic' || val == 'premium' || val == 'pro'
-                          ? 'Invalid tier'
-                          : null,
-                  controller: tier,
-                  obscureText: true,
-                  style: TextStyle(color: Colors.black),
-                  decoration: InputDecoration(
-                      hintText: "Tier",
-                      hintStyle:
-                          TextStyle(color: Colors.black, fontSize: 12.0)),
-                ),
-                RaisedButton(
-                    child: Text("Create User"), onPressed: () => _submit)
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextFormField(
+                    validator: (val) =>
+                        val.length < 1 ? 'Name too short' : null,
+                    controller: name,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        hintText: "Name",
+                        hintStyle:
+                            TextStyle(color: Colors.black, fontSize: 12.0)),
+                  ),
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    validator: (val) => !val.contains('@')
+                        ? 'Please enter a valid email address.'
+                        : null,
+                    controller: email,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        hintText: "Email",
+                        hintStyle:
+                            TextStyle(color: Colors.black, fontSize: 12.0)),
+                  ),
+                  TextFormField(
+                    validator: (val) => val.length < 8
+                        ? 'Password too short (Should be at least 8 characters)'
+                        : null,
+                    controller: password,
+                    obscureText: true,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        hintText: "Password",
+                        hintStyle:
+                            TextStyle(color: Colors.black, fontSize: 12.0)),
+                  ),
+                  TextFormField(
+                    validator: (val) =>
+                        val != 'basic' || val == 'premium' || val == 'pro'
+                            ? 'Invalid tier'
+                            : null,
+                    controller: tier,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                        hintText: "Tier",
+                        hintStyle:
+                            TextStyle(color: Colors.black, fontSize: 12.0)),
+                  ),
+                  RaisedButton(
+                      child: Text("Create User"), onPressed: () => _submit(context))
+                ],
+              ),
             ),
           ),
         ));

@@ -7,6 +7,7 @@ import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'AddEditor.dart';
+import 'AssignStatus.dart';
 import 'Editors -Admin.dart';
 
 class AdminPage extends StatefulWidget {
@@ -51,13 +52,9 @@ class _AdminPageState extends State<AdminPage> {
                               media: _media,
                             )));
               }),
-               Customize("Add Editor", () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => AddEditor(
-                         
-                            )));
+              Customize("Add Editor", () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddEditor()));
               }),
               Customize("Log out", () async {
                 await AuthService().logOut();
@@ -186,7 +183,7 @@ class _AdminPageState extends State<AdminPage> {
   }
 }
 
-class OrderFunction extends StatelessWidget {
+class OrderFunction extends StatefulWidget {
   final String orderID;
   final String status;
   final int price;
@@ -204,6 +201,11 @@ class OrderFunction extends StatelessWidget {
       this.imgUrl})
       : super(key: key);
 
+  @override
+  _OrderFunctionState createState() => _OrderFunctionState();
+}
+
+class _OrderFunctionState extends State<OrderFunction> {
   @override
   Widget build(BuildContext context) {
     var _media = MediaQuery.of(context).size;
@@ -226,8 +228,8 @@ class OrderFunction extends StatelessWidget {
                   child: CachedNetworkImage(
                     placeholder: (context, url) => CircularProgressIndicator(),
                     errorWidget: (context, url, error) => Icon(Icons.error),
-                    imageUrl:
-                        imgUrl ?? "https://wallpaperaccess.com/full/2109.jpg",
+                    imageUrl: widget.imgUrl ??
+                        "https://wallpaperaccess.com/full/2109.jpg",
                   ),
                   height: _media.height * 0.2,
                   width: _media.width * 0.1),
@@ -259,11 +261,12 @@ class OrderFunction extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(orderID),
-                  Text(status),
-                  Text(price.toString()),
-                  Text(DateTime.fromMillisecondsSinceEpoch(date).toString()),
-                  Text(getTier(tierId)),
+                  Text(widget.orderID),
+                  Text(widget.status),
+                  Text(widget.price.toString()),
+                  Text(DateTime.fromMillisecondsSinceEpoch(widget.date)
+                      .toString()),
+                  Text(getTier(widget.tierId)),
                 ],
               ),
               RaisedButton(
@@ -272,7 +275,7 @@ class OrderFunction extends StatelessWidget {
                       context: context,
                       builder: (context) => Dialog(
                             child: FutureBuilder(
-                                future: getEditorFunction(tierId),
+                                future: getEditorFunction(widget.tierId),
                                 builder: (context, snapshot) {
                                   return snapshot.hasData
                                       ? Container(
@@ -309,7 +312,7 @@ class OrderFunction extends StatelessWidget {
                                                           ['name'],
                                                       snapshot.data[index]
                                                           ['uid'],
-                                                      orderID,
+                                                      widget.orderID,
                                                       snapshot.data[index]
                                                           ['tier'],
                                                       context);
@@ -366,8 +369,7 @@ class OrderFunction extends StatelessWidget {
     }
   }
 
-  Widget editors(String name, String id, String orderid, String tier,
-       context) {
+  Widget editors(String name, String id, String orderid, String tier, context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -384,46 +386,14 @@ class OrderFunction extends StatelessWidget {
             ]),
             RaisedButton(
               onPressed: () async {
-                Navigator.of(context).pop();
-                print(id + orderid + tier);
-                var response = await ApiFunctionsAdmin()
-                    .assignToEditor(id, orderid, tier);
-                
-                print(response);
+                bool response =
+                    await ApiFunctionsAdmin().assignToEditor(id, orderid, tier);
                 if (response == true) {
-                  showDialog(
-                      context: context,
-                      builder: (context) => Dialog(
-                              child: Container(
-                                  child: Column(
-                            children: [
-                              Icon(
-                                Icons.done,
-                                color: Colors.green,
-                              ),
-                              RaisedButton(
-                                child: Text("Okay"),
-                                onPressed: () => Navigator.of(context).pop(),
-                              )
-                            ],
-                          ))));
-                } else {
-                  showDialog(
-                      context: context,
-                      builder: (context) => Dialog(
-                              child: Container(
-                                  child: Column(
-                            children: [
-                              Icon(
-                                Icons.error,
-                                color: Colors.red,
-                              ),
-                              RaisedButton(
-                                child: Text("Okay"),
-                                onPressed: () => Navigator.of(context).pop(),
-                              )
-                            ],
-                          ))));
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              AssignStatus(status: response)),
+                      (Route<dynamic> route) => false);
                 }
               },
               child: Text("Assign"),

@@ -61,14 +61,11 @@ class ApiFunctionsAdmin {
     return data;
   }
 
-  Future assignToEditor(String uid, orderID, tier) async {
+  Future<bool> assignToEditor(String uid, orderID, tier) async {
     //change uid to editorID in webservice
     var body = {"uid": uid, "orderID": orderID, "tier": tier};
     var response = await http.post(assignToEditorUrl, body: body);
-    print(body);
-    print(response.body);
     if (response.statusCode == 200) {
-      print("true");
       var data = json.decode(response.body);
       print(data);
       return data['status'];
