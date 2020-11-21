@@ -145,7 +145,8 @@ class _AdminPageState extends State<AdminPage> {
                     height: _media.height * 0.9,
                     child: ListView.builder(
                       shrinkWrap: true,
-                      itemCount: 10,
+                      itemCount:
+                          snapshot.data.length > 10 ? 10 : snapshot.data.length,
                       itemBuilder: (context, index) {
                         return OrderFunction(
                           orderID: snapshot.data[index]['orderid'],

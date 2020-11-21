@@ -36,22 +36,25 @@ class _AddEditorState extends State<AddEditor> {
               child: Container(
                   height: MediaQuery.of(context).size.height / 2,
                   width: MediaQuery.of(context).size.width / 2,
-                  child: Column(children: [
-                    Icon(
-                      Icons.done,
-                      size: 50,
-                      color: Colors.green,
-                    ),
-                    Text("Account Created Successfully!"),
-                    RaisedButton(
-                      onPressed: () {
-                        setState(() {
-                          visible = false;
-                        });
-                        Navigator.of(context).pop();
-                      },
-                    )
-                  ]))));
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          Icons.done,
+                          size: 70,
+                          color: Colors.green,
+                        ),
+                        Text("Account Created Successfully!"),
+                        RaisedButton(
+                          child: Text("Okay"),
+                          onPressed: () {
+                            setState(() {
+                              visible = false;
+                            });
+                            Navigator.of(context).pop();
+                          },
+                        )
+                      ]))));
     } else {
       showDialog(
           context: context,
@@ -64,7 +67,7 @@ class _AddEditorState extends State<AddEditor> {
                       children: [
                         Icon(
                           Icons.error,
-                          size: 50,
+                          size: 70,
                           color: Colors.red,
                         ),
                         Text(response['req'] ?? "Account could not be created"),
