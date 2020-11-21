@@ -41,7 +41,7 @@ class ApiFunctionsEditors {
     return data['status'];
   }
 
-  Future getWorkOrders(int uid) async {
+  Future getWorkOrders(String uid) async {
     var response = await http.post(getWorkOrdersUrl, body: {"uid": uid});
     var data = json.decode(response.body);
     return data;

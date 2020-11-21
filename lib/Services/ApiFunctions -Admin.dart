@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:envyweb/Models/EditorModel.dart';
 import 'package:http/http.dart' as http;
 
 import 'Auth.dart';
@@ -22,6 +23,8 @@ class ApiFunctionsAdmin {
       "https://envytestserver.herokuapp.com/AdminPage/GetAllUnassignedOrders";
   String addEditorUrl =
       "https://envytestserver.herokuapp.com/AdminPage/AddEditor";
+  String loginCheckUrl =
+      "https://envytestserver.herokuapp.com/AdminPage/loginCheck";
 
   Future addEditor(String name, String email, String password, String tier,
       String phoneNo) async {
@@ -103,5 +106,11 @@ class ApiFunctionsAdmin {
       var data = json.decode(response.body);
       return data['data'];
     }
+  }
+
+  Future<UserModel> loginCheck(String uid) async {
+    var response = await http.post(loginCheckUrl, body: {"uid": uid});
+    UserModel data = UserModel.fromJson(json.decode(response.body));
+    return data;
   }
 }

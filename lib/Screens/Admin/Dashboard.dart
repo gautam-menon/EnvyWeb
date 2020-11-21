@@ -13,7 +13,7 @@ import 'Editors -Admin.dart';
 class AdminPage extends StatefulWidget {
   final name;
 
-  const AdminPage({Key key, this.name}) : super(key: key);
+  const AdminPage({Key key, this.name, String uid}) : super(key: key);
   @override
   _AdminPageState createState() => _AdminPageState();
 }
@@ -79,7 +79,7 @@ class _AdminPageState extends State<AdminPage> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Amin, " + widget.name.toString(),
+                        "Admin, " + widget.name.toString(),
                         style: TextStyle(
                             fontSize: 35,
                             color: Colors.black,

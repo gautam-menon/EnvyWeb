@@ -1,4 +1,6 @@
+import 'package:envyweb/Models/EditorModel.dart';
 import 'package:envyweb/Screens/Admin/Dashboard.dart';
+import 'package:envyweb/Screens/Editor/Dashboard.dart';
 
 import 'package:envyweb/Services/Auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       _isLoading = true;
     });
-    var result = await AuthService()
+    UserModel result = await AuthService()
         .logIn(emailController.text, passwordController.text);
     if (result == null) {
       setState(() {
@@ -35,11 +37,21 @@ class _LoginPageState extends State<LoginPage> {
       });
       showAlertDialog(context, "Incorrect email or password");
     } else {
-      Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(
-              builder: (BuildContext context) =>
-                  AdminPage(name: result.user.displayName)),
-          (Route<dynamic> route) => false);
+      if (result.role == 0) {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    AdminPage(name: result.name, uid: result.uid)),
+            (Route<dynamic> route) => false);
+      } else if (result.role == 1) {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (BuildContext context) => EditorPage(
+                    name: result.name,
+                    uid: result.uid ??
+                        1)), //TODO pass usermodel object in the future.
+            (Route<dynamic> route) => false);
+      }
     }
   }
 

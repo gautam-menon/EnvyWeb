@@ -1,4 +1,5 @@
 import 'package:envyweb/Screens/Editor/OrderPage.dart';
+import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:envyweb/Services/Auth.dart';
 import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,9 +9,10 @@ import '../ProfilePage.dart';
 import 'SubmitPage.dart';
 
 class EditorPage extends StatefulWidget {
-  final name;
+  final String name;
+  final String uid;
 
-  const EditorPage({Key key, this.name}) : super(key: key);
+  const EditorPage({Key key, this.name, this.uid}) : super(key: key);
   @override
   _EditorPageState createState() => _EditorPageState();
 }
@@ -87,15 +89,43 @@ class _EditorPageState extends State<EditorPage> {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      EditorOrderFunction(
-                          orderID: "4803", date: 3424, deadline: 4995)
+                      ordersWidget()
                     ]))))));
+  }
+
+  Widget ordersWidget() {
+    var _media = MediaQuery.of(context).size;
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FutureBuilder(
+          future: ApiFunctionsEditors().getWorkOrders(widget.uid ?? "1"),
+          builder: (context, snapshot) {
+            return snapshot.hasData
+                ? Container(
+                    decoration: BoxDecoration(border: Border.all()),
+                    width: _media.width,
+                    height: _media.height * 0.9,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount:
+                          snapshot.data.length > 10 ? 10 : snapshot.data.length,
+                      itemBuilder: (context, index) {
+                        return EditorOrderFunction(
+                          orderID: snapshot.data[index]['orderID'],
+                          date: int.parse(snapshot.data[index]['startTime']),
+                          deadline: int.parse(snapshot.data[index]['endTime']),
+                        );
+                      },
+                    ),
+                  )
+                : CircularProgressIndicator();
+          }),
+    );
   }
 }
 
 class EditorOrderFunction extends StatelessWidget {
   final String orderID;
-
   final int date;
   final int deadline;
 
