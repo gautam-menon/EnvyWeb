@@ -1,4 +1,4 @@
-import 'package:envyweb/Models/EditorModel.dart';
+import 'package:envyweb/Models/UserModel.dart';
 import 'package:envyweb/Screens/Admin/Dashboard.dart';
 import 'package:envyweb/Screens/Editor/Dashboard.dart';
 

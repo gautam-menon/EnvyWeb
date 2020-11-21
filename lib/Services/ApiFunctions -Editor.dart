@@ -14,11 +14,15 @@ class ApiFunctionsEditors {
   String getWorkOrdersUrl =
       "https://envytestserver.herokuapp.com/EditorPage/GetWorkOrders";
 
-  Future orderConfirmation(bool value, int uid, orderID) async {
+  Future<bool> orderConfirmation(bool value, String orderID) async {
     var response = await http.post(confirmationUrl,
         body: {"confirmation": value, "orderID": orderID});
-    var data = json.decode(response.body);
-    return data;
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return data['status'];
+    } else {
+      return false;
+    }
   }
 
   Future getEditorDetails(int uid) async {
@@ -27,11 +31,11 @@ class ApiFunctionsEditors {
     return data;
   }
 
-  Future getOrderDetails(int orderID) async {
+  Future getOrderDetails(String orderID) async {
     var response =
         await http.post(getOrderDetailsUrl, body: {"orderID": orderID});
     var data = json.decode(response.body);
-    return data;
+    return data['req'];
   }
 
   Future submitOrder(String base64image, int orderID, int editorID) async {
@@ -44,6 +48,7 @@ class ApiFunctionsEditors {
   Future getWorkOrders(String uid) async {
     var response = await http.post(getWorkOrdersUrl, body: {"uid": uid});
     var data = json.decode(response.body);
-    return data;
+    print(data);
+    return data['req'];
   }
 }

@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:envyweb/Models/EditorModel.dart';
+import 'package:envyweb/Models/UserModel.dart';
 import 'package:http/http.dart' as http;
 
 import 'Auth.dart';
@@ -77,6 +77,7 @@ class ApiFunctionsAdmin {
   }
 
   Future<bool> assignToEditor(String uid, orderID, tier) async {
+    //TODO change editorId, to uid in the API ASAP.
     var body = {"uid": uid, "orderID": orderID, "tier": tier};
     var response = await http.post(assignToEditorUrl, body: body);
     if (response.statusCode == 200) {

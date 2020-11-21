@@ -236,38 +236,53 @@ class _OrderFunctionState extends State<OrderFunction> {
                   width: _media.width * 0.1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(
-                    'Order ID',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    'Status',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    'Payment',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    'Date',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    'Tier',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(widget.orderID),
-                  Text(widget.status),
-                  Text(widget.price.toString()),
-                  Text(DateTime.fromMillisecondsSinceEpoch(widget.date)
-                      .toString()),
-                  Text(getTier(widget.tierId)),
+                  Column(
+                    children: [
+                      Text(widget.orderID),
+                      Text(
+                        'Order ID',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(widget.status),
+                      Text(
+                        'Status',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(widget.price.toString()),
+                      Text(
+                        'Payment',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(DateTime.fromMillisecondsSinceEpoch(widget.date)
+                          .toString()),
+                      Text(
+                        'Date',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(getTier(widget.tierId)),
+                      Text(
+                        'Tier',
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ],
               ),
               RaisedButton(

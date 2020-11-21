@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:envyweb/Screens/Editor/OrderPage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:envyweb/Services/Auth.dart';
@@ -18,12 +19,6 @@ class EditorPage extends StatefulWidget {
 }
 
 class _EditorPageState extends State<EditorPage> {
-  @override
-  void initState() {
-    //ApiFunctions();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,18 +100,22 @@ class _EditorPageState extends State<EditorPage> {
                     decoration: BoxDecoration(border: Border.all()),
                     width: _media.width,
                     height: _media.height * 0.9,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount:
-                          snapshot.data.length > 10 ? 10 : snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        return EditorOrderFunction(
-                          orderID: snapshot.data[index]['orderID'],
-                          date: int.parse(snapshot.data[index]['startTime']),
-                          deadline: int.parse(snapshot.data[index]['endTime']),
-                        );
-                      },
-                    ),
+                    child: snapshot.data.length > 0
+                        ? ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: snapshot.data.length > 10
+                                ? 10
+                                : snapshot.data.length,
+                            itemBuilder: (context, index) {
+                              return EditorOrderFunction(
+                                orderID: snapshot.data[index]['orderID'],
+                                uid: widget.uid,
+                                date: snapshot.data[index]['startTime'],
+                                deadline: snapshot.data[index]['endTime'],
+                              );
+                            },
+                          )
+                        : Center(child: Text(snapshot.data.toString())),
                   )
                 : CircularProgressIndicator();
           }),
@@ -124,15 +123,21 @@ class _EditorPageState extends State<EditorPage> {
   }
 }
 
-class EditorOrderFunction extends StatelessWidget {
+class EditorOrderFunction extends StatefulWidget {
   final String orderID;
+  final String uid;
   final int date;
   final int deadline;
 
   const EditorOrderFunction(
-      {Key key, @required this.orderID, this.date, this.deadline})
+      {Key key, @required this.orderID, this.date, this.deadline, this.uid})
       : super(key: key);
 
+  @override
+  _EditorOrderFunctionState createState() => _EditorOrderFunctionState();
+}
+
+class _EditorOrderFunctionState extends State<EditorOrderFunction> {
   @override
   Widget build(BuildContext context) {
     var _media = MediaQuery.of(context).size;
@@ -153,27 +158,25 @@ class EditorOrderFunction extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(
-                    'Order ID',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    'Date',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    "Deadline",
-                    style: TextStyle(color: Colors.grey),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(orderID),
-                  Text(date.toString()),
-                  Text(deadline.toString())
+                  Column(children: [
+                    Text('Order ID', style: TextStyle(color: Colors.grey)),
+                    Text(widget.orderID),
+                  ]),
+                  Column(children: [
+                    Text(
+                      'Date',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Text(widget.date.toString()),
+                  ]),
+                  Column(children: [
+                    Text(
+                      'Date',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Text(widget.deadline.toString()),
+                  ]),
                 ],
               ),
               Row(
@@ -190,9 +193,98 @@ class EditorOrderFunction extends StatelessWidget {
                     color: Colors.green,
                   ),
                   RaisedButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => Dialog(
+                                child: FutureBuilder(
+                                    future: ApiFunctionsEditors()
+                                        .getOrderDetails(widget.orderID),
+                                    builder: (context, snapshot) {
+                                      return snapshot.hasData
+                                          ? Container(
+                                              height: _media.height * 0.7,
+                                              width: _media.width * 0.7,
+                                              child: Column(
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Text("Order Details",
+                                                          style: TextStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 25)),
+                                                      IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.of(
+                                                                    context)
+                                                                .pop(),
+                                                        color: Colors.red,
+                                                        icon:
+                                                            Icon(Icons.cancel),
+                                                      )
+                                                    ],
+                                                  ),
+                                                  Divider(),
+                                                  Row(children: [
+                                                    Column(children: [
+                                                      Text(snapshot
+                                                              .data['tier'] ??
+                                                          "Tier"),
+                                                      Text(snapshot.data[
+                                                              'features'] ??
+                                                          "Features"),
+                                                      Text(snapshot.data[
+                                                              'timestamp'] ??
+                                                          "Timestamp"),
+                                                      Text(snapshot.data[
+                                                              'endTime'] ??
+                                                          "EndTime")
+                                                    ]),
+                                                    SizedBox(
+                                                        child:
+                                                            CachedNetworkImage(
+                                                          placeholder: (context,
+                                                                  url) =>
+                                                              CircularProgressIndicator(),
+                                                          errorWidget: (context,
+                                                                  url, error) =>
+                                                              Icon(Icons.error),
+                                                          imageUrl: snapshot
+                                                                      .data[
+                                                                  'rawbase64'] ??
+                                                              "https://wallpaperaccess.com/full/2109.jpg",
+                                                        ),
+                                                        height:
+                                                            _media.height * 0.2,
+                                                        width:
+                                                            _media.width * 0.1),
+                                                  ])
+                                                ],
+                                              ),
+                                            )
+                                          : CircularProgressIndicator();
+                                    }),
+                              ));
+                    },
+                    child: Text("View Details"),
+                  ),
+                  RaisedButton(
                     onPressed: () async {
                       //delete entry from stack
                       //send notification to admin
+                      bool response = await ApiFunctionsEditors()
+                          .orderConfirmation(false, widget.orderID);
+                      //showdialog
+                      if (response) {
+                        showSuccessDialog(context);
+                      } else {
+                        showFailDialog(context);
+                      }
                     },
                     child: Text("Decline"),
                     color: Colors.red,
@@ -202,5 +294,52 @@ class EditorOrderFunction extends StatelessWidget {
             ],
           ),
         ));
+  }
+
+  showSuccessDialog(context) {
+    showDialog(
+        context: context,
+        builder: (context) => Dialog(
+            child: Container(
+                height: MediaQuery.of(context).size.height / 2,
+                width: MediaQuery.of(context).size.width / 2,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.done,
+                        size: 70,
+                        color: Colors.green,
+                      ),
+                      Text("Success"),
+                      RaisedButton(onPressed: () {
+                        Navigator.of(context).pop();
+                        setState(() {});
+                      },
+                      child: Text("Okay"),)
+                    ]))));
+  }
+    showFailDialog(context) {
+    showDialog(
+        context: context,
+        builder: (context) => Dialog(
+            child: Container(
+                height: MediaQuery.of(context).size.height / 2,
+                width: MediaQuery.of(context).size.width / 2,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.error,
+                        size: 70,
+                        color: Colors.red,
+                      ),
+                      Text("Failed"),
+                      RaisedButton(onPressed: () {
+                        Navigator.of(context).pop();
+                        setState(() {});
+                      },
+                      child: Text("Okay"),)
+                    ]))));
   }
 }
