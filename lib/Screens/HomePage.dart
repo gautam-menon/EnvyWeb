@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                        height: screenSize.height * 0.2,
+                        height: screenSize.height * 0.3,
                         width: screenSize.width * 0.2,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Icon(Icons.person, color: Colors.black),
+                            Icon(Icons.person, color: Colors.black, size: 30),
                             Text("EDITOR",
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.bold)),
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                   InkWell(
                     onTap: () {},
                     child: Container(
-                        height: screenSize.height * 0.2,
+                        height: screenSize.height * 0.3,
                         width: screenSize.width * 0.2,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Icon(Icons.admin_panel_settings,
-                                color: Colors.black),
+                                color: Colors.black, size: 30),
                             Text("ADMIN",
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.bold)),
