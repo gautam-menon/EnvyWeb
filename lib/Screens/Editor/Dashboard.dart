@@ -93,14 +93,15 @@ class _EditorPageState extends State<EditorPage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FutureBuilder(
-          future: ApiFunctionsEditors().getWorkOrders(widget.uid ?? "1"),
+          future:
+              ApiFunctionsEditors().getUnconfirmedWorkOrders(widget.uid ?? "1"),
           builder: (context, snapshot) {
             return snapshot.hasData
                 ? Container(
                     decoration: BoxDecoration(border: Border.all()),
                     width: _media.width,
                     height: _media.height * 0.9,
-                    child: snapshot.data.length > 0
+                    child: snapshot.data != false
                         ? ListView.builder(
                             shrinkWrap: true,
                             itemCount: snapshot.data.length > 10
@@ -115,7 +116,11 @@ class _EditorPageState extends State<EditorPage> {
                               );
                             },
                           )
-                        : Center(child: Text(snapshot.data.toString())),
+                        : Center(
+                            child: Text("No Orders Found",
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold))),
                   )
                 : CircularProgressIndicator();
           }),
@@ -271,6 +276,7 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                     }),
                               ));
                     },
+                    //TODO figure out how to get all details, instead of deleting from WORKORDER, move it to ONGOINGORDERS
                     child: Text("View Details"),
                   ),
                   RaisedButton(
@@ -312,14 +318,17 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                         color: Colors.green,
                       ),
                       Text("Success"),
-                      RaisedButton(onPressed: () {
-                        Navigator.of(context).pop();
-                        setState(() {});
-                      },
-                      child: Text("Okay"),)
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          setState(() {});
+                        },
+                        child: Text("Okay"),
+                      )
                     ]))));
   }
-    showFailDialog(context) {
+
+  showFailDialog(context) {
     showDialog(
         context: context,
         builder: (context) => Dialog(
@@ -335,11 +344,13 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                         color: Colors.red,
                       ),
                       Text("Failed"),
-                      RaisedButton(onPressed: () {
-                        Navigator.of(context).pop();
-                        setState(() {});
-                      },
-                      child: Text("Okay"),)
+                      RaisedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          setState(() {});
+                        },
+                        child: Text("Okay"),
+                      )
                     ]))));
   }
 }

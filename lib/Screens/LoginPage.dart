@@ -7,6 +7,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  final bool editorCheck;
+
+  const LoginPage({Key key, this.editorCheck}) : super(key: key);
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -29,27 +32,35 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       _isLoading = true;
     });
-    UserModel result = await AuthService()
-        .logIn(emailController.text, passwordController.text);
-    if (result == null) {
-      setState(() {
-        _isLoading = false;
-      });
-      showAlertDialog(context, "Incorrect email or password");
+
+    if (widget.editorCheck) {
+      UserModel result = await AuthService()
+          .logInEditor(emailController.text, passwordController.text);
+      if (result == null) {
+        setState(() {
+          _isLoading = false;
+        });
+        showAlertDialog(context, "Incorrect email or password");
+      } else {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    EditorPage(name: result.name, uid: result.uid)),
+            (Route<dynamic> route) => false);
+      }
     } else {
-      if (result.role == 0) {
+      UserModel result = await AuthService()
+          .logInAdmin(emailController.text, passwordController.text);
+      if (result == null) {
+        setState(() {
+          _isLoading = false;
+        });
+        showAlertDialog(context, "Incorrect email or password");
+      } else {
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
                 builder: (BuildContext context) =>
                     AdminPage(name: result.name, uid: result.uid)),
-            (Route<dynamic> route) => false);
-      } else if (result.role == 1) {
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(
-                builder: (BuildContext context) => EditorPage(
-                    name: result.name,
-                    uid: result.uid ??
-                        1)), //TODO pass usermodel object in the future.
             (Route<dynamic> route) => false);
       }
     }

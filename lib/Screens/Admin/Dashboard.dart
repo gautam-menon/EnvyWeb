@@ -115,19 +115,23 @@ class _AdminPageState extends State<AdminPage> {
     );
   }
 
-  getOrderFunction() {
+  getOrderFunction(int tier) {
     ApiFunctionsAdmin adminClass = ApiFunctionsAdmin();
-    return adminClass.getAllUnassignedOrders();
-    //TODO make an api for each tier orders
-    // switch (tier){
-    // case 1: admin.get
-    // break;
-    // case 2:
-    // break;
-    // case 3:
-    // break;
-    // default:
-    // break;}
+
+    switch (tier) {
+      case 1:
+        return adminClass.getBasicOrders();
+        break;
+      case 2:
+        return adminClass.getPremiumOrders();
+        break;
+      case 3:
+        return adminClass.getProOrders();
+        break;
+      default:
+        return adminClass.getAllUnassignedOrders();
+        break;
+    }
   }
 
   Widget ordersWidget() {
@@ -135,29 +139,38 @@ class _AdminPageState extends State<AdminPage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FutureBuilder(
-          future: getOrderFunction(),
-          // initialData: {"status": "true"},
+          future: getOrderFunction(tier),
           builder: (context, snapshot) {
             return snapshot.hasData
                 ? Container(
                     decoration: BoxDecoration(border: Border.all()),
                     width: _media.width,
                     height: _media.height * 0.9,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount:
-                          snapshot.data.length > 10 ? 10 : snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        return OrderFunction(
-                          orderID: snapshot.data[index]['orderid'],
-                          status: snapshot.data[index]['isComplete'],
-                          date: int.parse(snapshot.data[index]['timestamp']),
-                          price: int.parse(snapshot.data[index]['timestamp']),
-                          tierId: int.parse(snapshot.data[index]['tierId']),
-                          imgUrl: snapshot.data[index]['rawBase64'],
-                        );
-                      },
-                    ),
+                    child: snapshot.data != false
+                        ? ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: snapshot.data.length > 10
+                                ? 10
+                                : snapshot.data.length,
+                            itemBuilder: (context, index) {
+                              return OrderFunction(
+                                orderID: snapshot.data[index]['orderid'],
+                                status: snapshot.data[index]['isComplete'],
+                                date: int.parse(
+                                    snapshot.data[index]['timestamp']),
+                                price: int.parse(
+                                    snapshot.data[index]['timestamp']),
+                                tierId:
+                                    int.parse(snapshot.data[index]['tierId']),
+                                imgUrl: snapshot.data[index]['rawBase64'],
+                              );
+                            },
+                          )
+                        : Center(
+                            child: Text("No Orders Found",
+                                style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold))),
                   )
                 : CircularProgressIndicator();
           }),
@@ -319,21 +332,32 @@ class _OrderFunctionState extends State<OrderFunction> {
                                                 ],
                                               ),
                                               Divider(),
-                                              ListView.builder(
-                                                shrinkWrap: true,
-                                                itemCount: snapshot.data.length,
-                                                itemBuilder: (context, index) {
-                                                  return editors(
-                                                      snapshot.data[index]
-                                                          ['name'],
-                                                      snapshot.data[index]
-                                                          ['uid'],
-                                                      widget.orderID,
-                                                      snapshot.data[index]
-                                                          ['tier'],
-                                                      context);
-                                                },
-                                              ),
+                                              snapshot.data != false
+                                                  ? ListView.builder(
+                                                      shrinkWrap: true,
+                                                      itemCount:
+                                                          snapshot.data.length,
+                                                      itemBuilder:
+                                                          (context, index) {
+                                                        return editors(
+                                                            snapshot.data[index]
+                                                                ['name'],
+                                                            snapshot.data[index]
+                                                                ['uid'],
+                                                            widget.orderID,
+                                                            snapshot.data[index]
+                                                                ['tier'],
+                                                            context);
+                                                      },
+                                                    )
+                                                  : Center(
+                                                      child: Text(
+                                                          "No Editors Found",
+                                                          style: TextStyle(
+                                                              fontSize: 30,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold))),
                                             ],
                                           ),
                                         )
@@ -351,21 +375,20 @@ class _OrderFunctionState extends State<OrderFunction> {
 
   getEditorFunction(int tier) {
     ApiFunctionsAdmin adminClass = ApiFunctionsAdmin();
-    return adminClass.getAllEditors();
-    // switch (tier) {
-    //   case 1:
-    //     return adminClass.getAllBasicEditors();
-    //     break;
-    //   case 2:
-    //     adminClass.getAllPremiumEditors();
-    //     break;
-    //   case 3:
-    //     adminClass.getAllProEditors();
-    //     break;
-    //   default:
-    //     adminClass.getAllEditors();
-    //     break;
-    //}
+    switch (tier) {
+      case 1:
+        return adminClass.getAllBasicEditors();
+        break;
+      case 2:
+        return adminClass.getAllPremiumEditors();
+        break;
+      case 3:
+        return adminClass.getAllProEditors();
+        break;
+      default:
+        return adminClass.getAllEditors();
+        break;
+    }
   }
 
   String getTier(int tier) {

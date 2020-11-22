@@ -11,8 +11,11 @@ class ApiFunctionsEditors {
   String submitOrderUrl =
       "https://envytestserver.herokuapp.com/EditorPage/SubmitOrder";
 
-  String getWorkOrdersUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/GetWorkOrders";
+  String getUnconfirmedWorkOrdersUrl =
+      "https://envytestserver.herokuapp.com/EditorPage/GetUnconfirmedWorkOrders";
+
+  String getconfirmedWorkOrdersUrl =
+      "https://envytestserver.herokuapp.com/EditorPage/GetconfirmedWorkOrders";
 
   Future<bool> orderConfirmation(bool value, String orderID) async {
     var response = await http.post(confirmationUrl,
@@ -25,7 +28,7 @@ class ApiFunctionsEditors {
     }
   }
 
-  Future getEditorDetails(int uid) async {
+  Future getEditorDetails(String uid) async {
     var response = await http.post(getOrderDetailsUrl, body: {"uid": uid});
     var data = json.decode(response.body);
     return data;
@@ -38,15 +41,30 @@ class ApiFunctionsEditors {
     return data['req'];
   }
 
-  Future submitOrder(String base64image, int orderID, int editorID) async {
-    var response = await http.post(submitOrderUrl,
-        body: {"image": base64image, "orderID": orderID, "editorID": editorID});
-    var data = json.decode(response.body);
-    return data['status'];
+  // Future submitOrder(String base64image, int orderID, int editorID) async {
+  //   var response = await http.post(submitOrderUrl,
+  //       body: {"image": base64image, "orderID": orderID, "editorID": editorID});
+  //   var data = json.decode(response.body);
+  //   return data['status'];
+  // }
+
+  Future getUnconfirmedWorkOrders(String uid) async {
+    var response =
+        await http.post(getUnconfirmedWorkOrdersUrl, body: {"uid": uid});
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      print(data);
+      if (data['status'] == false) {
+        return false;
+      } else {
+        return data['req'];
+      }
+    }
   }
 
-  Future getWorkOrders(String uid) async {
-    var response = await http.post(getWorkOrdersUrl, body: {"uid": uid});
+  Future getconfirmedWorkOrders(String uid) async {
+    var response =
+        await http.post(getconfirmedWorkOrdersUrl, body: {"uid": uid});
     var data = json.decode(response.body);
     print(data);
     return data['req'];

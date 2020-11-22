@@ -39,8 +39,10 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       InkWell(
                         onTap: () {
-                               Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => EditorPage()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => EditorPage()));
                         },
                         child: Text(
                           'Discover',
@@ -50,8 +52,10 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(width: screenSize.width / 20),
                       InkWell(
                         onTap: () {
-                                      Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AdminPage()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AdminPage()));
                         },
                         child: Text(
                           'Contact Us',
@@ -86,16 +90,55 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Stack(children: [
+      body: Column(children: [
         Container(
             height: screenSize.height,
             width: screenSize.width,
-            color: Colors.amber
-            // child: Image.network(
-            //   "https://wallpaperaccess.com/full/2109.jpg",
-            //   fit: BoxFit.cover,
-            // )
-            ),
+            color: Colors.black,
+            child: Center(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                        height: screenSize.height * 0.2,
+                        width: screenSize.width * 0.2,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(Icons.person, color: Colors.black),
+                            Text("EDITOR",
+                                style: TextStyle(
+                                    fontSize: 25, fontWeight: FontWeight.bold)),
+                          ],
+                        )),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                        height: screenSize.height * 0.2,
+                        width: screenSize.width * 0.2,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(Icons.admin_panel_settings,
+                                color: Colors.black),
+                            Text("ADMIN",
+                                style: TextStyle(
+                                    fontSize: 25, fontWeight: FontWeight.bold)),
+                          ],
+                        )),
+                  ),
+                ]))),
       ]),
     );
   }
