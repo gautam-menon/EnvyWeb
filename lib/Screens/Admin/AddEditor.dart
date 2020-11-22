@@ -175,7 +175,7 @@ class _AddEditorState extends State<AddEditor> {
                             TextStyle(color: Colors.black, fontSize: 12.0)),
                   ),
                   TextFormField(
-                    validator: (val) => val != 'basic' ? 'Invalid tier' : null,
+                    validator: (val) => val == 'basic' ||val=='premium'||val=='pro' ?  null:'Invalid tier',
                     controller: tier,
                     style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(

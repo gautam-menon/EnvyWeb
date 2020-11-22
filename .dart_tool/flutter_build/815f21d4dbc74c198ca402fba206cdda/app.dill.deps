@@ -1,5 +1,6 @@
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/.dart_tool/flutter_build/815f21d4dbc74c198ca402fba206cdda/main.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/.dart_tool/package_config.json
+file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Models/UserModel.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Models/model.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Screens/Admin/AddEditor.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Screens/Admin/AssignStatus.dart
@@ -13,6 +14,7 @@ file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Screens/HomePage.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Screens/LoginPage.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Screens/ProfilePage.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Services/ApiFunctions%20-Admin.dart
+file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Services/ApiFunctions%20-Editor.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Services/Auth.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/Services/Widgets/DrawerItems.dart
 file:///C:/Users/Lenovo/Desktop/nodejs/EnvyWeb/lib/generated_plugin_registrant.dart

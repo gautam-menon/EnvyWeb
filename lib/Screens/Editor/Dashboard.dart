@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../HomePage.dart';
 import '../ProfilePage.dart';
+import 'AcceptedOrders.dart';
 import 'SubmitPage.dart';
 
 class EditorPage extends StatefulWidget {
@@ -40,10 +41,12 @@ class _EditorPageState extends State<EditorPage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SubmitPage()));
                 }),
-                // Customize("Completed Orders", () {
-                //   Navigator.push(context,
-                //       MaterialPageRoute(builder: (context) => OrderPage()));
-                // }),
+                Customize("Completed Orders", () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AcceptedOrders()));
+                }),
                 Customize("Log out", () async {
                   await AuthService().logOut();
                   Navigator.of(context).pushAndRemoveUntil(
@@ -177,7 +180,7 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                   ]),
                   Column(children: [
                     Text(
-                      'Date',
+                      'Deadline',
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(widget.deadline.toString()),
@@ -210,73 +213,104 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                           ? Container(
                                               height: _media.height * 0.7,
                                               width: _media.width * 0.7,
-                                              child: Column(
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceEvenly,
-                                                    children: [
-                                                      Text("Order Details",
-                                                          style: TextStyle(
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 25)),
-                                                      IconButton(
-                                                        onPressed: () =>
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop(),
-                                                        color: Colors.red,
-                                                        icon:
-                                                            Icon(Icons.cancel),
-                                                      )
-                                                    ],
-                                                  ),
-                                                  Divider(),
-                                                  Row(children: [
-                                                    Column(children: [
-                                                      Text(snapshot
-                                                              .data['tier'] ??
-                                                          "Tier"),
-                                                      Text(snapshot.data[
-                                                              'features'] ??
-                                                          "Features"),
-                                                      Text(snapshot.data[
-                                                              'timestamp'] ??
-                                                          "Timestamp"),
-                                                      Text(snapshot.data[
-                                                              'endTime'] ??
-                                                          "EndTime")
-                                                    ]),
-                                                    SizedBox(
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          placeholder: (context,
-                                                                  url) =>
-                                                              CircularProgressIndicator(),
-                                                          errorWidget: (context,
-                                                                  url, error) =>
-                                                              Icon(Icons.error),
-                                                          imageUrl: snapshot
-                                                                      .data[
-                                                                  'rawbase64'] ??
-                                                              "https://wallpaperaccess.com/full/2109.jpg",
+                                              child: snapshot.data != false
+                                                  ? Column(
+                                                      children: [
+                                                        Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          children: [
+                                                            Text(
+                                                                "Order Details",
+                                                                style: TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize:
+                                                                        25)),
+                                                            IconButton(
+                                                              onPressed: () =>
+                                                                  Navigator.of(
+                                                                          context)
+                                                                      .pop(),
+                                                              color: Colors.red,
+                                                              icon: Icon(
+                                                                  Icons.cancel),
+                                                            )
+                                                          ],
                                                         ),
-                                                        height:
-                                                            _media.height * 0.2,
-                                                        width:
-                                                            _media.width * 0.1),
-                                                  ])
-                                                ],
-                                              ),
-                                            )
+                                                        Divider(),
+                                                        SizedBox(
+                                                            child:
+                                                                CachedNetworkImage(
+                                                              placeholder: (context,
+                                                                      url) =>
+                                                                  CircularProgressIndicator(),
+                                                              errorWidget: (context,
+                                                                      url,
+                                                                      error) =>
+                                                                  Icon(Icons
+                                                                      .error),
+                                                              imageUrl: snapshot
+                                                                          .data()[
+                                                                      'rawbase64'] ??
+                                                                  "https://wallpaperaccess.com/full/2109.jpg",
+                                                            ),
+                                                            height:
+                                                                _media.height *
+                                                                    0.2,
+                                                            width:
+                                                                _media.width *
+                                                                    0.1),
+                                                        Divider(),
+                                                        Row(children: [
+                                                          Column(children: [
+                                                            Text(snapshot.data[
+                                                                    'tier'] ??
+                                                                "Tier"),
+                                                            Text(snapshot.data[
+                                                                    'features'] ??
+                                                                "Features"),
+                                                            Text(snapshot.data[
+                                                                    'timestamp'] ??
+                                                                "Timestamp"),
+                                                            Text(snapshot.data[
+                                                                    'endTime'] ??
+                                                                "EndTime")
+                                                          ]),
+                                                          SizedBox(
+                                                              child:
+                                                                  CachedNetworkImage(
+                                                                placeholder: (context,
+                                                                        url) =>
+                                                                    CircularProgressIndicator(),
+                                                                errorWidget: (context,
+                                                                        url,
+                                                                        error) =>
+                                                                    Icon(Icons
+                                                                        .error),
+                                                                imageUrl: snapshot
+                                                                            .data[
+                                                                        'rawbase64'] ??
+                                                                    "https://wallpaperaccess.com/full/2109.jpg",
+                                                              ),
+                                                              height: _media
+                                                                      .height *
+                                                                  0.2,
+                                                              width:
+                                                                  _media.width *
+                                                                      0.1),
+                                                        ])
+                                                      ],
+                                                    )
+                                                  : Center(
+                                                      child: Text(
+                                                          "Order details unavailable")))
                                           : CircularProgressIndicator();
                                     }),
                               ));
                     },
-                    //TODO figure out how to get all details, instead of deleting from WORKORDER, move it to ONGOINGORDERS
                     child: Text("View Details"),
                   ),
                   RaisedButton(

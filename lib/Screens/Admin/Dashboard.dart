@@ -252,48 +252,30 @@ class _OrderFunctionState extends State<OrderFunction> {
                 children: [
                   Column(
                     children: [
-                      Text(widget.orderID),
-                      Text(
-                        'Order ID',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(widget.status),
                       Text(
                         'Status',
                         style: TextStyle(color: Colors.grey),
                       ),
+                      Text(widget.status),
                     ],
                   ),
                   Column(
                     children: [
-                      Text(widget.price.toString()),
                       Text(
                         'Payment',
                         style: TextStyle(color: Colors.grey),
                       ),
+                      Text(widget.price.toString()),
                     ],
                   ),
                   Column(
                     children: [
-                      Text(DateTime.fromMillisecondsSinceEpoch(widget.date)
-                          .toString()),
                       Text(
                         'Date',
                         style: TextStyle(color: Colors.grey),
                       ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text(getTier(widget.tierId)),
-                      Text(
-                        'Tier',
-                        style: TextStyle(color: Colors.grey),
-                      ),
+                      Text(DateTime.fromMillisecondsSinceEpoch(widget.date)
+                          .toString()),
                     ],
                   ),
                 ],

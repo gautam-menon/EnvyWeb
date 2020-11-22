@@ -3,6 +3,8 @@ import 'package:envyweb/Screens/Editor/SubmitPage.dart';
 import 'package:flutter/material.dart';
 
 class OrderPage extends StatefulWidget {
+  final String orderId;
+  const OrderPage({this.orderId});
   @override
   _OrderPageState createState() => _OrderPageState();
 }
@@ -60,7 +62,8 @@ class _OrderPageState extends State<OrderPage> {
                     fontSize: 15,
                   ),
                 ),
-                Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     RaisedButton(
                       onPressed: () {},

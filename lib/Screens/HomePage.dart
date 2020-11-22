@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Icon(Icons.person, color: Colors.black, size: 30),
+                            Icon(Icons.person, color: Colors.black, size: 40),
                             Text("EDITOR",
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.bold)),
@@ -131,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Icon(Icons.admin_panel_settings,
-                                color: Colors.black, size: 30),
+                                color: Colors.black, size: 40),
                             Text("ADMIN",
                                 style: TextStyle(
                                     fontSize: 25, fontWeight: FontWeight.bold)),

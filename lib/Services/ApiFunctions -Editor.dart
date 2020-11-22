@@ -37,8 +37,13 @@ class ApiFunctionsEditors {
   Future getOrderDetails(String orderID) async {
     var response =
         await http.post(getOrderDetailsUrl, body: {"orderID": orderID});
-    var data = json.decode(response.body);
-    return data['req'];
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      print(data);
+      return data['req'];
+    } else {
+      return false;
+    }
   }
 
   // Future submitOrder(String base64image, int orderID, int editorID) async {
