@@ -143,28 +143,40 @@ class _AdminPageState extends State<AdminPage> {
     var _media = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child:   width: _media.width,
+      child: FutureBuilder(
+          future: getOrderFunction(tier),
+          builder: (context, snapshot) {
+            return snapshot.hasData
+                ? Container(
+                    decoration: BoxDecoration(border: Border.all()),
+                    width: _media.width,
                     height: _media.height * 0.9,
                     child: snapshot.data != false
-                        ? ListView.builder(
-                            shrinkWrap: true,
-                            itemCount: snapshot.data.length > 10
-                                ? 10
-                                : snapshot.data.length,
-                            itemBuilder: (context, index) {
-                              return OrderFunction(
-                                orderID: snapshot.data[index]['orderid'],
-                                status: snapshot.data[index]['isComplete'],
-                                date: int.parse(
-                                    snapshot.data[index]['timestamp']),
-                                price: int.parse(
-                                    snapshot.data[index]['timestamp']),
-                                tierId:
-                                    int.parse(snapshot.data[index]['tierId']),
-                                imgUrl: snapshot.data[index]['rawBase64'],
-                              );
-                            },
-                          )
+                        ? snapshot.data.length == 0
+                            ? Center(
+                                child: Text("No Orders Found",
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold)))
+                            : ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: snapshot.data.length > 10
+                                    ? 10
+                                    : snapshot.data.length,
+                                itemBuilder: (context, index) {
+                                  return OrderFunction(
+                                    orderID: snapshot.data[index]['orderid'],
+                                    status: snapshot.data[index]['isComplete'],
+                                    date: int.parse(
+                                        snapshot.data[index]['timestamp']),
+                                    price: int.parse(
+                                        snapshot.data[index]['timestamp']),
+                                    tierId: int.parse(
+                                        snapshot.data[index]['tierId']),
+                                    imgUrl: snapshot.data[index]['rawBase64'],
+                                  );
+                                },
+                              )
                         : Center(
                             child: Text("No Orders Found",
                                 style: TextStyle(
@@ -172,13 +184,7 @@ class _AdminPageState extends State<AdminPage> {
                                     fontWeight: FontWeight.bold))),
                   )
                 : CircularProgressIndicator();
-          }),FutureBuilder(
-          future: getOrderFunction(tier),
-          builder: (context, snapshot) {
-            return snapshot.hasData
-                ? Container(
-                    decoration: BoxDecoration(border: Border.all()),
-                  
+          }),
     );
   }
 
