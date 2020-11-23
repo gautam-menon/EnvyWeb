@@ -6,6 +6,7 @@ import 'ApiFunctions -Admin.dart';
 class AuthService {
   Future<UserModel> logInEditor(String email, String pass) async {
     try {
+      print("1");
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: pass);
       UserModel user =

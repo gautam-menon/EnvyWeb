@@ -6,12 +6,13 @@ import 'package:envyweb/Services/Auth.dart';
 import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'AddAdmin.dart';
 import 'AddEditor.dart';
 import 'AssignStatus.dart';
 import 'Editors -Admin.dart';
 
 class AdminPage extends StatefulWidget {
-  final name;
+  final String name;
 
   const AdminPage({Key key, this.name, String uid}) : super(key: key);
   @override
@@ -55,6 +56,10 @@ class _AdminPageState extends State<AdminPage> {
               Customize("Add Editor", () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AddEditor()));
+              }),
+              Customize("Add Admin", () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddAdmin()));
               }),
               Customize("Log out", () async {
                 await AuthService().logOut();
@@ -138,13 +143,7 @@ class _AdminPageState extends State<AdminPage> {
     var _media = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: FutureBuilder(
-          future: getOrderFunction(tier),
-          builder: (context, snapshot) {
-            return snapshot.hasData
-                ? Container(
-                    decoration: BoxDecoration(border: Border.all()),
-                    width: _media.width,
+      child:   width: _media.width,
                     height: _media.height * 0.9,
                     child: snapshot.data != false
                         ? ListView.builder(
@@ -173,7 +172,13 @@ class _AdminPageState extends State<AdminPage> {
                                     fontWeight: FontWeight.bold))),
                   )
                 : CircularProgressIndicator();
-          }),
+          }),FutureBuilder(
+          future: getOrderFunction(tier),
+          builder: (context, snapshot) {
+            return snapshot.hasData
+                ? Container(
+                    decoration: BoxDecoration(border: Border.all()),
+                  
     );
   }
 
@@ -329,6 +334,8 @@ class _OrderFunctionState extends State<OrderFunction> {
                                                             widget.orderID,
                                                             snapshot.data[index]
                                                                 ['tier'],
+                                                            snapshot.data[index]
+                                                                ['email'],
                                                             context);
                                                       },
                                                     )
@@ -390,7 +397,8 @@ class _OrderFunctionState extends State<OrderFunction> {
     }
   }
 
-  Widget editors(String name, String id, String orderid, String tier, context) {
+  Widget editors(String name, String id, String orderid, String tier,
+      String email, context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -402,7 +410,7 @@ class _OrderFunctionState extends State<OrderFunction> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   )),
-              Text(id),
+              Text(email),
               Text(tier)
             ]),
             RaisedButton(

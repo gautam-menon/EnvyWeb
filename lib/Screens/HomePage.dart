@@ -72,19 +72,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
-                SizedBox(
-                  width: screenSize.width / 50,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginPage()));
-                  },
-                  child: Text(
-                    'Login',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+              
               ],
             ),
           ),
@@ -100,10 +88,17 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(
+                                    editorCheck: true,
+                                  )));
+                    },
                     child: Container(
                         height: screenSize.height * 0.3,
-                        width: screenSize.width * 0.2,
+                        width: screenSize.width * 0.3,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -119,10 +114,17 @@ class _HomePageState extends State<HomePage> {
                         )),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginPage(
+                                    editorCheck: false,
+                                  )));
+                    },
                     child: Container(
                         height: screenSize.height * 0.3,
-                        width: screenSize.width * 0.2,
+                        width: screenSize.width * 0.3,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(30)),

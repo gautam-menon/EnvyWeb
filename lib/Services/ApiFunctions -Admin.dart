@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'Auth.dart';
 
 class ApiFunctionsAdmin {
+  String baseUrl = "https://envytestserver.herokuapp.com";
   String getAllEditorsUrl =
       "https://envytestserver.herokuapp.com/AdminPage/GetAllEditors";
   String getAllBasicEditorsUrl =
@@ -26,13 +27,13 @@ class ApiFunctionsAdmin {
   String getPremiumOrdersUrl =
       "https://envytestserver.herokuapp.com/AdminPage/GetPremiumOrders";
   String getProOrdersUrl =
-      "https://envytestserver.herokuapp.com/AdminPage/GetPremiumOrders";
+      "https://envytestserver.herokuapp.com/AdminPage/GetProOrders";
   String addEditorUrl =
       "https://envytestserver.herokuapp.com/AdminPage/AddEditor";
   String loginCheckEditorUrl =
-      "https://envytestserver.herokuapp.com/AdminPage/loginEditorCheck";
+      "https://envytestserver.herokuapp.com/AdminPage/loginCheckEditor";
   String loginCheckAdminUrl =
-      "https://envytestserver.herokuapp.com/AdminPage/loginAdminCheck";
+      "https://envytestserver.herokuapp.com/AdminPage/loginCheckAdmin";
 
   Future addEditor(String name, String email, String password, String tier,
       String phoneNo) async {
@@ -57,7 +58,28 @@ class ApiFunctionsAdmin {
       return {"status": false};
     }
   }
-
+ Future addAdmin(String name, String email, String password,
+      String phoneNo) async {
+    String uid = await AuthService().createAccount(email, password);
+    if (uid == null) {
+      return {"status": false, "req": "Firebase error"};
+    }
+    var body = {
+      "uid": uid,
+      "name": name,
+      "email": email,
+      "phoneNo": phoneNo
+    };
+    print(body);
+    var response = await http.post(addEditorUrl, body: body);
+    print(response);
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      return data;
+    } else {
+      return {"status": false};
+    }
+  }
   Future getAllEditors() async {
     var response = await http.get(getAllEditorsUrl);
     if (response.statusCode == 200) {
@@ -200,14 +222,33 @@ class ApiFunctionsAdmin {
   }
 
   Future<UserModel> loginCheckEditor(String uid) async {
-    var response = await http.post(loginCheckEditorUrl, body: {"uid": uid});
-    UserModel data = UserModel.fromJson(json.decode(response.body));
-    return data;
+    var response =
+        await http.post(loginCheckEditorUrl, body: {"editorId": uid});
+    if (response.statusCode == 200) {
+      var temp = json.decode(response.body);
+      if (temp['status'] == true) {
+        UserModel data = UserModel.fromJson(temp['req']);
+        return data;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
   }
 
   Future<UserModel> loginCheckAdmin(String uid) async {
-    var response = await http.post(loginCheckAdminUrl, body: {"uid": uid});
-    UserModel data = UserModel.fromJson(json.decode(response.body));
-    return data;
+    var response = await http.post(loginCheckAdminUrl, body: {"editorId": uid});
+    if (response.statusCode == 200) {
+      var temp = json.decode(response.body);
+      if (temp['status'] == true) {
+        UserModel data = UserModel.fromJson(temp['req']);
+        return data;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
   }
 }
