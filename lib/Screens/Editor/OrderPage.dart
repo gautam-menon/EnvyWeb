@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class OrderPage extends StatefulWidget {
   final String orderId;
-  const OrderPage({this.orderId});
+  final String uid;
+  const OrderPage({this.orderId, this.uid});
   @override
   _OrderPageState createState() => _OrderPageState();
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:envyweb/Services/Auth.dart';
@@ -40,11 +42,13 @@ class _EditorPageState extends State<EditorPage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SubmitPage()));
                 }),
-                Customize("Completed Orders", () {
+                Customize("Accepted Orders", () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AcceptedOrders()));
+                          builder: (context) => AcceptedOrders(
+                                uid: widget.uid,
+                              )));
                 }),
                 Customize("Log out", () async {
                   await AuthService().logOut();
@@ -191,12 +195,15 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   RaisedButton(
-                    onPressed: () {
-                      //Perform http service first
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AcceptedOrders()));
+                    onPressed: () async {
+                      print(widget.orderID);
+                      bool response = await ApiFunctionsEditors()
+                          .orderConfirmation(true, widget.orderID);
+                      if (response) {
+                        showSuccessDialog(context);
+                      } else {
+                        showFailDialog(context);
+                      }
                     },
                     child: Text("Accept"),
                     color: Colors.green,
@@ -210,7 +217,10 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                     future: ApiFunctionsEditors()
                                         .getOrderDetails(widget.orderID),
                                     builder: (context, snapshot) {
-                                      List features = snapshot.data['features'];
+                                      List features = snapshot.hasData
+                                          ? json
+                                              .decode(snapshot.data['features'])
+                                          : [];
                                       return snapshot.hasData
                                           ? Container(
                                               height: _media.height * 0.7,
@@ -261,7 +271,7 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                                                         Icon(Icons
                                                                             .error),
                                                                     imageUrl: snapshot
-                                                                            .data['rawbase64'] ??
+                                                                            .data['rawBase64'] ??
                                                                         "https://wallpaperaccess.com/full/2109.jpg",
                                                                   ),
                                                                   height: _media
@@ -282,31 +292,50 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                                                         MainAxisAlignment
                                                                             .spaceEvenly,
                                                                     children: [
+                                                                      Text(
+                                                                          "Tier",
+                                                                          style: TextStyle(
+                                                                              fontSize: 20,
+                                                                              fontWeight: FontWeight.bold)),
                                                                       Text(snapshot
-                                                                              .data['tier'] ??
+                                                                              .data['tierId'] ??
                                                                           "Tier"),
+                                                                      Text(
+                                                                          "Date of ordering",
+                                                                          style: TextStyle(
+                                                                              fontSize: 20,
+                                                                              fontWeight: FontWeight.bold)),
                                                                       Text(snapshot
                                                                               .data['timestamp'] ??
                                                                           "Timestamp"),
+                                                                      Text(
+                                                                          "Deadline",
+                                                                          style: TextStyle(
+                                                                              fontSize: 20,
+                                                                              fontWeight: FontWeight.bold)),
                                                                       Text(snapshot
                                                                               .data['endTime'] ??
                                                                           "5"),
-                                                                      Text(
-                                                                          "Features"),
-                                                                      Text(snapshot
-                                                                              .data['features'] ??
-                                                                          "Features"),
-                                                                      ListView
-                                                                          .builder(
-                                                                        itemCount:
-                                                                            features.length,
-                                                                        itemBuilder:
-                                                                            (context,
-                                                                                index) {
-                                                                          return Text(
-                                                                              features[index]);
-                                                                        },
-                                                                      )
+                                                                      Container(
+                                                                          height: _media.height *
+                                                                              0.2,
+                                                                          width: _media.width *
+                                                                              0.3,
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceEvenly,
+                                                                            children: [
+                                                                              Text("Features Ordered", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                                                                              ListView.builder(
+                                                                                shrinkWrap: true,
+                                                                                itemCount: features.length,
+                                                                                itemBuilder: (context, index) {
+                                                                                  return Center(child: Text(features[index]['title']));
+                                                                                },
+                                                                              ),
+                                                                            ],
+                                                                          ))
                                                                     ]),
                                                               )
                                                             ])
@@ -323,8 +352,6 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                   ),
                   RaisedButton(
                     onPressed: () async {
-                      //delete entry from stack
-                      //send notification to admin
                       bool response = await ApiFunctionsEditors()
                           .orderConfirmation(false, widget.orderID);
                       //showdialog
@@ -385,7 +412,7 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                         size: 70,
                         color: Colors.red,
                       ),
-                      Text("Failed"),
+                      Text("Action failed"),
                       RaisedButton(
                         onPressed: () {
                           Navigator.of(context).pop();

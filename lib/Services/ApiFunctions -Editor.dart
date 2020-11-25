@@ -18,10 +18,12 @@ class ApiFunctionsEditors {
       "https://envytestserver.herokuapp.com/EditorPage/GetconfirmedWorkOrders";
 
   Future<bool> orderConfirmation(bool value, String orderID) async {
-    var response = await http.post(confirmationUrl,
-        body: {"confirmation": value, "orderID": orderID});
+    var body = {"confirmation": value.toString(), "orderID": orderID};
+    print(body);
+    var response = await http.post(confirmationUrl, body: body);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
+      print(data);
       return data['status'];
     } else {
       return false;
@@ -68,10 +70,17 @@ class ApiFunctionsEditors {
   }
 
   Future getconfirmedWorkOrders(String uid) async {
+    print(uid);
     var response =
         await http.post(getconfirmedWorkOrdersUrl, body: {"uid": uid});
-    var data = json.decode(response.body);
-    print(data);
-    return data['req'];
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      print(data);
+      if (data['status'] == false) {
+        return false;
+      } else {
+        return data['req'];
+      }
+    }
   }
 }

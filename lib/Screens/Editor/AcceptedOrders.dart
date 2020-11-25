@@ -48,6 +48,7 @@ class _AcceptedOrdersState extends State<AcceptedOrders> {
                                               ['startTime'],
                                           deadline: snapshot.data[index]
                                               ['endTime'],
+                                          //uid: snapshot.data['editorID']
                                         );
                                       },
                                     )
@@ -68,8 +69,10 @@ class AcceptedOrderTile extends StatelessWidget {
   final String orderId;
   final int date;
   final int deadline;
+  final String uid;
 
-  const AcceptedOrderTile({Key key, this.orderId, this.date, this.deadline})
+  const AcceptedOrderTile(
+      {Key key, this.orderId, this.date, this.deadline, this.uid})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -77,23 +80,40 @@ class AcceptedOrderTile extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => OrderPage(orderId: orderId)));
+            context,
+            MaterialPageRoute(
+                builder: (context) => OrderPage(orderId: orderId)));
       },
       child: Container(
         height: screenSize.height / 5,
         width: screenSize.width,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Column(children: [
               Text('Order ID', style: TextStyle(color: Colors.grey)),
               Text(orderId),
-            ]),   Column(children: [
-                    Text('Date', style: TextStyle(color: Colors.grey)),
-                    Text(date.toString()),
-                  ]),   Column(children: [
-                    Text('Deadline', style: TextStyle(color: Colors.grey)),
-                    Text(deadline.toString()),
-                  ]),
+            ]),
+            Column(children: [
+              Text('Date', style: TextStyle(color: Colors.grey)),
+              Text(date.toString()),
+            ]),
+            Column(children: [
+              Text('Deadline', style: TextStyle(color: Colors.grey)),
+              Text(deadline.toString()),
+            ]),
+            IconButton(
+              icon: Icon(Icons.arrow_right),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OrderPage(
+                              orderId: orderId,
+                              uid: uid,
+                            )));
+              },
+            )
           ],
         ),
       ),
