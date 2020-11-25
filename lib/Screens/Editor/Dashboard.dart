@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:envyweb/Screens/Editor/OrderPage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:envyweb/Services/Auth.dart';
 import 'package:envyweb/Services/Widgets/DrawerItems.dart';
@@ -135,7 +134,7 @@ class EditorOrderFunction extends StatefulWidget {
   final String orderID;
   final String uid;
   final int date;
-  final int deadline;
+  final deadline;
 
   const EditorOrderFunction(
       {Key key, @required this.orderID, this.date, this.deadline, this.uid})
@@ -193,9 +192,11 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                 children: [
                   RaisedButton(
                     onPressed: () {
-                      //accept and send notification to admin, delete from stack
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => OrderPage()));
+                      //Perform http service first
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AcceptedOrders()));
                     },
                     child: Text("Accept"),
                     color: Colors.green,
@@ -209,6 +210,7 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                     future: ApiFunctionsEditors()
                                         .getOrderDetails(widget.orderID),
                                     builder: (context, snapshot) {
+                                      List features = snapshot.data['features'];
                                       return snapshot.hasData
                                           ? Container(
                                               height: _media.height * 0.7,
@@ -241,67 +243,73 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                                           ],
                                                         ),
                                                         Divider(),
-                                                        SizedBox(
-                                                            child:
-                                                                CachedNetworkImage(
-                                                              placeholder: (context,
-                                                                      url) =>
-                                                                  CircularProgressIndicator(),
-                                                              errorWidget: (context,
-                                                                      url,
-                                                                      error) =>
-                                                                  Icon(Icons
-                                                                      .error),
-                                                              imageUrl: snapshot
-                                                                          .data()[
-                                                                      'rawbase64'] ??
-                                                                  "https://wallpaperaccess.com/full/2109.jpg",
-                                                            ),
-                                                            height:
-                                                                _media.height *
-                                                                    0.2,
-                                                            width:
-                                                                _media.width *
-                                                                    0.1),
-                                                        Divider(),
-                                                        Row(children: [
-                                                          Column(children: [
-                                                            Text(snapshot.data[
-                                                                    'tier'] ??
-                                                                "Tier"),
-                                                            Text(snapshot.data[
-                                                                    'features'] ??
-                                                                "Features"),
-                                                            Text(snapshot.data[
-                                                                    'timestamp'] ??
-                                                                "Timestamp"),
-                                                            Text(snapshot.data[
-                                                                    'endTime'] ??
-                                                                "EndTime")
-                                                          ]),
-                                                          SizedBox(
-                                                              child:
-                                                                  CachedNetworkImage(
-                                                                placeholder: (context,
-                                                                        url) =>
-                                                                    CircularProgressIndicator(),
-                                                                errorWidget: (context,
-                                                                        url,
-                                                                        error) =>
-                                                                    Icon(Icons
-                                                                        .error),
-                                                                imageUrl: snapshot
-                                                                            .data[
-                                                                        'rawbase64'] ??
-                                                                    "https://wallpaperaccess.com/full/2109.jpg",
-                                                              ),
-                                                              height: _media
-                                                                      .height *
-                                                                  0.2,
-                                                              width:
-                                                                  _media.width *
-                                                                      0.1),
-                                                        ])
+                                                        Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceEvenly,
+                                                            children: [
+                                                              SizedBox(
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    placeholder:
+                                                                        (context,
+                                                                                url) =>
+                                                                            CircularProgressIndicator(),
+                                                                    errorWidget: (context,
+                                                                            url,
+                                                                            error) =>
+                                                                        Icon(Icons
+                                                                            .error),
+                                                                    imageUrl: snapshot
+                                                                            .data['rawbase64'] ??
+                                                                        "https://wallpaperaccess.com/full/2109.jpg",
+                                                                  ),
+                                                                  height: _media
+                                                                          .height *
+                                                                      0.5,
+                                                                  width: _media
+                                                                          .width *
+                                                                      0.3),
+                                                              Container(
+                                                                height: _media
+                                                                        .height *
+                                                                    0.5,
+                                                                width: _media
+                                                                        .width *
+                                                                    0.3,
+                                                                child: Column(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceEvenly,
+                                                                    children: [
+                                                                      Text(snapshot
+                                                                              .data['tier'] ??
+                                                                          "Tier"),
+                                                                      Text(snapshot
+                                                                              .data['timestamp'] ??
+                                                                          "Timestamp"),
+                                                                      Text(snapshot
+                                                                              .data['endTime'] ??
+                                                                          "5"),
+                                                                      Text(
+                                                                          "Features"),
+                                                                      Text(snapshot
+                                                                              .data['features'] ??
+                                                                          "Features"),
+                                                                      ListView
+                                                                          .builder(
+                                                                        itemCount:
+                                                                            features.length,
+                                                                        itemBuilder:
+                                                                            (context,
+                                                                                index) {
+                                                                          return Text(
+                                                                              features[index]);
+                                                                        },
+                                                                      )
+                                                                    ]),
+                                                              )
+                                                            ])
                                                       ],
                                                     )
                                                   : Center(

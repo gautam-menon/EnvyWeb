@@ -117,19 +117,16 @@ class EditorTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         textBaseline: TextBaseline.alphabetic,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Container(
-                width: screenWidth / 3,
-                child: Row(children: [
+          Container(
+            width: screenWidth / 3,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
                   CircleAvatar(
                     child: Text(name.substring(0, 2) ?? ""),
                   ),
                   Text(name ?? ""),
                 ]),
-              )
-            ],
           ),
           Container(
             width: screenWidth / 3,
@@ -140,7 +137,7 @@ class EditorTile extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            height: screenheight / 9,
+            height: screenheight / 10,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: tier == 'basic'
