@@ -329,8 +329,6 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                                                               0.3,
                                                                           child:
                                                                               Column(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceEvenly,
                                                                             children: [
                                                                               Text("Features Ordered", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                                                                               ListView.builder(

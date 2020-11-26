@@ -80,46 +80,48 @@ class AcceptedOrderTile extends StatelessWidget {
     return Container(
       height: screenSize.height / 6,
       width: screenSize.width,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(children: [
-            Text('Order ID',
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold)),
-            Text(orderId),
-          ]),
-          Column(children: [
-            Text('Date',
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold)),
-            Text(date.toString()),
-          ]),
-          Column(children: [
-            Text('Deadline',
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold)),
-            Text(deadline.toString()),
-          ]),
-          RaisedButton(
-            child: Text('Proceed'),
-            color: Colors.green,
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          OrderPage(orderId: orderId, uid: uid)));
-            },
-          )
-        ],
+      child: Center(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(children: [
+              Text('Order ID',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold)),
+              Text(orderId),
+            ]),
+            Column(children: [
+              Text('Date',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold)),
+              Text(date.toString()),
+            ]),
+            Column(children: [
+              Text('Deadline',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold)),
+              Text(deadline.toString()),
+            ]),
+            RaisedButton(
+              child: Text('Proceed'),
+              color: Colors.green,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            OrderPage(orderId: orderId, uid: uid)));
+              },
+            )
+          ],
+        ),
       ),
     );
   }
