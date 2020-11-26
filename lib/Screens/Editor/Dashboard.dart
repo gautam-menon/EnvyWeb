@@ -47,7 +47,7 @@ class _EditorPageState extends State<EditorPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => AcceptedOrders(
-                                uid: widget.uid,
+                                uid: widget.uid ?? "1",
                               )));
                 }),
                 Customize("Log out", () async {
@@ -171,21 +171,27 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(children: [
-                    Text('Order ID', style: TextStyle(color: Colors.grey)),
+                    Text('Order ID',
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold)),
                     Text(widget.orderID),
                   ]),
                   Column(children: [
-                    Text(
-                      'Date',
-                      style: TextStyle(color: Colors.grey),
-                    ),
+                    Text('Date',
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold)),
                     Text(widget.date.toString()),
                   ]),
                   Column(children: [
-                    Text(
-                      'Deadline',
-                      style: TextStyle(color: Colors.grey),
-                    ),
+                    Text('Deadline',
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold)),
                     Text(widget.deadline.toString()),
                   ]),
                 ],

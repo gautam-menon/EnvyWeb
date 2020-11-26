@@ -18,9 +18,10 @@ class ApiFunctionsEditors {
       "https://envytestserver.herokuapp.com/EditorPage/GetconfirmedWorkOrders";
 
   Future<bool> orderConfirmation(bool value, String orderID) async {
-    var body = {"confirmation": value.toString(), "orderID": orderID};
+    var body = json.encode({"confirmation": value, "orderID": orderID});
     print(body);
-    var response = await http.post(confirmationUrl, body: body);
+    var response = await http.post(confirmationUrl,
+        body: body, headers: {"Content-Type": "application/json"});
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       print(data);

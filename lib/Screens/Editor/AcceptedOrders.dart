@@ -48,7 +48,7 @@ class _AcceptedOrdersState extends State<AcceptedOrders> {
                                               ['startTime'],
                                           deadline: snapshot.data[index]
                                               ['endTime'],
-                                          //uid: snapshot.data['editorID']
+                                          uid: widget.uid,
                                         );
                                       },
                                     )
@@ -68,7 +68,7 @@ class _AcceptedOrdersState extends State<AcceptedOrders> {
 class AcceptedOrderTile extends StatelessWidget {
   final String orderId;
   final int date;
-  final int deadline;
+  final deadline;
   final String uid;
 
   const AcceptedOrderTile(
@@ -77,45 +77,49 @@ class AcceptedOrderTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => OrderPage(orderId: orderId)));
-      },
-      child: Container(
-        height: screenSize.height / 5,
-        width: screenSize.width,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(children: [
-              Text('Order ID', style: TextStyle(color: Colors.grey)),
-              Text(orderId),
-            ]),
-            Column(children: [
-              Text('Date', style: TextStyle(color: Colors.grey)),
-              Text(date.toString()),
-            ]),
-            Column(children: [
-              Text('Deadline', style: TextStyle(color: Colors.grey)),
-              Text(deadline.toString()),
-            ]),
-            IconButton(
-              icon: Icon(Icons.arrow_right),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => OrderPage(
-                              orderId: orderId,
-                              uid: uid,
-                            )));
-              },
-            )
-          ],
-        ),
+    return Container(
+      height: screenSize.height / 6,
+      width: screenSize.width,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(children: [
+            Text('Order ID',
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold)),
+            Text(orderId),
+          ]),
+          Column(children: [
+            Text('Date',
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold)),
+            Text(date.toString()),
+          ]),
+          Column(children: [
+            Text('Deadline',
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold)),
+            Text(deadline.toString()),
+          ]),
+          RaisedButton(
+            child: Text('Proceed'),
+            color: Colors.green,
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          OrderPage(orderId: orderId, uid: uid)));
+            },
+          )
+        ],
       ),
     );
   }

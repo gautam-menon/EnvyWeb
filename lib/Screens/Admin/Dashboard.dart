@@ -263,28 +263,31 @@ class _OrderFunctionState extends State<OrderFunction> {
                 children: [
                   Column(
                     children: [
-                      Text(
-                        'Status',
-                        style: TextStyle(color: Colors.grey),
-                      ),
+                      Text('Status',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold)),
                       Text(widget.status),
                     ],
                   ),
                   Column(
                     children: [
-                      Text(
-                        'Payment',
-                        style: TextStyle(color: Colors.grey),
-                      ),
+                      Text('Payment',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold)),
                       Text(widget.price.toString()),
                     ],
                   ),
                   Column(
                     children: [
-                      Text(
-                        'Date',
-                        style: TextStyle(color: Colors.grey),
-                      ),
+                      Text('Date',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold)),
                       Text(DateTime.fromMillisecondsSinceEpoch(widget.date)
                           .toString()),
                     ],
