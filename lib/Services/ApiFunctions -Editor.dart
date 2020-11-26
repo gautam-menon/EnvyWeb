@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 
@@ -11,7 +11,7 @@ class ApiFunctionsEditors {
   String getOrderDetailsUrl =
       "https://envytestserver.herokuapp.com/EditorPage/showOrderDetails";
   String submitOrderUrl =
-      "https://envytestserver.herokuapp.com/EditorPage/SubmitOrder";
+      "https://envytestserver.herokuapp.com/order/SubmitOrder";
 
   String getUnconfirmedWorkOrdersUrl =
       "https://envytestserver.herokuapp.com/EditorPage/GetUnconfirmedWorkOrders";
@@ -51,15 +51,17 @@ class ApiFunctionsEditors {
     }
   }
 
-   Future submitOrder(File image, String orderId, String userId) async {//for notiications
-     var postUri = Uri.parse(submitOrderUrl);
+  Future<bool> submitOrder(
+      Uint8List image, String orderId, String userId) async {
+    //for notiications
+    var postUri = Uri.parse(submitOrderUrl);
     var request = new http.MultipartRequest("POST", postUri);
-     request.fields['orderId'] = orderId;
-      request.fields['uid'] = userId;
-        request.files.add(
+    request.fields['orderId'] = orderId;
+    request.fields['uid'] = userId;
+    request.files.add(
       http.MultipartFile.fromBytes(
         'picture',
-        await File.fromUri(image.uri).readAsBytes(),
+        image,
         filename: 'picture',
         contentType: MediaType(
           'image',
@@ -73,9 +75,9 @@ class ApiFunctionsEditors {
     var data = response.body;
     var j = json.decode(data);
     print(j);
-   }
+    return true;
+  }
 
-    
   Future getUnconfirmedWorkOrders(String uid) async {
     var response =
         await http.post(getUnconfirmedWorkOrdersUrl, body: {"uid": uid});

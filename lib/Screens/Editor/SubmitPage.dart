@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker_web/image_picker_web.dart';
@@ -14,7 +14,8 @@ class SubmitPage extends StatefulWidget {
 
 class _SubmitPageState extends State<SubmitPage> {
   Image image;
-  File imageFile;
+  Uint8List bytes;
+
   @override
   Widget build(BuildContext context) {
     var screen = MediaQuery.of(context).size;
@@ -31,13 +32,14 @@ class _SubmitPageState extends State<SubmitPage> {
             children: [
               InkWell(
                 onTap: () async {
-                  Image fromPicker = await ImagePickerWeb.getImage(
-                      outputType: ImageType.widget);
-                  imageFile =
-                      await ImagePickerWeb.getImage(outputType: ImageType.file);
-                  if (fromPicker != null && imageFile!=null) {
+                  // Image fromPicker =
+                  //     await ImagePickerWeb.getImage(outputType: ImageType.widget);
+                  MediaInfo mediaData = await ImagePickerWeb.getImageInfo;
+
+                  if (mediaData != null) {
                     setState(() {
-                      image = fromPicker;
+                      //image = fromPicker;
+                      bytes = mediaData.data;
                     });
                   }
                 },
@@ -45,8 +47,8 @@ class _SubmitPageState extends State<SubmitPage> {
                   color: Colors.grey,
                   height: screen.height * 0.5,
                   width: screen.width * 0.4,
-                  child: image != null
-                      ? image
+                  child: bytes != null
+                      ? Image.memory(bytes)
                       : Center(
                           child: Text(
                           'Click here to upload an image',
@@ -61,15 +63,17 @@ class _SubmitPageState extends State<SubmitPage> {
                   RaisedButton(
                     onPressed: () {
                       setState(() {
-                        image = null;
+                        bytes = null;
                       });
                     },
                     child: Text("Reselect Image"),
                   ),
                   RaisedButton(
-                    onPressed: () {
-                      ApiFunctionsEditors().submitOrder(
-                          imageFile, widget.orderId, widget.userId);
+                    onPressed: () async {
+                     
+                      bool response = await ApiFunctionsEditors()
+                          .submitOrder(bytes, widget.orderId, widget.userId);
+                      print(response.toString());
                     },
                     child: Text("Upload Image"),
                   ),
