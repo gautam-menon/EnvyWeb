@@ -16,6 +16,7 @@ dependencies:
   firebase: any
   firebase_auth: ^0.18.1+1
   cached_network_image: any
+  http_parser: ^3.1.4
   
 
 dev_dependencies:

@@ -5,7 +5,7 @@ import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 
 class OrderPage extends StatefulWidget {
   final String orderId;
@@ -105,7 +105,11 @@ class _OrderPageState extends State<OrderPage> {
                                               onPressed: () async {
                                                 String imageUrl =
                                                     snapshot.data['rawBase64'];
-                                                var temp = await get(imageUrl);
+                                                var temp = await http.get(imageUrl,
+                                                    headers: {
+                                                      "Content-Type":
+                                                          "application/json"
+                                                    });
                                                 var response = temp.bodyBytes;
                                                 final blob =
                                                     html.Blob([response]);

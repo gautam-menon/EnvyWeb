@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 
 class ApiFunctionsEditors {
   String confirmationUrl =
@@ -49,13 +51,31 @@ class ApiFunctionsEditors {
     }
   }
 
-  // Future submitOrder(String base64image, int orderID, int editorID) async {
-  //   var response = await http.post(submitOrderUrl,
-  //       body: {"image": base64image, "orderID": orderID, "editorID": editorID});
-  //   var data = json.decode(response.body);
-  //   return data['status'];
-  // }
+   Future submitOrder(File image, String orderId, String userId) async {//for notiications
+     var postUri = Uri.parse(submitOrderUrl);
+    var request = new http.MultipartRequest("POST", postUri);
+     request.fields['orderId'] = orderId;
+      request.fields['uid'] = userId;
+        request.files.add(
+      http.MultipartFile.fromBytes(
+        'picture',
+        await File.fromUri(image.uri).readAsBytes(),
+        filename: 'picture',
+        contentType: MediaType(
+          'image',
+          'jpeg',
+        ),
+      ),
+    );
+    http.Response response =
+        await http.Response.fromStream(await request.send());
+    print("Result: ${response.statusCode}");
+    var data = response.body;
+    var j = json.decode(data);
+    print(j);
+   }
 
+    
   Future getUnconfirmedWorkOrders(String uid) async {
     var response =
         await http.post(getUnconfirmedWorkOrdersUrl, body: {"uid": uid});
