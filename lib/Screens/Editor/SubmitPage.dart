@@ -1,13 +1,20 @@
+import 'dart:io';
+import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 
 class SubmitPage extends StatefulWidget {
+  final String userId;
+  final String orderId;
+
+  const SubmitPage({Key key, this.userId, this.orderId}) : super(key: key);
   @override
   _SubmitPageState createState() => _SubmitPageState();
 }
 
 class _SubmitPageState extends State<SubmitPage> {
   Image image;
+  File imageFile;
   @override
   Widget build(BuildContext context) {
     var screen = MediaQuery.of(context).size;
@@ -26,8 +33,9 @@ class _SubmitPageState extends State<SubmitPage> {
                 onTap: () async {
                   Image fromPicker = await ImagePickerWeb.getImage(
                       outputType: ImageType.widget);
-
-                  if (fromPicker != null) {
+                  imageFile =
+                      await ImagePickerWeb.getImage(outputType: ImageType.file);
+                  if (fromPicker != null && imageFile!=null) {
                     setState(() {
                       image = fromPicker;
                     });
@@ -59,7 +67,10 @@ class _SubmitPageState extends State<SubmitPage> {
                     child: Text("Reselect Image"),
                   ),
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      ApiFunctionsEditors().submitOrder(
+                          imageFile, widget.orderId, widget.userId);
+                    },
                     child: Text("Upload Image"),
                   ),
                 ],

@@ -105,11 +105,11 @@ class _OrderPageState extends State<OrderPage> {
                                               onPressed: () async {
                                                 String imageUrl =
                                                     snapshot.data['rawBase64'];
-                                                var temp = await http.get(imageUrl,
-                                                    headers: {
-                                                      "Content-Type":
-                                                          "application/json"
-                                                    });
+                                                var temp = await http
+                                                    .get(imageUrl, headers: {
+                                                  "Content-Type":
+                                                      "application/json"
+                                                });
                                                 var response = temp.bodyBytes;
                                                 final blob =
                                                     html.Blob([response]);
@@ -138,7 +138,13 @@ class _OrderPageState extends State<OrderPage> {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            SubmitPage()));
+                                                            SubmitPage(
+                                                                orderId: snapshot
+                                                                        .data[
+                                                                    'orderId'],
+                                                                userId: snapshot
+                                                                        .data[
+                                                                    'uid'])));
                                               },
                                               child:
                                                   Text("Upload Edited Image"),
