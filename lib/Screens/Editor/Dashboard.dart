@@ -7,7 +7,7 @@ import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../HomePage.dart';
-import '../ProfilePage.dart';
+import 'ProfilePage.dart';
 import 'AcceptedOrders.dart';
 import 'SubmitPage.dart';
 
@@ -36,7 +36,7 @@ class _EditorPageState extends State<EditorPage> {
                 }),
                 Customize("Profile", () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ProfilePage()));
+                      MaterialPageRoute(builder: (context) => ProfilePage(uid: widget.uid,)));
                 }),
                 Customize("Submit Image", () {
                   Navigator.push(context,
