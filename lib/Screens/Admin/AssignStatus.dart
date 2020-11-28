@@ -12,22 +12,24 @@ class AssignStatus extends StatelessWidget {
         ? Scaffold(
             backgroundColor: Colors.white,
             body: Container(
-                child: Column(
+                child: Center(
+                  child: Column(
               children: [
-                Icon(
-                  Icons.done,
-                  size: MediaQuery.of(context).size.height / 2,
-                  color: Colors.green,
-                ),
-                RaisedButton(
-                  child: Text("Okay"),
-                  onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => AdminPage()),
-                      (Route<dynamic> route) => false),
-                )
+                  Icon(
+                    Icons.done,
+                    size: MediaQuery.of(context).size.height / 2,
+                    color: Colors.green,
+                  ),
+                  RaisedButton(
+                    child: Text("Okay"),
+                    onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => AdminPage()),
+                        (Route<dynamic> route) => false),
+                  )
               ],
-            )),
+            ),
+                )),
           )
         : Container(
             child: Column(

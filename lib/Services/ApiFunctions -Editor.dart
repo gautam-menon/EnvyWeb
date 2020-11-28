@@ -1,7 +1,5 @@
 import 'dart:convert';
-import 'dart:typed_data';
 import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
 
 class ApiFunctionsEditors {
   String confirmationUrl =
@@ -10,8 +8,7 @@ class ApiFunctionsEditors {
       "https://envytestserver.herokuapp.com/EditorPage/GetEditorDetails";
   String getOrderDetailsUrl =
       "https://envytestserver.herokuapp.com/EditorPage/showOrderDetails";
-  String submitOrderUrl =
-      "localhost:3000/order/SubmitOrder";
+  String submitOrderUrl = "https://envytestserver.herokuapp.com/order/SubmitOrder";
 
   String getUnconfirmedWorkOrdersUrl =
       "https://envytestserver.herokuapp.com/EditorPage/GetUnconfirmedWorkOrders";
@@ -62,33 +59,18 @@ class ApiFunctionsEditors {
     }
   }
 
-  Future<bool> submitOrder(
-      Uint8List image, String orderId, String userId) async {
-    try {
-      var postUri = Uri.parse(submitOrderUrl);
-      var request = new http.MultipartRequest("POST", postUri);
-      request.fields['orderId'] = orderId;
-      request.fields['uid'] = userId;
-      request.files.add(
-        http.MultipartFile.fromBytes(
-          'picture',
-          image,
-          filename: 'picture',
-          contentType: MediaType(
-            'image',
-            'jpeg',
-          ),
-        ),
-      );
-      http.Response response =
-          await http.Response.fromStream(await request.send());
-      // print("Result: ${response.statusCode}");
-      // var data = response.body;
-      // var j = json.decode(data);
-      // print(j);
-      return true;
-    } catch (e) {
-      print(e);
+  Future<bool> submitOrder(String imgUrl, String orderId, String userId) async {
+    var response = await http.post(submitOrderUrl,
+        body: {"image": imgUrl, "orderId": orderId, "uid": userId});
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
+      print(data);
+      if (data['status'] == false) {
+        return false;
+      } else {
+        return data['req'];
+      }
+    } else {
       return false;
     }
   }

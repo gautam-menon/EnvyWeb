@@ -31,33 +31,33 @@ class _SubmitPageState extends State<SubmitPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              InkWell(
-                onTap: () async {
+              // InkWell(
+              //   onTap: () async {
                   // Image fromPicker =
                   //     await ImagePickerWeb.getImage(outputType: ImageType.widget);
-                  MediaInfo mediaData = await ImagePickerWeb.getImageInfo;
+                  //MediaInfo mediaData = await ImagePickerWeb.getImageInfo;
 
-                  if (mediaData != null) {
-                    setState(() {
-                      //image = fromPicker;
-                      bytes = mediaData.data;
-                    });
-                  }
-                },
-                child: Container(
-                  color: Colors.grey,
-                  height: screen.height * 0.5,
-                  width: screen.width * 0.4,
-                  child: bytes != null
-                      ? Image.memory(bytes)
-                      : Center(
-                          child: Text(
-                          'Click here to upload an image',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        )),
-                ),
-              ),
+                  // if (mediaData != null) {
+                  //   setState(() {
+                  //     //image = fromPicker;
+                  //     bytes = mediaData.data;
+                  //   });
+                  // }
+              //  },
+                // child: Container(
+                //   color: Colors.grey,
+                //   height: screen.height * 0.5,
+                //   width: screen.width * 0.4,
+                //   child: bytes != null
+                //       ? Image.memory(bytes)
+                //       : Center(
+                //           child: Text(
+                //           'Click here to upload an image',
+                //           style: TextStyle(
+                //               fontSize: 20, fontWeight: FontWeight.bold),
+                //         )),
+                // ),
+              //),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -81,6 +81,7 @@ class _SubmitPageState extends State<SubmitPage> {
                               .put(file)
                               .future
                               .then((_) {
+                            print(_.ref.getDownloadURL().toString());
                             print(_.bytesTransferred.toString());
                           });
                         },

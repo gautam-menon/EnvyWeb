@@ -1,0 +1,370 @@
+define(['dart_sdk', 'packages/sqflite_common/src/value_utils.dart'], (function load__packages__sqflite_common__src__sql_builder_dart(dart_sdk, packages__sqflite_common__src__value_utils$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const collection = dart_sdk.collection;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const value_utils = packages__sqflite_common__src__value_utils$46dart.src__value_utils;
+  var sql_builder = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $_get = dartx._get;
+  var $length = dartx.length;
+  var $add = dartx.add;
+  var $forEach = dartx.forEach;
+  var $isEmpty = dartx.isEmpty;
+  var $keys = dartx.keys;
+  var $addAll = dartx.addAll;
+  var $toLowerCase = dartx.toLowerCase;
+  var $substring = dartx.substring;
+  var ConflictAlgorithmL = () => (ConflictAlgorithmL = dart.constFn(dart.legacy(sql_builder.ConflictAlgorithm)))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var StringLAnddynamicToNull = () => (StringLAnddynamicToNull = dart.constFn(dart.fnType(core.Null, [StringL(), dart.dynamic])))();
+  var StringLToNull = () => (StringLToNull = dart.constFn(dart.fnType(core.Null, [StringL()])))();
+  var JSArrayOfStringL = () => (JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(StringL())))();
+  var LinkedHashSetOfStringL = () => (LinkedHashSetOfStringL = dart.constFn(collection.LinkedHashSet$(StringL())))();
+  const CT = Object.create(null);
+  var L0 = "package:sqflite_common/src/sql_builder.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: sql_builder.ConflictAlgorithm.prototype,
+        [_name$]: "ConflictAlgorithm.rollback",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: sql_builder.ConflictAlgorithm.prototype,
+        [_name$]: "ConflictAlgorithm.abort",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: sql_builder.ConflictAlgorithm.prototype,
+        [_name$]: "ConflictAlgorithm.fail",
+        index: 2
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: sql_builder.ConflictAlgorithm.prototype,
+        [_name$]: "ConflictAlgorithm.ignore",
+        index: 3
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: sql_builder.ConflictAlgorithm.prototype,
+        [_name$]: "ConflictAlgorithm.replace",
+        index: 4
+      });
+    },
+    get C5() {
+      return C5 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3, C4 || CT.C4], ConflictAlgorithmL());
+    }
+  }, false);
+  var _name$ = dart.privateName(sql_builder, "_name");
+  var C0;
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  var C5;
+  sql_builder.ConflictAlgorithm = class ConflictAlgorithm extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (sql_builder.ConflictAlgorithm.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = sql_builder.ConflictAlgorithm.prototype;
+  dart.addTypeTests(sql_builder.ConflictAlgorithm);
+  dart.addTypeCaches(sql_builder.ConflictAlgorithm);
+  dart.setMethodSignature(sql_builder.ConflictAlgorithm, () => ({
+    __proto__: dart.getMethods(sql_builder.ConflictAlgorithm.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(sql_builder.ConflictAlgorithm, L0);
+  dart.setFieldSignature(sql_builder.ConflictAlgorithm, () => ({
+    __proto__: dart.getFields(sql_builder.ConflictAlgorithm.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  dart.defineExtensionMethods(sql_builder.ConflictAlgorithm, ['toString']);
+  sql_builder.ConflictAlgorithm.rollback = C0 || CT.C0;
+  sql_builder.ConflictAlgorithm.abort = C1 || CT.C1;
+  sql_builder.ConflictAlgorithm.fail = C2 || CT.C2;
+  sql_builder.ConflictAlgorithm.ignore = C3 || CT.C3;
+  sql_builder.ConflictAlgorithm.replace = C4 || CT.C4;
+  sql_builder.ConflictAlgorithm.values = C5 || CT.C5;
+  var _escapeName = dart.privateName(sql_builder, "_escapeName");
+  var _writeClause = dart.privateName(sql_builder, "_writeClause");
+  var _writeColumns = dart.privateName(sql_builder, "_writeColumns");
+  var sql = dart.privateName(sql_builder, "SqlBuilder.sql");
+  var arguments$ = dart.privateName(sql_builder, "SqlBuilder.arguments");
+  var hasEscape = dart.privateName(sql_builder, "SqlBuilder.hasEscape");
+  sql_builder.SqlBuilder = class SqlBuilder extends core.Object {
+    get sql() {
+      return this[sql];
+    }
+    set sql(value) {
+      this[sql] = value;
+    }
+    get arguments() {
+      return this[arguments$];
+    }
+    set arguments(value) {
+      this[arguments$] = value;
+    }
+    get hasEscape() {
+      return this[hasEscape];
+    }
+    set hasEscape(value) {
+      this[hasEscape] = value;
+    }
+    [_escapeName](name) {
+      if (name == null) {
+        return name;
+      }
+      if (dart.test(sql_builder.escapeNames.contains(name[$toLowerCase]()))) {
+        this.hasEscape = true;
+        return sql_builder._doEscape(name);
+      }
+      return name;
+    }
+    [_writeClause](s, name, clause) {
+      if (clause != null) {
+        s.write(name);
+        s.write(clause);
+      }
+    }
+    [_writeColumns](s, columns) {
+      let n = columns[$length];
+      for (let i = 0; i < dart.notNull(n); i = i + 1) {
+        let column = columns[$_get](i);
+        if (column != null) {
+          if (i > 0) {
+            s.write(", ");
+          }
+          s.write(this[_escapeName](column));
+        }
+      }
+      s.write(" ");
+    }
+  };
+  (sql_builder.SqlBuilder.delete = function(table, opts) {
+    let where = opts && 'where' in opts ? opts.where : null;
+    let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+    this[sql] = null;
+    this[arguments$] = null;
+    this[hasEscape] = false;
+    value_utils.checkWhereArgs(whereArgs);
+    let $delete = new core.StringBuffer.new();
+    $delete.write("DELETE FROM ");
+    $delete.write(this[_escapeName](table));
+    this[_writeClause]($delete, " WHERE ", where);
+    this.sql = $delete.toString();
+    this.arguments = whereArgs != null ? core.List.from(whereArgs) : null;
+  }).prototype = sql_builder.SqlBuilder.prototype;
+  (sql_builder.SqlBuilder.query = function(table, opts) {
+    let distinct = opts && 'distinct' in opts ? opts.distinct : null;
+    let columns = opts && 'columns' in opts ? opts.columns : null;
+    let where = opts && 'where' in opts ? opts.where : null;
+    let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+    let groupBy = opts && 'groupBy' in opts ? opts.groupBy : null;
+    let having = opts && 'having' in opts ? opts.having : null;
+    let orderBy = opts && 'orderBy' in opts ? opts.orderBy : null;
+    let limit = opts && 'limit' in opts ? opts.limit : null;
+    let offset = opts && 'offset' in opts ? opts.offset : null;
+    this[sql] = null;
+    this[arguments$] = null;
+    this[hasEscape] = false;
+    if (groupBy == null && having != null) {
+      dart.throw(new core.ArgumentError.new("HAVING clauses are only permitted when using a groupBy clause"));
+    }
+    value_utils.checkWhereArgs(whereArgs);
+    let query = new core.StringBuffer.new();
+    query.write("SELECT ");
+    if (dart.equals(distinct, true)) {
+      query.write("DISTINCT ");
+    }
+    if (columns != null && dart.test(columns[$isNotEmpty])) {
+      this[_writeColumns](query, columns);
+    } else {
+      query.write("* ");
+    }
+    query.write("FROM ");
+    query.write(this[_escapeName](table));
+    this[_writeClause](query, " WHERE ", where);
+    this[_writeClause](query, " GROUP BY ", groupBy);
+    this[_writeClause](query, " HAVING ", having);
+    this[_writeClause](query, " ORDER BY ", orderBy);
+    if (limit != null) {
+      this[_writeClause](query, " LIMIT ", dart.toString(limit));
+    }
+    if (offset != null) {
+      this[_writeClause](query, " OFFSET ", dart.toString(offset));
+    }
+    this.sql = query.toString();
+    this.arguments = whereArgs != null ? core.List.from(whereArgs) : null;
+  }).prototype = sql_builder.SqlBuilder.prototype;
+  (sql_builder.SqlBuilder.insert = function(table, values, opts) {
+    let nullColumnHack = opts && 'nullColumnHack' in opts ? opts.nullColumnHack : null;
+    let conflictAlgorithm = opts && 'conflictAlgorithm' in opts ? opts.conflictAlgorithm : null;
+    this[sql] = null;
+    this[arguments$] = null;
+    this[hasEscape] = false;
+    let insert = new core.StringBuffer.new();
+    insert.write("INSERT");
+    if (conflictAlgorithm != null) {
+      insert.write(" " + dart.str(sql_builder._conflictValues[$_get](conflictAlgorithm.index)));
+    }
+    insert.write(" INTO ");
+    insert.write(this[_escapeName](table));
+    insert.write(" (");
+    let bindArgs = null;
+    let size = values != null ? values[$length] : 0;
+    if (dart.notNull(size) > 0) {
+      let sbValues = new core.StringBuffer.new(") VALUES (");
+      bindArgs = [];
+      let i = 0;
+      values[$forEach](dart.fn((colName, value) => {
+        let t0;
+        if ((t0 = i, i = t0 + 1, t0) > 0) {
+          insert.write(", ");
+          sbValues.write(", ");
+        }
+        insert.write(this[_escapeName](colName));
+        if (value == null) {
+          sbValues.write("NULL");
+        } else {
+          value_utils.checkNonNullValue(value);
+          bindArgs[$add](value);
+          sbValues.write("?");
+        }
+      }, StringLAnddynamicToNull()));
+      insert.write(sbValues);
+    } else {
+      if (nullColumnHack == null) {
+        dart.throw(new core.ArgumentError.new("nullColumnHack required when inserting no data"));
+      }
+      insert.write(dart.notNull(nullColumnHack) + ") VALUES (NULL");
+    }
+    insert.write(")");
+    this.sql = insert.toString();
+    this.arguments = bindArgs;
+  }).prototype = sql_builder.SqlBuilder.prototype;
+  (sql_builder.SqlBuilder.update = function(table, values, opts) {
+    let where = opts && 'where' in opts ? opts.where : null;
+    let whereArgs = opts && 'whereArgs' in opts ? opts.whereArgs : null;
+    let conflictAlgorithm = opts && 'conflictAlgorithm' in opts ? opts.conflictAlgorithm : null;
+    this[sql] = null;
+    this[arguments$] = null;
+    this[hasEscape] = false;
+    if (values == null || dart.test(values[$isEmpty])) {
+      dart.throw(new core.ArgumentError.new("Empty values"));
+    }
+    value_utils.checkWhereArgs(whereArgs);
+    let update = new core.StringBuffer.new();
+    update.write("UPDATE");
+    if (conflictAlgorithm != null) {
+      update.write(" " + dart.str(sql_builder._conflictValues[$_get](conflictAlgorithm.index)));
+    }
+    update.write(" " + dart.str(this[_escapeName](table)));
+    update.write(" SET ");
+    let bindArgs = [];
+    let i = 0;
+    values[$keys][$forEach](dart.fn(colName => {
+      let t0;
+      update.write((t0 = i, i = t0 + 1, t0) > 0 ? ", " : "");
+      update.write(this[_escapeName](colName));
+      let value = values[$_get](colName);
+      if (value != null) {
+        value_utils.checkNonNullValue(value);
+        bindArgs[$add](value);
+        update.write(" = ?");
+      } else {
+        update.write(" = NULL");
+      }
+    }, StringLToNull()));
+    if (whereArgs != null) {
+      bindArgs[$addAll](whereArgs);
+    }
+    this[_writeClause](update, " WHERE ", where);
+    this.sql = update.toString();
+    this.arguments = bindArgs;
+  }).prototype = sql_builder.SqlBuilder.prototype;
+  dart.addTypeTests(sql_builder.SqlBuilder);
+  dart.addTypeCaches(sql_builder.SqlBuilder);
+  dart.setMethodSignature(sql_builder.SqlBuilder, () => ({
+    __proto__: dart.getMethods(sql_builder.SqlBuilder.__proto__),
+    [_escapeName]: dart.fnType(dart.legacy(core.String), [dart.legacy(core.String)]),
+    [_writeClause]: dart.fnType(dart.void, [dart.legacy(core.StringBuffer), dart.legacy(core.String), dart.legacy(core.String)]),
+    [_writeColumns]: dart.fnType(dart.void, [dart.legacy(core.StringBuffer), dart.legacy(core.List$(dart.legacy(core.String)))])
+  }));
+  dart.setLibraryUri(sql_builder.SqlBuilder, L0);
+  dart.setFieldSignature(sql_builder.SqlBuilder, () => ({
+    __proto__: dart.getFields(sql_builder.SqlBuilder.__proto__),
+    sql: dart.fieldType(dart.legacy(core.String)),
+    arguments: dart.fieldType(dart.legacy(core.List)),
+    hasEscape: dart.fieldType(dart.legacy(core.bool))
+  }));
+  sql_builder.isEscapedName = function isEscapedName(name) {
+    if (name != null && name.length >= 2) {
+      let first = name[$_get](0);
+      let last = name[$_get](name.length - 1);
+      if (first === last) {
+        switch (first) {
+          case "\"":
+          case "`":
+          {
+            return sql_builder.escapeNames.contains(name[$substring](1, name.length - 1)[$toLowerCase]());
+          }
+        }
+      }
+    }
+    return false;
+  };
+  sql_builder._doEscape = function _doEscape(name) {
+    return "\"" + dart.str(name) + "\"";
+  };
+  sql_builder.escapeName = function escapeName(name) {
+    if (name == null) {
+      return name;
+    }
+    if (dart.test(sql_builder.escapeNames.contains(name[$toLowerCase]()))) {
+      return sql_builder._doEscape(name);
+    }
+    return name;
+  };
+  sql_builder.unescapeName = function unescapeName(name) {
+    if (dart.test(sql_builder.isEscapedName(name))) {
+      return name[$substring](1, name.length - 1);
+    }
+    return name;
+  };
+  dart.defineLazy(sql_builder, {
+    /*sql_builder._conflictValues*/get _conflictValues() {
+      return JSArrayOfStringL().of(["OR ROLLBACK", "OR ABORT", "OR FAIL", "OR IGNORE", "OR REPLACE"]);
+    },
+    /*sql_builder.escapeNames*/get escapeNames() {
+      return LinkedHashSetOfStringL().from(["add", "all", "alter", "and", "as", "autoincrement", "between", "case", "check", "collate", "commit", "constraint", "create", "default", "deferrable", "delete", "distinct", "drop", "else", "escape", "except", "exists", "foreign", "from", "group", "having", "if", "in", "index", "insert", "intersect", "into", "is", "isnull", "join", "limit", "not", "notnull", "null", "on", "or", "order", "primary", "references", "select", "set", "table", "then", "to", "transaction", "union", "unique", "update", "using", "values", "when", "where"]);
+    }
+  }, true);
+  dart.trackLibraries("packages/sqflite_common/src/sql_builder.dart", {
+    "package:sqflite_common/src/sql_builder.dart": sql_builder
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["sql_builder.dart"],"names":[],"mappings":"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AAA8B,IAA/B,aAAW,GAAG,AAAK,AAAO,IAAR,UAAU;;;;;AAIzD,UAAO;EACT;6CAIwB;AAAS,UAAA,AAAS,iBAAN,IAAI;EAAE;+CAMjB;AACvB,QAAI,AAAK,IAAD,IAAI;AACV,YAAO,KAAI;;AAEb,kBAAI,AAAY,iCAAS,AAAK,IAAD;AAC3B,YAAO,uBAAU,IAAI;;AAEvB,UAAO,KAAI;EACb;mDAG2B;AACzB,kBAAI,0BAAc,IAAI;AACpB,YAAO,AAAK,KAAD,aAAW,GAAG,AAAK,AAAO,IAAR,UAAU;;AAEzC,UAAO,KAAI;EACb;;MApSmB,2BAAe;YAAW,wBAC3C,eACA,YACA,WACA,aACA;;MAsSgB,uBAAW;YAAW,gCACtC,OACA,OACA,SACA,OACA,MACA,iBACA,WACA,QACA,SACA,WACA,UACA,cACA,UACA,WACA,cACA,UACA,YACA,QACA,QACA,UACA,UACA,UACA,WACA,QACA,SACA,UACA,MACA,MACA,SACA,UACA,aACA,QACA,MACA,UACA,QACA,SACA,OACA,WACA,QACA,MACA,MACA,SACA,WACA,cACA,UACA,OACA,SACA,QACA,MACA,eACA,SACA,UACA,UACA,SACA,UACA,QACA","file":"../../../../../../../../../../packages/sqflite_common/src/sql_builder.dart.lib.js"}');
+  // Exports:
+  return {
+    src__sql_builder: sql_builder
+  };
+}));
+
+//# sourceMappingURL=sql_builder.dart.lib.js.map

@@ -1,1 +1,605 @@
-{"web_entrypoint.dart":"156245140","packages/envyweb/generated_plugin_registrant.dart":"886101808","packages/flutter_web_plugins/flutter_web_plugins.dart":"297418170","packages/flutter_web_plugins/src/plugin_registry.dart":"7592534","packages/flutter/services.dart":"798073648","packages/flutter/src/services/text_input.dart":"241496936","packages/flutter/src/services/text_editing.dart":"537915121","packages/flutter/foundation.dart":"321536495","packages/flutter/src/foundation/unicode.dart":"823110448","packages/flutter/src/foundation/synchronous_future.dart":"708839167","packages/flutter/src/foundation/stack_frame.dart":"752267272","packages/flutter/src/foundation/object.dart":"168663975","packages/flutter/src/foundation/constants.dart":"51183209","packages/meta/meta.dart":"953585321","packages/meta/meta_meta.dart":"328581603","packages/flutter/src/foundation/serialization.dart":"521013393","packages/typed_data/typed_buffers.dart":"101265454","packages/typed_data/src/typed_buffer.dart":"881425153","packages/flutter/src/foundation/print.dart":"628507445","packages/flutter/src/foundation/_platform_web.dart":"978524387","packages/flutter/src/foundation/observer_list.dart":"725035876","packages/flutter/src/foundation/node.dart":"2811411","packages/flutter/src/foundation/licenses.dart":"728340337","packages/flutter/src/foundation/key.dart":"869681113","packages/flutter/src/foundation/_isolates_web.dart":"473834090","packages/flutter/src/foundation/debug.dart":"614134951","packages/flutter/src/foundation/basic_types.dart":"375256119","packages/flutter/src/foundation/consolidate_response.dart":"248895778","packages/flutter/src/foundation/collections.dart":"640459219","packages/flutter/src/foundation/change_notifier.dart":"326562159","packages/flutter/src/foundation/_bitfield_web.dart":"249232003","packages/flutter/src/foundation/binding.dart":"816141949","packages/flutter/src/foundation/annotations.dart":"652927032","packages/flutter/src/services/system_chrome.dart":"122443502","packages/flutter/src/services/system_channels.dart":"617033217","packages/flutter/scheduler.dart":"1062265113","packages/flutter/src/scheduler/ticker.dart":"412818804","packages/flutter/src/scheduler/binding.dart":"534970593","packages/flutter/src/scheduler/priority.dart":"384185151","packages/flutter/src/scheduler/debug.dart":"963937402","packages/collection/src/union_set_controller.dart":"1015649369","packages/collection/src/queue_list.dart":"657215399","packages/collection/src/priority_queue.dart":"447181887","packages/collection/src/utils.dart":"63523058","packages/collection/src/list_extensions.dart":"728117609","packages/collection/src/equality.dart":"170197871","packages/collection/src/comparators.dart":"43895021","packages/collection/src/algorithms.dart":"176386747","packages/collection/src/iterable_zip.dart":"465631112","packages/collection/src/iterable_extensions.dart":"539720294","packages/collection/src/functions.dart":"630134084","packages/collection/src/combined_wrappers/combined_map.dart":"953914837","packages/collection/src/combined_wrappers/combined_iterable.dart":"341574920","packages/collection/src/combined_wrappers/combined_iterator.dart":"1018866166","packages/collection/src/combined_wrappers/combined_list.dart":"141682221","packages/collection/src/canonicalized_map.dart":"497330550","packages/vector_math/vector_math_64.dart":"372815146","packages/vector_math/hash.dart":"701485502","packages/flutter/src/services/text_formatter.dart":"87602504","packages/characters/characters.dart":"276605944","packages/characters/src/extensions.dart":"768299219","packages/characters/src/characters_impl.dart":"927873861","packages/characters/src/grapheme_clusters/breaks.dart":"865938054","packages/characters/src/grapheme_clusters/table.dart":"782598360","packages/characters/src/grapheme_clusters/constants.dart":"645572574","packages/flutter/src/services/system_sound.dart":"651565646","packages/flutter/src/services/system_navigator.dart":"813810527","packages/flutter/src/services/raw_keyboard_windows.dart":"165445328","packages/flutter/src/services/keyboard_maps.dart":"297659095","packages/flutter/src/services/keyboard_key.dart":"307707252","packages/flutter/src/services/platform_views.dart":"339454701","packages/flutter/gestures.dart":"502035114","packages/flutter/src/gestures/velocity_tracker.dart":"209576417","packages/flutter/src/gestures/lsq_solver.dart":"805281358","packages/flutter/src/gestures/events.dart":"663232815","packages/flutter/src/gestures/constants.dart":"618245047","packages/flutter/src/gestures/team.dart":"558204841","packages/flutter/src/gestures/binding.dart":"868969765","packages/flutter/src/gestures/resampler.dart":"205045070","packages/flutter/src/gestures/pointer_signal_resolver.dart":"985648640","packages/flutter/src/gestures/pointer_router.dart":"167157493","packages/flutter/src/gestures/hit_test.dart":"74433561","packages/flutter/src/gestures/debug.dart":"698756365","packages/flutter/src/gestures/converter.dart":"463668101","packages/flutter/src/gestures/arena.dart":"631707067","packages/flutter/src/gestures/tap.dart":"551520112","packages/flutter/src/gestures/recognizer.dart":"469084871","packages/flutter/src/gestures/scale.dart":"348487268","packages/flutter/src/gestures/multitap.dart":"930599417","packages/flutter/src/gestures/multidrag.dart":"884462817","packages/flutter/src/gestures/drag_details.dart":"231262442","packages/flutter/src/gestures/drag.dart":"431790470","packages/flutter/src/gestures/monodrag.dart":"931701962","packages/flutter/src/gestures/long_press.dart":"113641596","packages/flutter/src/gestures/force_press.dart":"736946427","packages/flutter/src/gestures/eager.dart":"580880477","packages/flutter/src/services/platform_messages.dart":"128140213","packages/flutter/src/services/haptic_feedback.dart":"192649788","packages/flutter/src/services/font_loader.dart":"947169427","packages/flutter/src/services/clipboard.dart":"394800643","packages/flutter_web_plugins/src/plugin_event_channel.dart":"402825539","packages/flutter_web_plugins/src/navigation/js_url_strategy.dart":"947177865","packages/flutter_web_plugins/src/navigation/utils.dart":"125081043","packages/js/js.dart":"795458473","packages/image_picker_web/image_picker_web.dart":"855054146","packages/image_picker_web/src/Models/Types.dart":"569841829","packages/image_picker_web/src/web_image_picker.dart":"429550791","packages/flutter/widgets.dart":"902195432","packages/flutter/src/widgets/will_pop_scope.dart":"776014127","packages/flutter/src/widgets/widget_span.dart":"624524338","packages/flutter/rendering.dart":"724255805","packages/flutter/src/rendering/wrap.dart":"246824334","packages/flutter/src/rendering/layer.dart":"799977314","packages/flutter/painting.dart":"950817086","packages/flutter/src/painting/strut_style.dart":"116281657","packages/flutter/src/painting/basic_types.dart":"841185513","packages/flutter/src/painting/colors.dart":"819235771","packages/flutter/src/painting/placeholder_span.dart":"731774558","packages/flutter/src/painting/stadium_border.dart":"330636393","packages/flutter/src/painting/rounded_rectangle_border.dart":"651535218","packages/flutter/src/painting/edge_insets.dart":"549715081","packages/flutter/src/painting/circle_border.dart":"114328549","packages/flutter/src/painting/borders.dart":"81834676","packages/flutter/src/painting/border_radius.dart":"853834190","packages/flutter/src/painting/shape_decoration.dart":"202411027","packages/flutter/src/painting/_network_image_web.dart":"730866637","packages/flutter/src/painting/image_stream.dart":"309693715","packages/flutter/src/painting/image_cache.dart":"332235733","packages/flutter/src/painting/binding.dart":"417860572","packages/flutter/src/painting/shader_warm_up.dart":"989391542","packages/flutter/src/painting/gradient.dart":"964378174","packages/flutter/src/painting/alignment.dart":"944752574","packages/flutter/src/painting/decoration_image.dart":"614395717","packages/flutter/src/painting/debug.dart":"406250954","packages/flutter/src/painting/box_fit.dart":"200651014","packages/flutter/src/painting/decoration.dart":"897428191","packages/flutter/src/painting/box_shadow.dart":"483768168","packages/flutter/src/painting/box_decoration.dart":"988869233","packages/flutter/src/painting/box_border.dart":"803270037","packages/flutter/src/painting/paint_utilities.dart":"52202951","packages/flutter/src/painting/notched_shapes.dart":"695070266","packages/flutter/src/painting/matrix_utils.dart":"493538233","packages/flutter/src/painting/image_resolution.dart":"86573884","packages/flutter/src/painting/image_decoder.dart":"189989698","packages/flutter/src/painting/geometry.dart":"684124031","packages/flutter/src/painting/fractional_offset.dart":"918104866","packages/flutter/src/painting/flutter_logo.dart":"452764377","packages/flutter/src/painting/continuous_rectangle_border.dart":"256996699","packages/flutter/src/painting/clip.dart":"990874367","packages/flutter/src/painting/beveled_rectangle_border.dart":"291652470","packages/flutter/semantics.dart":"808814566","packages/flutter/src/semantics/semantics_service.dart":"950270333","packages/flutter/src/semantics/semantics_event.dart":"409213421","packages/flutter/src/semantics/semantics.dart":"325918341","packages/flutter/src/semantics/binding.dart":"704915841","packages/flutter/src/semantics/debug.dart":"104365058","packages/flutter/animation.dart":"837646871","packages/flutter/src/animation/tween_sequence.dart":"1014519796","packages/flutter/src/animation/listener_helpers.dart":"618950273","packages/flutter/src/animation/curves.dart":"863069440","packages/flutter/src/animation/animation_controller.dart":"203177114","packages/flutter/physics.dart":"874728310","packages/flutter/src/physics/utils.dart":"661062275","packages/flutter/src/physics/tolerance.dart":"513185740","packages/flutter/src/physics/spring_simulation.dart":"902102344","packages/flutter/src/physics/simulation.dart":"169878322","packages/flutter/src/physics/gravity_simulation.dart":"422080613","packages/flutter/src/physics/friction_simulation.dart":"132930039","packages/flutter/src/physics/clamped_simulation.dart":"892308528","packages/flutter/src/rendering/viewport_offset.dart":"846888384","packages/flutter/src/rendering/sliver.dart":"734830917","packages/flutter/src/rendering/tweens.dart":"719344811","packages/flutter/src/rendering/texture.dart":"467401094","packages/flutter/src/rendering/table_border.dart":"546337040","packages/flutter/src/rendering/table.dart":"180527367","packages/flutter/src/rendering/stack.dart":"141987955","packages/flutter/src/rendering/sliver_persistent_header.dart":"396190427","packages/flutter/src/rendering/sliver_padding.dart":"930856427","packages/flutter/src/rendering/sliver_multi_box_adaptor.dart":"871051948","packages/flutter/src/rendering/sliver_list.dart":"102329272","packages/flutter/src/rendering/sliver_grid.dart":"377229102","packages/flutter/src/rendering/sliver_fixed_extent_list.dart":"688928853","packages/flutter/src/rendering/sliver_fill.dart":"617823971","packages/flutter/src/rendering/shifted_box.dart":"499535982","packages/flutter/src/rendering/debug_overflow_indicator.dart":"105077656","packages/flutter/src/rendering/rotated_box.dart":"347092295","packages/flutter/src/rendering/proxy_sliver.dart":"229527952","packages/flutter/src/rendering/proxy_box.dart":"384215205","packages/flutter/src/rendering/platform_view.dart":"388478831","packages/flutter/src/rendering/performance_overlay.dart":"448963309","packages/flutter/src/rendering/paragraph.dart":"33525621","packages/flutter/src/rendering/list_wheel_viewport.dart":"942865707","packages/flutter/src/rendering/list_body.dart":"825864393","packages/flutter/src/rendering/image.dart":"72031196","packages/flutter/src/rendering/flow.dart":"664614867","packages/flutter/src/rendering/flex.dart":"85062405","packages/flutter/src/rendering/error.dart":"586456463","packages/flutter/src/rendering/editable.dart":"322236569","packages/flutter/src/rendering/custom_paint.dart":"271087287","packages/flutter/src/rendering/custom_layout.dart":"339951939","packages/flutter/src/rendering/animated_size.dart":"923580756","packages/flutter/src/widgets/constants.dart":"494679738","packages/flutter/src/widgets/scroll_simulation.dart":"815146120","packages/flutter/src/widgets/scroll_metrics.dart":"844541399","packages/flutter/src/widgets/value_listenable_builder.dart":"386769290","packages/flutter/src/widgets/unique_widget.dart":"825544948","packages/flutter/src/widgets/tween_animation_builder.dart":"78970663","packages/flutter/src/widgets/implicit_animations.dart":"780221616","packages/flutter/src/widgets/texture.dart":"132522563","packages/flutter/src/widgets/status_transitions.dart":"359494648","packages/flutter/src/widgets/spacer.dart":"773438864","packages/flutter/src/widgets/sliver_prototype_extent_list.dart":"753896296","packages/flutter/src/widgets/sliver_persistent_header.dart":"876047565","packages/flutter/src/widgets/sliver_layout_builder.dart":"149980359","packages/flutter/src/widgets/layout_builder.dart":"839643552","packages/flutter/src/widgets/sliver_fill.dart":"1058442594","packages/flutter/src/widgets/size_changed_layout_notifier.dart":"418740953","packages/flutter/src/widgets/single_child_scroll_view.dart":"749238636","packages/flutter/src/widgets/primary_scroll_controller.dart":"977496379","packages/flutter/src/widgets/scrollbar.dart":"112366084","packages/flutter/src/widgets/scroll_view.dart":"458253333","packages/flutter/src/widgets/safe_area.dart":"457948059","packages/flutter/src/widgets/raw_keyboard_listener.dart":"848354620","packages/flutter/src/widgets/preferred_size.dart":"289628784","packages/flutter/src/widgets/platform_view.dart":"1001074105","packages/flutter/src/widgets/placeholder.dart":"880406248","packages/flutter/src/widgets/page_view.dart":"769315134","packages/flutter/src/widgets/overflow_bar.dart":"1070498106","packages/flutter/src/widgets/orientation_builder.dart":"819540912","packages/flutter/src/widgets/nested_scroll_view.dart":"367332507","packages/flutter/src/widgets/navigation_toolbar.dart":"666125465","packages/flutter/src/widgets/list_wheel_scroll_view.dart":"200492196","packages/flutter/src/widgets/interactive_viewer.dart":"992234434","packages/flutter/src/widgets/image_icon.dart":"997175468","packages/flutter/src/widgets/icon_theme_data.dart":"994263154","packages/flutter/src/widgets/icon_theme.dart":"27395940","packages/flutter/src/widgets/icon.dart":"333055737","packages/flutter/src/widgets/icon_data.dart":"449528867","packages/flutter/src/widgets/image_filter.dart":"348354560","packages/flutter/src/widgets/grid_paper.dart":"794876890","packages/flutter/src/widgets/form.dart":"72043790","packages/flutter/src/widgets/fade_in_image.dart":"637627489","packages/flutter/src/widgets/dual_transition_builder.dart":"978278424","packages/flutter/src/widgets/draggable_scrollable_sheet.dart":"1005151022","packages/flutter/src/widgets/drag_target.dart":"378790215","packages/flutter/src/widgets/dismissible.dart":"1018220244","packages/flutter/src/widgets/color_filter.dart":"604477324","packages/flutter/src/widgets/bottom_navigation_bar_item.dart":"967611805","packages/flutter/src/widgets/autocomplete.dart":"353475921","packages/flutter/src/widgets/async.dart":"759176212","packages/flutter/src/widgets/annotated_region.dart":"559239077","packages/flutter/src/widgets/animated_switcher.dart":"104141189","packages/flutter/src/widgets/animated_size.dart":"831022761","packages/flutter/src/widgets/animated_list.dart":"159075565","packages/flutter/src/widgets/animated_cross_fade.dart":"468517161","packages/firebase_core_web/firebase_core_web.dart":"510130068","packages/firebase_core_web/src/interop/core.dart":"45929631","packages/firebase_core_web/src/interop/app_interop.dart":"533356438","packages/firebase_core_web/src/interop/utils/es6_interop.dart":"534200816","packages/firebase_core_web/src/interop/utils/func.dart":"365022719","packages/firebase_core_web/src/interop/app.dart":"858807288","packages/firebase_core_web/src/interop/utils/utils.dart":"611750988","packages/firebase_core_web/src/interop/utils/js_interop.dart":"138155572","packages/js/js_util.dart":"93794499","packages/firebase_core_web/src/interop/utils/js.dart":"997969172","packages/firebase_core_platform_interface/firebase_core_platform_interface.dart":"655458780","packages/quiver/core.dart":"321930123","packages/plugin_platform_interface/plugin_platform_interface.dart":"667575173","packages/flutter/cupertino.dart":"639291126","packages/flutter/src/cupertino/thumb_painter.dart":"192521679","packages/flutter/src/cupertino/text_theme.dart":"615671439","packages/flutter/src/cupertino/interface_level.dart":"514599438","packages/flutter/src/cupertino/text_selection.dart":"500518565","packages/flutter/src/cupertino/debug.dart":"623319266","packages/flutter/src/cupertino/button.dart":"714953133","packages/flutter/src/cupertino/constants.dart":"413897320","packages/flutter/src/cupertino/text_field.dart":"452009009","packages/flutter/src/cupertino/icons.dart":"566845345","packages/flutter/src/cupertino/tab_view.dart":"848422943","packages/flutter/src/cupertino/route.dart":"324557320","packages/flutter/src/cupertino/app.dart":"194953410","packages/flutter/src/cupertino/tab_scaffold.dart":"162356281","packages/flutter/src/cupertino/bottom_tab_bar.dart":"794519949","packages/flutter/src/cupertino/switch.dart":"610522254","packages/flutter/src/cupertino/sliding_segmented_control.dart":"985499984","packages/flutter/src/cupertino/slider.dart":"1068605043","packages/flutter/src/cupertino/segmented_control.dart":"709426858","packages/flutter/src/cupertino/search_field.dart":"732694302","packages/flutter/src/cupertino/scrollbar.dart":"322877057","packages/flutter/src/cupertino/refresh.dart":"277441772","packages/flutter/src/cupertino/activity_indicator.dart":"330119013","packages/flutter/src/cupertino/picker.dart":"710004691","packages/flutter/src/cupertino/page_scaffold.dart":"49096298","packages/flutter/src/cupertino/nav_bar.dart":"768100200","packages/flutter/src/cupertino/dialog.dart":"639164699","packages/flutter/src/cupertino/date_picker.dart":"625507099","packages/flutter/src/cupertino/context_menu_action.dart":"509314518","packages/flutter/src/cupertino/context_menu.dart":"882985302","packages/flutter/src/cupertino/action_sheet.dart":"99681485","packages/firebase_auth_web/firebase_auth_web.dart":"939264933","packages/firebase_auth_web/src/firebase_auth_web_confirmation_result.dart":"590443375","packages/firebase_auth_web/src/utils/web_utils.dart":"562748676","packages/firebase_core_web/firebase_core_web_interop.dart":"145307134","packages/firebase_auth_web/src/interop/auth.dart":"371611782","packages/firebase_auth_web/src/interop/auth_interop.dart":"307328653","packages/firebase_auth_web/src/interop/utils/utils.dart":"634108129","packages/firebase_auth_web/src/interop/firebase_interop.dart":"673800716","packages/http_parser/http_parser.dart":"535536399","packages/http_parser/src/media_type.dart":"886916381","packages/http_parser/src/utils.dart":"998554614","packages/source_span/source_span.dart":"816815277","packages/source_span/src/location_mixin.dart":"1036077498","packages/source_span/src/colors.dart":"291047689","packages/term_glyph/src/generated/top_level.dart":"112014878","packages/term_glyph/src/generated/unicode_glyph_set.dart":"805020825","packages/term_glyph/src/generated/glyph_set.dart":"365147318","packages/term_glyph/src/generated/ascii_glyph_set.dart":"146459200","packages/path/src/path_set.dart":"839515564","packages/path/src/utils.dart":"643133162","packages/path/src/characters.dart":"834668450","packages/path/src/path_exception.dart":"854502129","packages/charcode/charcode.dart":"1056764584","packages/charcode/html_entity.dart":"1004823701","packages/charcode/ascii.dart":"460100594","packages/source_span/src/span_exception.dart":"1030553293","packages/http_parser/src/scan.dart":"137285787","packages/string_scanner/string_scanner.dart":"572086452","packages/string_scanner/src/utils.dart":"919283580","packages/string_scanner/src/relative_span_scanner.dart":"868053399","packages/string_scanner/src/line_scanner.dart":"750830543","packages/http_parser/src/case_insensitive_map.dart":"913089099","packages/http_parser/src/http_date.dart":"777330205","packages/http_parser/src/chunked_coding.dart":"231492312","packages/http_parser/src/chunked_coding/encoder.dart":"37249231","packages/http_parser/src/chunked_coding/decoder.dart":"519663245","packages/typed_data/typed_data.dart":"593453370","packages/typed_data/src/typed_queue.dart":"142186334","packages/http_parser/src/authentication_challenge.dart":"108435996","packages/firebase_auth_platform_interface/src/providers/twitter_auth.dart":"1015063462","packages/firebase_auth_platform_interface/src/auth_provider.dart":"387790049","packages/firebase_auth_platform_interface/src/providers/saml_auth.dart":"833265860","packages/flutter/material.dart":"42384422","packages/flutter/src/material/user_accounts_drawer_header.dart":"38521648","packages/flutter/src/material/icon_button.dart":"566194816","packages/flutter/src/material/typography.dart":"634461641","packages/flutter/src/material/colors.dart":"893238254","packages/flutter/src/material/input_border.dart":"614247055","packages/flutter/src/material/constants.dart":"95963227","packages/flutter/src/material/material_state.dart":"67127816","packages/flutter/src/material/tab_indicator.dart":"331339345","packages/flutter/src/material/tab_controller.dart":"357799274","packages/flutter/src/material/floating_action_button_theme.dart":"101224330","packages/flutter/src/material/curves.dart":"495069131","packages/flutter/src/material/bottom_sheet_theme.dart":"706691791","packages/flutter/src/material/icons.dart":"32627086","packages/flutter/src/material/drawer_header.dart":"881186108","packages/flutter/src/material/toggleable.dart":"626184347","packages/flutter/src/material/toggle_buttons.dart":"1043608511","packages/flutter/src/material/time_picker.dart":"888074675","packages/flutter/src/material/text_form_field.dart":"742807759","packages/flutter/src/material/text_field.dart":"326121187","packages/flutter/src/material/text_selection.dart":"374771668","packages/flutter/src/material/selectable_text.dart":"812866664","packages/flutter/src/material/switch_list_tile.dart":"1025290949","packages/flutter/src/material/switch.dart":"430014881","packages/flutter/src/material/shadows.dart":"246281358","packages/flutter/src/material/stepper.dart":"527574833","packages/flutter/src/material/slider.dart":"116115006","packages/flutter/src/material/search.dart":"855891301","packages/flutter/src/material/scrollbar.dart":"612141744","packages/flutter/src/material/reorderable_list.dart":"1060880877","packages/flutter/src/material/refresh_indicator.dart":"944466532","packages/flutter/src/material/progress_indicator.dart":"524285259","packages/flutter/src/material/range_slider.dart":"656975575","packages/flutter/src/material/radio_list_tile.dart":"527884453","packages/flutter/src/material/radio.dart":"575816478","packages/flutter/src/material/popup_menu.dart":"200125042","packages/flutter/src/material/pickers/pickers.dart":"102693829","packages/flutter/src/material/pickers/input_date_picker.dart":"610257678","packages/flutter/src/material/pickers/date_utils.dart":"958546888","packages/flutter/src/material/pickers/date_picker_common.dart":"330717229","packages/flutter/src/material/pickers/date_range_picker_dialog.dart":"433442252","packages/flutter/src/material/pickers/input_date_range_picker.dart":"521881717","packages/flutter/src/material/pickers/date_picker_header.dart":"997968070","packages/flutter/src/material/pickers/calendar_date_range_picker.dart":"1064828443","packages/flutter/src/material/pickers/date_picker_dialog.dart":"675616648","packages/flutter/src/material/pickers/calendar_date_picker.dart":"1048852752","packages/flutter/src/material/pickers/date_picker_deprecated.dart":"372619335","packages/flutter/src/material/paginated_data_table.dart":"890719246","packages/flutter/src/material/ink_decoration.dart":"46750525","packages/flutter/src/material/dropdown.dart":"849801875","packages/flutter/src/material/data_table_source.dart":"21457415","packages/flutter/src/material/data_table.dart":"566542200","packages/flutter/src/material/checkbox.dart":"766626533","packages/flutter/src/material/card.dart":"65589881","packages/flutter/src/material/page.dart":"824195788","packages/flutter/src/material/outlined_button.dart":"1001542441","packages/flutter/src/material/mergeable_material.dart":"23289396","packages/flutter/src/material/grid_tile_bar.dart":"787695743","packages/flutter/src/material/grid_tile.dart":"454908319","packages/flutter/src/material/flutter_logo.dart":"764603282","packages/flutter/src/material/expansion_tile.dart":"888665314","packages/flutter/src/material/expansion_panel.dart":"903831024","packages/flutter/src/material/expand_icon.dart":"437633353","packages/flutter/src/material/elevated_button.dart":"5840893","packages/flutter/src/material/circle_avatar.dart":"486850370","packages/flutter/src/material/chip.dart":"571756825","packages/flutter/src/material/checkbox_list_tile.dart":"438746956","packages/flutter/src/material/bottom_app_bar.dart":"1035459558","packages/flutter/src/material/banner.dart":"317873719","packages/flutter/src/material/arc.dart":"77093195","packages/flutter/src/material/app.dart":"512314565","packages/flutter/src/material/animated_icons.dart":"94430338","packages/flutter/src/material/about.dart":"69697963","packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart":"849398974","packages/firebase_auth_platform_interface/src/auth_credential.dart":"81575894","packages/firebase_core/firebase_core.dart":"1044346450","packages/firebase_auth_platform_interface/src/additional_user_info.dart":"975106645","packages/firebase_auth_platform_interface/src/user_info.dart":"582402942","packages/firebase_auth_platform_interface/src/id_token_result.dart":"416818504","packages/firebase_auth_platform_interface/src/user_metadata.dart":"710249303","packages/firebase_auth_platform_interface/src/action_code_settings.dart":"1013184956","packages/firebase_auth_platform_interface/src/action_code_info.dart":"381884245","packages/intl/src/intl_helpers.dart":"618511218","packages/intl/src/plural_rules.dart":"218594776","packages/intl/date_symbols.dart":"866612035","packages/intl/number_symbols_data.dart":"891780814","packages/intl/number_symbols.dart":"115926433","packages/firebase_auth_web/src/firebase_auth_web_recaptcha_verifier_factory.dart":"458862212","packages/envyweb/main.dart":"420840794","packages/envyweb/Screens/Editor/Dashboard.dart":"279084694","packages/envyweb/Screens/Editor/SubmitPage.dart":"675472903","packages/firebase/firebase.dart":"218159460","packages/firebase/src/top_level.dart":"635498922","packages/firebase/src/interop/storage_interop.dart":"614205680","packages/firebase/src/interop/es6_interop.dart":"179772456","packages/firebase/src/func.dart":"484987865","packages/firebase/src/interop/functions_interop.dart":"247097279","packages/firebase/src/interop/performance_interop.dart":"555682390","packages/firebase/src/interop/messaging_interop.dart":"995994213","packages/firebase/src/interop/analytics_interop.dart":"541683239","packages/firebase/src/interop/remote_config_interop.dart":"918149916","packages/firebase/src/storage.dart":"204287577","packages/firebase/src/interop/js_interop.dart":"160464248","packages/firebase/src/js.dart":"745071342","packages/firebase/src/remote_config.dart":"730665014","packages/firebase/src/performance.dart":"433539090","packages/firebase/src/messaging.dart":"567015980","packages/firebase/src/analytics.dart":"286324451","packages/envyweb/Screens/Editor/AcceptedOrders.dart":"422590434","packages/envyweb/Screens/Editor/OrderPage.dart":"354143256","packages/http/http.dart":"574261194","packages/http/src/browser_client.dart":"764116022","packages/http/src/utils.dart":"293124820","packages/http/src/byte_stream.dart":"218165860","packages/http/src/exception.dart":"832026902","packages/pedantic/pedantic.dart":"749321091","packages/http/src/streamed_request.dart":"563664310","packages/http/src/multipart_request.dart":"963627329","packages/http/src/multipart_file_stub.dart":"844714166","packages/http/src/boundary_characters.dart":"911988461","packages/envyweb/Services/ApiFunctions%20-Editor.dart":"1069527176","packages/cached_network_image/src/image_provider/_load_async_web.dart":"21585905","packages/flutter_cache_manager/src/web/web_helper.dart":"86751665","packages/uuid/uuid.dart":"434799794","packages/convert/convert.dart":"239311890","packages/convert/src/string_accumulator_sink.dart":"686887447","packages/convert/src/percent.dart":"29062614","packages/convert/src/percent/decoder.dart":"760835163","packages/convert/src/utils.dart":"922206525","packages/convert/src/percent/encoder.dart":"883579411","packages/convert/src/identity_codec.dart":"365096812","packages/convert/src/hex.dart":"16672677","packages/convert/src/hex/decoder.dart":"48870601","packages/convert/src/hex/encoder.dart":"319472403","packages/convert/src/byte_accumulator_sink.dart":"857959557","packages/convert/src/accumulator_sink.dart":"634333139","packages/crypto/crypto.dart":"867341036","packages/crypto/src/sha512.dart":"944467664","packages/crypto/src/utils.dart":"492405023","packages/crypto/src/sha512_slowsinks.dart":"449290070","packages/crypto/src/hash_sink.dart":"540696879","packages/crypto/src/digest.dart":"798613725","packages/crypto/src/hash.dart":"808300178","packages/crypto/src/digest_sink.dart":"591350161","packages/crypto/src/sha256.dart":"206494477","packages/crypto/src/sha1.dart":"508083376","packages/crypto/src/md5.dart":"1006618236","packages/crypto/src/hmac.dart":"503217273","packages/uuid/uuid_util.dart":"446364394","packages/rxdart/src/subjects/replay_subject.dart":"308104936","packages/rxdart/transformers.dart":"463598674","packages/rxdart/src/transformers/backpressure/window.dart":"428139376","packages/rxdart/src/transformers/backpressure/backpressure.dart":"593224588","packages/rxdart/src/utils/forwarding_stream.dart":"719422449","packages/rxdart/src/utils/forwarding_sink.dart":"400742997","packages/rxdart/src/transformers/backpressure/throttle.dart":"284218229","packages/rxdart/src/streams/timer.dart":"690816997","packages/rxdart/src/transformers/backpressure/sample.dart":"712812274","packages/rxdart/src/transformers/backpressure/pairwise.dart":"354344653","packages/rxdart/src/streams/never.dart":"164861060","packages/rxdart/src/transformers/backpressure/debounce.dart":"203601252","packages/rxdart/src/transformers/backpressure/buffer.dart":"1062875934","packages/rxdart/src/utils/notification.dart":"85281892","packages/rxdart/src/transformers/with_latest_from.dart":"849327602","packages/rxdart/src/transformers/where_type.dart":"563246016","packages/rxdart/src/transformers/timestamp.dart":"71938754","packages/rxdart/src/transformers/time_interval.dart":"189555081","packages/rxdart/src/transformers/take_while_inclusive.dart":"914762397","packages/rxdart/src/transformers/take_until.dart":"675544476","packages/rxdart/src/transformers/switch_map.dart":"500608166","packages/rxdart/src/transformers/switch_if_empty.dart":"674134101","packages/rxdart/src/transformers/start_with_many.dart":"383150746","packages/rxdart/src/transformers/start_with.dart":"763628701","packages/rxdart/src/transformers/skip_until.dart":"846074412","packages/rxdart/src/transformers/scan.dart":"79721164","packages/rxdart/src/transformers/max.dart":"440973496","packages/rxdart/src/utils/min_max.dart":"59492687","packages/rxdart/src/transformers/min.dart":"469052456","packages/rxdart/src/transformers/on_error_resume.dart":"562384859","packages/rxdart/src/transformers/materialize.dart":"655317110","packages/rxdart/src/transformers/map_to.dart":"484083277","packages/rxdart/src/transformers/interval.dart":"116712985","packages/rxdart/src/transformers/ignore_elements.dart":"884771345","packages/rxdart/src/transformers/group_by.dart":"413613133","packages/rxdart/src/transformers/flat_map.dart":"495461900","packages/rxdart/src/transformers/exhaust_map.dart":"1741302","packages/rxdart/src/transformers/end_with_many.dart":"608818241","packages/rxdart/src/transformers/end_with.dart":"963581138","packages/rxdart/src/transformers/do.dart":"591815905","packages/rxdart/src/transformers/distinct_unique.dart":"797765397","packages/rxdart/src/transformers/dematerialize.dart":"158357616","packages/rxdart/src/transformers/delay.dart":"872123992","packages/rxdart/src/transformers/default_if_empty.dart":"362424359","packages/rxdart/src/transformers/start_with_error.dart":"817423571","packages/rxdart/src/subjects/subject.dart":"593329987","packages/rxdart/src/streams/replay_stream.dart":"299729944","packages/rxdart/src/streams/zip.dart":"30894875","packages/rxdart/src/streams/value_stream.dart":"632293221","packages/rxdart/src/streams/utils.dart":"397294067","packages/rxdart/src/streams/switch_latest.dart":"428759291","packages/rxdart/src/streams/sequence_equal.dart":"587461569","packages/rxdart/src/streams/retry_when.dart":"1067626425","packages/rxdart/src/streams/retry.dart":"255803182","packages/rxdart/src/streams/repeat.dart":"351085047","packages/rxdart/src/streams/range.dart":"635371138","packages/rxdart/src/streams/race.dart":"766018059","packages/rxdart/src/streams/merge.dart":"493750313","packages/rxdart/src/streams/fork_join.dart":"722813031","packages/rxdart/src/streams/defer.dart":"3999993","packages/rxdart/src/streams/concat_eager.dart":"389866391","packages/rxdart/src/streams/concat.dart":"429656445","packages/rxdart/src/streams/combine_latest.dart":"31500464","packages/rxdart/src/subjects/publish_subject.dart":"946092072","packages/rxdart/src/utils/composite_subscription.dart":"208300948","packages/flutter_cache_manager/src/result/file_info.dart":"865463900","packages/flutter_cache_manager/src/result/file_response.dart":"161373825","packages/flutter_cache_manager/src/web/file_service.dart":"751292700","packages/flutter_cache_manager/src/web/mime_converter.dart":"349405765","packages/clock/src/stopwatch.dart":"898480792","packages/clock/src/utils.dart":"269747863","packages/flutter_cache_manager/src/cache_store.dart":"451022956","packages/sqflite/src/factory_impl.dart":"665498796","packages/sqflite/sqlite_api.dart":"838944372","packages/sqflite_common/src/open_options.dart":"235464320","packages/sqflite_common/src/exception.dart":"541484560","packages/sqflite_common/src/constant.dart":"498484505","packages/sqflite_common/sql.dart":"436668314","packages/sqflite_common/src/sql_builder.dart":"666582608","packages/sqflite_common/src/value_utils.dart":"943423640","packages/sqflite_common/src/env_utils.dart":"789147867","packages/sqflite/src/sqflite_impl.dart":"707726641","packages/sqflite/src/services_impl.dart":"229586788","packages/sqflite/src/exception_impl.dart":"684450532","packages/sqflite/src/sqflite_import.dart":"948966418","packages/sqflite_common/src/mixin/factory.dart":"656458654","packages/synchronized/src/reentrant_lock.dart":"452894200","packages/synchronized/src/utils.dart":"438096782","packages/sqflite_common/src/utils.dart":"138674474","packages/sqflite_common/utils/utils.dart":"89524867","packages/sqflite_common/src/collection_utils.dart":"908139557","packages/sqflite_common/src/mixin/constant.dart":"674982767","packages/sqflite_common/src/compat.dart":"793307165","packages/sqflite/src/compat.dart":"638109556","packages/sqflite/sql.dart":"61917596","packages/sqflite/src/sql_builder.dart":"251115937","packages/sqflite/utils/utils.dart":"415011626","packages/sqflite/src/utils.dart":"192778174","packages/sqflite/src/constant.dart":"384823962","packages/flutter_cache_manager/src/storage/cache_object_provider.dart":"518201396","packages/flutter_cache_manager/src/storage/cache_object.dart":"133689386","packages/flutter_cache_manager/src/storage/cache_info_repository.dart":"721858386","packages/file/src/forwarding/forwarding_link.dart":"476660893","packages/file/src/interface.dart":"772315541","packages/file/src/io.dart":"318943901","packages/file/src/interface/link.dart":"1014787333","packages/file/src/interface/error_codes.dart":"546784267","packages/file/src/interface/error_codes_internal.dart":"815243895","packages/flutter_cache_manager/src/result/result.dart":"83597362","packages/flutter_cache_manager/src/result/download_progress.dart":"386805194","packages/flutter_cache_manager/src/compat/file_fetcher.dart":"94489114","packages/path_provider/path_provider.dart":"715417115","packages/path_provider_platform_interface/src/method_channel_path_provider.dart":"437834656","packages/path_provider_platform_interface/src/enums.dart":"1029197589","packages/platform/platform.dart":"419053459","packages/platform/src/testing/fake_platform.dart":"905067461","packages/platform/src/interface/platform.dart":"604407694","packages/platform/src/interface/local_platform.dart":"1001789011","packages/path_provider_windows/path_provider_windows.dart":"357730220","packages/path_provider_windows/src/path_provider_windows_stub.dart":"218040059","packages/path_provider_windows/src/folders_stub.dart":"316626940","packages/path_provider_linux/path_provider_linux.dart":"815060966","packages/xdg_directories/xdg_directories.dart":"888088858","packages/process/process.dart":"110118381","packages/process/src/interface/process_wrapper.dart":"611104261","packages/process/src/interface/process_manager.dart":"759846142","packages/process/src/interface/local_process_manager.dart":"817489747","packages/process/src/interface/common.dart":"953314688","packages/file/local.dart":"762081811","packages/file/src/backends/local.dart":"845036502","packages/file/src/backends/local/local_file_system.dart":"348267196","packages/file/src/backends/local/local_link.dart":"454789106","packages/file/src/common.dart":"859003128","packages/flutter_cache_manager/src/storage/non_storing_object_provider.dart":"268925344","packages/file/memory.dart":"404522710","packages/file/src/backends/memory.dart":"646242568","packages/file/src/backends/memory/style.dart":"58984744","packages/file/src/backends/memory/memory_file_system.dart":"111661818","packages/file/src/backends/memory/utils.dart":"632639938","packages/file/src/backends/memory/node.dart":"807424877","packages/file/src/backends/memory/memory_file_stat.dart":"33777659","packages/file/src/backends/memory/common.dart":"76316561","packages/file/src/backends/memory/clock.dart":"479365175","packages/file/src/backends/memory/memory_link.dart":"130849783","packages/cached_network_image/src/image_provider/multi_image_stream_completer.dart":"1071262785","packages/octo_image/src/progress_indicators.dart":"973774784","packages/flutter_blurhash/src/blurhash_image.dart":"535112107","packages/flutter_blurhash/src/blurhash.dart":"715640361","packages/octo_image/src/fade_widget.dart":"342847284","packages/envyweb/Screens/Editor/ProfilePage.dart":"535472515","packages/envyweb/Services/Widgets/DrawerItems.dart":"460370111","packages/envyweb/Services/Auth.dart":"909955397","packages/envyweb/Services/ApiFunctions%20-Admin.dart":"328865079","packages/envyweb/Models/UserModel.dart":"865148981","packages/firebase_auth/firebase_auth.dart":"470247235","packages/envyweb/Screens/Admin/Editors%20-Admin.dart":"545432441","packages/envyweb/Screens/Admin/AddEditor.dart":"120562695","packages/envyweb/Screens/Admin/AddAdmin.dart":"174084297","packages/envyweb/Screens/Admin/Status.dart":"66727405"}
+define(['dart_sdk', 'packages/flutter/src/gestures/binding.dart', 'packages/flutter/src/gestures/events.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__multitap_dart(dart_sdk, packages__flutter__src__gestures__binding$46dart, packages__flutter__src__gestures__events$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__recognizer$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const ui = dart_sdk.ui;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const binding = packages__flutter__src__gestures__binding$46dart.src__gestures__binding;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  var multitap = Object.create(dart.library);
+  var $_set = dartx._set;
+  var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $isEmpty = dartx.isEmpty;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $values = dartx.values;
+  var $toList = dartx.toList;
+  var $forEach = dartx.forEach;
+  var $containsKey = dartx.containsKey;
+  var IdentityMapOfint$_TapTracker = () => (IdentityMapOfint$_TapTracker = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapTracker)))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  var IdentityMapOfint$_TapGesture = () => (IdentityMapOfint$_TapGesture = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapGesture)))();
+  var ListOf_TapGesture = () => (ListOf_TapGesture = dart.constFn(core.List$(multitap._TapGesture)))();
+  const CT = Object.create(null);
+  var L1 = "package:flutter/src/gestures/multitap.dart";
+  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/gestures/multitap.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 0
+      });
+    }
+  }, false);
+  var _timeout = dart.privateName(multitap, "_timeout");
+  var _onTimeout = dart.privateName(multitap, "_onTimeout");
+  multitap._CountdownZoned = class _CountdownZoned extends core.Object {
+    get timeout() {
+      return this[_timeout];
+    }
+    [_onTimeout]() {
+      this[_timeout] = true;
+    }
+  };
+  (multitap._CountdownZoned.new = function(opts) {
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    if (duration == null) dart.nullFailed(L0, 43, 39, "duration");
+    this[_timeout] = false;
+    if (!(duration != null)) dart.assertFailed(null, L0, 44, 17, "duration != null");
+    async.Timer.new(duration, dart.bind(this, _onTimeout));
+  }).prototype = multitap._CountdownZoned.prototype;
+  dart.addTypeTests(multitap._CountdownZoned);
+  dart.addTypeCaches(multitap._CountdownZoned);
+  dart.setMethodSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getMethods(multitap._CountdownZoned.__proto__),
+    [_onTimeout]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getGetters(multitap._CountdownZoned.__proto__),
+    timeout: core.bool
+  }));
+  dart.setLibraryUri(multitap._CountdownZoned, L1);
+  dart.setFieldSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getFields(multitap._CountdownZoned.__proto__),
+    [_timeout]: dart.fieldType(core.bool)
+  }));
+  var _isTrackingPointer = dart.privateName(multitap, "_isTrackingPointer");
+  var _initialGlobalPosition = dart.privateName(multitap, "_initialGlobalPosition");
+  var _doubleTapMinTimeCountdown = dart.privateName(multitap, "_doubleTapMinTimeCountdown");
+  multitap._TapTracker = class _TapTracker extends core.Object {
+    startTrackingPointer(route, transform) {
+      if (route == null) dart.nullFailed(L0, 80, 42, "route");
+      if (!dart.test(this[_isTrackingPointer])) {
+        this[_isTrackingPointer] = true;
+        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.addRoute(this.pointer, route, transform);
+      }
+    }
+    stopTrackingPointer(route) {
+      if (route == null) dart.nullFailed(L0, 87, 41, "route");
+      if (dart.test(this[_isTrackingPointer])) {
+        this[_isTrackingPointer] = false;
+        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.removeRoute(this.pointer, route);
+      }
+    }
+    isWithinGlobalTolerance(event, tolerance) {
+      if (event == null) dart.nullFailed(L0, 94, 45, "event");
+      if (tolerance == null) dart.nullFailed(L0, 94, 59, "tolerance");
+      let offset = event.position['-'](this[_initialGlobalPosition]);
+      return dart.notNull(offset.distance) <= dart.notNull(tolerance);
+    }
+    hasElapsedMinTime() {
+      return this[_doubleTapMinTimeCountdown].timeout;
+    }
+    hasSameButton(event) {
+      if (event == null) dart.nullFailed(L0, 103, 39, "event");
+      return event.buttons == this.initialButtons;
+    }
+  };
+  (multitap._TapTracker.new = function(opts) {
+    let event = opts && 'event' in opts ? opts.event : null;
+    if (event == null) dart.nullFailed(L0, 61, 31, "event");
+    let entry = opts && 'entry' in opts ? opts.entry : null;
+    if (entry == null) dart.nullFailed(L0, 62, 19, "entry");
+    let doubleTapMinTime = opts && 'doubleTapMinTime' in opts ? opts.doubleTapMinTime : null;
+    if (doubleTapMinTime == null) dart.nullFailed(L0, 63, 23, "doubleTapMinTime");
+    this[_isTrackingPointer] = false;
+    this.entry = entry;
+    if (!(doubleTapMinTime != null)) dart.assertFailed(null, L0, 64, 15, "doubleTapMinTime != null");
+    if (!(event != null)) dart.assertFailed(null, L0, 65, 15, "event != null");
+    if (!(event.buttons != null)) dart.assertFailed(null, L0, 66, 15, "event.buttons != null");
+    this.pointer = event.pointer;
+    this[_initialGlobalPosition] = event.position;
+    this.initialButtons = event.buttons;
+    this[_doubleTapMinTimeCountdown] = new multitap._CountdownZoned.new({duration: doubleTapMinTime});
+    ;
+  }).prototype = multitap._TapTracker.prototype;
+  dart.addTypeTests(multitap._TapTracker);
+  dart.addTypeCaches(multitap._TapTracker);
+  dart.setMethodSignature(multitap._TapTracker, () => ({
+    __proto__: dart.getMethods(multitap._TapTracker.__proto__),
+    startTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent]), dart.nullable(vector_math_64.Matrix4)]),
+    stopTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent])]),
+    isWithinGlobalTolerance: dart.fnType(core.bool, [events.PointerEvent, core.double]),
+    hasElapsedMinTime: dart.fnType(core.bool, []),
+    hasSameButton: dart.fnType(core.bool, [events.PointerDownEvent])
+  }));
+  dart.setLibraryUri(multitap._TapTracker, L1);
+  dart.setFieldSignature(multitap._TapTracker, () => ({
+    __proto__: dart.getFields(multitap._TapTracker.__proto__),
+    pointer: dart.finalFieldType(core.int),
+    entry: dart.finalFieldType(arena.GestureArenaEntry),
+    [_initialGlobalPosition]: dart.finalFieldType(ui.Offset),
+    initialButtons: dart.finalFieldType(core.int),
+    [_doubleTapMinTimeCountdown]: dart.finalFieldType(multitap._CountdownZoned),
+    [_isTrackingPointer]: dart.fieldType(core.bool)
+  }));
+  var _doubleTapTimer = dart.privateName(multitap, "_doubleTapTimer");
+  var _firstTap = dart.privateName(multitap, "_firstTap");
+  var _trackers = dart.privateName(multitap, "_trackers");
+  var _reset = dart.privateName(multitap, "_reset");
+  var _trackTap = dart.privateName(multitap, "_trackTap");
+  var _stopDoubleTapTimer = dart.privateName(multitap, "_stopDoubleTapTimer");
+  var _handleEvent = dart.privateName(multitap, "_handleEvent");
+  var _registerFirstTap = dart.privateName(multitap, "_registerFirstTap");
+  var _registerSecondTap = dart.privateName(multitap, "_registerSecondTap");
+  var _reject = dart.privateName(multitap, "_reject");
+  var _freezeTracker = dart.privateName(multitap, "_freezeTracker");
+  var _checkCancel = dart.privateName(multitap, "_checkCancel");
+  var _clearTrackers = dart.privateName(multitap, "_clearTrackers");
+  var _startDoubleTapTimer = dart.privateName(multitap, "_startDoubleTapTimer");
+  var _checkUp = dart.privateName(multitap, "_checkUp");
+  var onDoubleTapDown = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapDown");
+  var onDoubleTap = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTap");
+  var onDoubleTapCancel = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapCancel");
+  multitap.DoubleTapGestureRecognizer = class DoubleTapGestureRecognizer extends recognizer.GestureRecognizer {
+    get onDoubleTapDown() {
+      return this[onDoubleTapDown];
+    }
+    set onDoubleTapDown(value) {
+      this[onDoubleTapDown] = value;
+    }
+    get onDoubleTap() {
+      return this[onDoubleTap];
+    }
+    set onDoubleTap(value) {
+      this[onDoubleTap] = value;
+    }
+    get onDoubleTapCancel() {
+      return this[onDoubleTapCancel];
+    }
+    set onDoubleTapCancel(value) {
+      this[onDoubleTapCancel] = value;
+    }
+    isPointerAllowed(event) {
+      if (event == null) dart.nullFailed(L0, 194, 42, "event");
+      if (this[_firstTap] == null) {
+        switch (event.buttons) {
+          case 1:
+          {
+            if (this.onDoubleTapDown == null && this.onDoubleTap == null && this.onDoubleTapCancel == null) return false;
+            break;
+          }
+          default:
+          {
+            return false;
+          }
+        }
+      }
+      return super.isPointerAllowed(event);
+    }
+    addAllowedPointer(event) {
+      if (event == null) dart.nullFailed(L0, 211, 43, "event");
+      if (this[_firstTap] != null) {
+        if (!dart.test(dart.nullCheck(this[_firstTap]).isWithinGlobalTolerance(event, 100))) {
+          return;
+        } else if (!dart.test(dart.nullCheck(this[_firstTap]).hasElapsedMinTime()) || !dart.test(dart.nullCheck(this[_firstTap]).hasSameButton(event))) {
+          this[_reset]();
+          return this[_trackTap](event);
+        } else if (this.onDoubleTapDown != null) {
+          let details = new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: this.getKindForPointer(event.pointer)});
+          this.invokeCallback(dart.void, "onDoubleTapDown", dart.fn(() => dart.nullCheck(this.onDoubleTapDown)(details), VoidTovoid()));
+        }
+      }
+      this[_trackTap](event);
+    }
+    [_trackTap](event) {
+      if (event == null) dart.nullFailed(L0, 233, 35, "event");
+      this[_stopDoubleTapTimer]();
+      let tracker = new multitap._TapTracker.new({event: event, entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, this), doubleTapMinTime: constants.kDoubleTapMinTime});
+      this[_trackers][$_set](event.pointer, tracker);
+      tracker.startTrackingPointer(dart.bind(this, _handleEvent), event.transform);
+    }
+    [_handleEvent](event) {
+      if (event == null) dart.nullFailed(L0, 244, 34, "event");
+      let tracker = dart.nullCheck(this[_trackers][$_get](event.pointer));
+      if (events.PointerUpEvent.is(event)) {
+        if (this[_firstTap] == null)
+          this[_registerFirstTap](tracker);
+        else
+          this[_registerSecondTap](tracker);
+      } else if (events.PointerMoveEvent.is(event)) {
+        if (!dart.test(tracker.isWithinGlobalTolerance(event, 18))) this[_reject](tracker);
+      } else if (events.PointerCancelEvent.is(event)) {
+        this[_reject](tracker);
+      }
+    }
+    acceptGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 260, 26, "pointer");
+    }
+    rejectGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 263, 26, "pointer");
+      let tracker = this[_trackers][$_get](pointer);
+      if (tracker == null && this[_firstTap] != null && dart.nullCheck(this[_firstTap]).pointer == pointer) tracker = this[_firstTap];
+      if (tracker != null) this[_reject](tracker);
+    }
+    [_reject](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 275, 28, "tracker");
+      this[_trackers][$remove](tracker.pointer);
+      tracker.entry.resolve(arena.GestureDisposition.rejected);
+      this[_freezeTracker](tracker);
+      if (this[_firstTap] != null) {
+        if (dart.equals(tracker, this[_firstTap])) {
+          this[_reset]();
+        } else {
+          this[_checkCancel]();
+          if (dart.test(this[_trackers][$isEmpty])) this[_reset]();
+        }
+      }
+    }
+    dispose() {
+      this[_reset]();
+      super.dispose();
+    }
+    [_reset]() {
+      this[_stopDoubleTapTimer]();
+      if (this[_firstTap] != null) {
+        if (dart.test(this[_trackers][$isNotEmpty])) this[_checkCancel]();
+        let tracker = dart.nullCheck(this[_firstTap]);
+        this[_firstTap] = null;
+        this[_reject](tracker);
+        dart.nullCheck(binding.GestureBinding.instance).gestureArena.release(tracker.pointer);
+      }
+      this[_clearTrackers]();
+    }
+    [_registerFirstTap](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 311, 38, "tracker");
+      this[_startDoubleTapTimer]();
+      dart.nullCheck(binding.GestureBinding.instance).gestureArena.hold(tracker.pointer);
+      this[_freezeTracker](tracker);
+      this[_trackers][$remove](tracker.pointer);
+      this[_clearTrackers]();
+      this[_firstTap] = tracker;
+    }
+    [_registerSecondTap](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 322, 39, "tracker");
+      dart.nullCheck(this[_firstTap]).entry.resolve(arena.GestureDisposition.accepted);
+      tracker.entry.resolve(arena.GestureDisposition.accepted);
+      this[_freezeTracker](tracker);
+      this[_trackers][$remove](tracker.pointer);
+      this[_checkUp](tracker.initialButtons);
+      this[_reset]();
+    }
+    [_clearTrackers]() {
+      this[_trackers][$values][$toList]()[$forEach](dart.bind(this, _reject));
+      if (!dart.test(this[_trackers][$isEmpty])) dart.assertFailed(null, L0, 333, 12, "_trackers.isEmpty");
+    }
+    [_freezeTracker](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 336, 35, "tracker");
+      tracker.stopTrackingPointer(dart.bind(this, _handleEvent));
+    }
+    [_startDoubleTapTimer]() {
+      this[_doubleTapTimer] == null ? this[_doubleTapTimer] = async.Timer.new(constants.kDoubleTapTimeout, dart.bind(this, _reset)) : null;
+    }
+    [_stopDoubleTapTimer]() {
+      if (this[_doubleTapTimer] != null) {
+        dart.nullCheck(this[_doubleTapTimer]).cancel();
+        this[_doubleTapTimer] = null;
+      }
+    }
+    [_checkUp](buttons) {
+      if (buttons == null) dart.nullFailed(L0, 351, 21, "buttons");
+      if (!(buttons === 1)) dart.assertFailed(null, L0, 352, 12, "buttons == kPrimaryButton");
+      if (this.onDoubleTap != null) this.invokeCallback(dart.void, "onDoubleTap", dart.nullCheck(this.onDoubleTap));
+    }
+    [_checkCancel]() {
+      if (this.onDoubleTapCancel != null) this.invokeCallback(dart.void, "onDoubleTapCancel", dart.nullCheck(this.onDoubleTapCancel));
+    }
+    get debugDescription() {
+      return "double tap";
+    }
+  };
+  (multitap.DoubleTapGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onDoubleTapDown] = null;
+    this[onDoubleTap] = null;
+    this[onDoubleTapCancel] = null;
+    this[_doubleTapTimer] = null;
+    this[_firstTap] = null;
+    this[_trackers] = new (IdentityMapOfint$_TapTracker()).new();
+    multitap.DoubleTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = multitap.DoubleTapGestureRecognizer.prototype;
+  dart.addTypeTests(multitap.DoubleTapGestureRecognizer);
+  dart.addTypeCaches(multitap.DoubleTapGestureRecognizer);
+  dart.setMethodSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(multitap.DoubleTapGestureRecognizer.__proto__),
+    [_trackTap]: dart.fnType(dart.void, [events.PointerDownEvent]),
+    [_handleEvent]: dart.fnType(dart.void, [events.PointerEvent]),
+    acceptGesture: dart.fnType(dart.void, [core.int]),
+    rejectGesture: dart.fnType(dart.void, [core.int]),
+    [_reject]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_reset]: dart.fnType(dart.void, []),
+    [_registerFirstTap]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_registerSecondTap]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_clearTrackers]: dart.fnType(dart.void, []),
+    [_freezeTracker]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_startDoubleTapTimer]: dart.fnType(dart.void, []),
+    [_stopDoubleTapTimer]: dart.fnType(dart.void, []),
+    [_checkUp]: dart.fnType(dart.void, [core.int]),
+    [_checkCancel]: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(multitap.DoubleTapGestureRecognizer.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(multitap.DoubleTapGestureRecognizer, L1);
+  dart.setFieldSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(multitap.DoubleTapGestureRecognizer.__proto__),
+    onDoubleTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
+    onDoubleTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onDoubleTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    [_doubleTapTimer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_firstTap]: dart.fieldType(dart.nullable(multitap._TapTracker)),
+    [_trackers]: dart.finalFieldType(core.Map$(core.int, multitap._TapTracker))
+  }));
+  var _wonArena = dart.privateName(multitap, "_wonArena");
+  var _timer = dart.privateName(multitap, "_timer");
+  var _finalPosition = dart.privateName(multitap, "_finalPosition");
+  var _lastPosition = dart.privateName(multitap, "_lastPosition");
+  var _dispatchLongTap = dart.privateName(multitap, "_dispatchLongTap");
+  var _check = dart.privateName(multitap, "_check");
+  var _dispatchCancel = dart.privateName(multitap, "_dispatchCancel");
+  var _dispatchTap = dart.privateName(multitap, "_dispatchTap");
+  multitap._TapGesture = class _TapGesture extends multitap._TapTracker {
+    handleEvent(event) {
+      if (event == null) dart.nullFailed(L0, 398, 33, "event");
+      if (!(event.pointer == this.pointer)) dart.assertFailed(null, L0, 399, 12, "event.pointer == pointer");
+      if (events.PointerMoveEvent.is(event)) {
+        if (!dart.test(this.isWithinGlobalTolerance(event, events.computeHitSlop(event.kind))))
+          this.cancel();
+        else
+          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+      } else if (events.PointerCancelEvent.is(event)) {
+        this.cancel();
+      } else if (events.PointerUpEvent.is(event)) {
+        this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
+        this[_finalPosition] = recognizer.OffsetPair.fromEventPosition(event);
+        this[_check]();
+      }
+    }
+    stopTrackingPointer(route) {
+      let t0;
+      if (route == null) dart.nullFailed(L0, 415, 41, "route");
+      t0 = this[_timer];
+      t0 == null ? null : t0.cancel();
+      this[_timer] = null;
+      super.stopTrackingPointer(route);
+    }
+    accept() {
+      this[_wonArena] = true;
+      this[_check]();
+    }
+    reject() {
+      this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
+      this.gestureRecognizer[_dispatchCancel](this.pointer);
+    }
+    cancel() {
+      if (dart.test(this[_wonArena]))
+        this.reject();
+      else
+        this.entry.resolve(arena.GestureDisposition.rejected);
+    }
+    [_check]() {
+      if (dart.test(this[_wonArena]) && this[_finalPosition] != null) this.gestureRecognizer[_dispatchTap](this.pointer, dart.nullCheck(this[_finalPosition]));
+    }
+  };
+  (multitap._TapGesture.new = function(opts) {
+    let gestureRecognizer = opts && 'gestureRecognizer' in opts ? opts.gestureRecognizer : null;
+    if (gestureRecognizer == null) dart.nullFailed(L0, 372, 19, "gestureRecognizer");
+    let event = opts && 'event' in opts ? opts.event : null;
+    if (event == null) dart.nullFailed(L0, 373, 27, "event");
+    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : null;
+    if (longTapDelay == null) dart.nullFailed(L0, 374, 23, "longTapDelay");
+    this[_wonArena] = false;
+    this[_timer] = null;
+    this[_finalPosition] = null;
+    this.gestureRecognizer = gestureRecognizer;
+    this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+    multitap._TapGesture.__proto__.new.call(this, {event: events.PointerDownEvent.as(event), entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, gestureRecognizer), doubleTapMinTime: constants.kDoubleTapMinTime});
+    this.startTrackingPointer(dart.bind(this, 'handleEvent'), event.transform);
+    if (dart.test(longTapDelay['>'](core.Duration.zero))) {
+      this[_timer] = async.Timer.new(longTapDelay, dart.fn(() => {
+        this[_timer] = null;
+        this.gestureRecognizer[_dispatchLongTap](event.pointer, this[_lastPosition]);
+      }, VoidTovoid()));
+    }
+  }).prototype = multitap._TapGesture.prototype;
+  dart.addTypeTests(multitap._TapGesture);
+  dart.addTypeCaches(multitap._TapGesture);
+  dart.setMethodSignature(multitap._TapGesture, () => ({
+    __proto__: dart.getMethods(multitap._TapGesture.__proto__),
+    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
+    accept: dart.fnType(dart.void, []),
+    reject: dart.fnType(dart.void, []),
+    cancel: dart.fnType(dart.void, []),
+    [_check]: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(multitap._TapGesture, L1);
+  dart.setFieldSignature(multitap._TapGesture, () => ({
+    __proto__: dart.getFields(multitap._TapGesture.__proto__),
+    gestureRecognizer: dart.finalFieldType(multitap.MultiTapGestureRecognizer),
+    [_wonArena]: dart.fieldType(core.bool),
+    [_timer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_lastPosition]: dart.fieldType(recognizer.OffsetPair),
+    [_finalPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair))
+  }));
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var C0;
+  var _gestureMap = dart.privateName(multitap, "_gestureMap");
+  var onTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapDown");
+  var onTapUp = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapUp");
+  var onTap = dart.privateName(multitap, "MultiTapGestureRecognizer.onTap");
+  var onTapCancel = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapCancel");
+  var longTapDelay$ = dart.privateName(multitap, "MultiTapGestureRecognizer.longTapDelay");
+  var onLongTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onLongTapDown");
+  multitap.MultiTapGestureRecognizer = class MultiTapGestureRecognizer extends recognizer.GestureRecognizer {
+    get onTapDown() {
+      return this[onTapDown];
+    }
+    set onTapDown(value) {
+      this[onTapDown] = value;
+    }
+    get onTapUp() {
+      return this[onTapUp];
+    }
+    set onTapUp(value) {
+      this[onTapUp] = value;
+    }
+    get onTap() {
+      return this[onTap];
+    }
+    set onTap(value) {
+      this[onTap] = value;
+    }
+    get onTapCancel() {
+      return this[onTapCancel];
+    }
+    set onTapCancel(value) {
+      this[onTapCancel] = value;
+    }
+    get longTapDelay() {
+      return this[longTapDelay$];
+    }
+    set longTapDelay(value) {
+      this[longTapDelay$] = value;
+    }
+    get onLongTapDown() {
+      return this[onLongTapDown];
+    }
+    set onLongTapDown(value) {
+      this[onLongTapDown] = value;
+    }
+    addAllowedPointer(event) {
+      if (event == null) dart.nullFailed(L0, 491, 39, "event");
+      if (!!dart.test(this[_gestureMap][$containsKey](event.pointer))) dart.assertFailed(null, L0, 492, 12, "!_gestureMap.containsKey(event.pointer)");
+      this[_gestureMap][$_set](event.pointer, new multitap._TapGesture.new({gestureRecognizer: this, event: event, longTapDelay: this.longTapDelay}));
+      if (this.onTapDown != null) this.invokeCallback(dart.void, "onTapDown", dart.fn(() => {
+        dart.nullCheck(this.onTapDown)(event.pointer, new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: event.kind}));
+      }, VoidTovoid()));
+    }
+    acceptGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 509, 26, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 510, 12, "_gestureMap.containsKey(pointer)");
+      dart.nullCheck(this[_gestureMap][$_get](pointer)).accept();
+    }
+    rejectGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 515, 26, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 516, 12, "_gestureMap.containsKey(pointer)");
+      dart.nullCheck(this[_gestureMap][$_get](pointer)).reject();
+      if (!!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 518, 12, "!_gestureMap.containsKey(pointer)");
+    }
+    [_dispatchCancel](pointer) {
+      if (pointer == null) dart.nullFailed(L0, 521, 28, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 522, 12, "_gestureMap.containsKey(pointer)");
+      this[_gestureMap][$remove](pointer);
+      if (this.onTapCancel != null) this.invokeCallback(dart.void, "onTapCancel", dart.fn(() => dart.nullCheck(this.onTapCancel)(pointer), VoidTovoid()));
+    }
+    [_dispatchTap](pointer, position) {
+      if (pointer == null) dart.nullFailed(L0, 528, 25, "pointer");
+      if (position == null) dart.nullFailed(L0, 528, 45, "position");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 529, 12, "_gestureMap.containsKey(pointer)");
+      this[_gestureMap][$remove](pointer);
+      if (this.onTapUp != null) this.invokeCallback(dart.void, "onTapUp", dart.fn(() => {
+        dart.nullCheck(this.onTapUp)(pointer, new tap.TapUpDetails.new({kind: this.getKindForPointer(pointer), localPosition: position.local, globalPosition: position.global}));
+      }, VoidTovoid()));
+      if (this.onTap != null) this.invokeCallback(dart.void, "onTap", dart.fn(() => dart.nullCheck(this.onTap)(pointer), VoidTovoid()));
+    }
+    [_dispatchLongTap](pointer, lastPosition) {
+      if (pointer == null) dart.nullFailed(L0, 543, 29, "pointer");
+      if (lastPosition == null) dart.nullFailed(L0, 543, 49, "lastPosition");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 544, 12, "_gestureMap.containsKey(pointer)");
+      if (this.onLongTapDown != null) this.invokeCallback(dart.void, "onLongTapDown", dart.fn(() => {
+        dart.nullCheck(this.onLongTapDown)(pointer, new tap.TapDownDetails.new({globalPosition: lastPosition.global, localPosition: lastPosition.local, kind: this.getKindForPointer(pointer)}));
+      }, VoidTovoid()));
+    }
+    dispose() {
+      let localGestures = ListOf_TapGesture().from(this[_gestureMap][$values]);
+      for (let gesture of localGestures)
+        gesture.cancel();
+      if (!dart.test(this[_gestureMap][$isEmpty])) dart.assertFailed(null, L0, 564, 12, "_gestureMap.isEmpty");
+      super.dispose();
+    }
+    get debugDescription() {
+      return "multitap";
+    }
+  };
+  (multitap.MultiTapGestureRecognizer.new = function(opts) {
+    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : C0 || CT.C0;
+    if (longTapDelay == null) dart.nullFailed(L0, 461, 10, "longTapDelay");
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onTapDown] = null;
+    this[onTapUp] = null;
+    this[onTap] = null;
+    this[onTapCancel] = null;
+    this[onLongTapDown] = null;
+    this[_gestureMap] = new (IdentityMapOfint$_TapGesture()).new();
+    this[longTapDelay$] = longTapDelay;
+    multitap.MultiTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    ;
+  }).prototype = multitap.MultiTapGestureRecognizer.prototype;
+  dart.addTypeTests(multitap.MultiTapGestureRecognizer);
+  dart.addTypeCaches(multitap.MultiTapGestureRecognizer);
+  dart.setMethodSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(multitap.MultiTapGestureRecognizer.__proto__),
+    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    acceptGesture: dart.fnType(dart.void, [core.int]),
+    rejectGesture: dart.fnType(dart.void, [core.int]),
+    [_dispatchCancel]: dart.fnType(dart.void, [core.int]),
+    [_dispatchTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair]),
+    [_dispatchLongTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair])
+  }));
+  dart.setGetterSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(multitap.MultiTapGestureRecognizer.__proto__),
+    debugDescription: core.String
+  }));
+  dart.setLibraryUri(multitap.MultiTapGestureRecognizer, L1);
+  dart.setFieldSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(multitap.MultiTapGestureRecognizer.__proto__),
+    onTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
+    onTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapUpDetails]))),
+    onTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    onTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    longTapDelay: dart.fieldType(core.Duration),
+    onLongTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
+    [_gestureMap]: dart.finalFieldType(core.Map$(core.int, multitap._TapGesture))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/multitap.dart", {
+    "package:flutter/src/gestures/multitap.dart": multitap
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["multitap.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAiDsB;IAAQ;;AAGX,MAAf,iBAAW;IACb;;;QAXoC;;IAK/B,iBAAW;UAJF,AAAS,QAAD,IAAI;AACG,IAA3B,gBAAM,QAAQ,YAAE;EAClB;;;;;;;;;;;;;;;;;;;;yBAkCuC,OAAgB;UAAhB;AACrC,qBAAK;AACsB,QAAzB,2BAAqB;AACqD,QAAnD,AAAE,AAAc,eAAxB,wDAAiC,cAAS,KAAK,EAAE,SAAS;;IAE7E;;UAEsC;AACpC,oBAAI;AACwB,QAA1B,2BAAqB;AAC6C,QAA3C,AAAE,AAAc,eAAxB,2DAAoC,cAAS,KAAK;;IAErE;4BAE0C,OAAc;UAAd;UAAc;AACzC,mBAAS,AAAM,AAAS,KAAV,eAAY;AACvC,YAAuB,cAAhB,AAAO,MAAD,2BAAa,SAAS;IACrC;;AAGE,YAAO,AAA2B;IACpC;;UAEoC;AAClC,YAAO,AAAM,AAAQ,MAAT,YAAY;IAC1B;;;QA5C4B;;QACZ;;QACI;;IAef,2BAAqB;IAhBV;UAEJ,AAAiB,gBAAD,IAAI;UACpB,AAAM,KAAD,IAAI;UACT,AAAM,AAAQ,KAAT,YAAY;IAChB,eAAE,AAAM,KAAD;IACQ,+BAAE,AAAM,KAAD;IACf,sBAAE,AAAM,KAAD;IACK,mCAAE,4CAA0B,gBAAgB;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA2FrD;;;;;;IAYE;;;;;;IAcA;;;;;;;UAOa;AACrC,UAAI,AAAU,mBAAG;AACf,gBAAQ,AAAM,KAAD;;;AAET,gBAAI,AAAgB,wBAAG,QACnB,AAAY,oBAAG,QACf,AAAkB,0BAAG,MACvB,MAAO;AACT;;;;AAEA,kBAAO;;;;AAGb,YAAa,wBAAiB,KAAK;IACrC;;UAGwC;AACtC,UAAI,mBAAa;AACf,uBAAc,AAAE,eAAX,yCAAmC,KAAK;AAE3C;cACK,gBAAc,AAAE,eAAX,oDAA4C,AAAE,eAAX,+BAAyB,KAAK;AAGnE,UAAR;AACA,gBAAO,iBAAU,KAAK;cACjB,KAAI,wBAAmB;AACP,wBAAU,4CACb,AAAM,KAAD,0BACN,AAAM,KAAD,sBACd,uBAAkB,AAAM,KAAD;AAEyC,UAAxE,+BAAqB,mBAAmB,cAAqB,AAAC,eAAhB,sBAAiB,OAAO;;;AAG1D,MAAhB,gBAAU,KAAK;IACjB;;UAEgC;AACT,MAArB;AACkB,oBAAU,qCACnB,KAAK,SACkB,AAAE,AAAa,eAAvB,kDAA2B,AAAM,KAAD,UAAU,yBAC9C;AAEc,MAAlC,AAAS,uBAAC,AAAM,KAAD,UAAY,OAAO;AACyB,MAA3D,AAAQ,OAAD,gCAAsB,qBAAc,AAAM,KAAD;IAClD;;UAE+B;AACX,oBAAkC,eAAxB,AAAS,uBAAC,AAAM,KAAD;AAC3C,UAAU,yBAAN,KAAK;AACP,YAAI,AAAU,mBAAG;AACW,UAA1B,wBAAkB,OAAO;;AAEE,UAA3B,yBAAmB,OAAO;YACvB,KAAU,2BAAN,KAAK;AACd,uBAAK,AAAQ,OAAD,yBAAyB,KAAK,QACxC,AAAgB,cAAR,OAAO;YACZ,KAAU,6BAAN,KAAK;AACE,QAAhB,cAAQ,OAAO;;IAEnB;;UAGuB;IAAW;;UAGX;AACR,oBAAU,AAAS,uBAAC,OAAO;AAExC,UAAI,AAAQ,OAAD,IAAI,QACX,mBAAa,QACJ,AAAE,AAAQ,eAAnB,4BAAsB,OAAO,EAC/B,AAAmB,UAAT;AAEZ,UAAI,OAAO,IAAI,MACb,AAAgB,cAAR,OAAO;IACnB;;UAEyB;AACU,MAAjC,AAAU,yBAAO,AAAQ,OAAD;AAC0B,MAAlD,AAAQ,AAAM,OAAP,eAAkC;AAClB,MAAvB,qBAAe,OAAO;AACtB,UAAI,mBAAa;AACf,YAAY,YAAR,OAAO,EAAI;AACL,UAAR;;AAEc,UAAd;AACA,wBAAI,AAAU,4BACZ,AAAQ;;;IAGhB;;AAIU,MAAR;AACe,MAAT;IACR;;AAGuB,MAArB;AACA,UAAI,mBAAa;AACf,sBAAI,AAAU,+BACZ,AAAc;AAGE,sBAAmB,eAAT;AACZ,QAAhB,kBAAY;AACI,QAAhB,cAAQ,OAAO;AAC+C,QAAvC,AAAE,AAAa,eAAvB,sDAA+B,AAAQ,OAAD;;AAEvC,MAAhB;IACF;;UAEmC;AACX,MAAtB;AAC2D,MAApC,AAAE,AAAa,eAAvB,mDAA4B,AAAQ,OAAD;AAG3B,MAAvB,qBAAe,OAAO;AACW,MAAjC,AAAU,yBAAO,AAAQ,OAAD;AACR,MAAhB;AACmB,MAAnB,kBAAY,OAAO;IACrB;;UAEoC;AACmB,MAA5C,AAAE,AAAM,eAAjB,+BAA4C;AACM,MAAlD,AAAQ,AAAM,OAAP,eAAkC;AAClB,MAAvB,qBAAe,OAAO;AACW,MAAjC,AAAU,yBAAO,AAAQ,OAAD;AACQ,MAAhC,eAAS,AAAQ,OAAD;AACR,MAAR;IACF;;AAG4C,MAA1C,AAAU,AAAO,AAAS,wDAAQ;AAClC,qBAAO,AAAU;IACnB;;UAEgC;AACW,MAAzC,AAAQ,OAAD,+BAAqB;IAC9B;;AAGsD,MAApD,AAAgB,yBAAA,OAAhB,wBAAoB,gBAAM,uCAAmB,iBAA7B;IAClB;;AAGE,UAAI,yBAAmB;AACI,QAAV,AAAE,eAAjB;AACsB,QAAtB,wBAAkB;;IAEtB;;UAEkB;AAChB,YAAO,AAAQ,OAAD;AACd,UAAI,oBAAe,MACjB,AAAiD,+BAA5B,eAA0B,eAAX;IACxC;;AAGE,UAAI,0BAAqB,MACvB,AAA6D,+BAAxC,qBAAsC,eAAjB;IAC9C;;AAG+B;IAAY;;;QApPjC;QACW;IAyCG;IAYE;IAcA;IAEnB;IACM;IACe,kBAA8B;AAtErD,8EAAkB,UAAU,QAAQ,IAAI;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAqRhB;AAC5B,YAAO,AAAM,AAAQ,KAAT,YAAY;AACxB,UAAU,2BAAN,KAAK;AACP,uBAAK,6BAAwB,KAAK,EAAE,sBAAe,AAAM,KAAD;AAC9C,UAAR;;AAEmD,UAAnD,sBAA2B,wCAAkB,KAAK;YAC/C,KAAU,6BAAN,KAAK;AACN,QAAR;YACK,KAAU,yBAAN,KAAK;AACkB,QAAhC,mCAAoB;AACgC,QAApD,uBAA4B,wCAAkB,KAAK;AAC3C,QAAR;;IAEJ;wBAGsC;;;AACpB,WAAhB;0BAAQ;AACK,MAAb,eAAS;AACuB,MAA1B,0BAAoB,KAAK;IACjC;;AAGkB,MAAhB,kBAAY;AACJ,MAAR;IACF;;AAGkC,MAAhC,mCAAoB;AACsB,MAA1C,AAAkB,wCAAgB;IACpC;;AAKE,oBAAI;AACM,QAAR;;AAE0C,QAA1C,AAAM,mBAA2B;IACrC;;AAGE,oBAAI,oBAAa,wBAAkB,MACjC,AAAkB,AAAsC,qCAAzB,cAAuB,eAAd;IAC5C;;;QAvEgB;;QACQ;;QACJ;;IAkBf,kBAAY;IACV;IAGK;IAxBI;IAGG,sBAAa,wCAAkB,KAAK;AAClD,0DACU,2BAAN,KAAK,UACkB,AAAE,AAAa,eAAvB,kDAA2B,AAAM,KAAD,UAAU,iBAAiB,qBAC/D;AAEgC,IAAlD,oCAAqB,sBAAa,AAAM,KAAD;AACvC,kBAAI,AAAa,YAAD,MAAY;AAIxB,MAHF,eAAS,gBAAM,YAAY,EAAE;AACd,QAAb,eAAS;AACuD,QAAhE,AAAkB,yCAAiB,AAAM,KAAD,UAAU;;;EAGxD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAgF6B;;;;;;IAIF;;;;;;IAGF;;;;;;IAIM;;;;;;IAGtB;;;;;;IAIoB;;;;;;;UAKO;AAClC,WAAO,WAAC,AAAY,gCAAY,AAAM,KAAD;AAKpC,MAJD,AAAW,yBAAC,AAAM,KAAD,UAAY,iDACR,aACZ,KAAK,gBACE;AAEhB,UAAI,kBAAa,MACf,AAME,+BANmB,aAAa;AAK9B,QAJO,AAAC,eAAV,gBAAW,AAAM,KAAD,UAAU,4CACR,AAAM,KAAD,0BACN,AAAM,KAAD,sBACd,AAAM,KAAD;;IAGnB;;UAGuB;AACrB,qBAAO,AAAY,gCAAY,OAAO;AACR,MAAV,AAAE,eAAtB,AAAW,yBAAC,OAAO;IACrB;;UAGuB;AACrB,qBAAO,AAAY,gCAAY,OAAO;AACR,MAAV,AAAE,eAAtB,AAAW,yBAAC,OAAO;AACnB,WAAO,WAAC,AAAY,gCAAY,OAAO;IACzC;;UAEyB;AACvB,qBAAO,AAAY,gCAAY,OAAO;AACX,MAA3B,AAAY,2BAAO,OAAO;AAC1B,UAAI,oBAAe,MACjB,AAAgE,+BAA3C,eAAe,cAAiB,AAAC,eAAZ,kBAAa,OAAO;IAClE;mBAEsB,SAAoB;UAApB;UAAoB;AACxC,qBAAO,AAAY,gCAAY,OAAO;AACX,MAA3B,AAAY,2BAAO,OAAO;AAC1B,UAAI,gBAAW,MACb,AAME,+BANmB,WAAW;AAK5B,QAJK,AAAC,eAAR,cAAS,OAAO,EAAE,gCACV,uBAAkB,OAAO,kBAChB,AAAS,QAAD,wBACP,AAAS,QAAD;;AAG9B,UAAI,cAAS,MACX,AAAoD,+BAA/B,SAAS,cAAW,AAAC,eAAN,YAAO,OAAO;IACtD;uBAE0B,SAAoB;UAApB;UAAoB;AAC5C,qBAAO,AAAY,gCAAY,OAAO;AACtC,UAAI,sBAAiB,MACnB,AASE,+BATmB,iBAAiB;AAQnC,QAPY,AAAC,eAAd,oBACE,OAAO,EACP,4CACkB,AAAa,YAAD,wBACb,AAAa,YAAD,cACrB,uBAAkB,OAAO;;IAIzC;;AAI0B,0BAAgB,yBAAuB,AAAY;AAC3E,eAAuB,UAAW,cAAa;AAC7B,QAAhB,AAAQ,OAAD;AAET,qBAAO,AAAY;AACJ,MAAT;IACR;;AAG+B;IAAU;;;QA5GlC;;QACG;QACW;IAKQ;IAIF;IAGF;IAIM;IAOF;IAED,oBAAgC;IA3BrD;AAGF,6EAAkB,UAAU,QAAQ,IAAI;;EAAC","file":"../../../../../../../../../packages/flutter/src/gestures/multitap.dart.lib.js"}');
+  // Exports:
+  return {
+    src__gestures__multitap: multitap
+  };
+}));
+
+//# sourceMappingURL=multitap.dart.lib.js.map

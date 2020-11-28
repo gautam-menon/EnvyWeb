@@ -1,0 +1,337 @@
+define(['dart_sdk', 'packages/sqflite_common/src/exception.dart'], (function load__packages__sqflite_common__src__collection_utils_dart(dart_sdk, packages__sqflite_common__src__exception$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const collection = dart_sdk.collection;
+  const _js_helper = dart_sdk._js_helper;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const exception = packages__sqflite_common__src__exception$46dart.src__exception;
+  var collection_utils = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $cast = dartx.cast;
+  var $length = dartx.length;
+  var $_set = dartx._set;
+  var $toSet = dartx.toSet;
+  var $toList = dartx.toList;
+  var $clear = dartx.clear;
+  var $keys = dartx.keys;
+  var $remove = dartx.remove;
+  var MapL = () => (MapL = dart.constFn(dart.legacy(core.Map)))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var ListL = () => (ListL = dart.constFn(dart.legacy(core.List)))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var IdentityMapOfStringL$intL = () => (IdentityMapOfStringL$intL = dart.constFn(_js_helper.IdentityMap$(StringL(), intL())))();
+  var MapOfStringL$dynamic = () => (MapOfStringL$dynamic = dart.constFn(core.Map$(StringL(), dart.dynamic)))();
+  var MapLOfStringL$dynamic = () => (MapLOfStringL$dynamic = dart.constFn(dart.legacy(MapOfStringL$dynamic())))();
+  const CT = Object.create(null);
+  var L0 = "package:sqflite_common/src/collection_utils.dart";
+  var _list = dart.privateName(collection_utils, "_list");
+  const _is_PluginList_default = Symbol('_is_PluginList_default');
+  collection_utils.PluginList$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    class PluginList extends collection.ListBase$(dart.legacy(T)) {
+      get rawList() {
+        return this[_list];
+      }
+      rawElementAt(index) {
+        return this[_list][$_get](index);
+      }
+      get length() {
+        return this[_list][$length];
+      }
+      set length(newLength) {
+        dart.throw(new core.UnsupportedError.new("read-only"));
+      }
+      _set(index, value$) {
+        let value = value$;
+        TL().as(value);
+        dart.throw(new core.UnsupportedError.new("read-only"));
+        return value$;
+      }
+    }
+    (PluginList.from = function(list) {
+      this[_list] = list;
+      ;
+    }).prototype = PluginList.prototype;
+    dart.addTypeTests(PluginList);
+    PluginList.prototype[_is_PluginList_default] = true;
+    dart.addTypeCaches(PluginList);
+    dart.setMethodSignature(PluginList, () => ({
+      __proto__: dart.getMethods(PluginList.__proto__),
+      rawElementAt: dart.fnType(dart.dynamic, [dart.legacy(core.int)]),
+      _set: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)]),
+      [$_set]: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)])
+    }));
+    dart.setGetterSignature(PluginList, () => ({
+      __proto__: dart.getGetters(PluginList.__proto__),
+      rawList: dart.legacy(core.List),
+      length: dart.legacy(core.int),
+      [$length]: dart.legacy(core.int)
+    }));
+    dart.setSetterSignature(PluginList, () => ({
+      __proto__: dart.getSetters(PluginList.__proto__),
+      length: dart.legacy(core.int),
+      [$length]: dart.legacy(core.int)
+    }));
+    dart.setLibraryUri(PluginList, L0);
+    dart.setFieldSignature(PluginList, () => ({
+      __proto__: dart.getFields(PluginList.__proto__),
+      [_list]: dart.finalFieldType(dart.legacy(core.List))
+    }));
+    dart.defineExtensionMethods(PluginList, ['_set']);
+    dart.defineExtensionAccessors(PluginList, ['length']);
+    return PluginList;
+  });
+  collection_utils.PluginList = collection_utils.PluginList$();
+  dart.addTypeTests(collection_utils.PluginList, _is_PluginList_default);
+  collection_utils.Rows = class Rows extends collection_utils.PluginList$(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))) {
+    _get(index) {
+      let item = MapL().as(this.rawList[$_get](index));
+      return item[$cast](StringL(), dart.dynamic);
+    }
+  };
+  (collection_utils.Rows.from = function(list) {
+    collection_utils.Rows.__proto__.from.call(this, list);
+    ;
+  }).prototype = collection_utils.Rows.prototype;
+  dart.addTypeTests(collection_utils.Rows);
+  dart.addTypeCaches(collection_utils.Rows);
+  dart.setMethodSignature(collection_utils.Rows, () => ({
+    __proto__: dart.getMethods(collection_utils.Rows.__proto__),
+    _get: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [dart.legacy(core.int)]),
+    [$_get]: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [dart.legacy(core.int)])
+  }));
+  dart.setLibraryUri(collection_utils.Rows, L0);
+  dart.defineExtensionMethods(collection_utils.Rows, ['_get']);
+  var _rows = dart.privateName(collection_utils, "_rows");
+  var _columns = dart.privateName(collection_utils, "_columns");
+  var _keys = dart.privateName(collection_utils, "_keys");
+  var _columnIndexMap = dart.privateName(collection_utils, "_columnIndexMap");
+  collection_utils.QueryResultSet = class QueryResultSet extends collection.ListBase$(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))) {
+    get length() {
+      let t0, t0$;
+      t0$ = (t0 = this[_rows], t0 == null ? null : t0[$length]);
+      return t0$ == null ? 0 : t0$;
+    }
+    _get(index) {
+      return new collection_utils.QueryRow.new(this, this[_rows][$_get](index));
+    }
+    _set(index, value$) {
+      let value = value$;
+      MapLOfStringL$dynamic().as(value);
+      dart.throw(new core.UnsupportedError.new("read-only"));
+      return value$;
+    }
+    set length(newLength) {
+      dart.throw(new core.UnsupportedError.new("read-only"));
+    }
+    columnIndex(name) {
+      return this[_columnIndexMap][$_get](name);
+    }
+    get keys() {
+      let t0;
+      t0 = this[_keys];
+      return t0 == null ? this[_keys] = this[_columns][$toSet]()[$toList]({growable: false}) : t0;
+    }
+  };
+  (collection_utils.QueryResultSet.new = function(rawColumns, rawRows) {
+    let t0, t0$;
+    this[_rows] = null;
+    this[_columns] = null;
+    this[_keys] = null;
+    this[_columnIndexMap] = null;
+    this[_columns] = (t0 = rawColumns, t0 == null ? null : t0[$cast](StringL()));
+    this[_rows] = (t0$ = rawRows, t0$ == null ? null : t0$[$cast](ListL()));
+    if (this[_columns] != null) {
+      this[_columnIndexMap] = new (IdentityMapOfStringL$intL()).new();
+      for (let i = 0; i < dart.notNull(this[_columns][$length]); i = i + 1) {
+        this[_columnIndexMap][$_set](this[_columns][$_get](i), i);
+      }
+    }
+  }).prototype = collection_utils.QueryResultSet.prototype;
+  dart.addTypeTests(collection_utils.QueryResultSet);
+  dart.addTypeCaches(collection_utils.QueryResultSet);
+  dart.setMethodSignature(collection_utils.QueryResultSet, () => ({
+    __proto__: dart.getMethods(collection_utils.QueryResultSet.__proto__),
+    _get: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [dart.legacy(core.int)]),
+    [$_get]: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), [dart.legacy(core.int)]),
+    _set: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)]),
+    [$_set]: dart.fnType(dart.void, [dart.legacy(core.int), dart.legacy(core.Object)]),
+    columnIndex: dart.fnType(dart.legacy(core.int), [dart.legacy(core.String)])
+  }));
+  dart.setGetterSignature(collection_utils.QueryResultSet, () => ({
+    __proto__: dart.getGetters(collection_utils.QueryResultSet.__proto__),
+    length: dart.legacy(core.int),
+    [$length]: dart.legacy(core.int),
+    keys: dart.legacy(core.List$(dart.legacy(core.String)))
+  }));
+  dart.setSetterSignature(collection_utils.QueryResultSet, () => ({
+    __proto__: dart.getSetters(collection_utils.QueryResultSet.__proto__),
+    length: dart.legacy(core.int),
+    [$length]: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(collection_utils.QueryResultSet, L0);
+  dart.setFieldSignature(collection_utils.QueryResultSet, () => ({
+    __proto__: dart.getFields(collection_utils.QueryResultSet.__proto__),
+    [_rows]: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.List)))),
+    [_columns]: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.String)))),
+    [_keys]: dart.fieldType(dart.legacy(core.List$(dart.legacy(core.String)))),
+    [_columnIndexMap]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.int))))
+  }));
+  dart.defineExtensionMethods(collection_utils.QueryResultSet, ['_get', '_set']);
+  dart.defineExtensionAccessors(collection_utils.QueryResultSet, ['length']);
+  var queryResultSet$ = dart.privateName(collection_utils, "QueryRow.queryResultSet");
+  var row$ = dart.privateName(collection_utils, "QueryRow.row");
+  collection_utils.QueryRow = class QueryRow extends collection.MapBase$(dart.legacy(core.String), dart.dynamic) {
+    get queryResultSet() {
+      return this[queryResultSet$];
+    }
+    set queryResultSet(value) {
+      super.queryResultSet = value;
+    }
+    get row() {
+      return this[row$];
+    }
+    set row(value) {
+      super.row = value;
+    }
+    _get(key) {
+      let stringKey = StringL().as(key);
+      let columnIndex = this.queryResultSet.columnIndex(stringKey);
+      if (columnIndex != null) {
+        return this.row[$_get](columnIndex);
+      }
+      return null;
+    }
+    _set(key, value$) {
+      let value = value$;
+      StringL().as(key);
+      dart.throw(new core.UnsupportedError.new("read-only"));
+      return value$;
+    }
+    clear() {
+      dart.throw(new core.UnsupportedError.new("read-only"));
+    }
+    get keys() {
+      return this.queryResultSet.keys;
+    }
+    remove(key) {
+      dart.throw(new core.UnsupportedError.new("read-only"));
+    }
+  };
+  (collection_utils.QueryRow.new = function(queryResultSet, row) {
+    this[queryResultSet$] = queryResultSet;
+    this[row$] = row;
+    ;
+  }).prototype = collection_utils.QueryRow.prototype;
+  dart.addTypeTests(collection_utils.QueryRow);
+  dart.addTypeCaches(collection_utils.QueryRow);
+  dart.setMethodSignature(collection_utils.QueryRow, () => ({
+    __proto__: dart.getMethods(collection_utils.QueryRow.__proto__),
+    _get: dart.fnType(dart.dynamic, [dart.legacy(core.Object)]),
+    [$_get]: dart.fnType(dart.dynamic, [dart.legacy(core.Object)]),
+    _set: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.Object)]),
+    [$_set]: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.Object)]),
+    clear: dart.fnType(dart.void, []),
+    [$clear]: dart.fnType(dart.void, []),
+    remove: dart.fnType(dart.dynamic, [dart.legacy(core.Object)]),
+    [$remove]: dart.fnType(dart.dynamic, [dart.legacy(core.Object)])
+  }));
+  dart.setGetterSignature(collection_utils.QueryRow, () => ({
+    __proto__: dart.getGetters(collection_utils.QueryRow.__proto__),
+    keys: dart.legacy(core.Iterable$(dart.legacy(core.String))),
+    [$keys]: dart.legacy(core.Iterable$(dart.legacy(core.String)))
+  }));
+  dart.setLibraryUri(collection_utils.QueryRow, L0);
+  dart.setFieldSignature(collection_utils.QueryRow, () => ({
+    __proto__: dart.getFields(collection_utils.QueryRow.__proto__),
+    queryResultSet: dart.finalFieldType(dart.legacy(collection_utils.QueryResultSet)),
+    row: dart.finalFieldType(dart.legacy(core.List))
+  }));
+  dart.defineExtensionMethods(collection_utils.QueryRow, ['_get', '_set', 'clear', 'remove']);
+  dart.defineExtensionAccessors(collection_utils.QueryRow, ['keys']);
+  var result$ = dart.privateName(collection_utils, "BatchResult.result");
+  collection_utils.BatchResult = class BatchResult extends core.Object {
+    get result() {
+      return this[result$];
+    }
+    set result(value) {
+      super.result = value;
+    }
+  };
+  (collection_utils.BatchResult.new = function(result) {
+    this[result$] = result;
+    ;
+  }).prototype = collection_utils.BatchResult.prototype;
+  dart.addTypeTests(collection_utils.BatchResult);
+  dart.addTypeCaches(collection_utils.BatchResult);
+  dart.setLibraryUri(collection_utils.BatchResult, L0);
+  dart.setFieldSignature(collection_utils.BatchResult, () => ({
+    __proto__: dart.getFields(collection_utils.BatchResult.__proto__),
+    result: dart.finalFieldType(dart.dynamic)
+  }));
+  collection_utils.BatchResults = class BatchResults extends collection_utils.PluginList {
+    _get(index) {
+      let rawMap = MapL().as(this[_list][$_get](index));
+      return collection_utils.fromRawOperationResult(rawMap);
+    }
+  };
+  (collection_utils.BatchResults.from = function(list) {
+    collection_utils.BatchResults.__proto__.from.call(this, list);
+    ;
+  }).prototype = collection_utils.BatchResults.prototype;
+  dart.addTypeTests(collection_utils.BatchResults);
+  dart.addTypeCaches(collection_utils.BatchResults);
+  dart.setMethodSignature(collection_utils.BatchResults, () => ({
+    __proto__: dart.getMethods(collection_utils.BatchResults.__proto__),
+    _get: dart.fnType(dart.dynamic, [dart.legacy(core.int)]),
+    [$_get]: dart.fnType(dart.dynamic, [dart.legacy(core.int)])
+  }));
+  dart.setLibraryUri(collection_utils.BatchResults, L0);
+  dart.defineExtensionMethods(collection_utils.BatchResults, ['_get']);
+  collection_utils.queryResultSetFromMap = function queryResultSetFromMap(queryResultSetMap) {
+    let columns = ListL().as(queryResultSetMap[$_get]("columns"));
+    let rows = ListL().as(queryResultSetMap[$_get]("rows"));
+    return new collection_utils.QueryResultSet.new(columns, rows);
+  };
+  collection_utils.databaseExceptionFromOperationError = function databaseExceptionFromOperationError(errorMap) {
+    let message = StringL().as(errorMap[$_get]("message"));
+    return new exception.SqfliteDatabaseException.new(message, errorMap[$_get]("data"), {resultCode: intL().as(errorMap[$_get]("resultCode"))});
+  };
+  collection_utils.fromRawOperationResult = function fromRawOperationResult(rawOperationResultMap) {
+    let errorMap = MapL().as(rawOperationResultMap[$_get]("error"));
+    if (errorMap != null) {
+      return collection_utils.databaseExceptionFromOperationError(errorMap);
+    }
+    let successResult = rawOperationResultMap[$_get]("result");
+    if (MapL().is(successResult)) {
+      return collection_utils.queryResultToList(successResult);
+    } else if (ListL().is(successResult)) {
+      return collection_utils.queryResultToList(successResult);
+    }
+    return successResult;
+  };
+  collection_utils.queryResultToList = function queryResultToList(queryResult) {
+    if (queryResult == null) {
+      return null;
+    }
+    if (MapL().is(queryResult)) {
+      return collection_utils.queryResultSetFromMap(queryResult);
+    }
+    if (ListL().is(queryResult)) {
+      let rows = new collection_utils.Rows.from(queryResult);
+      return rows;
+    }
+    dart.throw("Unsupported queryResult type " + dart.str(queryResult));
+  };
+  dart.trackLibraries("packages/sqflite_common/src/collection_utils.dart", {
+    "package:sqflite_common/src/collection_utils.dart": collection_utils
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["collection_utils.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAmM+B;MAAK;mBAGT;AAAU,cAAA,AAAK,oBAAC,KAAK;MAAC;;AAG7B,cAAA,AAAM;MAAM;iBAGf;AACsB,QAAnC,WAAM,8BAAiB;MACzB;WAGsB;YAAS;;AACM,QAAnC,WAAM,8BAAiB;;MACzB;;gCArB8B;MAAc,cAAE,IAAI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;SAhLb;AAC7B,iBAAsB,UAAf,AAAO,oBAAC,KAAK;AAC1B,YAAO,AAAK,KAAD;IACb;;yCANwB;AAAc,oDAAK,IAAI;;EAAC;;;;;;;;;;;;;;;;;AAuF9B,mDAAO;oBAAP,OAAiB;IAAC;SAGC;AACnC,YAAO,mCAAS,MAAM,AAAK,mBAAC,KAAK;IACnC;SAGsB;UAA4B;;AACb,MAAnC,WAAM,8BAAiB;;IACzB;eAGe;AACsB,MAAnC,WAAM,8BAAiB;IACzB;gBAGuB;AACrB,YAAO,AAAe,8BAAC,IAAI;IAC7B;;;AAGyB;mBAAM,OAAN,cAAU,AAAS,AAAQ,6CAAiB;IAAM;;kDAzC9C,YAA0B;;IAYnC;IACP;IACA;IACI;AAdsB,IAArC,uBAAW,UAAU,eAAV,OAAY;AACe,IAAtC,qBAAQ,OAAO,gBAAP,OAAS;AACjB,QAAI,kBAAY;AACmB,MAAjC,wBAA+B;AAE/B,eAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,AAAS,0BAAQ,IAAA,AAAC,CAAA;AACJ,QAAhC,AAAe,6BAAC,AAAQ,sBAAC,CAAC,GAAK,CAAC;;;EAGtC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAwCqB;;;;;;IAGD;;;;;;SAGO;AACnB,sBAAgB,aAAJ,GAAG;AACf,wBAAc,AAAe,gCAAY,SAAS;AACxD,UAAI,WAAW,IAAI;AACjB,cAAO,AAAG,iBAAC,WAAW;;AAExB,YAAO;IACT;SAGyB;UAAa;mBAAb;AACY,MAAnC,WAAM,8BAAiB;;IACzB;;AAIqC,MAAnC,WAAM,8BAAiB;IACzB;;AAG6B,YAAA,AAAe;IAAI;WAG1B;AACe,MAAnC,WAAM,8BAAiB;IACzB;;4CAlCc,gBAAqB;IAArB;IAAqB;;EAAI;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA2CzB;;;;;;;;IAHG;;EAAO;;;;;;;;;SAYA;AAGhB,mBAAsB,UAAb,AAAK,mBAAC,KAAK;AAC1B,YAAO,yCAAuB,MAAM;IACtC;;iDARgC;AAAc,4DAAK,IAAI;;EAAC;;;;;;;;;;0EA3JC;AACnD,kBAAuC,WAA7B,AAAiB,iBAAA,QAAC;AAC5B,eAAiC,WAA1B,AAAiB,iBAAA,QAAC;AAC/B,UAAO,yCAAe,OAAO,EAAE,IAAI;EACrC;sGAI0B;AAClB,kBAAsC,aAA5B,AAAQ,QAAA;AACxB,UAAO,4CAAyB,OAAO,EAAE,AAAQ,QAAA,8BACF,UAA/B,AAAQ,QAAA;EAC1B;4EAMqD;AAC7C,mBACyC,UAA3C,AAAqB,qBAAA;AACzB,QAAI,QAAQ,IAAI;AACd,YAAO,sDAAoC,QAAQ;;AAEvC,wBAAgB,AAAqB,qBAAA;AACnD,QAAkB,UAAd,aAAa;AACf,YAAO,oCAAkB,aAAa;UACjC,KAAkB,WAAd,aAAa;AACtB,YAAO,oCAAkB,aAAa;;AAIxC,UAAO,cAAa;EACtB;kEAGqD;AAGnD,QAAI,AAAY,WAAD,IAAI;AACjB,YAAO;;AAET,QAAgB,UAAZ,WAAW;AACb,YAAO,wCAAsB,WAAW;;AAK1C,QAAgB,WAAZ,WAAW;AACP,iBAAY,+BAAK,WAAW;AAClC,YAAO,KAAI;;AAGoC,IAAjD,WAAM,AAA2C,2CAAZ,WAAW;EAClD","file":"../../../../../../../../../../packages/sqflite_common/src/collection_utils.dart.lib.js"}');
+  // Exports:
+  return {
+    src__collection_utils: collection_utils
+  };
+}));
+
+//# sourceMappingURL=collection_utils.dart.lib.js.map
