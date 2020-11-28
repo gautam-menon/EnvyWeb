@@ -2,14 +2,6 @@ import 'package:envyweb/Services/ApiFunctions%20-Admin.dart';
 import 'package:flutter/material.dart';
 
 class EditorList extends StatefulWidget {
-  const EditorList({
-    Key key,
-    @required Size media,
-  })  : _media = media,
-        super(key: key);
-
-  final Size _media;
-
   @override
   _EditorListState createState() => _EditorListState();
 }
@@ -17,6 +9,8 @@ class EditorList extends StatefulWidget {
 class _EditorListState extends State<EditorList> {
   @override
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(title: Text("Editors"), centerTitle: true),
       body: Material(
@@ -25,68 +19,72 @@ class _EditorListState extends State<EditorList> {
         borderRadius: BorderRadius.circular(4),
         child: ListView(
           children: <Widget>[
-            Stack(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Text(
-                          'Name',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Text(
-                          'Tier',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        Text(
-                          'Phone Number',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 10),
-                    Divider(),
-                    FutureBuilder(
-                        future: ApiFunctionsAdmin().getAllEditors(),
-                        builder: (context, snapshot) {
-                          return snapshot.hasData
-                              ? Container(
-                                  decoration:
-                                      BoxDecoration(border: Border.all()),
-                                  width: widget._media.width,
-                                  height: widget._media.height * 0.9,
-                                  child: snapshot.data != false
-                                      ? ListView.builder(
-                                          shrinkWrap: true,
-                                          itemCount: snapshot.data.length > 10
-                                              ? 10
-                                              : snapshot.data.length,
-                                          itemBuilder: (context, index) {
-                                            return EditorTile(
-                                              name: snapshot.data[index]
-                                                  ['name'],
-                                              tier: snapshot.data[index]
-                                                  ['tier'],
-                                              phoneNo: int.parse(snapshot
-                                                  .data[index]['phoneNo']),
-                                            );
-                                          },
-                                        )
-                                      : Center(
-                                          child: Text("No Editors Found",
-                                              style: TextStyle(
-                                                  fontSize: 30,
-                                                  fontWeight:
-                                                      FontWeight.bold))),
-                                )
-                              : CircularProgressIndicator();
-                        }),
-                  ],
-                ),
-              ],
-            ),
+            Divider(),
+            FutureBuilder(
+                future: ApiFunctionsAdmin().getAllEditors(),
+                builder: (context, snapshot) {
+                  return snapshot.hasData
+                      ? snapshot.data != false
+                          ? Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Text(
+                                      'Name',
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      'Tier',
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      'Phone Number',
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 25,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                    decoration:
+                                        BoxDecoration(border: Border.all()),
+                                    width: screenWidth,
+                                    height: screenheight * 0.9,
+                                    child: ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: snapshot.data.length > 10
+                                          ? 10
+                                          : snapshot.data.length,
+                                      itemBuilder: (context, index) {
+                                        return EditorTile(
+                                          name: snapshot.data[index]['name'] ??
+                                              "No name",
+                                          tier: snapshot.data[index]['tier'] ??
+                                              "No tier",
+                                          phoneNo: int.parse(snapshot
+                                                  .data[index]['phoneNo']) ??
+                                              0,
+                                        );
+                                      },
+                                    )),
+                              ],
+                            )
+                          : Center(
+                              child: Text("No Editors Found",
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold)))
+                      : CircularProgressIndicator();
+                }),
           ],
         ),
       ),
@@ -137,12 +135,12 @@ class EditorTile extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            height: screenheight / 10,
+            height: screenheight / 11,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: tier == 'basic'
+              color: tier == 'BASIC'
                   ? Colors.green
-                  : tier == 'premium'
+                  : tier == 'PREMIUM'
                       ? Colors.orange
                       : Colors.red,
               borderRadius: BorderRadius.circular(8),
@@ -150,7 +148,7 @@ class EditorTile extends StatelessWidget {
           ),
           Container(
               child: Center(child: Text(phoneNo.toString() ?? "")),
-              width: screenWidth / 3),
+              width: screenWidth / 4),
         ],
       ),
     );

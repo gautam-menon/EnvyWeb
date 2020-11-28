@@ -1,0 +1,295 @@
+define(['dart_sdk'], (function load__packages__flutter_blurhash__src__blurhash_dart(dart_sdk) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _native_typed_data = dart_sdk._native_typed_data;
+  const math = dart_sdk.math;
+  const async = dart_sdk.async;
+  const typed_data = dart_sdk.typed_data;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  var blurhash = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $floor = dartx.floor;
+  var $modulo = dartx['%'];
+  var $length = dartx.length;
+  var $substring = dartx.substring;
+  var $_set = dartx._set;
+  var $buffer = dartx.buffer;
+  var $asByteData = dartx.asByteData;
+  var $setUint8 = dartx.setUint8;
+  var $setInt32 = dartx.setInt32;
+  var $setUint32 = dartx.setUint32;
+  var $setUint16 = dartx.setUint16;
+  var $setRange = dartx.setRange;
+  var $round = dartx.round;
+  var $abs = dartx.abs;
+  var $codeUnits = dartx.codeUnits;
+  var $elementAt = dartx.elementAt;
+  var $indexOf = dartx.indexOf;
+  var $rightShift = dartx['>>'];
+  var Uint8ListL = () => (Uint8ListL = dart.constFn(dart.legacy(typed_data.Uint8List)))();
+  var FutureOfUint8ListL = () => (FutureOfUint8ListL = dart.constFn(async.Future$(Uint8ListL())))();
+  var ImageL = () => (ImageL = dart.constFn(dart.legacy(ui.Image)))();
+  var CompleterOfImageL = () => (CompleterOfImageL = dart.constFn(async.Completer$(ImageL())))();
+  var Uint8ListLToNull = () => (Uint8ListLToNull = dart.constFn(dart.fnType(core.Null, [Uint8ListL()])))();
+  var numL = () => (numL = dart.constFn(dart.legacy(core.num)))();
+  var ColorL = () => (ColorL = dart.constFn(dart.legacy(ui.Color)))();
+  var StyleL = () => (StyleL = dart.constFn(dart.legacy(blurhash.Style)))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var ListOfStyleL = () => (ListOfStyleL = dart.constFn(core.List$(StyleL())))();
+  var ListLOfStyleL = () => (ListLOfStyleL = dart.constFn(dart.legacy(ListOfStyleL())))();
+  const CT = Object.create(null);
+  var L0 = "package:flutter_blurhash/src/blurhash.dart";
+  var L1 = "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_blurhash-0.5.0/lib/src/blurhash.dart";
+  dart.defineLazy(CT, {
+    get C3() {
+      return C3 = dart.constList([], ColorL());
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: blurhash.Style.prototype,
+        [background$]: null,
+        [stroke$]: null,
+        [colors$]: C3 || CT.C3,
+        [name$]: "one"
+      });
+    },
+    get C1() {
+      return C1 = dart.constList([C2 || CT.C2], StyleL());
+    },
+    get C0() {
+      return C0 = dart.constMap(StringL(), ListLOfStyleL(), ["flourish", C1 || CT.C1]);
+    }
+  }, false);
+  var name$ = dart.privateName(blurhash, "Style.name");
+  var colors$ = dart.privateName(blurhash, "Style.colors");
+  var stroke$ = dart.privateName(blurhash, "Style.stroke");
+  var background$ = dart.privateName(blurhash, "Style.background");
+  blurhash.Style = class Style extends core.Object {
+    get name() {
+      return this[name$];
+    }
+    set name(value) {
+      super.name = value;
+    }
+    get colors() {
+      return this[colors$];
+    }
+    set colors(value) {
+      super.colors = value;
+    }
+    get stroke() {
+      return this[stroke$];
+    }
+    set stroke(value) {
+      super.stroke = value;
+    }
+    get background() {
+      return this[background$];
+    }
+    set background(value) {
+      super.background = value;
+    }
+  };
+  (blurhash.Style.new = function(opts) {
+    let name = opts && 'name' in opts ? opts.name : null;
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    let stroke = opts && 'stroke' in opts ? opts.stroke : null;
+    let background = opts && 'background' in opts ? opts.background : null;
+    this[name$] = name;
+    this[colors$] = colors;
+    this[stroke$] = stroke;
+    this[background$] = background;
+    ;
+  }).prototype = blurhash.Style.prototype;
+  dart.addTypeTests(blurhash.Style);
+  dart.addTypeCaches(blurhash.Style);
+  dart.setLibraryUri(blurhash.Style, L0);
+  dart.setFieldSignature(blurhash.Style, () => ({
+    __proto__: dart.getFields(blurhash.Style.__proto__),
+    name: dart.finalFieldType(dart.legacy(core.String)),
+    colors: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(ui.Color)))),
+    stroke: dart.finalFieldType(dart.legacy(ui.Color)),
+    background: dart.finalFieldType(dart.legacy(ui.Color))
+  }));
+  blurhash.blurHashDecode = function blurHashDecode(opts) {
+    let t0, t0$, t0$0, t0$1;
+    let blurHash = opts && 'blurHash' in opts ? opts.blurHash : null;
+    let width = opts && 'width' in opts ? opts.width : null;
+    let height = opts && 'height' in opts ? opts.height : null;
+    let punch = opts && 'punch' in opts ? opts.punch : 1;
+    if (!(blurHash != null && width != null && height != null && punch != null)) dart.assertFailed(null, L1, 16, 10, "blurHash != null && width != null && height != null && punch != null");
+    blurhash._validateBlurHash(blurHash);
+    let sizeFlag = blurhash._decode83(blurHash[$_get](0));
+    let numY = (dart.notNull(sizeFlag) / 9)[$floor]() + 1;
+    let numX = sizeFlag[$modulo](9) + 1;
+    let quantisedMaximumValue = blurhash._decode83(blurHash[$_get](1));
+    let maximumValue = (dart.notNull(quantisedMaximumValue) + 1) / 166;
+    let colors = core.List.new(numX * numY);
+    for (let i = 0; i < dart.notNull(colors[$length]); i = i + 1) {
+      if (i === 0) {
+        let value = blurhash._decode83(blurHash[$substring](2, 6));
+        colors[$_set](i, blurhash._decodeDC(value));
+      } else {
+        let value = blurhash._decode83(blurHash[$substring](4 + i * 2, 6 + i * 2));
+        colors[$_set](i, blurhash._decodeAC(value, maximumValue * dart.notNull(punch)));
+      }
+    }
+    let bytesPerRow = dart.notNull(width) * 4;
+    let pixels = _native_typed_data.NativeUint8List.new(bytesPerRow * dart.notNull(height));
+    let p = 0;
+    for (let y = 0; y < dart.notNull(height); y = y + 1) {
+      for (let x = 0; x < dart.notNull(width); x = x + 1) {
+        let r = 0.0;
+        let g = 0.0;
+        let b = 0.0;
+        for (let j = 0; j < numY; j = j + 1) {
+          for (let i = 0; i < numX; i = i + 1) {
+            let basis = math.cos(3.141592653589793 * x * i / dart.notNull(width)) * math.cos(3.141592653589793 * y * j / dart.notNull(height));
+            let color = colors[$_get](i + j * numX);
+            r = r + dart.notNull(core.num.as(dart.dsend(dart.dsend(color, '_get', [0]), '*', [basis])));
+            g = g + dart.notNull(core.num.as(dart.dsend(dart.dsend(color, '_get', [1]), '*', [basis])));
+            b = b + dart.notNull(core.num.as(dart.dsend(dart.dsend(color, '_get', [2]), '*', [basis])));
+          }
+        }
+        let intR = blurhash._linearTosRGB(r);
+        let intG = blurhash._linearTosRGB(g);
+        let intB = blurhash._linearTosRGB(b);
+        pixels[$_set]((t0 = p, p = t0 + 1, t0), intR);
+        pixels[$_set]((t0$ = p, p = t0$ + 1, t0$), intG);
+        pixels[$_set]((t0$0 = p, p = t0$0 + 1, t0$0), intB);
+        pixels[$_set]((t0$1 = p, p = t0$1 + 1, t0$1), 255);
+      }
+    }
+    return FutureOfUint8ListL().value(pixels);
+  };
+  blurhash.blurHashDecodeImage = function blurHashDecodeImage(opts) {
+    let blurHash = opts && 'blurHash' in opts ? opts.blurHash : null;
+    let width = opts && 'width' in opts ? opts.width : null;
+    let height = opts && 'height' in opts ? opts.height : null;
+    let punch = opts && 'punch' in opts ? opts.punch : 1;
+    return async.async(ImageL(), function* blurHashDecodeImage() {
+      if (!(blurHash != null && width != null && height != null && punch != null)) dart.assertFailed(null, L1, 78, 10, "blurHash != null && width != null && height != null && punch != null");
+      blurhash._validateBlurHash(blurHash);
+      let completer = CompleterOfImageL().new();
+      if (true) {
+        let pixels = (yield blurhash.blurHashDecode({blurHash: blurHash, width: width, height: height, punch: punch}));
+        completer.complete(blurhash._createBmp(pixels, width, height));
+      } else {
+        blurhash.blurHashDecode({blurHash: blurHash, width: width, height: height, punch: punch}).then(core.Null, dart.fn(pixels => {
+          ui.decodeImageFromPixels(pixels, width, height, ui.PixelFormat.rgba8888, dart.bind(completer, 'complete'));
+        }, Uint8ListLToNull()));
+      }
+      return completer.future;
+    });
+  };
+  blurhash._createBmp = function _createBmp(pixels, width, height) {
+    return async.async(ImageL(), function* _createBmp() {
+      let size = dart.notNull(width) * dart.notNull(height) * 4 + 122;
+      let bmp = _native_typed_data.NativeUint8List.new(size);
+      let header = bmp[$buffer][$asByteData]();
+      header[$setUint8](0, 66);
+      header[$setUint8](1, 77);
+      header[$setInt32](2, size, typed_data.Endian.little);
+      header[$setInt32](10, 122, typed_data.Endian.little);
+      header[$setUint32](14, 108, typed_data.Endian.little);
+      header[$setUint32](18, width, typed_data.Endian.little);
+      header[$setUint32](22, -dart.notNull(height), typed_data.Endian.little);
+      header[$setUint16](26, 1, typed_data.Endian.little);
+      header[$setUint32](28, 32, typed_data.Endian.little);
+      header[$setUint32](30, 3, typed_data.Endian.little);
+      header[$setUint32](34, dart.notNull(width) * dart.notNull(height) * 4, typed_data.Endian.little);
+      header[$setUint32](54, 255, typed_data.Endian.little);
+      header[$setUint32](58, 65280, typed_data.Endian.little);
+      header[$setUint32](62, 16711680, typed_data.Endian.little);
+      header[$setUint32](66, 4278190080, typed_data.Endian.little);
+      bmp[$setRange](122, size, pixels);
+      let codec = (yield ui.instantiateImageCodec(bmp));
+      let frame = (yield codec.getNextFrame());
+      return frame.image;
+    });
+  };
+  blurhash._sRGBToLinear = function _sRGBToLinear(value) {
+    let v = dart.notNull(value) / 255;
+    if (v <= 0.04045) {
+      return v / 12.92;
+    } else {
+      return math.pow((v + 0.055) / 1.055, 2.4);
+    }
+  };
+  blurhash._linearTosRGB = function _linearTosRGB(value) {
+    let v = math.max(numL(), 0, math.min(numL(), 1, value));
+    if (v <= 0.0031308) {
+      return (v * 12.92 * 255 + 0.5)[$round]();
+    } else {
+      return ((1.055 * math.pow(v, 1 / 2.4) - 0.055) * 255 + 0.5)[$round]();
+    }
+  };
+  blurhash._validateBlurHash = function _validateBlurHash(blurHash) {
+    if (blurHash == null || blurHash.length < 6) {
+      dart.throw(core.Exception.new("The blurhash string must be at least 6 characters"));
+    }
+    let sizeFlag = blurhash._decode83(blurHash[$_get](0));
+    let numY = (dart.notNull(sizeFlag) / 9)[$floor]() + 1;
+    let numX = sizeFlag[$modulo](9) + 1;
+    if (blurHash.length !== 4 + 2 * numX * numY) {
+      dart.throw(core.Exception.new("blurhash length mismatch: length is " + dart.str(blurHash.length) + " but " + "it should be " + dart.str(4 + 2 * numX * numY)));
+    }
+  };
+  blurhash._sign = function _sign(n) {
+    return dart.notNull(n) < 0 ? -1 : 1;
+  };
+  blurhash._signPow = function _signPow(val, exp) {
+    return dart.notNull(blurhash._sign(val)) * math.pow(val[$abs](), exp);
+  };
+  blurhash._decode83 = function _decode83(str) {
+    let value = 0;
+    let units = str[$codeUnits];
+    let digits = blurhash._digitCharacters[$codeUnits];
+    for (let i = 0; i < dart.notNull(units[$length]); i = i + 1) {
+      let code = units[$elementAt](i);
+      let digit = digits[$indexOf](code);
+      if (digit === -1) {
+        dart.throw(new core.ArgumentError.value(str, "str"));
+      }
+      value = value * 83 + dart.notNull(digit);
+    }
+    return value;
+  };
+  blurhash._decodeDC = function _decodeDC(value) {
+    let intR = value[$rightShift](16);
+    let intG = dart.notNull(value) >> 8 & 255;
+    let intB = dart.notNull(value) & 255;
+    return [blurhash._sRGBToLinear(intR), blurhash._sRGBToLinear(intG), blurhash._sRGBToLinear(intB)];
+  };
+  blurhash._decodeAC = function _decodeAC(value, maximumValue) {
+    let quantR = (dart.notNull(value) / (19 * 19))[$floor]();
+    let quantG = (dart.notNull(value) / 19)[$floor]()[$modulo](19);
+    let quantB = value[$modulo](19);
+    let rgb = [dart.notNull(blurhash._signPow((quantR - 9) / 9, 2.0)) * dart.notNull(maximumValue), dart.notNull(blurhash._signPow((quantG - 9) / 9, 2.0)) * dart.notNull(maximumValue), dart.notNull(blurhash._signPow((quantB - 9) / 9, 2.0)) * dart.notNull(maximumValue)];
+    return rgb;
+  };
+  var C3;
+  var C2;
+  var C1;
+  var C0;
+  dart.defineLazy(blurhash, {
+    /*blurhash._digitCharacters*/get _digitCharacters() {
+      return "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$%*+,-.:;=?@[]^_{|}~";
+    },
+    /*blurhash.styles*/get styles() {
+      return C0 || CT.C0;
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter_blurhash/src/blurhash.dart", {
+    "package:flutter_blurhash/src/blurhash.dart": blurhash
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["blurhash.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAuMe;;;;;;IACQ;;;;;;IACN;;;;;;IACA;;;;;;;;QAEG;QAAW;QAAa;QAAa;IAArC;IAAW;IAAa;IAAa;;EAAY;;;;;;;;;;;;;QAlMlD;QACH;QACA;QACP;AAEP,UAAO,AAAoD,QAA5C,IAAI,QAAQ,KAAK,IAAI,QAAQ,MAAM,IAAI,QAAQ,KAAK,IAAI;AAC5C,IAA3B,2BAAkB,QAAQ;AAEpB,mBAAW,mBAAU,AAAQ,QAAA,QAAC;AAC9B,eAAsB,AAAQ,CAAb,aAAT,QAAQ,IAAG,eAAa;AAChC,eAAQ,AAAS,AAAK,QAAN,UAAG,KAAK;AAExB,gCAAwB,mBAAU,AAAQ,QAAA,QAAC;AAC3C,uBAA2C,CAAL,aAAtB,qBAAqB,IAAG,KAAK;AAE7C,iBAAS,cAAK,AAAK,IAAD,GAAG,IAAI;AAE/B,aAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,AAAO,MAAD,YAAS,IAAA,AAAC,CAAA;AAClC,UAAI,AAAE,CAAD,KAAI;AACD,oBAAQ,mBAAU,AAAS,QAAD,aAAW,GAAG;AAClB,QAA5B,AAAM,MAAA,QAAC,CAAC,EAAI,mBAAU,KAAK;;AAErB,oBAAQ,mBAAU,AAAS,QAAD,aAAW,AAAE,IAAE,AAAE,CAAD,GAAG,GAAG,AAAE,IAAE,AAAE,CAAD,GAAG;AACZ,QAAlD,AAAM,MAAA,QAAC,CAAC,EAAI,mBAAU,KAAK,EAAE,AAAa,YAAD,gBAAG,KAAK;;;AAI/C,sBAAoB,aAAN,KAAK,IAAG;AACtB,iBAAS,uCAAU,AAAY,WAAD,gBAAG,MAAM;AAEzC,YAAI;AACR,aAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,MAAM,GAAE,IAAA,AAAC,CAAA;AAC3B,eAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,KAAK,GAAE,IAAA,AAAC,CAAA;AACtB,gBAAI;AACJ,gBAAI;AACJ,gBAAI;AAER,iBAAS,IAAI,GAAG,AAAE,CAAD,GAAG,IAAI,EAAE,IAAA,AAAC,CAAA;AACzB,mBAAS,IAAI,GAAG,AAAE,CAAD,GAAG,IAAI,EAAE,IAAA,AAAC,CAAA;AACnB,wBAAQ,AAA0B,SAAlB,AAAI,AAAK,oBAAP,CAAC,GAAG,CAAC,gBAAI,KAAK,KAAI,SAAQ,AAAI,AAAK,oBAAP,CAAC,GAAG,CAAC,gBAAI,MAAM;AAC/D,wBAAQ,AAAM,MAAA,QAAC,AAAE,CAAD,GAAG,AAAE,CAAD,GAAG,IAAI;AACV,YAArB,IAAA,AAAE,CAAD,4BAAa,WAAJ,WAAL,KAAK,WAAC,WAAK,KAAK;AACA,YAArB,IAAA,AAAE,CAAD,4BAAa,WAAJ,WAAL,KAAK,WAAC,WAAK,KAAK;AACA,YAArB,IAAA,AAAE,CAAD,4BAAa,WAAJ,WAAL,KAAK,WAAC,WAAK,KAAK;;;AAInB,mBAAO,uBAAc,CAAC;AACtB,mBAAO,uBAAc,CAAC;AACtB,mBAAO,uBAAc,CAAC;AAEV,QAAlB,AAAM,MAAA,SAAE,KAAD,CAAC,mBAAM,IAAI;AACA,QAAlB,AAAM,MAAA,SAAE,MAAD,CAAC,qBAAM,IAAI;AACA,QAAlB,AAAM,MAAA,SAAE,OAAD,CAAC,uBAAM,IAAI;AACD,QAAjB,AAAM,MAAA,SAAE,OAAD,CAAC,uBAAM;;;AAIlB,UAAc,4BAAM,MAAM;EAC5B;;QAGmB;QACH;QACA;QACP;AAJ2B;AAMlC,YAAO,AAAoD,QAA5C,IAAI,QAAQ,KAAK,IAAI,QAAQ,MAAM,IAAI,QAAQ,KAAK,IAAI;AAC5C,MAA3B,2BAAkB,QAAQ;AAEpB,sBAAY;AAElB;AAEQ,sBAAS,MAAM,mCAAyB,QAAQ,SAAS,KAAK,UAAU,MAAM,SAAS,KAAK;AAC7C,QAArD,AAAU,SAAD,UAAU,oBAAW,MAAM,EAAE,KAAK,EAAE,MAAM;;AAKjD,QAFF,AAA+E,mCAAtD,QAAQ,SAAS,KAAK,UAAU,MAAM,SAAS,KAAK,mBAAO,QAAC;AACS,UAA5F,yBAAyB,MAAM,EAAE,KAAK,EAAE,MAAM,EAAiB,yBAAoB,UAAV,SAAS;;;AAItF,YAAO,AAAU,UAAD;IAClB;;4CAEsC,QAAY,OAAW;AAAlC;AACrB,iBAAc,AAAS,AAAK,aAApB,KAAK,iBAAG,MAAM,IAAG,IAAK;AAC5B,gBAAM,uCAAU,IAAI;AACX,mBAAS,AAAI,AAAO,GAAR;AACD,MAA1B,AAAO,MAAD,YAAU,GAAK;AACK,MAA1B,AAAO,MAAD,YAAU,GAAK;AACoB,MAAzC,AAAO,MAAD,YAAU,GAAK,IAAI,EAAS;AACM,MAAxC,AAAO,MAAD,YAAU,IAAK,KAAY;AACQ,MAAzC,AAAO,MAAD,aAAW,IAAK,KAAY;AACU,MAA5C,AAAO,MAAD,aAAW,IAAM,KAAK,EAAS;AACS,MAA9C,AAAO,MAAD,aAAW,IAAM,cAAC,MAAM,GAAS;AACC,MAAxC,AAAO,MAAD,aAAW,IAAM,GAAU;AACQ,MAAzC,AAAO,MAAD,aAAW,IAAM,IAAW;AACM,MAAxC,AAAO,MAAD,aAAW,IAAM,GAAU;AACwB,MAAzD,AAAO,MAAD,aAAW,IAAY,AAAS,aAAf,KAAK,iBAAG,MAAM,IAAG,GAAU;AACD,MAAjD,AAAO,MAAD,aAAW,IAAM,KAAmB;AACO,MAAjD,AAAO,MAAD,aAAW,IAAM,OAAmB;AACO,MAAjD,AAAO,MAAD,aAAW,IAAM,UAAmB;AACO,MAAjD,AAAO,MAAD,aAAW,IAAM,YAAmB;AACX,MAA/B,AAAI,GAAD,YAAU,KAAK,IAAI,EAAE,MAAM;AACxB,mBAAQ,MAAM,yBAAyB,GAAG;AAC1C,mBAAQ,MAAM,AAAM,KAAD;AACzB,YAAO,AAAM,MAAD;IACd;;kDAEyB;AACjB,YAAU,aAAN,KAAK,IAAG;AAClB,QAAI,AAAE,CAAD,IAAI;AACP,YAAO,AAAE,EAAD,GAAG;;AAEX,YAAO,UAAgB,CAAX,AAAE,CAAD,GAAG,SAAS,OAAO;;EAEpC;kDAEyB;AACjB,YAAI,iBAAI,GAAG,iBAAI,GAAG,KAAK;AAC7B,QAAI,AAAE,CAAD,IAAI;AACP,YAA+B,EAAvB,AAAE,AAAQ,AAAM,CAAf,GAAG,QAAQ,MAAM;;AAE1B,YAAuD,EAAb,AAAM,CAAvC,AAAM,AAAkB,QAAhB,SAAI,CAAC,EAAE,AAAE,IAAE,OAAO,SAAS,MAAM;;EAEtD;0DAE8B;AAC5B,QAAI,AAAS,QAAD,IAAI,QAAQ,AAAS,AAAO,QAAR,UAAU;AAC4B,MAApE,WAAM,mBAAU;;AAGZ,mBAAW,mBAAU,AAAQ,QAAA,QAAC;AAC9B,eAAsB,AAAQ,CAAb,aAAT,QAAQ,IAAG,eAAa;AAChC,eAAQ,AAAS,AAAK,QAAN,UAAG,KAAK;AAE9B,QAAI,AAAS,QAAD,YAAW,AAAE,IAAE,AAAE,AAAO,IAAL,IAAI,GAAG,IAAI;AAGE,MAF1C,WAAM,mBAAS,AACX,kDAAuC,AAAS,QAAD,WAAQ,UACvD,2BAAgB,AAAE,IAAE,AAAE,AAAO,IAAL,IAAI,GAAG,IAAI;;EAE3C;kCAEiB;AAAM,UAAG,cAAF,CAAC,IAAG,IAAI,CAAC,IAAI;EAAE;wCAEhB,KAAY;AAAQ,UAAW,cAAX,eAAM,GAAG,KAAI,SAAI,AAAI,GAAD,UAAQ,GAAG;EAAC;0CAEtD;AACf,gBAAQ;AACN,gBAAQ,AAAI,GAAD;AACX,iBAAS,AAAiB;AAChC,aAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,AAAM,KAAD,YAAS,IAAA,AAAC,CAAA;AAC3B,iBAAO,AAAM,KAAD,aAAW,CAAC;AACxB,kBAAQ,AAAO,MAAD,WAAS,IAAI;AACjC,UAAI,AAAM,KAAD,KAAI,CAAC;AACyB,QAArC,WAAoB,6BAAM,GAAG,EAAE;;AAEP,MAA1B,QAAQ,AAAM,AAAK,KAAN,GAAG,kBAAK,KAAK;;AAE5B,UAAO,MAAK;EACd;0CAEmB;AACX,eAAO,AAAM,KAAD,cAAI;AAChB,eAAc,AAAM,aAAZ,KAAK,KAAI,IAAK;AACtB,eAAa,aAAN,KAAK,IAAG;AACrB,UAAO,EAAC,uBAAc,IAAI,GAAG,uBAAc,IAAI,GAAG,uBAAc,IAAI;EACtE;0CAEmB,OAAc;AACzB,iBAA6B,CAAb,aAAN,KAAK,KAAI,AAAG,KAAE;AACxB,iBAAsB,AAAQ,CAAd,aAAN,KAAK,IAAG,uBAAc;AAChC,iBAAS,AAAM,KAAD,UAAG;AAEZ,cAAM,CACiB,aAAhC,kBAAsB,CAAZ,AAAO,MAAD,GAAG,KAAK,GAAG,qBAAO,YAAY,GACd,aAAhC,kBAAsB,CAAZ,AAAO,MAAD,GAAG,KAAK,GAAG,qBAAO,YAAY,GACd,aAAhC,kBAAsB,CAAZ,AAAO,MAAD,GAAG,KAAK,GAAG,qBAAO,YAAY;AAGhD,UAAO,IAAG;EACZ;;;;;;MAEM,yBAAgB;;;MAYhB,eAAM","file":"../../../../../../../../../../packages/flutter_blurhash/src/blurhash.dart.lib.js"}');
+  // Exports:
+  return {
+    src__blurhash: blurhash
+  };
+}));
+
+//# sourceMappingURL=blurhash.dart.lib.js.map

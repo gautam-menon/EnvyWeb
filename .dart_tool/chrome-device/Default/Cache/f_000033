@@ -1,0 +1,1457 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/form.dart', 'packages/envyweb/Services/ApiFunctions%20-Admin.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/material/text_form_field.dart', 'packages/flutter/src/services/text_input.dart'], (function load__packages__envyweb__Screens__Admin__AddAdmin_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__form$46dart, packages__envyweb__Services__ApiFunctions$3720_Admin$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__material__text_form_field$46dart, packages__flutter__src__services__text_input$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const visibility = packages__flutter__src__widgets__widget_span$46dart.src__widgets__visibility;
+  const form = packages__flutter__src__widgets__form$46dart.src__widgets__form;
+  const ApiFunctions$32_Admin = packages__envyweb__Services__ApiFunctions$3720_Admin$46dart.Services__ApiFunctions$32_Admin;
+  const dialog = packages__flutter__src__material__icon_button$46dart.src__material__dialog;
+  const raised_button = packages__flutter__src__material__icon_button$46dart.src__material__raised_button;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const text_form_field = packages__flutter__src__material__text_form_field$46dart.src__material__text_form_field;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  var AddAdmin = Object.create(dart.library);
+  var $contains = dartx.contains;
+  var FormStateL = () => (FormStateL = dart.constFn(dart.legacy(form.FormState)))();
+  var GlobalKeyOfFormStateL = () => (GlobalKeyOfFormStateL = dart.constFn(framework.GlobalKey$(FormStateL())))();
+  var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var ObjectL = () => (ObjectL = dart.constFn(dart.legacy(core.Object)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  var DialogL = () => (DialogL = dart.constFn(dart.legacy(dialog.Dialog)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var BuildContextLToDialogL = () => (BuildContextLToDialogL = dart.constFn(dart.fnType(DialogL(), [BuildContextL()])))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var StringLToStringL = () => (StringLToStringL = dart.constFn(dart.fnType(StringL(), [StringL()])))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  const CT = Object.create(null);
+  var L0 = "package:envyweb/Screens/Admin/AddAdmin.dart";
+  dart.defineLazy(CT, {
+    get C2() {
+      return C2 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 27,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 27,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C1 = dart.constList([C2 || CT.C2, C3 || CT.C3, C4 || CT.C4], _LocationL());
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 42,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 37,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C6 = dart.constList([C7 || CT.C7], _LocationL());
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C6 || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C9 = dart.constList([C10 || CT.C10], _LocationL());
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C9 || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 27,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C12 = dart.constList([C13 || CT.C13, C14 || CT.C14], _LocationL());
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C12 || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 23,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 23,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C16 = dart.constList([C17 || CT.C17, C18 || CT.C18], _LocationL());
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C16 || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 19,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C20 = dart.constList([C21 || CT.C21, C22 || CT.C22, C23 || CT.C23], _LocationL());
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C20 || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C25 = dart.constList([C26 || CT.C26], _LocationL());
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C25 || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C29() {
+      return C29 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C30 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 27,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 27,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C28 = dart.constList([C29 || CT.C29, C30 || CT.C30, C31 || CT.C31], _LocationL());
+    },
+    get C27() {
+      return C27 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C28 || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C34() {
+      return C34 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 49,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C33 = dart.constList([C34 || CT.C34], _LocationL());
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C33 || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 74,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C37() {
+      return C37 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C36 = dart.constList([C37 || CT.C37], _LocationL());
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C36 || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C40() {
+      return C40 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C41 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 27,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C39 = dart.constList([C40 || CT.C40, C41 || CT.C41], _LocationL());
+    },
+    get C38() {
+      return C38 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C39 || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C44() {
+      return C44 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 23,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C45 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 23,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C43 = dart.constList([C44 || CT.C44, C45 || CT.C45], _LocationL());
+    },
+    get C42() {
+      return C42 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C43 || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C48() {
+      return C48 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C49 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 19,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C50 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C47 = dart.constList([C48 || CT.C48, C49 || CT.C49, C50 || CT.C50], _LocationL());
+    },
+    get C46() {
+      return C46 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C47 || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C53() {
+      return C53 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C52 = dart.constList([C53 || CT.C53], _LocationL());
+    },
+    get C51() {
+      return C51 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C52 || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C56() {
+      return C56 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C55 = dart.constList([C56 || CT.C56], _LocationL());
+    },
+    get C54() {
+      return C54 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C55 || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 99,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C59() {
+      return C59 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C60 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "centerTitle",
+        [_Location_column]: 11,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C58 = dart.constList([C59 || CT.C59, C60 || CT.C60], _LocationL());
+    },
+    get C57() {
+      return C57 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C58 || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 98,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C61() {
+      return C61 = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C64() {
+      return C64 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 34,
+        [_Location_line]: 123,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C65 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 33,
+        [_Location_line]: 124,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C63 = dart.constList([C64 || CT.C64, C65 || CT.C65], _LocationL());
+    },
+    get C62() {
+      return C62 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C63 || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 123,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C67() {
+      return C67 = dart.constList([], _LocationL());
+    },
+    get C66() {
+      return C66 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C67 || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 128,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C70() {
+      return C70 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 27,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C71 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 27,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C69 = dart.constList([C70 || CT.C70, C71 || CT.C71], _LocationL());
+    },
+    get C68() {
+      return C68 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C69 || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 120,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C74() {
+      return C74 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C75 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 25,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C76 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 25,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C77 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C73 = dart.constList([C74 || CT.C74, C75 || CT.C75, C76 || CT.C76, C77 || CT.C77], _LocationL());
+    },
+    get C72() {
+      return C72 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C73 || CT.C73,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 116,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C80() {
+      return C80 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 21,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C81 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C79 = dart.constList([C80 || CT.C80, C81 || CT.C81], _LocationL());
+    },
+    get C78() {
+      return C78 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C79 || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 114,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C84() {
+      return C84 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 133,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C85 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 135,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C86 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C87 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C83 = dart.constList([C84 || CT.C84, C85 || CT.C85, C86 || CT.C86, C87 || CT.C87], _LocationL());
+    },
+    get C82() {
+      return C82 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C83 || CT.C83,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 132,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C90() {
+      return C90 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 21,
+        [_Location_line]: 143,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C91 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 144,
+        [_Location_file]: null
+      });
+    },
+    get C92() {
+      return C92 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 147,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C93 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 148,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C94 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C89 = dart.constList([C90 || CT.C90, C91 || CT.C91, C92 || CT.C92, C93 || CT.C93, C94 || CT.C94], _LocationL());
+    },
+    get C88() {
+      return C88 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C89 || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 142,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C97() {
+      return C97 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 155,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C98 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 158,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C99 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "obscureText",
+        [_Location_column]: 21,
+        [_Location_line]: 159,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C100 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 160,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C101 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C96 = dart.constList([C97 || CT.C97, C98 || CT.C98, C99 || CT.C99, C100 || CT.C100, C101 || CT.C101], _LocationL());
+    },
+    get C95() {
+      return C95 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C96 || CT.C96,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 154,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C104() {
+      return C104 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C105 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 170,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C106 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C107 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C103 = dart.constList([C104 || CT.C104, C105 || CT.C105, C106 || CT.C106, C107 || CT.C107], _LocationL());
+    },
+    get C102() {
+      return C102 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C103 || CT.C103,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 166,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C110() {
+      return C110 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 35,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C109 = dart.constList([C110 || CT.C110], _LocationL());
+    },
+    get C108() {
+      return C108 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C109 || CT.C109,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 178,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C113() {
+      return C113 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C114() {
+      return C114 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 23,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C112 = dart.constList([C113 || CT.C113, C114 || CT.C114], _LocationL());
+    },
+    get C111() {
+      return C111 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C112 || CT.C112,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 177,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C117() {
+      return C117 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C118 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C119() {
+      return C119 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C116 = dart.constList([C117 || CT.C117, C118 || CT.C118, C119 || CT.C119], _LocationL());
+    },
+    get C115() {
+      return C115 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C116 || CT.C116,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 110,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C122() {
+      return C122 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 15,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C123 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C121 = dart.constList([C122 || CT.C122, C123 || CT.C123], _LocationL());
+    },
+    get C120() {
+      return C120 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C121 || CT.C121,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 108,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C126() {
+      return C126 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 13,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C127 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C125 = dart.constList([C126 || CT.C126, C127 || CT.C127], _LocationL());
+    },
+    get C124() {
+      return C124 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C125 || CT.C125,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C130() {
+      return C130 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 11,
+        [_Location_line]: 103,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C131 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 11,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C132() {
+      return C132 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C133() {
+      return C133 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C129 = dart.constList([C130 || CT.C130, C131 || CT.C131, C132 || CT.C132, C133 || CT.C133], _LocationL());
+    },
+    get C128() {
+      return C128 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C129 || CT.C129,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 102,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    },
+    get C136() {
+      return C136 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C137() {
+      return C137 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 102,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C135 = dart.constList([C136 || CT.C136, C137 || CT.C137], _LocationL());
+    },
+    get C134() {
+      return C134 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C135 || CT.C135,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 97,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddAdmin.dart"
+      });
+    }
+  }, false);
+  AddAdmin.AddAdmin = class AddAdmin$ extends framework.StatefulWidget {
+    createState() {
+      return new AddAdmin._AddAdminState.new();
+    }
+  };
+  (AddAdmin.AddAdmin.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    AddAdmin.AddAdmin.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = AddAdmin.AddAdmin.prototype;
+  dart.addTypeTests(AddAdmin.AddAdmin);
+  dart.addTypeCaches(AddAdmin.AddAdmin);
+  dart.setMethodSignature(AddAdmin.AddAdmin, () => ({
+    __proto__: dart.getMethods(AddAdmin.AddAdmin.__proto__),
+    createState: dart.fnType(dart.legacy(AddAdmin._AddAdminState), [])
+  }));
+  dart.setLibraryUri(AddAdmin.AddAdmin, L0);
+  var _submit = dart.privateName(AddAdmin, "_submit");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C2;
+  var C3;
+  var C4;
+  var C1;
+  var C0;
+  var C7;
+  var C6;
+  var C5;
+  var C10;
+  var C9;
+  var C8;
+  var C13;
+  var C14;
+  var C12;
+  var C11;
+  var C17;
+  var C18;
+  var C16;
+  var C15;
+  var C21;
+  var C22;
+  var C23;
+  var C20;
+  var C19;
+  var C26;
+  var C25;
+  var C24;
+  var C29;
+  var C30;
+  var C31;
+  var C28;
+  var C27;
+  var C34;
+  var C33;
+  var C32;
+  var C37;
+  var C36;
+  var C35;
+  var C40;
+  var C41;
+  var C39;
+  var C38;
+  var C44;
+  var C45;
+  var C43;
+  var C42;
+  var C48;
+  var C49;
+  var C50;
+  var C47;
+  var C46;
+  var C53;
+  var C52;
+  var C51;
+  var C56;
+  var C55;
+  var C54;
+  var C59;
+  var C60;
+  var C58;
+  var C57;
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  var C61;
+  var C64;
+  var C65;
+  var C63;
+  var C62;
+  var C67;
+  var C66;
+  var C70;
+  var C71;
+  var C69;
+  var C68;
+  var C74;
+  var C75;
+  var C76;
+  var C77;
+  var C73;
+  var C72;
+  var C80;
+  var C81;
+  var C79;
+  var C78;
+  var C84;
+  var C85;
+  var C86;
+  var C87;
+  var C83;
+  var C82;
+  var C90;
+  var C91;
+  var C92;
+  var C93;
+  var C94;
+  var C89;
+  var C88;
+  var C97;
+  var C98;
+  var C99;
+  var C100;
+  var C101;
+  var C96;
+  var C95;
+  var C104;
+  var C105;
+  var C106;
+  var C107;
+  var C103;
+  var C102;
+  var C110;
+  var C109;
+  var C108;
+  var C113;
+  var C114;
+  var C112;
+  var C111;
+  var C117;
+  var C118;
+  var C119;
+  var C116;
+  var C115;
+  var C122;
+  var C123;
+  var C121;
+  var C120;
+  var C126;
+  var C127;
+  var C125;
+  var C124;
+  var C130;
+  var C131;
+  var C132;
+  var C133;
+  var C129;
+  var C128;
+  var C136;
+  var C137;
+  var C135;
+  var C134;
+  AddAdmin._AddAdminState = class _AddAdminState extends framework.State$(dart.legacy(AddAdmin.AddAdmin)) {
+    [_submit](context) {
+      let form = this.formKey.currentState;
+      if (dart.test(form.validate())) {
+        form.save();
+        this.setState(dart.fn(() => {
+          this.visible = true;
+        }, VoidToNull()));
+        this.createAdmin(context);
+      }
+    }
+    createAdmin(context) {
+      return async.async(dart.dynamic, (function* createAdmin() {
+        let response = (yield new ApiFunctions$32_Admin.ApiFunctionsAdmin.new().addAdmin(this.name.text, this.email.text, this.password.text, this.phoneNo.text));
+        core.print(response);
+        let condition = boolL().as(dart.dsend(response, '_get', ["status"]));
+        let message = dart.dsend(response, '_get', ["req"]);
+        if (dart.test(condition)) {
+          dialog.showDialog(dart.dynamic, {context: framework.BuildContext.as(context), builder: dart.fn(context => {
+              let t0;
+              return new dialog.Dialog.new({child: new container.Container.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 2, width: dart.notNull(media_query.MediaQuery.of(context).size.width) / 2, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new icon.Icon.new(icons.Icons.done, {size: 70.0, color: colors.Colors.green, $creationLocationd_0dea112b090073317d4: C0 || CT.C0}), new text.Text.new(core.String.as((t0 = message, t0 == null ? "Account Created Successfully!" : t0)), {$creationLocationd_0dea112b090073317d4: C5 || CT.C5}), new raised_button.RaisedButton.new({child: new text.Text.new("Okay", {$creationLocationd_0dea112b090073317d4: C8 || CT.C8}), onPressed: dart.fn(() => {
+                          this.setState(dart.fn(() => {
+                            this.visible = false;
+                          }, VoidToNull()));
+                          navigator.Navigator.of(context).pop(ObjectL());
+                        }, VoidToNull()), $creationLocationd_0dea112b090073317d4: C11 || CT.C11})]), $creationLocationd_0dea112b090073317d4: C15 || CT.C15}), $creationLocationd_0dea112b090073317d4: C19 || CT.C19}), $creationLocationd_0dea112b090073317d4: C24 || CT.C24});
+            }, BuildContextLToDialogL())});
+        } else {
+          dialog.showDialog(dart.dynamic, {context: framework.BuildContext.as(context), builder: dart.fn(context => {
+              let t0;
+              return new dialog.Dialog.new({child: new container.Container.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 2, width: dart.notNull(media_query.MediaQuery.of(context).size.width) / 2, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new icon.Icon.new(icons.Icons.error, {size: 70.0, color: colors.Colors.red, $creationLocationd_0dea112b090073317d4: C27 || CT.C27}), new text.Text.new(core.String.as((t0 = dart.dsend(message, '_get', ["message"]), t0 == null ? "Account could not be created" : t0)), {$creationLocationd_0dea112b090073317d4: C32 || CT.C32}), new raised_button.RaisedButton.new({child: new text.Text.new("Okay", {$creationLocationd_0dea112b090073317d4: C35 || CT.C35}), onPressed: dart.fn(() => {
+                          this.setState(dart.fn(() => {
+                            this.visible = false;
+                          }, VoidToNull()));
+                          navigator.Navigator.of(context).pop(ObjectL());
+                        }, VoidToNull()), $creationLocationd_0dea112b090073317d4: C38 || CT.C38})]), $creationLocationd_0dea112b090073317d4: C42 || CT.C42}), $creationLocationd_0dea112b090073317d4: C46 || CT.C46}), $creationLocationd_0dea112b090073317d4: C51 || CT.C51});
+            }, BuildContextLToDialogL())});
+        }
+      }).bind(this));
+    }
+    build(context) {
+      let screenSize = media_query.MediaQuery.of(context).size;
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Add Admin", {$creationLocationd_0dea112b090073317d4: C54 || CT.C54}), centerTitle: true, $creationLocationd_0dea112b090073317d4: C57 || CT.C57}), body: new container.Container.new({height: screenSize.height, width: screenSize.width, color: colors.Colors.grey, child: new form.Form.new({key: this.formKey, child: new basic.Padding.new({padding: C61 || CT.C61, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, crossAxisAlignment: flex.CrossAxisAlignment.center, children: JSArrayOfWidgetL().of([new visibility.Visibility.new({visible: this.visible, child: new container.Container.new({width: screenSize.width, height: dart.notNull(screenSize.height) * 0.1, color: colors.Colors.green, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidgetL().of([new text.Text.new("Creating account...", {style: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 30.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C62 || CT.C62}), new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C66 || CT.C66})]), $creationLocationd_0dea112b090073317d4: C68 || CT.C68}), $creationLocationd_0dea112b090073317d4: C72 || CT.C72}), $creationLocationd_0dea112b090073317d4: C78 || CT.C78}), new text_form_field.TextFormField.new({validator: dart.fn(val => val.length < 1 ? "Name too short" : null, StringLToStringL()), controller: this.name, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Name", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C82 || CT.C82}), new text_form_field.TextFormField.new({keyboardType: text_input.TextInputType.emailAddress, validator: dart.fn(val => !val[$contains]("@") ? "Please enter a valid email address." : null, StringLToStringL()), controller: this.email, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Email", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C88 || CT.C88}), new text_form_field.TextFormField.new({validator: dart.fn(val => val.length < 8 ? "Password too short (Should be at least 8 characters)" : null, StringLToStringL()), controller: this.password, obscureText: true, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Password", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C95 || CT.C95}), new text_form_field.TextFormField.new({validator: dart.fn(val => val.length < 8 ? "Number too short (Should be at least 9 characters)" : null, StringLToStringL()), controller: this.phoneNo, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Phone Number", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C102 || CT.C102}), new raised_button.RaisedButton.new({child: new text.Text.new("Create Admin", {$creationLocationd_0dea112b090073317d4: C108 || CT.C108}), onPressed: dart.fn(() => this[_submit](context), VoidTovoid()), $creationLocationd_0dea112b090073317d4: C111 || CT.C111})]), $creationLocationd_0dea112b090073317d4: C115 || CT.C115}), $creationLocationd_0dea112b090073317d4: C120 || CT.C120}), $creationLocationd_0dea112b090073317d4: C124 || CT.C124}), $creationLocationd_0dea112b090073317d4: C128 || CT.C128}), $creationLocationd_0dea112b090073317d4: C134 || CT.C134});
+    }
+  };
+  (AddAdmin._AddAdminState.new = function() {
+    this.visible = false;
+    this.name = new editable_text.TextEditingController.new();
+    this.email = new editable_text.TextEditingController.new();
+    this.password = new editable_text.TextEditingController.new();
+    this.phoneNo = new editable_text.TextEditingController.new();
+    this.formKey = GlobalKeyOfFormStateL().new();
+    AddAdmin._AddAdminState.__proto__.new.call(this);
+    ;
+  }).prototype = AddAdmin._AddAdminState.prototype;
+  dart.addTypeTests(AddAdmin._AddAdminState);
+  dart.addTypeCaches(AddAdmin._AddAdminState);
+  dart.setMethodSignature(AddAdmin._AddAdminState, () => ({
+    __proto__: dart.getMethods(AddAdmin._AddAdminState.__proto__),
+    [_submit]: dart.fnType(dart.void, [dart.dynamic]),
+    createAdmin: dart.fnType(dart.dynamic, [dart.dynamic]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(AddAdmin._AddAdminState, L0);
+  dart.setFieldSignature(AddAdmin._AddAdminState, () => ({
+    __proto__: dart.getFields(AddAdmin._AddAdminState.__proto__),
+    visible: dart.fieldType(dart.legacy(core.bool)),
+    name: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    email: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    password: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    phoneNo: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    formKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(form.FormState))))
+  }));
+  dart.trackLibraries("packages/envyweb/Screens/Admin/AddAdmin.dart", {
+    "package:envyweb/Screens/Admin/AddAdmin.dart": AddAdmin
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["AddAdmin.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAKkC;IAAgB;;;;;;EAClD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;cAIe;AACL,iBAAO,AAAQ;AACrB,oBAAI,AAAK,IAAD;AACK,QAAX,AAAK,IAAD;AAGF,QAFF,cAAS;AACO,UAAd,eAAU;;AAEQ,QAApB,iBAAY,OAAO;;IAEvB;gBAEY;AAAD;AACL,wBAAW,MAAM,AAAoB,2DACvC,AAAK,gBACL,AAAM,iBACN,AAAS,oBACT,AAAQ;AAEK,QAAf,WAAM,QAAQ;AACT,mCAAoB,WAAR,QAAQ,WAAC;AACtB,sBAAkB,WAAR,QAAQ,WAAC;AACvB,sBAAI,SAAS;AA0BU,UAzBrB,oEACa,OAAO,YACP,QAAC;;AAAY,mDACX,qCACwC,aAAxB,AAAY,AAAK,0BAAd,OAAO,iBAAgB,UACJ,aAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe,UACpC,yCACkC,8CAC3B,uBACR,kBACQ,yBACA,aACQ,4EAEhB,kCACY,KAAR,OAAO,QAAP,OAAW,gGACf,2CACS,kBAAK,2EACD;AAGP,0BAFF,cAAS;AACQ,4BAAf,eAAU;;AAEe,0BAAjB,AAAY,uBAAT,OAAO;;;;AA6BrB,UAxBrB,oEACa,OAAO,YACP,QAAC;;AAAY,mDACX,qCACwC,aAAxB,AAAY,AAAK,0BAAd,OAAO,iBAAgB,UACJ,aAAvB,AAAY,AAAK,0BAAd,OAAO,gBAAe,UACpC,yCACkC,8CAC3B,uBACR,kBACQ,0BACA,aACQ,4EAEhB,kCAAwB,KAAZ,WAAP,OAAO,WAAC,mBAAD,OAAe,iGAC3B,2CACS,kBAAK,6EACD;AAGP,0BAFF,cAAS;AACQ,4BAAf,eAAU;;AAEe,0BAAjB,AAAY,uBAAT,OAAO;;;;MAK9C;;UAQ0B;AACpB,uBAAwB,AAAY,0BAAT,OAAO;AAEtC,YAAO,oCACK,+BACC,kBAAK,oFACC,qEAET,qCACI,AAAW,UAAD,gBACX,AAAW,UAAD,eACH,2BACP,wBACA,qBACE,sDAEE,yCACgC,wDACE,0CAC7B,uBACR,wCACW,qBACF,oCACI,AAAW,UAAD,gBACS,aAAlB,AAAW,UAAD,WAAU,YACd,4BACP,sCACgC,yCAC3B,uBACR,kBAAK,+BACM,qCACW,+BACJ,kBACa,+EAC/B,4RAIV,kDACa,QAAC,OACR,AAAI,AAAO,GAAR,UAAU,IAAI,mBAAmB,uCAC5B,kBACL,qCAAwB,mCACnB,mDACE,mBAEN,qCAAwB,+BAAiB,mEAEnD,qDAC8B,kDACjB,QAAC,OAAQ,CAAC,AAAI,GAAD,YAAU,OAC5B,wCACA,uCACM,mBACL,qCAAwB,mCACnB,mDACE,oBAEN,qCAAwB,+BAAiB,mEAEnD,kDACa,QAAC,OAAQ,AAAI,AAAO,GAAR,UAAU,IAC3B,yDACA,uCACM,4BACC,aACN,qCAAwB,mCACnB,mDACE,uBAEN,qCAAwB,+BAAiB,mEAEnD,kDACa,QAAC,OAAQ,AAAI,AAAO,GAAR,UAAU,IAC3B,uDACA,uCACM,qBACL,qCAAwB,mCACnB,mDACE,2BAEN,qCAAwB,+BAAiB,qEAEnD,2CACW,kBAAK,uFACD,cAAM,cAAQ,OAAO;IAMpD;;;IA/KK,eAAU;IA8Ea,YAAW;IACX,aAAY;IACZ,gBAAe;IACf,eAAc;IACpC,eAAc;;;EA8FtB","file":"../../../../../../../../packages/envyweb/Screens/Admin/AddAdmin.dart.lib.js"}');
+  // Exports:
+  return {
+    Screens__Admin__AddAdmin: AddAdmin
+  };
+}));
+
+//# sourceMappingURL=AddAdmin.dart.lib.js.map

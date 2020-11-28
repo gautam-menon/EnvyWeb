@@ -23,7 +23,6 @@ class _AdminPageState extends State<AdminPage> {
   bool isLoading = true;
   @override
   Widget build(BuildContext context) {
-    final _media = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text("Dashboard"),
@@ -50,7 +49,7 @@ class _AdminPageState extends State<AdminPage> {
                     context,
                     MaterialPageRoute(
                         builder: (context) => EditorList(
-                              media: _media,
+                   
                             )));
               }),
               Customize("Add Editor", () {
