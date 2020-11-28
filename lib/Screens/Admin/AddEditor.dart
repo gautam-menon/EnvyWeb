@@ -29,6 +29,7 @@ class _AddEditorState extends State<AddEditor> {
     );
     print(response);
     bool condition = response['status'];
+    var message = response['req'];
     if (condition) {
       showDialog(
           context: context,
@@ -44,7 +45,7 @@ class _AddEditorState extends State<AddEditor> {
                           size: 70,
                           color: Colors.green,
                         ),
-                        Text("Account Created Successfully!"),
+                        Text(message ??"Account Created Successfully!"),
                         RaisedButton(
                           child: Text("Okay"),
                           onPressed: () {
@@ -70,7 +71,7 @@ class _AddEditorState extends State<AddEditor> {
                           size: 70,
                           color: Colors.red,
                         ),
-                        Text(response['req'] ?? "Account could not be created"),
+                        Text(message['message'] ?? "Account could not be created"),
                         RaisedButton(
                           child: Text("Okay"),
                           onPressed: () {

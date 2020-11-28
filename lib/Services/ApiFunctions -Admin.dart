@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'package:envyweb/Models/UserModel.dart';
 import 'package:http/http.dart' as http;
 
-import 'Auth.dart';
-
 class ApiFunctionsAdmin {
   String baseUrl = "https://envytestserver.herokuapp.com";
   String getAllEditorsUrl =
@@ -39,13 +37,9 @@ class ApiFunctionsAdmin {
 
   Future addEditor(String name, String email, String password, String tier,
       String phoneNo) async {
-    String uid = await AuthService().createAccount(email, password);
-    if (uid == null) {
-      return {"status": false, "req": "Firebase error"};
-    }
     var body = {
-      "uid": uid,
       "name": name,
+      "password": password,
       "email": email,
       "tier": tier,
       "phoneNo": phoneNo
@@ -63,12 +57,7 @@ class ApiFunctionsAdmin {
 
   Future addAdmin(
       String name, String email, String password, String phoneNo) async {
-    print('admin');
-    String uid = await AuthService().createAccount(email, password);
-    if (uid == null) {
-      return {"status": false, "req": "Firebase error"};
-    }
-    var body = {"uid": uid, "name": name, "email": email, "phoneNo": phoneNo};
+    var body = {"name": name, "email": email, "phoneNo": phoneNo, "password": password};
     print(body);
     var response = await http.post(addAdminUrl, body: body);
     print(response);

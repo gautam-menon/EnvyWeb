@@ -28,6 +28,7 @@ class _AddAdminState extends State<AddAdmin> {
     );
     print(response);
     bool condition = response['status'];
+    var message = response['req'];
     if (condition) {
       showDialog(
           context: context,
@@ -43,7 +44,8 @@ class _AddAdminState extends State<AddAdmin> {
                           size: 70,
                           color: Colors.green,
                         ),
-                        Text("Account Created Successfully!"),
+                        Text(
+                            message ?? "Account Created Successfully!"),
                         RaisedButton(
                           child: Text("Okay"),
                           onPressed: () {
@@ -69,7 +71,7 @@ class _AddAdminState extends State<AddAdmin> {
                           size: 70,
                           color: Colors.red,
                         ),
-                        Text(response['req'] ?? "Account could not be created"),
+                        Text(message['message'] ?? "Account could not be created"),
                         RaisedButton(
                           child: Text("Okay"),
                           onPressed: () {
@@ -172,7 +174,6 @@ class _AddAdminState extends State<AddAdmin> {
                         hintStyle:
                             TextStyle(color: Colors.black, fontSize: 12.0)),
                   ),
-                  
                   RaisedButton(
                       child: Text("Create Admin"),
                       onPressed: () => _submit(context))

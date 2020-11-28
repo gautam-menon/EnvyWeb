@@ -42,15 +42,4 @@ class AuthService {
   logOut() async {
     await FirebaseAuth.instance.signOut();
   }
-
-  Future<String> createAccount(String email, String password) async {
-    try {
-      UserCredential usercredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
-      return usercredential.user.uid;
-    } catch (e) {
-      return null;
-    }
-    //if user exists, return the uid of that account.
-  }
 }
