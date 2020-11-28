@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:html';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
@@ -58,8 +59,7 @@ class ApiFunctionsEditors {
   }
 
   Future<bool> submitOrder(
-      Uint8List image, String orderId, String userId) async {
-    //for notiications
+      File image, String orderId, String userId) async {
     var postUri = Uri.parse(submitOrderUrl);
     var request = new http.MultipartRequest("POST", postUri);
     request.fields['orderId'] = orderId;

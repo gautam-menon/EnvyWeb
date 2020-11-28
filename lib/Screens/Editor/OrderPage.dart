@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'dart:html' as html;
+import 'dart:io';
+import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:envyweb/Screens/Editor/SubmitPage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
@@ -103,40 +105,28 @@ class _OrderPageState extends State<OrderPage> {
                                               onPressed: () async {
                                                 String imageUrl =
                                                     snapshot.data['rawBase64'];
-                                                html.AnchorElement
-                                                    anchorElement =
-                                                    new html.AnchorElement(
-                                                        href: imageUrl);
-                                                anchorElement.download =
-                                                    imageUrl;
-                                                anchorElement.click();
-
-                                                // generated somewhere
-
-                                                // var temp = await http
-                                                //     .get("https://pub.dev/static/img/pub-dev-logo-2x.png?hash=umitaheu8hl7gd3mineshk2koqfngugi", headers: {
-                                                //   "Content-Type":
-                                                //       "application/json"
-                                                // });
-                                                // var response = temp.bodyBytes;
-                                                // final blob =
-                                                //     html.Blob([response]);
-                                                // final url = html.Url
-                                                //     .createObjectUrlFromBlob(
-                                                //         blob);
-                                                // final anchor = html.document
-                                                //         .createElement('a')
-                                                //     as html.AnchorElement
-                                                //   ..href = url
-                                                //   ..style.display = 'none'
-                                                //   ..download =
-                                                //       'EnvyOrderImage.jpg';
-                                                // html.document.body.children
-                                                //     .add(anchor);
-                                                // anchor.click();
-                                                // html.document.body.children
-                                                //     .remove(anchor);
-                                                // html.Url.revokeObjectUrl(url);
+                                                // html.AnchorElement
+                                                //     anchorElement =
+                                                //     new html.AnchorElement(
+                                                //         href: imageUrl);
+                                                // anchorElement.download =
+                                                //     imageUrl;
+                                                // anchorElement.click();
+                                                try {
+                                                  new HttpClient()
+                                                      .getUrl(
+                                                          Uri.parse(imageUrl))
+                                                      .then((HttpClientRequest
+                                                              request) =>
+                                                          request.close())
+                                                      .then((HttpClientResponse
+                                                              response) =>
+                                                          response.pipe(new File(
+                                                                  'EnvyImage.jpg')
+                                                              .openWrite()));
+                                                } catch (e) {
+                                                  print(e);
+                                                }
                                               },
                                               child: Text("Download Image"),
                                             ),
@@ -147,7 +137,8 @@ class _OrderPageState extends State<OrderPage> {
                                                     MaterialPageRoute(
                                                         builder: (context) =>
                                                             SubmitPage(
-                                                                orderId: widget.orderId,
+                                                                orderId: widget
+                                                                    .orderId,
                                                                 userId: snapshot
                                                                         .data[
                                                                     'uid'])));

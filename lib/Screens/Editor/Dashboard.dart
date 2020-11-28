@@ -31,12 +31,19 @@ class _EditorPageState extends State<EditorPage> {
             child: ListView(
               children: [
                 Customize("Dashboard", () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => EditorPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              EditorPage(uid: widget.uid, name: widget.name)));
                 }),
                 Customize("Profile", () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ProfilePage(uid: widget.uid,)));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfilePage(
+                                uid: widget.uid,
+                              )));
                 }),
                 Customize("Submit Image", () {
                   Navigator.push(context,
@@ -206,9 +213,11 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                       bool response = await ApiFunctionsEditors()
                           .orderConfirmation(true, widget.orderID);
                       if (response) {
+                        setState(() {});
                         showSuccessDialog(context);
                       } else {
                         showFailDialog(context);
+                        setState(() {});
                       }
                     },
                     child: Text("Accept"),
@@ -358,11 +367,13 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                     onPressed: () async {
                       bool response = await ApiFunctionsEditors()
                           .orderConfirmation(false, widget.orderID);
-                      //showdialog
+                      
                       if (response) {
                         showSuccessDialog(context);
+                        setState(() {});
                       } else {
                         showFailDialog(context);
+                        setState(() {});
                       }
                     },
                     child: Text("Decline"),
@@ -394,7 +405,7 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                       RaisedButton(
                         onPressed: () {
                           Navigator.of(context).pop();
-                          setState(() {});
+                          
                         },
                         child: Text("Okay"),
                       )
@@ -420,7 +431,7 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                       RaisedButton(
                         onPressed: () {
                           Navigator.of(context).pop();
-                          setState(() {});
+                          
                         },
                         child: Text("Okay"),
                       )

@@ -117,7 +117,7 @@ class AcceptedOrderTile extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            OrderPage(orderId: orderId, uid: uid)));
+                            OrderPage(orderId: orderId??"1", uid: uid??"1")));
               },
             )
           ],

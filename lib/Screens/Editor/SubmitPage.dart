@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:typed_data';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
@@ -70,10 +71,8 @@ class _SubmitPageState extends State<SubmitPage> {
                   ),
                   RaisedButton(
                     onPressed: () async {
-                     
-                      bool response = await ApiFunctionsEditors()
-                          .submitOrder(bytes, widget.orderId, widget.userId);
-                      print(response.toString());
+                      // bool response = await ApiFunctionsEditors()
+                      //     .submitOrder(bytes, widget.orderId, widget.userId);
                     },
                     child: Text("Upload Image"),
                   ),
@@ -84,5 +83,24 @@ class _SubmitPageState extends State<SubmitPage> {
         ),
       ),
     );
+  }
+
+  void uploadImage({@required Function(File file) onSelected}) {
+    InputElement uploadInput = FileUploadInputElement()..accept = 'image/*';
+    uploadInput.click();
+
+    uploadInput.onChange.listen((event) {
+      final file = uploadInput.files.first;
+      final reader = FileReader();
+      reader.readAsDataUrl(file);
+      reader.onLoadEnd.listen((event) {
+        onSelected(file);
+      });
+      
+    });
+  }
+
+  onSelected(File file) async {
+    // bool x = await ApiFunctionsEditors().submitOrder(image, orderId, userId);
   }
 }
