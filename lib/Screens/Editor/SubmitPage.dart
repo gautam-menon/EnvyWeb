@@ -1,6 +1,6 @@
 import 'dart:html';
 import 'dart:typed_data';
-import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
+import 'package:firebase/firebase.dart' as fb;
 import 'package:flutter/material.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 
@@ -22,7 +22,7 @@ class _SubmitPageState extends State<SubmitPage> {
     var screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Submit Image"),
+        title: Text("Submit Imge"),
       ),
       body: Container(
         height: screen.height,
@@ -71,8 +71,20 @@ class _SubmitPageState extends State<SubmitPage> {
                   ),
                   RaisedButton(
                     onPressed: () async {
-                      // bool response = await ApiFunctionsEditors()
-                      //     .submitOrder(bytes, widget.orderId, widget.userId);
+                      final path = DateTime.now().toString();
+                      uploadImage(
+                        onSelected: (file) {
+                          fb
+                              .storage()
+                              .refFromURL('gs://envy-f1ba5.appspot.com/')
+                              .child(path)
+                              .put(file)
+                              .future
+                              .then((_) {
+                            print(_.bytesTransferred.toString());
+                          });
+                        },
+                      );
                     },
                     child: Text("Upload Image"),
                   ),
@@ -96,11 +108,6 @@ class _SubmitPageState extends State<SubmitPage> {
       reader.onLoadEnd.listen((event) {
         onSelected(file);
       });
-      
     });
-  }
-
-  onSelected(File file) async {
-    // bool x = await ApiFunctionsEditors().submitOrder(image, orderId, userId);
   }
 }

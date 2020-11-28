@@ -1,11 +1,9 @@
 import 'dart:convert';
-import 'dart:html' as html;
-import 'dart:io';
-import 'package:http/http.dart' as http;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:envyweb/Screens/Editor/SubmitPage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
 class OrderPage extends StatefulWidget {
   final String orderId;
@@ -32,9 +30,10 @@ class _OrderPageState extends State<OrderPage> {
                       future:
                           ApiFunctionsEditors().getOrderDetails(widget.orderId),
                       builder: (context, snapshot) {
-                        List features = snapshot.hasData
-                            ? json.decode(snapshot.data['features'])
-                            : [];
+                        List features =
+                            snapshot.hasData && snapshot.data != false
+                                ? json.decode(snapshot.data['features'])
+                                : [];
                         return snapshot.hasData
                             ? snapshot.data != false
                                 ? Column(
@@ -112,19 +111,8 @@ class _OrderPageState extends State<OrderPage> {
                                                 // anchorElement.download =
                                                 //     imageUrl;
                                                 // anchorElement.click();
-                                                try {
-                                                  new HttpClient()
-                                                      .getUrl(
-                                                          Uri.parse(imageUrl))
-                                                      .then((HttpClientRequest
-                                                              request) =>
-                                                          request.close())
-                                                      .then((HttpClientResponse
-                                                              response) =>
-                                                          response.pipe(new File(
-                                                                  'EnvyImage.jpg')
-                                                              .openWrite()));
-                                                } catch (e) {
+                                                var x =await get(imageUrl);
+                                                try {} catch (e) {
                                                   print(e);
                                                 }
                                               },
@@ -150,7 +138,12 @@ class _OrderPageState extends State<OrderPage> {
                                         )
                                       ])
                                 : Center(
-                                    child: Text("Order details unavailable"))
+                                    child: Text(
+                                    "Order details unavailable",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 30),
+                                  ))
                             : CircularProgressIndicator();
                       }),
                 )

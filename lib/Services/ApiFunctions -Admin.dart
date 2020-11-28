@@ -30,6 +30,8 @@ class ApiFunctionsAdmin {
       "https://envytestserver.herokuapp.com/AdminPage/GetProOrders";
   String addEditorUrl =
       "https://envytestserver.herokuapp.com/AdminPage/AddEditor";
+  String addAdminUrl =
+      "https://envytestserver.herokuapp.com/AdminPage/AddAdmin";
   String loginCheckEditorUrl =
       "https://envytestserver.herokuapp.com/AdminPage/loginCheckEditor";
   String loginCheckAdminUrl =
@@ -58,20 +60,17 @@ class ApiFunctionsAdmin {
       return {"status": false};
     }
   }
- Future addAdmin(String name, String email, String password,
-      String phoneNo) async {
+
+  Future addAdmin(
+      String name, String email, String password, String phoneNo) async {
+    print('admin');
     String uid = await AuthService().createAccount(email, password);
     if (uid == null) {
       return {"status": false, "req": "Firebase error"};
     }
-    var body = {
-      "uid": uid,
-      "name": name,
-      "email": email,
-      "phoneNo": phoneNo
-    };
+    var body = {"uid": uid, "name": name, "email": email, "phoneNo": phoneNo};
     print(body);
-    var response = await http.post(addEditorUrl, body: body);
+    var response = await http.post(addAdminUrl, body: body);
     print(response);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
@@ -80,6 +79,7 @@ class ApiFunctionsAdmin {
       return {"status": false};
     }
   }
+
   Future getAllEditors() async {
     var response = await http.get(getAllEditorsUrl);
     if (response.statusCode == 200) {

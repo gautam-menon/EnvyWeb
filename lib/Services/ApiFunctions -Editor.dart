@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
@@ -12,7 +11,7 @@ class ApiFunctionsEditors {
   String getOrderDetailsUrl =
       "https://envytestserver.herokuapp.com/EditorPage/showOrderDetails";
   String submitOrderUrl =
-      "https://envytestserver.herokuapp.com/order/SubmitOrder";
+      "localhost:3000/order/SubmitOrder";
 
   String getUnconfirmedWorkOrdersUrl =
       "https://envytestserver.herokuapp.com/EditorPage/GetUnconfirmedWorkOrders";
@@ -52,36 +51,46 @@ class ApiFunctionsEditors {
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       print(data);
-      return data['req'];
+      if (data['status'] == true) {
+        return data['req'];
+      } else {
+        print('ok');
+        return false;
+      }
     } else {
       return false;
     }
   }
 
   Future<bool> submitOrder(
-      File image, String orderId, String userId) async {
-    var postUri = Uri.parse(submitOrderUrl);
-    var request = new http.MultipartRequest("POST", postUri);
-    request.fields['orderId'] = orderId;
-    request.fields['uid'] = userId;
-    request.files.add(
-      http.MultipartFile.fromBytes(
-        'picture',
-        image,
-        filename: 'picture',
-        contentType: MediaType(
-          'image',
-          'jpeg',
+      Uint8List image, String orderId, String userId) async {
+    try {
+      var postUri = Uri.parse(submitOrderUrl);
+      var request = new http.MultipartRequest("POST", postUri);
+      request.fields['orderId'] = orderId;
+      request.fields['uid'] = userId;
+      request.files.add(
+        http.MultipartFile.fromBytes(
+          'picture',
+          image,
+          filename: 'picture',
+          contentType: MediaType(
+            'image',
+            'jpeg',
+          ),
         ),
-      ),
-    );
-    http.Response response =
-        await http.Response.fromStream(await request.send());
-    print("Result: ${response.statusCode}");
-    var data = response.body;
-    var j = json.decode(data);
-    print(j);
-    return true;
+      );
+      http.Response response =
+          await http.Response.fromStream(await request.send());
+      // print("Result: ${response.statusCode}");
+      // var data = response.body;
+      // var j = json.decode(data);
+      // print(j);
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
 
   Future getUnconfirmedWorkOrders(String uid) async {
