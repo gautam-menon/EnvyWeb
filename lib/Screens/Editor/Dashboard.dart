@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import '../HomePage.dart';
 import 'ProfilePage.dart';
 import 'AcceptedOrders.dart';
-import 'SubmitPage.dart';
 
 class EditorPage extends StatefulWidget {
   final String name;
@@ -44,10 +43,6 @@ class _EditorPageState extends State<EditorPage> {
                           builder: (context) => ProfilePage(
                                 uid: widget.uid,
                               )));
-                }),
-                Customize("Submit Image", () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SubmitPage()));
                 }),
                 Customize("Accepted Orders", () {
                   Navigator.push(
@@ -178,22 +173,6 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(children: [
-                    Text('Order ID',
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold)),
-                    Text(widget.orderID),
-                  ]),
-                  Column(children: [
-                    Text('Date',
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold)),
-                    Text(widget.date.toString()),
-                  ]),
-                  Column(children: [
                     Text('Deadline',
                         style: TextStyle(
                             color: Colors.grey,
@@ -308,12 +287,12 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                                                             .spaceEvenly,
                                                                     children: [
                                                                       Text(
-                                                                          "Tier",
+                                                                          "Plan",
                                                                           style: TextStyle(
                                                                               fontSize: 20,
                                                                               fontWeight: FontWeight.bold)),
-                                                                      Text(snapshot
-                                                                              .data['tierId'] ??
+                                                                      Text(tierFunction(
+                                                                              int.parse(snapshot.data['tierId'])) ??
                                                                           "Tier"),
                                                                       Text(
                                                                           "Date of ordering",
@@ -367,13 +346,11 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                     onPressed: () async {
                       bool response = await ApiFunctionsEditors()
                           .orderConfirmation(false, widget.orderID);
-                      
+
                       if (response) {
                         showSuccessDialog(context);
-                        setState(() {});
                       } else {
                         showFailDialog(context);
-                        setState(() {});
                       }
                     },
                     child: Text("Decline"),
@@ -404,8 +381,8 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                       Text("Success"),
                       RaisedButton(
                         onPressed: () {
+                          setState(() {});
                           Navigator.of(context).pop();
-                          
                         },
                         child: Text("Okay"),
                       )
@@ -430,11 +407,25 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                       Text("Action failed"),
                       RaisedButton(
                         onPressed: () {
+                          setState(() {});
                           Navigator.of(context).pop();
-                          
                         },
                         child: Text("Okay"),
                       )
                     ]))));
+  }
+}
+
+tierFunction(int tier) {
+  switch (tier) {
+    case 1:
+      return "BASIC";
+      break;
+    case 2:
+      return "PREMIUM";
+      break;
+    case 3:
+      return "PRO";
+      break;
   }
 }

@@ -45,7 +45,7 @@ class _AddEditorState extends State<AddEditor> {
                           size: 70,
                           color: Colors.green,
                         ),
-                        Text(message ??"Account Created Successfully!"),
+                        Text(message ?? "Account Created Successfully!"),
                         RaisedButton(
                           child: Text("Okay"),
                           onPressed: () {
@@ -71,7 +71,8 @@ class _AddEditorState extends State<AddEditor> {
                           size: 70,
                           color: Colors.red,
                         ),
-                        Text(message['message'] ?? "Account could not be created"),
+                        Text(message['message'] ??
+                            "Account could not be created"),
                         RaisedButton(
                           child: Text("Okay"),
                           onPressed: () {
@@ -165,8 +166,8 @@ class _AddEditorState extends State<AddEditor> {
                             TextStyle(color: Colors.black, fontSize: 12.0)),
                   ),
                   TextFormField(
-                    validator: (val) => val.length < 8
-                        ? 'Number too short (Should be at least 9 characters)'
+                    validator: (val) => val.length < 10
+                        ? 'Number too short (Should be at least 10 characters)'
                         : null,
                     controller: phoneNo,
                     style: TextStyle(color: Colors.black),
@@ -176,7 +177,10 @@ class _AddEditorState extends State<AddEditor> {
                             TextStyle(color: Colors.black, fontSize: 12.0)),
                   ),
                   TextFormField(
-                    validator: (val) => val == 'basic' ||val=='premium'||val=='pro' ?  null:'Invalid tier',
+                    validator: (val) =>
+                        val == 'basic' || val == 'premium' || val == 'pro'
+                            ? null
+                            : 'Invalid tier',
                     controller: tier,
                     style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(

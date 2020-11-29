@@ -1,1 +1,1125 @@
-{"version":3,"sourceRoot":"","sources":["twitter_auth.dart","oauth.dart","google_auth.dart","github_auth.dart","facebook_auth.dart","email_auth.dart","phone_auth.dart","../types.dart","../platform_interface/platform_interface_recaptcha_verifier_factory.dart","../platform_interface/platform_interface_confirmation_result.dart","../method_channel/utils/phone_auth_callbacks.dart","../method_channel/utils/exception.dart","../platform_interface/platform_interface_user.dart","../platform_interface/platform_interface_user_credential.dart","../method_channel/method_channel_user_credential.dart","../method_channel/method_channel_user.dart","../platform_interface/platform_interface_firebase_auth.dart","../method_channel/method_channel_firebase_auth.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/firebase_auth_platform_interface/src/providers/twitter_auth.dart.lib.js"}
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/firebase/src/top_level.dart', 'packages/envyweb/Services/ApiFunctions%20-Editor.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/colors.dart', 'packages/firebase/src/storage.dart'], (function load__packages__envyweb__Screens__Editor__SubmitPage_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__painting__strut_style$46dart, packages__firebase__src__top_level$46dart, packages__envyweb__Services__ApiFunctions$3720_Editor$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__colors$46dart, packages__firebase__src__storage$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const html = dart_sdk.html;
+  const typed_data = dart_sdk.typed_data;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const visibility = packages__flutter__src__widgets__widget_span$46dart.src__widgets__visibility;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const raised_button = packages__flutter__src__material__icon_button$46dart.src__material__raised_button;
+  const dialog = packages__flutter__src__material__icon_button$46dart.src__material__dialog;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const top_level = packages__firebase__src__top_level$46dart.src__top_level;
+  const ApiFunctions$32_Editor = packages__envyweb__Services__ApiFunctions$3720_Editor$46dart.Services__ApiFunctions$32_Editor;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const storage = packages__firebase__src__storage$46dart.src__storage;
+  var SubmitPage = Object.create(dart.library);
+  var $accept = dartx.accept;
+  var $onChange = dartx.onChange;
+  var $first = dartx.first;
+  var $readAsDataUrl = dartx.readAsDataUrl;
+  var $onLoadEnd = dartx.onLoadEnd;
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var UriL = () => (UriL = dart.constFn(dart.legacy(core.Uri)))();
+  var UriLToStringL = () => (UriLToStringL = dart.constFn(dart.fnType(StringL(), [UriL()])))();
+  var ObjectL = () => (ObjectL = dart.constFn(dart.legacy(core.Object)))();
+  var DialogL = () => (DialogL = dart.constFn(dart.legacy(dialog.Dialog)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var BuildContextLToDialogL = () => (BuildContextLToDialogL = dart.constFn(dart.fnType(DialogL(), [BuildContextL()])))();
+  var FutureOfNull = () => (FutureOfNull = dart.constFn(async.Future$(core.Null)))();
+  var FutureLOfNull = () => (FutureLOfNull = dart.constFn(dart.legacy(FutureOfNull())))();
+  var UploadTaskSnapshotL = () => (UploadTaskSnapshotL = dart.constFn(dart.legacy(storage.UploadTaskSnapshot)))();
+  var UploadTaskSnapshotLToFutureLOfNull = () => (UploadTaskSnapshotLToFutureLOfNull = dart.constFn(dart.fnType(FutureLOfNull(), [UploadTaskSnapshotL()])))();
+  var FileL = () => (FileL = dart.constFn(dart.legacy(html.File)))();
+  var FileLToFutureLOfNull = () => (FileLToFutureLOfNull = dart.constFn(dart.fnType(FutureLOfNull(), [FileL()])))();
+  var VoidToFutureLOfNull = () => (VoidToFutureLOfNull = dart.constFn(dart.fnType(FutureLOfNull(), [])))();
+  var InputElementL = () => (InputElementL = dart.constFn(dart.legacy(html.InputElement)))();
+  var ProgressEventL = () => (ProgressEventL = dart.constFn(dart.legacy(html.ProgressEvent)))();
+  var ProgressEventLToNull = () => (ProgressEventLToNull = dart.constFn(dart.fnType(core.Null, [ProgressEventL()])))();
+  var EventL = () => (EventL = dart.constFn(dart.legacy(html.Event)))();
+  var EventLToNull = () => (EventLToNull = dart.constFn(dart.fnType(core.Null, [EventL()])))();
+  const CT = Object.create(null);
+  var L0 = "package:envyweb/Screens/Editor/SubmitPage.dart";
+  var L1 = "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart";
+  dart.defineLazy(CT, {
+    get C2() {
+      return C2 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C1 = dart.constList([C2 || CT.C2], _LocationL());
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 9,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C5 || CT.C5], _LocationL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C4 || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C7() {
+      return C7 = dart.constList([], _LocationL());
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C7 || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C9 = dart.constList([C10 || CT.C10, C11 || CT.C11], _LocationL());
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C9 || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C13 = dart.constList([C14 || CT.C14, C15 || CT.C15], _LocationL());
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C13 || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 17,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C17 = dart.constList([C18 || CT.C18, C19 || CT.C19], _LocationL());
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C17 || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 57,
+        [_Location_line]: 90,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 51,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 51,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C21 = dart.constList([C22 || CT.C22, C23 || CT.C23, C24 || CT.C24], _LocationL());
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C21 || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 49,
+        [_Location_line]: 89,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C27() {
+      return C27 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 70,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C26 = dart.constList([C27 || CT.C27], _LocationL());
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C26 || CT.C26,
+        [_Location_name]: null,
+        [_Location_column]: 49,
+        [_Location_line]: 94,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C30() {
+      return C30 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 63,
+        [_Location_line]: 97,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C29 = dart.constList([C30 || CT.C30], _LocationL());
+    },
+    get C28() {
+      return C28 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C29 || CT.C29,
+        [_Location_name]: null,
+        [_Location_column]: 58,
+        [_Location_line]: 97,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C33() {
+      return C33 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 51,
+        [_Location_line]: 97,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C34 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 51,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C32 = dart.constList([C33 || CT.C33, C34 || CT.C34], _LocationL());
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C32 || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 49,
+        [_Location_line]: 96,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C37() {
+      return C37 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 47,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C38 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 47,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C36 = dart.constList([C37 || CT.C37, C38 || CT.C38], _LocationL());
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C36 || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 50,
+        [_Location_line]: 85,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C41() {
+      return C41 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 43,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C42 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 43,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C43 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 43,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C40 = dart.constList([C41 || CT.C41, C42 || CT.C42, C43 || CT.C43], _LocationL());
+    },
+    get C39() {
+      return C39 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C40 || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C46() {
+      return C46 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C45 = dart.constList([C46 || CT.C46], _LocationL());
+    },
+    get C44() {
+      return C44 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C45 || CT.C45,
+        [_Location_name]: null,
+        [_Location_column]: 57,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C49() {
+      return C49 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 57,
+        [_Location_line]: 124,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C50 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 51,
+        [_Location_line]: 125,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C51 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 51,
+        [_Location_line]: 126,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C48 = dart.constList([C49 || CT.C49, C50 || CT.C50, C51 || CT.C51], _LocationL());
+    },
+    get C47() {
+      return C47 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C48 || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 49,
+        [_Location_line]: 123,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C54() {
+      return C54 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 70,
+        [_Location_line]: 128,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C53 = dart.constList([C54 || CT.C54], _LocationL());
+    },
+    get C52() {
+      return C52 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C53 || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 49,
+        [_Location_line]: 128,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C57() {
+      return C57 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 63,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C56 = dart.constList([C57 || CT.C57], _LocationL());
+    },
+    get C55() {
+      return C55 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C56 || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 58,
+        [_Location_line]: 131,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C60() {
+      return C60 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 51,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C61 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 51,
+        [_Location_line]: 132,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C59 = dart.constList([C60 || CT.C60, C61 || CT.C61], _LocationL());
+    },
+    get C58() {
+      return C58 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C59 || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 49,
+        [_Location_line]: 130,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C64() {
+      return C64 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 47,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C65 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 47,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C63 = dart.constList([C64 || CT.C64, C65 || CT.C65], _LocationL());
+    },
+    get C62() {
+      return C62 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C63 || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 50,
+        [_Location_line]: 119,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C68() {
+      return C68 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 43,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C69 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 43,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C70() {
+      return C70 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 43,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C67 = dart.constList([C68 || CT.C68, C69 || CT.C69, C70 || CT.C70], _LocationL());
+    },
+    get C66() {
+      return C66 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C67 || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 46,
+        [_Location_line]: 110,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C73() {
+      return C73 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 39,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C72 = dart.constList([C73 || CT.C73], _LocationL());
+    },
+    get C71() {
+      return C71 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C72 || CT.C72,
+        [_Location_name]: null,
+        [_Location_column]: 57,
+        [_Location_line]: 109,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C76() {
+      return C76 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 33,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C75 = dart.constList([C76 || CT.C76], _LocationL());
+    },
+    get C74() {
+      return C74 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C75 || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 146,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C79() {
+      return C79 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 21,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C80 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 146,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C78 = dart.constList([C79 || CT.C79, C80 || CT.C80], _LocationL());
+    },
+    get C77() {
+      return C77 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C78 || CT.C78,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 51,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C83() {
+      return C83 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C84 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C82 = dart.constList([C83 || CT.C83, C84 || CT.C84], _LocationL());
+    },
+    get C81() {
+      return C81 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C82 || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C87() {
+      return C87 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C88 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C86 = dart.constList([C87 || CT.C87, C88 || CT.C88], _LocationL());
+    },
+    get C85() {
+      return C85 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C86 || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C91() {
+      return C91 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C90() {
+      return C90 = dart.constList([C91 || CT.C91], _LocationL());
+    },
+    get C89() {
+      return C89 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C90 || CT.C90,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C94() {
+      return C94 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C95 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C96 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C93 = dart.constList([C94 || CT.C94, C95 || CT.C95, C96 || CT.C96], _LocationL());
+    },
+    get C92() {
+      return C92 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C93 || CT.C93,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    },
+    get C99() {
+      return C99 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 7,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C100 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C98 = dart.constList([C99 || CT.C99, C100 || CT.C100], _LocationL());
+    },
+    get C97() {
+      return C97 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C98 || CT.C98,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/SubmitPage.dart"
+      });
+    }
+  }, false);
+  var userId$ = dart.privateName(SubmitPage, "SubmitPage.userId");
+  var orderId$ = dart.privateName(SubmitPage, "SubmitPage.orderId");
+  SubmitPage.SubmitPage = class SubmitPage$ extends framework.StatefulWidget {
+    get userId() {
+      return this[userId$];
+    }
+    set userId(value) {
+      super.userId = value;
+    }
+    get orderId() {
+      return this[orderId$];
+    }
+    set orderId(value) {
+      super.orderId = value;
+    }
+    createState() {
+      return new SubmitPage._SubmitPageState.new();
+    }
+  };
+  (SubmitPage.SubmitPage.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let userId = opts && 'userId' in opts ? opts.userId : null;
+    let orderId = opts && 'orderId' in opts ? opts.orderId : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[userId$] = userId;
+    this[orderId$] = orderId;
+    SubmitPage.SubmitPage.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = SubmitPage.SubmitPage.prototype;
+  dart.addTypeTests(SubmitPage.SubmitPage);
+  dart.addTypeCaches(SubmitPage.SubmitPage);
+  dart.setMethodSignature(SubmitPage.SubmitPage, () => ({
+    __proto__: dart.getMethods(SubmitPage.SubmitPage.__proto__),
+    createState: dart.fnType(dart.legacy(SubmitPage._SubmitPageState), [])
+  }));
+  dart.setLibraryUri(SubmitPage.SubmitPage, L0);
+  dart.setFieldSignature(SubmitPage.SubmitPage, () => ({
+    __proto__: dart.getFields(SubmitPage.SubmitPage.__proto__),
+    userId: dart.finalFieldType(dart.legacy(core.String)),
+    orderId: dart.finalFieldType(dart.legacy(core.String))
+  }));
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C2;
+  var C1;
+  var C0;
+  var C5;
+  var C4;
+  var C3;
+  var C7;
+  var C6;
+  var C10;
+  var C11;
+  var C9;
+  var C8;
+  var C14;
+  var C15;
+  var C13;
+  var C12;
+  var C18;
+  var C19;
+  var C17;
+  var C16;
+  var C22;
+  var C23;
+  var C24;
+  var C21;
+  var C20;
+  var C27;
+  var C26;
+  var C25;
+  var C30;
+  var C29;
+  var C28;
+  var C33;
+  var C34;
+  var C32;
+  var C31;
+  var C37;
+  var C38;
+  var C36;
+  var C35;
+  var C41;
+  var C42;
+  var C43;
+  var C40;
+  var C39;
+  var C46;
+  var C45;
+  var C44;
+  var C49;
+  var C50;
+  var C51;
+  var C48;
+  var C47;
+  var C54;
+  var C53;
+  var C52;
+  var C57;
+  var C56;
+  var C55;
+  var C60;
+  var C61;
+  var C59;
+  var C58;
+  var C64;
+  var C65;
+  var C63;
+  var C62;
+  var C68;
+  var C69;
+  var C70;
+  var C67;
+  var C66;
+  var C73;
+  var C72;
+  var C71;
+  var C76;
+  var C75;
+  var C74;
+  var C79;
+  var C80;
+  var C78;
+  var C77;
+  var C83;
+  var C84;
+  var C82;
+  var C81;
+  var C87;
+  var C88;
+  var C86;
+  var C85;
+  var C91;
+  var C90;
+  var C89;
+  var C94;
+  var C95;
+  var C96;
+  var C93;
+  var C92;
+  var C99;
+  var C100;
+  var C98;
+  var C97;
+  SubmitPage._SubmitPageState = class _SubmitPageState extends framework.State$(dart.legacy(SubmitPage.SubmitPage)) {
+    build(context) {
+      let screen = media_query.MediaQuery.of(context).size;
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Submit Image", {$creationLocationd_0dea112b090073317d4: C0 || CT.C0}), $creationLocationd_0dea112b090073317d4: C3 || CT.C3}), body: new container.Container.new({height: screen.height, width: screen.width, child: new basic.Center.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new visibility.Visibility.new({visible: this.visible, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C6 || CT.C6}), new text.Text.new("Uploading...", {style: new text_style.TextStyle.new({fontSize: 25.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C8 || CT.C8})]), $creationLocationd_0dea112b090073317d4: C12 || CT.C12}), $creationLocationd_0dea112b090073317d4: C16 || CT.C16}), new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new raised_button.RaisedButton.new({onPressed: dart.fn(() => async.async(core.Null, (function*() {
+                        this.setState(dart.fn(() => {
+                          this.visible = true;
+                        }, VoidToNull()));
+                        let path = new core.DateTime.now().toString();
+                        let imgUrl = null;
+                        yield this.uploadImage({onSelected: dart.fn(file => async.async(core.Null, (function*() {
+                            let query = top_level.storage().refFromURL("gs://envy-f1ba5.appspot.com/").child(path);
+                            yield query.put(file).future.then(core.Null, dart.fn(_ => async.async(core.Null, (function*() {
+                              yield _.ref.getDownloadURL().then(StringL(), dart.fn(value => imgUrl = dart.toString(value), UriLToStringL()));
+                              if (!(imgUrl != null)) dart.assertFailed(null, L1, 68, 36, "imgUrl != null");
+                              let response = (yield new ApiFunctions$32_Editor.ApiFunctionsEditors.new().submitOrder(imgUrl, this.widget.orderId, this.widget.userId));
+                              if (dart.dtest(dart.dsend(response, '_get', ["status"]))) {
+                                dialog.showDialog(dart.dynamic, {context: context, builder: dart.fn(context => {
+                                    let t0;
+                                    return new dialog.Dialog.new({child: new container.Container.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 2, width: dart.notNull(media_query.MediaQuery.of(context).size.width) / 2, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new icon.Icon.new(icons.Icons.done, {size: 70.0, color: colors.Colors.green, $creationLocationd_0dea112b090073317d4: C20 || CT.C20}), new text.Text.new(core.String.as((t0 = dart.dsend(response, '_get', ["req"]), t0 == null ? "Image submitted Successfully!" : t0)), {$creationLocationd_0dea112b090073317d4: C25 || CT.C25}), new raised_button.RaisedButton.new({child: new text.Text.new("Okay", {$creationLocationd_0dea112b090073317d4: C28 || CT.C28}), onPressed: dart.fn(() => {
+                                                navigator.Navigator.of(context).pop(ObjectL());
+                                                this.setState(dart.fn(() => {
+                                                  this.visible = false;
+                                                }, VoidToNull()));
+                                              }, VoidToNull()), $creationLocationd_0dea112b090073317d4: C31 || CT.C31})]), $creationLocationd_0dea112b090073317d4: C35 || CT.C35}), $creationLocationd_0dea112b090073317d4: C39 || CT.C39}), $creationLocationd_0dea112b090073317d4: C44 || CT.C44});
+                                  }, BuildContextLToDialogL())});
+                              } else {
+                                dialog.showDialog(dart.dynamic, {context: context, builder: dart.fn(context => {
+                                    let t0;
+                                    return new dialog.Dialog.new({child: new container.Container.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 2, width: dart.notNull(media_query.MediaQuery.of(context).size.width) / 2, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new icon.Icon.new(icons.Icons.error, {size: 70.0, color: colors.Colors.red, $creationLocationd_0dea112b090073317d4: C47 || CT.C47}), new text.Text.new(core.String.as((t0 = dart.dsend(response, '_get', ["req"]), t0 == null ? "Account could not be created" : t0)), {$creationLocationd_0dea112b090073317d4: C52 || CT.C52}), new raised_button.RaisedButton.new({child: new text.Text.new("Okay", {$creationLocationd_0dea112b090073317d4: C55 || CT.C55}), onPressed: dart.fn(() => {
+                                                navigator.Navigator.of(context).pop(ObjectL());
+                                                this.setState(dart.fn(() => {
+                                                  this.visible = false;
+                                                }, VoidToNull()));
+                                              }, VoidToNull()), $creationLocationd_0dea112b090073317d4: C58 || CT.C58})]), $creationLocationd_0dea112b090073317d4: C62 || CT.C62}), $creationLocationd_0dea112b090073317d4: C66 || CT.C66}), $creationLocationd_0dea112b090073317d4: C71 || CT.C71});
+                                  }, BuildContextLToDialogL())});
+                              }
+                              core.print(response);
+                            }).bind(this)), UploadTaskSnapshotLToFutureLOfNull()));
+                          }).bind(this)), FileLToFutureLOfNull())});
+                      }).bind(this)), VoidToFutureLOfNull()), child: new text.Text.new("Upload Image", {$creationLocationd_0dea112b090073317d4: C74 || CT.C74}), $creationLocationd_0dea112b090073317d4: C77 || CT.C77})]), $creationLocationd_0dea112b090073317d4: C81 || CT.C81})]), $creationLocationd_0dea112b090073317d4: C85 || CT.C85}), $creationLocationd_0dea112b090073317d4: C89 || CT.C89}), $creationLocationd_0dea112b090073317d4: C92 || CT.C92}), $creationLocationd_0dea112b090073317d4: C97 || CT.C97});
+    }
+    uploadImage(opts) {
+      let t0;
+      let onSelected = opts && 'onSelected' in opts ? opts.onSelected : null;
+      let uploadInput = InputElementL().as((t0 = html.FileUploadInputElement.new(), (() => {
+        t0[$accept] = "image/*";
+        return t0;
+      })()));
+      uploadInput.click();
+      uploadInput[$onChange].listen(dart.fn(event => {
+        let file = uploadInput.files[$first];
+        let reader = html.FileReader.new();
+        reader[$readAsDataUrl](file);
+        reader[$onLoadEnd].listen(dart.fn(event => {
+          onSelected(file);
+        }, ProgressEventLToNull()));
+      }, EventLToNull()));
+    }
+  };
+  (SubmitPage._SubmitPageState.new = function() {
+    this.image = null;
+    this.bytes = null;
+    this.visible = false;
+    SubmitPage._SubmitPageState.__proto__.new.call(this);
+    ;
+  }).prototype = SubmitPage._SubmitPageState.prototype;
+  dart.addTypeTests(SubmitPage._SubmitPageState);
+  dart.addTypeCaches(SubmitPage._SubmitPageState);
+  dart.setMethodSignature(SubmitPage._SubmitPageState, () => ({
+    __proto__: dart.getMethods(SubmitPage._SubmitPageState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    uploadImage: dart.fnType(dart.dynamic, [], {onSelected: dart.legacy(dart.fnType(dart.dynamic, [dart.legacy(html.File)]))}, {})
+  }));
+  dart.setLibraryUri(SubmitPage._SubmitPageState, L0);
+  dart.setFieldSignature(SubmitPage._SubmitPageState, () => ({
+    __proto__: dart.getFields(SubmitPage._SubmitPageState.__proto__),
+    image: dart.fieldType(dart.legacy(image.Image)),
+    bytes: dart.fieldType(dart.legacy(typed_data.Uint8List)),
+    visible: dart.fieldType(dart.legacy(core.bool))
+  }));
+  dart.trackLibraries("packages/envyweb/Screens/Editor/SubmitPage.dart", {
+    "package:envyweb/Screens/Editor/SubmitPage.dart": SubmitPage
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["SubmitPage.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/envyweb/Screens/Editor/SubmitPage.dart.lib.js"}');
+  // Exports:
+  return {
+    Screens__Editor__SubmitPage: SubmitPage
+  };
+}));
+
+//# sourceMappingURL=SubmitPage.dart.lib.js.map

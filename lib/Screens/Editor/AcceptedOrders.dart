@@ -85,22 +85,7 @@ class AcceptedOrderTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(children: [
-              Text('Order ID',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold)),
-              Text(orderId),
-            ]),
-            Column(children: [
-              Text('Date',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold)),
-              Text(date.toString()),
-            ]),
+         
             Column(children: [
               Text('Deadline',
                   style: TextStyle(

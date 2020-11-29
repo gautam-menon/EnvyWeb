@@ -1,9 +1,10 @@
 import 'dart:convert';
+import 'dart:html';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:envyweb/Screens/Editor/SubmitPage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
+import 'package:firebase/firebase.dart' as fb;
 
 class OrderPage extends StatefulWidget {
   final String orderId;
@@ -14,6 +15,7 @@ class OrderPage extends StatefulWidget {
 }
 
 class _OrderPageState extends State<OrderPage> {
+  bool visible = false;
   @override
   Widget build(BuildContext context) {
     var _media = MediaQuery.of(context).size;
@@ -40,6 +42,23 @@ class _OrderPageState extends State<OrderPage> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
+                                        Visibility(
+                                          visible: visible,
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              CircularProgressIndicator(),
+                                              Text(
+                                                "Uploading...",
+                                                style: TextStyle(
+                                                    fontSize: 25,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )
+                                            ],
+                                          ),
+                                        ),
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: SizedBox(
@@ -116,17 +135,110 @@ class _OrderPageState extends State<OrderPage> {
                                               child: Text("Download Image"),
                                             ),
                                             RaisedButton(
-                                              onPressed: () {
-                                                Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            SubmitPage(
-                                                                orderId: widget
-                                                                    .orderId,
-                                                                userId: snapshot
-                                                                        .data[
-                                                                    'uid'])));
+                                              onPressed: () async {
+                                                setState(() {
+                                                  visible = true;
+                                                });
+                                                final path =
+                                                    DateTime.now().toString();
+                                                String imgUrl;
+                                                await uploadImage(
+                                                  onSelected: (file) async {
+                                                    var query = fb
+                                                        .storage()
+                                                        .refFromURL(
+                                                            'gs://envy-f1ba5.appspot.com/')
+                                                        .child(path);
+                                                    await query
+                                                        .put(file)
+                                                        .future
+                                                        .then((_) async {
+                                                      await _.ref
+                                                          .getDownloadURL()
+                                                          .then((value) =>
+                                                              imgUrl = value
+                                                                  .toString());
+                                                      assert(imgUrl != null);
+                                                      var response =
+                                                          await ApiFunctionsEditors()
+                                                              .submitOrder(
+                                                                  imgUrl,
+                                                                  widget
+                                                                      .orderId,
+                                                                  widget.uid);
+                                                      if (response['status']) {
+                                                        showDialog(
+                                                            context: context,
+                                                            builder: (context) => Dialog(
+                                                                child: Container(
+                                                                    height: MediaQuery.of(context).size.height / 2,
+                                                                    width: MediaQuery.of(context).size.width / 2,
+                                                                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                                                                      Icon(
+                                                                        Icons
+                                                                            .done,
+                                                                        size:
+                                                                            70,
+                                                                        color: Colors
+                                                                            .green,
+                                                                      ),
+                                                                      Text(response[
+                                                                              'req'] ??
+                                                                          "Image submitted Successfully!"),
+                                                                      RaisedButton(
+                                                                        child: Text(
+                                                                            "Okay"),
+                                                                        onPressed:
+                                                                            () {
+                                                                          Navigator.of(context)
+                                                                              .pop();
+                                                                          setState(
+                                                                              () {
+                                                                            visible =
+                                                                                false;
+                                                                          });
+                                                                        },
+                                                                      )
+                                                                    ]))));
+                                                      } else {
+                                                        showDialog(
+                                                            context: context,
+                                                            builder: (context) => Dialog(
+                                                                child: Container(
+                                                                    height: MediaQuery.of(context).size.height / 2,
+                                                                    width: MediaQuery.of(context).size.width / 2,
+                                                                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                                                                      Icon(
+                                                                        Icons
+                                                                            .error,
+                                                                        size:
+                                                                            70,
+                                                                        color: Colors
+                                                                            .red,
+                                                                      ),
+                                                                      Text(response[
+                                                                              'req'] ??
+                                                                          "Account could not be created"),
+                                                                      RaisedButton(
+                                                                        child: Text(
+                                                                            "Okay"),
+                                                                        onPressed:
+                                                                            () {
+                                                                          Navigator.of(context)
+                                                                              .pop();
+                                                                          setState(
+                                                                              () {
+                                                                            visible =
+                                                                                false;
+                                                                          });
+                                                                        },
+                                                                      )
+                                                                    ]))));
+                                                      }
+                                                      print(response);
+                                                    });
+                                                  },
+                                                );
                                               },
                                               child:
                                                   Text("Upload Edited Image"),
@@ -150,5 +262,19 @@ class _OrderPageState extends State<OrderPage> {
         ),
       ),
     );
+  }
+
+  uploadImage({@required Function(File file) onSelected}) {
+    InputElement uploadInput = FileUploadInputElement()..accept = 'image/*';
+    uploadInput.click();
+
+    uploadInput.onChange.listen((event) {
+      final file = uploadInput.files.first;
+      final reader = FileReader();
+      reader.readAsDataUrl(file);
+      reader.onLoadEnd.listen((event) {
+        onSelected(file);
+      });
+    });
   }
 }
