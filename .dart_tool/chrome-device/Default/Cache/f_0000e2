@@ -1,618 +1,844 @@
-define(['dart_sdk', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__painting__gradient_dart(dart_sdk, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__object$46dart) {
+define(['dart_sdk', 'packages/firebase_core_web/src/interop/utils/js.dart', 'packages/firebase_core_web/src/interop/utils/utils.dart', 'packages/firebase_auth_web/src/interop/utils/utils.dart', 'packages/http_parser/src/http_date.dart', 'packages/firebase_core_web/src/interop/app.dart'], (function load__packages__firebase_auth_web__src__interop__auth_dart(dart_sdk, packages__firebase_core_web__src__interop__utils__js$46dart, packages__firebase_core_web__src__interop__utils__utils$46dart, packages__firebase_auth_web__src__interop__utils__utils$46dart, packages__http_parser__src__http_date$46dart, packages__firebase_core_web__src__interop__app$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
-  const math = dart_sdk.math;
-  const typed_data = dart_sdk.typed_data;
-  const collection = dart_sdk.collection;
+  const async = dart_sdk.async;
+  const js = dart_sdk.js;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  var gradient = Object.create(dart.library);
-  var $length = dartx.length;
+  const js$ = packages__firebase_core_web__src__interop__utils__js$46dart.src__interop__utils__js;
+  const utils = packages__firebase_core_web__src__interop__utils__utils$46dart.src__interop__utils__utils;
+  const utils$ = packages__firebase_auth_web__src__interop__utils__utils$46dart.src__interop__utils__utils;
+  const http_date = packages__http_parser__src__http_date$46dart.src__http_date;
+  const app = packages__firebase_core_web__src__interop__app$46dart.src__interop__app;
+  var auth$ = Object.create(dart.library);
   var $map = dartx.map;
   var $toList = dartx.toList;
-  var $runtimeType = dartx.runtimeType;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $first = dartx.first;
-  var $last = dartx.last;
-  var $lastIndexWhere = dartx.lastIndexWhere;
-  var $_get = dartx._get;
-  var ListOfdouble = () => (ListOfdouble = dart.constFn(core.List$(core.double)))();
-  var intTodouble = () => (intTodouble = dart.constFn(dart.fnType(core.double, [core.int])))();
-  var ColorToColor = () => (ColorToColor = dart.constFn(dart.fnType(ui.Color, [ui.Color])))();
-  var LinearGradientN = () => (LinearGradientN = dart.constFn(dart.nullable(gradient.LinearGradient)))();
-  var RadialGradientN = () => (RadialGradientN = dart.constFn(dart.nullable(gradient.RadialGradient)))();
-  var SweepGradientN = () => (SweepGradientN = dart.constFn(dart.nullable(gradient.SweepGradient)))();
-  var doubleTobool = () => (doubleTobool = dart.constFn(dart.fnType(core.bool, [core.double])))();
-  var SplayTreeSetOfdouble = () => (SplayTreeSetOfdouble = dart.constFn(collection.SplayTreeSet$(core.double)))();
-  var doubleToColor = () => (doubleToColor = dart.constFn(dart.fnType(ui.Color, [core.double])))();
+  var $toString = dartx.toString;
+  var UserInfoOfUserInfoJsImplL = () => (UserInfoOfUserInfoJsImplL = dart.constFn(auth$.UserInfo$(dart.anonymousJSType("UserInfoJsImpl"))))();
+  var UserInfoLOfUserInfoJsImplL = () => (UserInfoLOfUserInfoJsImplL = dart.constFn(dart.legacy(UserInfoOfUserInfoJsImplL())))();
+  var dynamicToUserInfoLOfUserInfoJsImplL = () => (dynamicToUserInfoLOfUserInfoJsImplL = dart.constFn(dart.fnType(UserInfoLOfUserInfoJsImplL(), [dart.dynamic])))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var UserCredentialL = () => (UserCredentialL = dart.constFn(dart.legacy(auth$.UserCredential)))();
+  var UserCredentialJsImplLToUserCredentialL = () => (UserCredentialJsImplLToUserCredentialL = dart.constFn(dart.fnType(UserCredentialL(), [dart.anonymousJSType("UserCredentialJsImpl")])))();
+  var ConfirmationResultL = () => (ConfirmationResultL = dart.constFn(dart.legacy(auth$.ConfirmationResult)))();
+  var ConfirmationResultJsImplLToConfirmationResultL = () => (ConfirmationResultJsImplLToConfirmationResultL = dart.constFn(dart.fnType(ConfirmationResultL(), [dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult")])))();
+  var UserL = () => (UserL = dart.constFn(dart.legacy(auth$.User)))();
+  var UserJsImplLToUserL = () => (UserJsImplLToUserL = dart.constFn(dart.fnType(UserL(), [dart.anonymousJSType("UserJsImpl")])))();
+  var IdTokenResultL = () => (IdTokenResultL = dart.constFn(dart.legacy(auth$.IdTokenResult)))();
+  var IdTokenResultImplLToIdTokenResultL = () => (IdTokenResultImplLToIdTokenResultL = dart.constFn(dart.fnType(IdTokenResultL(), [dart.anonymousJSType("IdTokenResultImpl")])))();
+  var MapOfStringL$dynamic = () => (MapOfStringL$dynamic = dart.constFn(core.Map$(StringL(), dart.dynamic)))();
+  var MapLOfStringL$dynamic = () => (MapLOfStringL$dynamic = dart.constFn(dart.legacy(MapOfStringL$dynamic())))();
+  var ExpandoOfUserL = () => (ExpandoOfUserL = dart.constFn(core.Expando$(UserL())))();
+  var UserJsImplLToNull = () => (UserJsImplLToNull = dart.constFn(dart.fnType(core.Null, [dart.anonymousJSType("UserJsImpl")])))();
+  var UserJsImplLToLNull = () => (UserJsImplLToLNull = dart.constFn(dart.legacy(UserJsImplLToNull())))();
+  var dynamicTovoid = () => (dynamicTovoid = dart.constFn(dart.fnType(dart.void, [dart.dynamic])))();
+  var dynamicToLvoid = () => (dynamicToLvoid = dart.constFn(dart.legacy(dynamicTovoid())))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  var StreamControllerOfUserL = () => (StreamControllerOfUserL = dart.constFn(async.StreamController$(UserL())))();
+  var ListL = () => (ListL = dart.constFn(dart.legacy(core.List)))();
+  var ListOfStringL = () => (ListOfStringL = dart.constFn(core.List$(StringL())))();
+  var ListLOfStringL = () => (ListLOfStringL = dart.constFn(dart.legacy(ListOfStringL())))();
+  var ListLToListLOfStringL = () => (ListLToListLOfStringL = dart.constFn(dart.fnType(ListLOfStringL(), [ListL()])))();
+  var AuthL = () => (AuthL = dart.constFn(dart.legacy(auth$.Auth)))();
+  var ExpandoOfAuthL = () => (ExpandoOfAuthL = dart.constFn(core.Expando$(AuthL())))();
+  var numL = () => (numL = dart.constFn(dart.legacy(core.num)))();
   const CT = Object.create(null);
-  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/painting/gradient.dart";
-  var L1 = "package:flutter/src/painting/gradient.dart";
+  var L0 = "package:firebase_auth_web/src/interop/auth.dart";
+  var L1 = "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.3.2+1/lib/src/interop/auth.dart";
   dart.defineLazy(CT, {
     get C0() {
-      return C0 = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: -1
-      });
-    },
-    get C1() {
-      return C1 = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 1
-      });
-    },
-    get C2() {
-      return C2 = dart.const({
-        __proto__: ui.TileMode.prototype,
-        [_name]: "TileMode.clamp",
-        index: 0
-      });
-    },
-    get C3() {
-      return C3 = dart.const({
-        __proto__: alignment.Alignment.prototype,
-        [Alignment_y]: 0,
-        [Alignment_x]: 0
-      });
+      return C0 = dart.fn(auth$.User.getInstance, UserJsImplLToUserL());
     }
   }, false);
-  gradient._ColorsAndStops = class _ColorsAndStops extends core.Object {};
-  (gradient._ColorsAndStops.new = function(colors, stops) {
-    if (colors == null) dart.nullFailed(L0, 18, 24, "colors");
-    if (stops == null) dart.nullFailed(L0, 18, 37, "stops");
-    this.colors = colors;
-    this.stops = stops;
-    ;
-  }).prototype = gradient._ColorsAndStops.prototype;
-  dart.addTypeTests(gradient._ColorsAndStops);
-  dart.addTypeCaches(gradient._ColorsAndStops);
-  dart.setLibraryUri(gradient._ColorsAndStops, L1);
-  dart.setFieldSignature(gradient._ColorsAndStops, () => ({
-    __proto__: dart.getFields(gradient._ColorsAndStops.__proto__),
-    colors: dart.finalFieldType(core.List$(ui.Color)),
-    stops: dart.finalFieldType(core.List$(core.double))
-  }));
-  gradient.GradientTransform = class GradientTransform extends core.Object {};
-  (gradient.GradientTransform.new = function() {
-    ;
-  }).prototype = gradient.GradientTransform.prototype;
-  dart.addTypeTests(gradient.GradientTransform);
-  dart.addTypeCaches(gradient.GradientTransform);
-  dart.setLibraryUri(gradient.GradientTransform, L1);
-  var radians$ = dart.privateName(gradient, "GradientRotation.radians");
-  gradient.GradientRotation = class GradientRotation extends gradient.GradientTransform {
-    get radians() {
-      return this[radians$];
+  const _is_UserInfo_default = Symbol('_is_UserInfo_default');
+  auth$.UserInfo$ = dart.generic(T => {
+    var TL = () => (TL = dart.constFn(dart.legacy(T)))();
+    class UserInfo extends js$.JsObjectWrapper$(dart.legacy(T)) {
+      get displayName() {
+        return this.jsObject.displayName;
+      }
+      get email() {
+        return this.jsObject.email;
+      }
+      get phoneNumber() {
+        return this.jsObject.phoneNumber;
+      }
+      get photoURL() {
+        return this.jsObject.photoURL;
+      }
+      get providerId() {
+        return this.jsObject.providerId;
+      }
+      get uid() {
+        return this.jsObject.uid;
+      }
     }
-    set radians(value) {
-      super.radians = value;
-    }
-    transform(bounds, opts) {
-      let t0;
-      if (bounds == null) dart.nullFailed(L0, 108, 26, "bounds");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      if (!(bounds != null)) dart.assertFailed(null, L0, 109, 12, "bounds != null");
-      let sinRadians = math.sin(this.radians);
-      let oneMinusCosRadians = 1 - math.cos(this.radians);
-      let center = bounds.center;
-      let originX = sinRadians * dart.notNull(center.dy) + oneMinusCosRadians * dart.notNull(center.dx);
-      let originY = -sinRadians * dart.notNull(center.dx) + oneMinusCosRadians * dart.notNull(center.dy);
-      t0 = vector_math_64.Matrix4.identity();
-      return (() => {
-        t0.translate(originX, originY);
-        t0.rotateZ(this.radians);
-        return t0;
-      })();
-    }
-  };
-  (gradient.GradientRotation.new = function(radians) {
-    if (radians == null) dart.nullFailed(L0, 102, 31, "radians");
-    this[radians$] = radians;
-    gradient.GradientRotation.__proto__.new.call(this);
-    ;
-  }).prototype = gradient.GradientRotation.prototype;
-  dart.addTypeTests(gradient.GradientRotation);
-  dart.addTypeCaches(gradient.GradientRotation);
-  dart.setMethodSignature(gradient.GradientRotation, () => ({
-    __proto__: dart.getMethods(gradient.GradientRotation.__proto__),
-    transform: dart.fnType(vector_math_64.Matrix4, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
-  }));
-  dart.setLibraryUri(gradient.GradientRotation, L1);
-  dart.setFieldSignature(gradient.GradientRotation, () => ({
-    __proto__: dart.getFields(gradient.GradientRotation.__proto__),
-    radians: dart.finalFieldType(core.double)
-  }));
-  var _impliedStops = dart.privateName(gradient, "_impliedStops");
-  var _resolveTransform = dart.privateName(gradient, "_resolveTransform");
-  var colors$ = dart.privateName(gradient, "Gradient.colors");
-  var stops$ = dart.privateName(gradient, "Gradient.stops");
-  var transform$ = dart.privateName(gradient, "Gradient.transform");
-  gradient.Gradient = class Gradient extends core.Object {
-    get colors() {
-      return this[colors$];
-    }
-    set colors(value) {
-      super.colors = value;
-    }
-    get stops() {
-      return this[stops$];
-    }
-    set stops(value) {
-      super.stops = value;
-    }
-    get transform() {
-      return this[transform$];
-    }
-    set transform(value) {
-      super.transform = value;
-    }
-    [_impliedStops]() {
-      if (this.stops != null) return dart.nullCheck(this.stops);
-      if (!(dart.notNull(this.colors[$length]) >= 2)) dart.assertFailed("colors list must have at least two colors", L0, 189, 12, "colors.length >= 2");
-      let separation = 1.0 / (dart.notNull(this.colors[$length]) - 1);
-      return ListOfdouble().generate(this.colors[$length], dart.fn(index => {
-        if (index == null) dart.nullFailed(L0, 193, 12, "index");
-        return dart.notNull(index) * separation;
-      }, intTodouble()), {growable: false});
-    }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(L0, 244, 42, "t");
-      if (a == null) return this.scale(t);
-      return null;
-    }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(L0, 275, 40, "t");
-      if (b == null) return this.scale(1.0 - dart.notNull(t));
-      return null;
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(L0, 289, 58, "t");
-      if (!(t != null)) dart.assertFailed(null, L0, 290, 12, "t != null");
-      let result = null;
-      if (b != null) result = b.lerpFrom(a, t);
-      if (result == null && a != null) result = a.lerpTo(b, t);
-      if (result != null) return result;
-      if (a == null && b == null) return null;
-      if (!(a != null && b != null)) dart.assertFailed(null, L0, 300, 12, "a != null && b != null");
-      return dart.notNull(t) < 0.5 ? dart.nullCheck(a).scale(1.0 - dart.notNull(t) * 2.0) : dart.nullCheck(b).scale((dart.notNull(t) - 0.5) * 2.0);
-    }
-    [_resolveTransform](bounds, textDirection) {
-      let t1, t0;
-      if (bounds == null) dart.nullFailed(L0, 304, 39, "bounds");
-      t0 = this.transform;
-      return t0 == null ? null : (t1 = t0.transform(bounds, {textDirection: textDirection}), t1 == null ? null : t1.storage);
-    }
-  };
-  (gradient.Gradient.new = function(opts) {
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(L0, 149, 19, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[colors$] = colors;
-    this[stops$] = stops;
-    this[transform$] = transform;
-    if (!(colors != null)) dart.assertFailed(null, L0, 152, 15, "colors != null");
-    ;
-  }).prototype = gradient.Gradient.prototype;
-  dart.addTypeTests(gradient.Gradient);
-  dart.addTypeCaches(gradient.Gradient);
-  dart.setMethodSignature(gradient.Gradient, () => ({
-    __proto__: dart.getMethods(gradient.Gradient.__proto__),
-    [_impliedStops]: dart.fnType(core.List$(core.double), []),
-    lerpFrom: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
-    lerpTo: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
-    [_resolveTransform]: dart.fnType(dart.nullable(typed_data.Float64List), [ui.Rect, dart.nullable(ui.TextDirection)])
-  }));
-  dart.setLibraryUri(gradient.Gradient, L1);
-  dart.setFieldSignature(gradient.Gradient, () => ({
-    __proto__: dart.getFields(gradient.Gradient.__proto__),
-    colors: dart.finalFieldType(core.List$(ui.Color)),
-    stops: dart.finalFieldType(dart.nullable(core.List$(core.double))),
-    transform: dart.finalFieldType(dart.nullable(gradient.GradientTransform))
-  }));
-  var Alignment_y = dart.privateName(alignment, "Alignment.y");
-  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+    (UserInfo._fromJsObject = function(jsObject) {
+      UserInfo.__proto__.fromJsObject.call(this, TL().as(jsObject));
+      ;
+    }).prototype = UserInfo.prototype;
+    dart.addTypeTests(UserInfo);
+    UserInfo.prototype[_is_UserInfo_default] = true;
+    dart.addTypeCaches(UserInfo);
+    dart.setGetterSignature(UserInfo, () => ({
+      __proto__: dart.getGetters(UserInfo.__proto__),
+      displayName: dart.legacy(core.String),
+      email: dart.legacy(core.String),
+      phoneNumber: dart.legacy(core.String),
+      photoURL: dart.legacy(core.String),
+      providerId: dart.legacy(core.String),
+      uid: dart.legacy(core.String)
+    }));
+    dart.setLibraryUri(UserInfo, L0);
+    return UserInfo;
+  });
+  auth$.UserInfo = auth$.UserInfo$();
+  dart.addTypeTests(auth$.UserInfo, _is_UserInfo_default);
   var C0;
-  var C1;
-  var _name = dart.privateName(ui, "_name");
-  var C2;
-  var begin$ = dart.privateName(gradient, "LinearGradient.begin");
-  var end$ = dart.privateName(gradient, "LinearGradient.end");
-  var tileMode$ = dart.privateName(gradient, "LinearGradient.tileMode");
-  gradient.LinearGradient = class LinearGradient extends gradient.Gradient {
-    get begin() {
-      return this[begin$];
+  auth$.User = class User extends auth$.UserInfo$(dart.anonymousJSType("UserJsImpl")) {
+    get uid() {
+      return this.jsObject.uid;
     }
-    set begin(value) {
-      super.begin = value;
+    get emailVerified() {
+      return this.jsObject.emailVerified;
     }
-    get end() {
-      return this[end$];
+    get isAnonymous() {
+      return this.jsObject.isAnonymous;
     }
-    set end(value) {
-      super.end = value;
+    get tenantId() {
+      return this.jsObject.tenantId;
     }
-    get tileMode() {
-      return this[tileMode$];
+    get metadata() {
+      return this.jsObject.metadata;
     }
-    set tileMode(value) {
-      super.tileMode = value;
+    get providerData() {
+      return this.jsObject.providerData[$map](UserInfoLOfUserInfoJsImplL(), dart.fn(data => new (UserInfoOfUserInfoJsImplL())._fromJsObject(dart.anonymousJSType("UserInfoJsImpl").as(data)), dynamicToUserInfoLOfUserInfoJsImplL()))[$toList]();
     }
-    createShader(rect, opts) {
-      if (rect == null) dart.nullFailed(L0, 419, 28, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      return ui.Gradient.linear(this.begin.resolve(textDirection).withinRect(rect), this.end.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection));
+    get refreshToken() {
+      return this.jsObject.refreshToken;
     }
-    scale(factor) {
-      if (factor == null) dart.nullFailed(L0, 432, 31, "factor");
-      return new gradient.LinearGradient.new({begin: this.begin, end: this.end, colors: this.colors[$map](ui.Color, dart.fn(color => {
-          if (color == null) dart.nullFailed(L0, 436, 40, "color");
-          return dart.nullCheck(ui.Color.lerp(null, color, factor));
-        }, ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    static getInstance(jsObject) {
+      let t3, t2, t1, t0;
+      if (jsObject == null) {
+        return null;
+      }
+      t0 = auth$.User._expando;
+      t1 = jsObject;
+      t2 = t0._get(t1);
+      return t2 == null ? (t3 = new auth$.User._fromJsObject(jsObject), t0._set(t1, t3), t3) : t2;
     }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(L0, 443, 42, "t");
-      if (a == null || gradient.LinearGradient.is(a)) return gradient.LinearGradient.lerp(LinearGradientN().as(a), this, t);
-      return super.lerpFrom(a, t);
+    delete() {
+      return utils.handleThenable(dart.void, this.jsObject.delete());
     }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(L0, 450, 40, "t");
-      if (b == null || gradient.LinearGradient.is(b)) return gradient.LinearGradient.lerp(this, LinearGradientN().as(b), t);
-      return super.lerpTo(b, t);
+    getIdToken(forceRefresh = false) {
+      return utils.handleThenable(StringL(), this.jsObject.getIdToken(forceRefresh));
     }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(L0, 475, 76, "t");
-      if (!(t != null)) dart.assertFailed(null, L0, 476, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
-      return new gradient.LinearGradient.new({begin: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.begin, b.begin, t)), end: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.end, b.end, t)), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
+    linkWithCredential(credential) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.linkWithCredential(credential)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
     }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return gradient.LinearGradient.is(other) && dart.equals(other.begin, this.begin) && dart.equals(other.end, this.end) && dart.equals(other.tileMode, this.tileMode) && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
+    linkWithPhoneNumber(phoneNumber, applicationVerifier) {
+      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult"), this.jsObject.linkWithPhoneNumber(phoneNumber, applicationVerifier.jsObject)).then(ConfirmationResultL(), dart.fn(c => new auth$.ConfirmationResult.fromJsObject(c), ConfirmationResultJsImplLToConfirmationResultL()));
     }
-    get hashCode() {
-      return ui.hashValues(this.begin, this.end, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    linkWithPopup(provider) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.linkWithPopup(provider.jsObject)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
     }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "LinearGradient")) + "(" + dart.str(this.begin) + ", " + dart.str(this.end) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
+    linkWithRedirect(provider) {
+      return utils.handleThenable(dart.void, this.jsObject.linkWithRedirect(provider.jsObject));
     }
-  };
-  (gradient.LinearGradient.new = function(opts) {
-    let begin = opts && 'begin' in opts ? opts.begin : C0 || CT.C0;
-    if (begin == null) dart.nullFailed(L0, 367, 10, "begin");
-    let end = opts && 'end' in opts ? opts.end : C1 || CT.C1;
-    if (end == null) dart.nullFailed(L0, 368, 10, "end");
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(L0, 369, 26, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C2 || CT.C2;
-    if (tileMode == null) dart.nullFailed(L0, 371, 10, "tileMode");
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[begin$] = begin;
-    this[end$] = end;
-    this[tileMode$] = tileMode;
-    if (!(begin != null)) dart.assertFailed(null, L0, 373, 15, "begin != null");
-    if (!(end != null)) dart.assertFailed(null, L0, 374, 15, "end != null");
-    if (!(tileMode != null)) dart.assertFailed(null, L0, 375, 15, "tileMode != null");
-    gradient.LinearGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
-    ;
-  }).prototype = gradient.LinearGradient.prototype;
-  dart.addTypeTests(gradient.LinearGradient);
-  dart.addTypeCaches(gradient.LinearGradient);
-  dart.setMethodSignature(gradient.LinearGradient, () => ({
-    __proto__: dart.getMethods(gradient.LinearGradient.__proto__),
-    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    scale: dart.fnType(gradient.LinearGradient, [core.double])
-  }));
-  dart.setLibraryUri(gradient.LinearGradient, L1);
-  dart.setFieldSignature(gradient.LinearGradient, () => ({
-    __proto__: dart.getFields(gradient.LinearGradient.__proto__),
-    begin: dart.finalFieldType(alignment.AlignmentGeometry),
-    end: dart.finalFieldType(alignment.AlignmentGeometry),
-    tileMode: dart.finalFieldType(ui.TileMode)
-  }));
-  dart.defineExtensionMethods(gradient.LinearGradient, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(gradient.LinearGradient, ['hashCode']);
-  var C3;
-  var center$ = dart.privateName(gradient, "RadialGradient.center");
-  var radius$ = dart.privateName(gradient, "RadialGradient.radius");
-  var tileMode$0 = dart.privateName(gradient, "RadialGradient.tileMode");
-  var focal$ = dart.privateName(gradient, "RadialGradient.focal");
-  var focalRadius$ = dart.privateName(gradient, "RadialGradient.focalRadius");
-  gradient.RadialGradient = class RadialGradient extends gradient.Gradient {
-    get center() {
-      return this[center$];
+    reauthenticateWithCredential(credential) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.reauthenticateWithCredential(credential)).then(UserCredentialL(), dart.fn(o => new auth$.UserCredential.fromJsObject(o), UserCredentialJsImplLToUserCredentialL()));
     }
-    set center(value) {
-      super.center = value;
+    reauthenticateWithPhoneNumber(phoneNumber, applicationVerifier) {
+      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult"), this.jsObject.reauthenticateWithPhoneNumber(phoneNumber, applicationVerifier.jsObject)).then(ConfirmationResultL(), dart.fn(c => new auth$.ConfirmationResult.fromJsObject(c), ConfirmationResultJsImplLToConfirmationResultL()));
     }
-    get radius() {
-      return this[radius$];
+    reauthenticateWithPopup(provider) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.reauthenticateWithPopup(provider.jsObject)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
     }
-    set radius(value) {
-      super.radius = value;
+    reauthenticateWithRedirect(provider) {
+      return utils.handleThenable(dart.void, this.jsObject.reauthenticateWithRedirect(provider.jsObject));
     }
-    get tileMode() {
-      return this[tileMode$0];
+    reload() {
+      return utils.handleThenable(dart.void, this.jsObject.reload());
     }
-    set tileMode(value) {
-      super.tileMode = value;
+    sendEmailVerification(actionCodeSettings = null) {
+      return utils.handleThenable(dart.void, this.jsObject.sendEmailVerification(actionCodeSettings));
     }
-    get focal() {
-      return this[focal$];
+    verifyBeforeUpdateEmail(newEmail, actionCodeSettings = null) {
+      return utils.handleThenable(dart.void, this.jsObject.verifyBeforeUpdateEmail(newEmail, actionCodeSettings));
     }
-    set focal(value) {
-      super.focal = value;
+    unlink(providerId) {
+      return utils.handleThenable(dart.anonymousJSType("UserJsImpl"), this.jsObject.unlink(providerId)).then(UserL(), C0 || CT.C0);
     }
-    get focalRadius() {
-      return this[focalRadius$];
+    updateEmail(newEmail) {
+      return utils.handleThenable(dart.void, this.jsObject.updateEmail(newEmail));
     }
-    set focalRadius(value) {
-      super.focalRadius = value;
+    updatePassword(newPassword) {
+      return utils.handleThenable(dart.void, this.jsObject.updatePassword(newPassword));
     }
-    createShader(rect, opts) {
-      if (rect == null) dart.nullFailed(L0, 672, 28, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      return ui.Gradient.radial(this.center.resolve(textDirection).withinRect(rect), dart.notNull(this.radius) * dart.notNull(rect.shortestSide), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection), this.focal == null ? null : dart.nullCheck(this.focal).resolve(textDirection).withinRect(rect), dart.notNull(this.focalRadius) * dart.notNull(rect.shortestSide));
+    updatePhoneNumber(phoneCredential) {
+      return utils.handleThenable(dart.void, this.jsObject.updatePhoneNumber(phoneCredential));
     }
-    scale(factor) {
-      if (factor == null) dart.nullFailed(L0, 688, 31, "factor");
-      return new gradient.RadialGradient.new({center: this.center, radius: this.radius, colors: this.colors[$map](ui.Color, dart.fn(color => {
-          if (color == null) dart.nullFailed(L0, 692, 40, "color");
-          return dart.nullCheck(ui.Color.lerp(null, color, factor));
-        }, ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode, focal: this.focal, focalRadius: this.focalRadius});
+    updateProfile(profile) {
+      return utils.handleThenable(dart.void, this.jsObject.updateProfile(profile));
     }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(L0, 701, 42, "t");
-      if (a == null || gradient.RadialGradient.is(a)) return gradient.RadialGradient.lerp(RadialGradientN().as(a), this, t);
-      return super.lerpFrom(a, t);
+    getIdTokenResult(forceRefresh = null) {
+      let promise = forceRefresh == null ? this.jsObject.getIdTokenResult() : this.jsObject.getIdTokenResult(forceRefresh);
+      return utils.handleThenable(dart.anonymousJSType("IdTokenResultImpl"), promise).then(IdTokenResultL(), dart.fn(object => new auth$.IdTokenResult._fromJsObject(object), IdTokenResultImplLToIdTokenResultL()));
     }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(L0, 708, 40, "t");
-      if (b == null || gradient.RadialGradient.is(b)) return gradient.RadialGradient.lerp(this, RadialGradientN().as(b), t);
-      return super.lerpTo(b, t);
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(L0, 733, 76, "t");
-      if (!(t != null)) dart.assertFailed(null, L0, 734, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
-      return new gradient.RadialGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), radius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.radius, b.radius, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode, focal: alignment.AlignmentGeometry.lerp(a.focal, b.focal, t), focalRadius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.focalRadius, b.focalRadius, t)))});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return gradient.RadialGradient.is(other) && dart.equals(other.center, this.center) && other.radius == this.radius && dart.equals(other.tileMode, this.tileMode) && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops)) && dart.equals(other.focal, this.focal) && other.focalRadius == this.focalRadius;
-    }
-    get hashCode() {
-      return ui.hashValues(this.center, this.radius, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops), this.focal, this.focalRadius);
+    toJson() {
+      return MapLOfStringL$dynamic().as(utils$.dartify(this.jsObject.toJSON()));
     }
     toString() {
-      return dart.str(object.objectRuntimeType(this, "RadialGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.radius) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ", " + dart.str(this.focal) + ", " + dart.str(this.focalRadius) + ")";
+      return "User: " + dart.str(this.uid);
     }
   };
-  (gradient.RadialGradient.new = function(opts) {
-    let center = opts && 'center' in opts ? opts.center : C3 || CT.C3;
-    if (center == null) dart.nullFailed(L0, 597, 10, "center");
-    let radius = opts && 'radius' in opts ? opts.radius : 0.5;
-    if (radius == null) dart.nullFailed(L0, 598, 10, "radius");
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(L0, 599, 26, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C2 || CT.C2;
-    if (tileMode == null) dart.nullFailed(L0, 601, 10, "tileMode");
-    let focal = opts && 'focal' in opts ? opts.focal : null;
-    let focalRadius = opts && 'focalRadius' in opts ? opts.focalRadius : 0;
-    if (focalRadius == null) dart.nullFailed(L0, 603, 10, "focalRadius");
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[center$] = center;
-    this[radius$] = radius;
-    this[tileMode$0] = tileMode;
-    this[focal$] = focal;
-    this[focalRadius$] = focalRadius;
-    if (!(center != null)) dart.assertFailed(null, L0, 605, 15, "center != null");
-    if (!(radius != null)) dart.assertFailed(null, L0, 606, 15, "radius != null");
-    if (!(tileMode != null)) dart.assertFailed(null, L0, 607, 15, "tileMode != null");
-    if (!(focalRadius != null)) dart.assertFailed(null, L0, 608, 15, "focalRadius != null");
-    gradient.RadialGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+  (auth$.User._fromJsObject = function(jsObject) {
+    auth$.User.__proto__._fromJsObject.call(this, jsObject);
     ;
-  }).prototype = gradient.RadialGradient.prototype;
-  dart.addTypeTests(gradient.RadialGradient);
-  dart.addTypeCaches(gradient.RadialGradient);
-  dart.setMethodSignature(gradient.RadialGradient, () => ({
-    __proto__: dart.getMethods(gradient.RadialGradient.__proto__),
-    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    scale: dart.fnType(gradient.RadialGradient, [core.double])
+  }).prototype = auth$.User.prototype;
+  dart.addTypeTests(auth$.User);
+  dart.addTypeCaches(auth$.User);
+  dart.setMethodSignature(auth$.User, () => ({
+    __proto__: dart.getMethods(auth$.User.__proto__),
+    delete: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    getIdToken: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [], [dart.legacy(core.bool)]),
+    linkWithCredential: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.anonymousJSType("OAuthCredential")]),
+    linkWithPhoneNumber: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.ConfirmationResult))), [dart.legacy(core.String), dart.legacy(auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier")))]),
+    linkWithPopup: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl")))]),
+    linkWithRedirect: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl")))]),
+    reauthenticateWithCredential: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.anonymousJSType("OAuthCredential")]),
+    reauthenticateWithPhoneNumber: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.ConfirmationResult))), [dart.legacy(core.String), dart.legacy(auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier")))]),
+    reauthenticateWithPopup: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl")))]),
+    reauthenticateWithRedirect: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl")))]),
+    reload: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    sendEmailVerification: dart.fnType(dart.legacy(async.Future$(dart.void)), [], [dart.anonymousJSType("ActionCodeSettings")]),
+    verifyBeforeUpdateEmail: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.String)], [dart.anonymousJSType("ActionCodeSettings")]),
+    unlink: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.User))), [dart.legacy(core.String)]),
+    updateEmail: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.String)]),
+    updatePassword: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(core.String)]),
+    updatePhoneNumber: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.anonymousJSType("OAuthCredential")]),
+    updateProfile: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.anonymousJSType("UserProfile")]),
+    getIdTokenResult: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.IdTokenResult))), [], [dart.legacy(core.bool)]),
+    toJson: dart.fnType(dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)), []),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
   }));
-  dart.setLibraryUri(gradient.RadialGradient, L1);
-  dart.setFieldSignature(gradient.RadialGradient, () => ({
-    __proto__: dart.getFields(gradient.RadialGradient.__proto__),
-    center: dart.finalFieldType(alignment.AlignmentGeometry),
-    radius: dart.finalFieldType(core.double),
-    tileMode: dart.finalFieldType(ui.TileMode),
-    focal: dart.finalFieldType(dart.nullable(alignment.AlignmentGeometry)),
-    focalRadius: dart.finalFieldType(core.double)
+  dart.setGetterSignature(auth$.User, () => ({
+    __proto__: dart.getGetters(auth$.User.__proto__),
+    emailVerified: dart.legacy(core.bool),
+    isAnonymous: dart.legacy(core.bool),
+    tenantId: dart.legacy(core.String),
+    metadata: dart.lazyJSType(() => dart.global.firebase.auth.UserMetadata, "firebase.auth.UserMetadata"),
+    providerData: dart.legacy(core.List$(dart.legacy(auth$.UserInfo$(dart.anonymousJSType("UserInfoJsImpl"))))),
+    refreshToken: dart.legacy(core.String)
   }));
-  dart.defineExtensionMethods(gradient.RadialGradient, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(gradient.RadialGradient, ['hashCode']);
-  var center$0 = dart.privateName(gradient, "SweepGradient.center");
-  var startAngle$ = dart.privateName(gradient, "SweepGradient.startAngle");
-  var endAngle$ = dart.privateName(gradient, "SweepGradient.endAngle");
-  var tileMode$1 = dart.privateName(gradient, "SweepGradient.tileMode");
-  gradient.SweepGradient = class SweepGradient extends gradient.Gradient {
-    get center() {
-      return this[center$0];
+  dart.setLibraryUri(auth$.User, L0);
+  dart.defineExtensionMethods(auth$.User, ['toString']);
+  dart.defineLazy(auth$.User, {
+    /*auth$.User._expando*/get _expando() {
+      return new (ExpandoOfUserL()).new();
     }
-    set center(value) {
-      super.center = value;
+  }, true);
+  auth$.IdTokenResult = class IdTokenResult extends js$.JsObjectWrapper$(dart.anonymousJSType("IdTokenResultImpl")) {
+    get authTime() {
+      return http_date.parseHttpDate(this.jsObject.authTime);
     }
-    get startAngle() {
-      return this[startAngle$];
+    get claims() {
+      return MapLOfStringL$dynamic().as(utils$.dartify(this.jsObject.claims));
     }
-    set startAngle(value) {
-      super.startAngle = value;
+    get expirationTime() {
+      return http_date.parseHttpDate(this.jsObject.expirationTime);
     }
-    get endAngle() {
-      return this[endAngle$];
+    get issuedAtTime() {
+      return http_date.parseHttpDate(this.jsObject.issuedAtTime);
     }
-    set endAngle(value) {
-      super.endAngle = value;
+    get signInProvider() {
+      return this.jsObject.signInProvider;
     }
-    get tileMode() {
-      return this[tileMode$1];
-    }
-    set tileMode(value) {
-      super.tileMode = value;
-    }
-    createShader(rect, opts) {
-      if (rect == null) dart.nullFailed(L0, 922, 28, "rect");
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      return ui.Gradient.sweep(this.center.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this.startAngle, this.endAngle, this[_resolveTransform](rect, textDirection));
-    }
-    scale(factor) {
-      if (factor == null) dart.nullFailed(L0, 937, 30, "factor");
-      return new gradient.SweepGradient.new({center: this.center, startAngle: this.startAngle, endAngle: this.endAngle, colors: this.colors[$map](ui.Color, dart.fn(color => {
-          if (color == null) dart.nullFailed(L0, 942, 40, "color");
-          return dart.nullCheck(ui.Color.lerp(null, color, factor));
-        }, ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
-    }
-    lerpFrom(a, t) {
-      if (t == null) dart.nullFailed(L0, 949, 42, "t");
-      if (a == null || gradient.SweepGradient.is(a)) return gradient.SweepGradient.lerp(SweepGradientN().as(a), this, t);
-      return super.lerpFrom(a, t);
-    }
-    lerpTo(b, t) {
-      if (t == null) dart.nullFailed(L0, 956, 40, "t");
-      if (b == null || gradient.SweepGradient.is(b)) return gradient.SweepGradient.lerp(this, SweepGradientN().as(b), t);
-      return super.lerpTo(b, t);
-    }
-    static lerp(a, b, t) {
-      if (t == null) dart.nullFailed(L0, 980, 73, "t");
-      if (!(t != null)) dart.assertFailed(null, L0, 981, 12, "t != null");
-      if (a == null && b == null) return null;
-      if (a == null) return dart.nullCheck(b).scale(t);
-      if (b == null) return a.scale(1.0 - dart.notNull(t));
-      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
-      return new gradient.SweepGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), startAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.startAngle, b.startAngle, t))), endAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.endAngle, b.endAngle, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
-      return gradient.SweepGradient.is(other) && dart.equals(other.center, this.center) && other.startAngle == this.startAngle && other.endAngle == this.endAngle && dart.equals(other.tileMode, this.tileMode) && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
-    }
-    get hashCode() {
-      return ui.hashValues(this.center, this.startAngle, this.endAngle, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
-    }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "SweepGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.startAngle) + ", " + dart.str(this.endAngle) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
+    get token() {
+      return this.jsObject.token;
     }
   };
-  (gradient.SweepGradient.new = function(opts) {
-    let center = opts && 'center' in opts ? opts.center : C3 || CT.C3;
-    if (center == null) dart.nullFailed(L0, 872, 10, "center");
-    let startAngle = opts && 'startAngle' in opts ? opts.startAngle : 0;
-    if (startAngle == null) dart.nullFailed(L0, 873, 10, "startAngle");
-    let endAngle = opts && 'endAngle' in opts ? opts.endAngle : 6.283185307179586;
-    if (endAngle == null) dart.nullFailed(L0, 874, 10, "endAngle");
-    let colors = opts && 'colors' in opts ? opts.colors : null;
-    if (colors == null) dart.nullFailed(L0, 875, 26, "colors");
-    let stops = opts && 'stops' in opts ? opts.stops : null;
-    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C2 || CT.C2;
-    if (tileMode == null) dart.nullFailed(L0, 877, 10, "tileMode");
-    let transform = opts && 'transform' in opts ? opts.transform : null;
-    this[center$0] = center;
-    this[startAngle$] = startAngle;
-    this[endAngle$] = endAngle;
-    this[tileMode$1] = tileMode;
-    if (!(center != null)) dart.assertFailed(null, L0, 879, 15, "center != null");
-    if (!(startAngle != null)) dart.assertFailed(null, L0, 880, 15, "startAngle != null");
-    if (!(endAngle != null)) dart.assertFailed(null, L0, 881, 15, "endAngle != null");
-    if (!(tileMode != null)) dart.assertFailed(null, L0, 882, 15, "tileMode != null");
-    gradient.SweepGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
+  (auth$.IdTokenResult._fromJsObject = function(jsObject) {
+    auth$.IdTokenResult.__proto__.fromJsObject.call(this, jsObject);
     ;
-  }).prototype = gradient.SweepGradient.prototype;
-  dart.addTypeTests(gradient.SweepGradient);
-  dart.addTypeCaches(gradient.SweepGradient);
-  dart.setMethodSignature(gradient.SweepGradient, () => ({
-    __proto__: dart.getMethods(gradient.SweepGradient.__proto__),
-    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
-    scale: dart.fnType(gradient.SweepGradient, [core.double])
+  }).prototype = auth$.IdTokenResult.prototype;
+  dart.addTypeTests(auth$.IdTokenResult);
+  dart.addTypeCaches(auth$.IdTokenResult);
+  dart.setGetterSignature(auth$.IdTokenResult, () => ({
+    __proto__: dart.getGetters(auth$.IdTokenResult.__proto__),
+    authTime: dart.legacy(core.DateTime),
+    claims: dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)),
+    expirationTime: dart.legacy(core.DateTime),
+    issuedAtTime: dart.legacy(core.DateTime),
+    signInProvider: dart.legacy(core.String),
+    token: dart.legacy(core.String)
   }));
-  dart.setLibraryUri(gradient.SweepGradient, L1);
-  dart.setFieldSignature(gradient.SweepGradient, () => ({
-    __proto__: dart.getFields(gradient.SweepGradient.__proto__),
-    center: dart.finalFieldType(alignment.AlignmentGeometry),
-    startAngle: dart.finalFieldType(core.double),
-    endAngle: dart.finalFieldType(core.double),
-    tileMode: dart.finalFieldType(ui.TileMode)
+  dart.setLibraryUri(auth$.IdTokenResult, L0);
+  var _onAuthUnsubscribe = dart.privateName(auth$, "_onAuthUnsubscribe");
+  var _changeController = dart.privateName(auth$, "_changeController");
+  var _onIdTokenChangedUnsubscribe = dart.privateName(auth$, "_onIdTokenChangedUnsubscribe");
+  var _idTokenChangedController = dart.privateName(auth$, "_idTokenChangedController");
+  auth$.Auth = class Auth extends js$.JsObjectWrapper$(dart.lazyJSType(() => dart.global.firebase.auth.Auth, "firebase.auth.Auth")) {
+    get app() {
+      return app.App.getInstance(this.jsObject.app);
+    }
+    get currentUser() {
+      return auth$.User.getInstance(this.jsObject.currentUser);
+    }
+    get languageCode() {
+      return this.jsObject.languageCode;
+    }
+    set languageCode(s) {
+      this.jsObject.languageCode = s;
+    }
+    get settings() {
+      return this.jsObject.settings;
+    }
+    get onAuthStateChanged() {
+      if (this[_changeController] == null) {
+        let nextWrapper = js.allowInterop(UserJsImplLToLNull(), dart.fn(user => {
+          this[_changeController].add(auth$.User.getInstance(user));
+        }, UserJsImplLToNull()));
+        let errorWrapper = js.allowInterop(dynamicToLvoid(), dart.fn(e => this[_changeController].addError(e), dynamicTovoid()));
+        const startListen = () => {
+          if (!(this[_onAuthUnsubscribe] == null)) dart.assertFailed(null, L1, 333, 16, "_onAuthUnsubscribe == null");
+          this[_onAuthUnsubscribe] = this.jsObject.onAuthStateChanged(dart.assertInterop(nextWrapper), dart.assertInterop(errorWrapper));
+        };
+        dart.fn(startListen, VoidTovoid());
+        const stopListen = () => {
+          this[_onAuthUnsubscribe]();
+          this[_onAuthUnsubscribe] = null;
+        };
+        dart.fn(stopListen, VoidTovoid());
+        this[_changeController] = StreamControllerOfUserL().broadcast({onListen: startListen, onCancel: stopListen, sync: true});
+      }
+      return this[_changeController].stream;
+    }
+    get onIdTokenChanged() {
+      if (this[_idTokenChangedController] == null) {
+        let nextWrapper = js.allowInterop(UserJsImplLToLNull(), dart.fn(user => {
+          this[_idTokenChangedController].add(auth$.User.getInstance(user));
+        }, UserJsImplLToNull()));
+        let errorWrapper = js.allowInterop(dynamicToLvoid(), dart.fn(e => this[_idTokenChangedController].addError(e), dynamicTovoid()));
+        const startListen = () => {
+          if (!(this[_onIdTokenChangedUnsubscribe] == null)) dart.assertFailed(null, L1, 368, 16, "_onIdTokenChangedUnsubscribe == null");
+          this[_onIdTokenChangedUnsubscribe] = this.jsObject.onIdTokenChanged(dart.assertInterop(nextWrapper), dart.assertInterop(errorWrapper));
+        };
+        dart.fn(startListen, VoidTovoid());
+        const stopListen = () => {
+          this[_onIdTokenChangedUnsubscribe]();
+          this[_onIdTokenChangedUnsubscribe] = null;
+        };
+        dart.fn(stopListen, VoidTovoid());
+        this[_idTokenChangedController] = StreamControllerOfUserL().broadcast({onListen: startListen, onCancel: stopListen, sync: true});
+      }
+      return this[_idTokenChangedController].stream;
+    }
+    static getInstance(jsObject) {
+      let t3, t2, t1, t0;
+      if (jsObject == null) {
+        return null;
+      }
+      t0 = auth$.Auth._expando;
+      t1 = jsObject;
+      t2 = t0._get(t1);
+      return t2 == null ? (t3 = new auth$.Auth._fromJsObject(jsObject), t0._set(t1, t3), t3) : t2;
+    }
+    applyActionCode(code) {
+      return utils.handleThenable(dart.dynamic, this.jsObject.applyActionCode(code));
+    }
+    checkActionCode(code) {
+      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ActionCodeInfo, "firebase.auth.ActionCodeInfo"), this.jsObject.checkActionCode(code));
+    }
+    confirmPasswordReset(code, newPassword) {
+      return utils.handleThenable(dart.dynamic, this.jsObject.confirmPasswordReset(code, newPassword));
+    }
+    createUserWithEmailAndPassword(email, password) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.createUserWithEmailAndPassword(email, password)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    fetchSignInMethodsForEmail(email) {
+      return utils.handleThenable(ListL(), this.jsObject.fetchSignInMethodsForEmail(email)).then(ListLOfStringL(), dart.fn(list => ListOfStringL().from(list), ListLToListLOfStringL()));
+    }
+    isSignInWithEmailLink(emailLink) {
+      return this.jsObject.isSignInWithEmailLink(emailLink);
+    }
+    getRedirectResult() {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.getRedirectResult()).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    sendSignInLinkToEmail(email, actionCodeSettings = null) {
+      return utils.handleThenable(dart.dynamic, this.jsObject.sendSignInLinkToEmail(email, actionCodeSettings));
+    }
+    sendPasswordResetEmail(email, actionCodeSettings = null) {
+      return utils.handleThenable(dart.dynamic, this.jsObject.sendPasswordResetEmail(email, actionCodeSettings));
+    }
+    setPersistence(persistence) {
+      return utils.handleThenable(dart.dynamic, this.jsObject.setPersistence(persistence));
+    }
+    signInWithCredential(credential) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithCredential(credential)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    signInAnonymously() {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInAnonymously()).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    signInWithCustomToken(token) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithCustomToken(token)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    signInAndRetrieveDataWithCustomToken(token) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInAndRetrieveDataWithCustomToken(token)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    signInWithEmailAndPassword(email, password) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithEmailAndPassword(email, password)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    signInWithEmailLink(email, emailLink) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithEmailLink(email, emailLink)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    signInWithPhoneNumber(phoneNumber, applicationVerifier) {
+      return utils.handleThenable(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult"), this.jsObject.signInWithPhoneNumber(phoneNumber, applicationVerifier.jsObject)).then(ConfirmationResultL(), dart.fn(c => new auth$.ConfirmationResult.fromJsObject(c), ConfirmationResultJsImplLToConfirmationResultL()));
+    }
+    signInWithPopup(provider) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.signInWithPopup(provider.jsObject)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+    signInWithRedirect(provider) {
+      return utils.handleThenable(dart.dynamic, this.jsObject.signInWithRedirect(provider.jsObject));
+    }
+    signOut() {
+      return utils.handleThenable(dart.dynamic, this.jsObject.signOut());
+    }
+    useDeviceLanguage() {
+      return this.jsObject.useDeviceLanguage();
+    }
+    verifyPasswordResetCode(code) {
+      return utils.handleThenable(StringL(), this.jsObject.verifyPasswordResetCode(code));
+    }
+  };
+  (auth$.Auth._fromJsObject = function(jsObject) {
+    this[_onAuthUnsubscribe] = null;
+    this[_changeController] = null;
+    this[_onIdTokenChangedUnsubscribe] = null;
+    this[_idTokenChangedController] = null;
+    auth$.Auth.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.Auth.prototype;
+  dart.addTypeTests(auth$.Auth);
+  dart.addTypeCaches(auth$.Auth);
+  dart.setMethodSignature(auth$.Auth, () => ({
+    __proto__: dart.getMethods(auth$.Auth.__proto__),
+    applyActionCode: dart.fnType(dart.legacy(async.Future), [dart.legacy(core.String)]),
+    checkActionCode: dart.fnType(dart.legacy(async.Future$(dart.lazyJSType(() => dart.global.firebase.auth.ActionCodeInfo, "firebase.auth.ActionCodeInfo"))), [dart.legacy(core.String)]),
+    confirmPasswordReset: dart.fnType(dart.legacy(async.Future), [dart.legacy(core.String), dart.legacy(core.String)]),
+    createUserWithEmailAndPassword: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(core.String), dart.legacy(core.String)]),
+    fetchSignInMethodsForEmail: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.List$(dart.legacy(core.String))))), [dart.legacy(core.String)]),
+    isSignInWithEmailLink: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.String)]),
+    getRedirectResult: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), []),
+    sendSignInLinkToEmail: dart.fnType(dart.legacy(async.Future), [dart.legacy(core.String)], [dart.anonymousJSType("ActionCodeSettings")]),
+    sendPasswordResetEmail: dart.fnType(dart.legacy(async.Future), [dart.legacy(core.String)], [dart.anonymousJSType("ActionCodeSettings")]),
+    setPersistence: dart.fnType(dart.legacy(async.Future), [dart.legacy(core.String)]),
+    signInWithCredential: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.anonymousJSType("OAuthCredential")]),
+    signInAnonymously: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), []),
+    signInWithCustomToken: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(core.String)]),
+    signInAndRetrieveDataWithCustomToken: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(core.String)]),
+    signInWithEmailAndPassword: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(core.String), dart.legacy(core.String)]),
+    signInWithEmailLink: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(core.String), dart.legacy(core.String)]),
+    signInWithPhoneNumber: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.ConfirmationResult))), [dart.legacy(core.String), dart.legacy(auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier")))]),
+    signInWithPopup: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl")))]),
+    signInWithRedirect: dart.fnType(dart.legacy(async.Future), [dart.legacy(auth$.AuthProvider$(dart.anonymousJSType("AuthProviderJsImpl")))]),
+    signOut: dart.fnType(dart.legacy(async.Future), []),
+    useDeviceLanguage: dart.fnType(dart.void, []),
+    verifyPasswordResetCode: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [dart.legacy(core.String)])
   }));
-  dart.defineExtensionMethods(gradient.SweepGradient, ['_equals', 'toString']);
-  dart.defineExtensionAccessors(gradient.SweepGradient, ['hashCode']);
-  gradient._sample = function _sample(colors, stops, t) {
-    if (colors == null) dart.nullFailed(L0, 24, 27, "colors");
-    if (stops == null) dart.nullFailed(L0, 24, 48, "stops");
-    if (t == null) dart.nullFailed(L0, 24, 62, "t");
-    if (!(colors != null)) dart.assertFailed(null, L0, 25, 10, "colors != null");
-    if (!dart.test(colors[$isNotEmpty])) dart.assertFailed(null, L0, 26, 10, "colors.isNotEmpty");
-    if (!(stops != null)) dart.assertFailed(null, L0, 27, 10, "stops != null");
-    if (!dart.test(stops[$isNotEmpty])) dart.assertFailed(null, L0, 28, 10, "stops.isNotEmpty");
-    if (!(t != null)) dart.assertFailed(null, L0, 29, 10, "t != null");
-    if (dart.notNull(t) <= dart.notNull(stops[$first])) return colors[$first];
-    if (dart.notNull(t) >= dart.notNull(stops[$last])) return colors[$last];
-    let index = stops[$lastIndexWhere](dart.fn(s => {
-      if (s == null) dart.nullFailed(L0, 34, 50, "s");
-      return dart.notNull(s) <= dart.notNull(t);
-    }, doubleTobool()));
-    if (!(index !== -1)) dart.assertFailed(null, L0, 35, 10, "index != -1");
-    return dart.nullCheck(ui.Color.lerp(colors[$_get](index), colors[$_get](dart.notNull(index) + 1), (dart.notNull(t) - dart.notNull(stops[$_get](index))) / (dart.notNull(stops[$_get](dart.notNull(index) + 1)) - dart.notNull(stops[$_get](index)))));
+  dart.setGetterSignature(auth$.Auth, () => ({
+    __proto__: dart.getGetters(auth$.Auth.__proto__),
+    app: dart.legacy(app.App),
+    currentUser: dart.legacy(auth$.User),
+    languageCode: dart.legacy(core.String),
+    settings: dart.anonymousJSType("AuthSettings"),
+    onAuthStateChanged: dart.legacy(async.Stream$(dart.legacy(auth$.User))),
+    onIdTokenChanged: dart.legacy(async.Stream$(dart.legacy(auth$.User)))
+  }));
+  dart.setSetterSignature(auth$.Auth, () => ({
+    __proto__: dart.getSetters(auth$.Auth.__proto__),
+    languageCode: dart.legacy(core.String)
+  }));
+  dart.setLibraryUri(auth$.Auth, L0);
+  dart.setFieldSignature(auth$.Auth, () => ({
+    __proto__: dart.getFields(auth$.Auth.__proto__),
+    [_onAuthUnsubscribe]: dart.fieldType(dart.legacy(dart.fnType(dart.dynamic, []))),
+    [_changeController]: dart.fieldType(dart.legacy(async.StreamController$(dart.legacy(auth$.User)))),
+    [_onIdTokenChangedUnsubscribe]: dart.fieldType(dart.legacy(dart.fnType(dart.dynamic, []))),
+    [_idTokenChangedController]: dart.fieldType(dart.legacy(async.StreamController$(dart.legacy(auth$.User))))
+  }));
+  dart.defineLazy(auth$.Auth, {
+    /*auth$.Auth._expando*/get _expando() {
+      return new (ExpandoOfAuthL()).new();
+    }
+  }, true);
+  const _is_AuthProvider_default = Symbol('_is_AuthProvider_default');
+  auth$.AuthProvider$ = dart.generic(T => {
+    class AuthProvider extends js$.JsObjectWrapper$(dart.legacy(T)) {
+      get providerId() {
+        return this.jsObject.providerId;
+      }
+    }
+    (AuthProvider.fromJsObject = function(jsObject) {
+      AuthProvider.__proto__.fromJsObject.call(this, jsObject);
+      ;
+    }).prototype = AuthProvider.prototype;
+    dart.addTypeTests(AuthProvider);
+    AuthProvider.prototype[_is_AuthProvider_default] = true;
+    dart.addTypeCaches(AuthProvider);
+    dart.setGetterSignature(AuthProvider, () => ({
+      __proto__: dart.getGetters(AuthProvider.__proto__),
+      providerId: dart.legacy(core.String)
+    }));
+    dart.setLibraryUri(AuthProvider, L0);
+    return AuthProvider;
+  });
+  auth$.AuthProvider = auth$.AuthProvider$();
+  dart.addTypeTests(auth$.AuthProvider, _is_AuthProvider_default);
+  auth$.EmailAuthProvider = class EmailAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.EmailAuthProvider, "firebase.auth.EmailAuthProvider")) {
+    static new() {
+      return new auth$.EmailAuthProvider.fromJsObject(new dart.global.firebase.auth.EmailAuthProvider());
+    }
+    static credential(email, password) {
+      return dart.anonymousJSType("OAuthCredential").as(dart.global.firebase.auth.EmailAuthProvider.credential(email, password));
+    }
+    static credentialWithLink(email, emailLink) {
+      return dart.anonymousJSType("OAuthCredential").as(dart.global.firebase.auth.EmailAuthProvider.credentialWithLink(email, emailLink));
+    }
   };
-  gradient._interpolateColorsAndStops = function _interpolateColorsAndStops(aColors, aStops, bColors, bStops, t) {
-    let t0;
-    if (aColors == null) dart.nullFailed(L0, 43, 15, "aColors");
-    if (aStops == null) dart.nullFailed(L0, 44, 16, "aStops");
-    if (bColors == null) dart.nullFailed(L0, 45, 15, "bColors");
-    if (bStops == null) dart.nullFailed(L0, 46, 16, "bStops");
-    if (t == null) dart.nullFailed(L0, 47, 10, "t");
-    if (!(dart.notNull(aColors[$length]) >= 2)) dart.assertFailed(null, L0, 49, 10, "aColors.length >= 2");
-    if (!(dart.notNull(bColors[$length]) >= 2)) dart.assertFailed(null, L0, 50, 10, "bColors.length >= 2");
-    if (!(aStops[$length] == aColors[$length])) dart.assertFailed(null, L0, 51, 10, "aStops.length == aColors.length");
-    if (!(bStops[$length] == bColors[$length])) dart.assertFailed(null, L0, 52, 10, "bStops.length == bColors.length");
-    let stops = (t0 = new (SplayTreeSetOfdouble()).new(), (() => {
-      t0.addAll(aStops);
-      t0.addAll(bStops);
-      return t0;
-    })());
-    let interpolatedStops = stops.toList({growable: false});
-    let interpolatedColors = interpolatedStops[$map](ui.Color, dart.fn(stop => {
-      if (stop == null) dart.nullFailed(L0, 58, 19, "stop");
-      return dart.nullCheck(ui.Color.lerp(gradient._sample(aColors, aStops, stop), gradient._sample(bColors, bStops, stop), t));
-    }, doubleToColor()))[$toList]({growable: false});
-    return new gradient._ColorsAndStops.new(interpolatedColors, interpolatedStops);
+  (auth$.EmailAuthProvider.fromJsObject = function(jsObject) {
+    auth$.EmailAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.EmailAuthProvider.prototype;
+  dart.addTypeTests(auth$.EmailAuthProvider);
+  dart.addTypeCaches(auth$.EmailAuthProvider);
+  dart.setLibraryUri(auth$.EmailAuthProvider, L0);
+  dart.defineLazy(auth$.EmailAuthProvider, {
+    /*auth$.EmailAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
+      return dart.global.firebase.auth.EmailAuthProvider.PROVIDER_ID;
+    },
+    set PROVIDER_ID(_) {}
+  }, true);
+  auth$.FacebookAuthProvider = class FacebookAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.FacebookAuthProvider, "firebase.auth.FacebookAuthProvider")) {
+    static new() {
+      return new auth$.FacebookAuthProvider.fromJsObject(new dart.global.firebase.auth.FacebookAuthProvider());
+    }
+    addScope(scope) {
+      return new auth$.FacebookAuthProvider.fromJsObject(this.jsObject.addScope(scope));
+    }
+    setCustomParameters(customOAuthParameters) {
+      return new auth$.FacebookAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
+    }
+    static credential(token) {
+      return dart.global.firebase.auth.FacebookAuthProvider.credential(token);
+    }
   };
-  dart.trackLibraries("packages/flutter/src/painting/gradient.dart", {
-    "package:flutter/src/painting/gradient.dart": gradient
+  (auth$.FacebookAuthProvider.fromJsObject = function(jsObject) {
+    auth$.FacebookAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.FacebookAuthProvider.prototype;
+  dart.addTypeTests(auth$.FacebookAuthProvider);
+  dart.addTypeCaches(auth$.FacebookAuthProvider);
+  dart.setMethodSignature(auth$.FacebookAuthProvider, () => ({
+    __proto__: dart.getMethods(auth$.FacebookAuthProvider.__proto__),
+    addScope: dart.fnType(dart.legacy(auth$.FacebookAuthProvider), [dart.legacy(core.String)]),
+    setCustomParameters: dart.fnType(dart.legacy(auth$.FacebookAuthProvider), [dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))])
+  }));
+  dart.setLibraryUri(auth$.FacebookAuthProvider, L0);
+  dart.defineLazy(auth$.FacebookAuthProvider, {
+    /*auth$.FacebookAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
+      return dart.global.firebase.auth.FacebookAuthProvider.PROVIDER_ID;
+    },
+    set PROVIDER_ID(_) {}
+  }, true);
+  auth$.GithubAuthProvider = class GithubAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.GithubAuthProvider, "firebase.auth.GithubAuthProvider")) {
+    static new() {
+      return new auth$.GithubAuthProvider.fromJsObject(new dart.global.firebase.auth.GithubAuthProvider());
+    }
+    addScope(scope) {
+      return new auth$.GithubAuthProvider.fromJsObject(this.jsObject.addScope(scope));
+    }
+    setCustomParameters(customOAuthParameters) {
+      return new auth$.GithubAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
+    }
+    static credential(token) {
+      return dart.global.firebase.auth.GithubAuthProvider.credential(token);
+    }
+  };
+  (auth$.GithubAuthProvider.fromJsObject = function(jsObject) {
+    auth$.GithubAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.GithubAuthProvider.prototype;
+  dart.addTypeTests(auth$.GithubAuthProvider);
+  dart.addTypeCaches(auth$.GithubAuthProvider);
+  dart.setMethodSignature(auth$.GithubAuthProvider, () => ({
+    __proto__: dart.getMethods(auth$.GithubAuthProvider.__proto__),
+    addScope: dart.fnType(dart.legacy(auth$.GithubAuthProvider), [dart.legacy(core.String)]),
+    setCustomParameters: dart.fnType(dart.legacy(auth$.GithubAuthProvider), [dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))])
+  }));
+  dart.setLibraryUri(auth$.GithubAuthProvider, L0);
+  dart.defineLazy(auth$.GithubAuthProvider, {
+    /*auth$.GithubAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
+      return dart.global.firebase.auth.GithubAuthProvider.PROVIDER_ID;
+    },
+    set PROVIDER_ID(_) {}
+  }, true);
+  auth$.GoogleAuthProvider = class GoogleAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.GoogleAuthProvider, "firebase.auth.GoogleAuthProvider")) {
+    static new() {
+      return new auth$.GoogleAuthProvider.fromJsObject(new dart.global.firebase.auth.GoogleAuthProvider());
+    }
+    addScope(scope) {
+      return new auth$.GoogleAuthProvider.fromJsObject(this.jsObject.addScope(scope));
+    }
+    setCustomParameters(customOAuthParameters) {
+      return new auth$.GoogleAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
+    }
+    static credential(idToken = null, accessToken = null) {
+      return dart.global.firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
+    }
+  };
+  (auth$.GoogleAuthProvider.fromJsObject = function(jsObject) {
+    auth$.GoogleAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.GoogleAuthProvider.prototype;
+  dart.addTypeTests(auth$.GoogleAuthProvider);
+  dart.addTypeCaches(auth$.GoogleAuthProvider);
+  dart.setMethodSignature(auth$.GoogleAuthProvider, () => ({
+    __proto__: dart.getMethods(auth$.GoogleAuthProvider.__proto__),
+    addScope: dart.fnType(dart.legacy(auth$.GoogleAuthProvider), [dart.legacy(core.String)]),
+    setCustomParameters: dart.fnType(dart.legacy(auth$.GoogleAuthProvider), [dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))])
+  }));
+  dart.setLibraryUri(auth$.GoogleAuthProvider, L0);
+  dart.defineLazy(auth$.GoogleAuthProvider, {
+    /*auth$.GoogleAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
+      return dart.global.firebase.auth.GoogleAuthProvider.PROVIDER_ID;
+    },
+    set PROVIDER_ID(_) {}
+  }, true);
+  auth$.OAuthProvider = class OAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.OAuthProvider, "firebase.auth.OAuthProvider")) {
+    static new(providerId) {
+      return new auth$.OAuthProvider.fromJsObject(new dart.global.firebase.auth.OAuthProvider(providerId));
+    }
+    addScope(scope) {
+      return new auth$.OAuthProvider.fromJsObject(this.jsObject.addScope(scope));
+    }
+    setCustomParameters(customOAuthParameters) {
+      return new auth$.OAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
+    }
+    credential(idToken = null, accessToken = null) {
+      return this.jsObject.credential(idToken, accessToken);
+    }
+  };
+  (auth$.OAuthProvider.fromJsObject = function(jsObject) {
+    auth$.OAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.OAuthProvider.prototype;
+  dart.addTypeTests(auth$.OAuthProvider);
+  dart.addTypeCaches(auth$.OAuthProvider);
+  dart.setMethodSignature(auth$.OAuthProvider, () => ({
+    __proto__: dart.getMethods(auth$.OAuthProvider.__proto__),
+    addScope: dart.fnType(dart.legacy(auth$.OAuthProvider), [dart.legacy(core.String)]),
+    setCustomParameters: dart.fnType(dart.legacy(auth$.OAuthProvider), [dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))]),
+    credential: dart.fnType(dart.anonymousJSType("OAuthCredential"), [], [dart.legacy(core.String), dart.legacy(core.String)])
+  }));
+  dart.setLibraryUri(auth$.OAuthProvider, L0);
+  auth$.TwitterAuthProvider = class TwitterAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.TwitterAuthProvider, "firebase.auth.TwitterAuthProvider")) {
+    static new() {
+      return new auth$.TwitterAuthProvider.fromJsObject(new dart.global.firebase.auth.TwitterAuthProvider());
+    }
+    setCustomParameters(customOAuthParameters) {
+      return new auth$.TwitterAuthProvider.fromJsObject(this.jsObject.setCustomParameters(utils$.jsify(customOAuthParameters)));
+    }
+    static credential(token, secret) {
+      return dart.global.firebase.auth.TwitterAuthProvider.credential(token, secret);
+    }
+  };
+  (auth$.TwitterAuthProvider.fromJsObject = function(jsObject) {
+    auth$.TwitterAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.TwitterAuthProvider.prototype;
+  dart.addTypeTests(auth$.TwitterAuthProvider);
+  dart.addTypeCaches(auth$.TwitterAuthProvider);
+  dart.setMethodSignature(auth$.TwitterAuthProvider, () => ({
+    __proto__: dart.getMethods(auth$.TwitterAuthProvider.__proto__),
+    setCustomParameters: dart.fnType(dart.legacy(auth$.TwitterAuthProvider), [dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic))])
+  }));
+  dart.setLibraryUri(auth$.TwitterAuthProvider, L0);
+  dart.defineLazy(auth$.TwitterAuthProvider, {
+    /*auth$.TwitterAuthProvider.PROVIDER_ID*/get PROVIDER_ID() {
+      return dart.global.firebase.auth.TwitterAuthProvider.PROVIDER_ID;
+    },
+    set PROVIDER_ID(_) {}
+  }, true);
+  auth$.PhoneAuthProvider = class PhoneAuthProvider extends auth$.AuthProvider$(dart.lazyJSType(() => dart.global.firebase.auth.PhoneAuthProvider, "firebase.auth.PhoneAuthProvider")) {
+    static get PROVIDER_ID() {
+      return dart.global.firebase.auth.PhoneAuthProvider.PROVIDER_ID;
+    }
+    static new(auth = null) {
+      return new auth$.PhoneAuthProvider.fromJsObject(auth != null ? new dart.global.firebase.auth.PhoneAuthProvider(auth.jsObject) : new dart.global.firebase.auth.PhoneAuthProvider());
+    }
+    verifyPhoneNumber(phoneNumber, applicationVerifier) {
+      return utils.handleThenable(StringL(), this.jsObject.verifyPhoneNumber(phoneNumber, applicationVerifier.jsObject));
+    }
+    static credential(verificationId, verificationCode) {
+      return dart.anonymousJSType("OAuthCredential").as(dart.global.firebase.auth.PhoneAuthProvider.credential(verificationId, verificationCode));
+    }
+  };
+  (auth$.PhoneAuthProvider.fromJsObject = function(jsObject) {
+    auth$.PhoneAuthProvider.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.PhoneAuthProvider.prototype;
+  dart.addTypeTests(auth$.PhoneAuthProvider);
+  dart.addTypeCaches(auth$.PhoneAuthProvider);
+  dart.setMethodSignature(auth$.PhoneAuthProvider, () => ({
+    __proto__: dart.getMethods(auth$.PhoneAuthProvider.__proto__),
+    verifyPhoneNumber: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [dart.legacy(core.String), dart.legacy(auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.ApplicationVerifier, "firebase.auth.ApplicationVerifier")))])
+  }));
+  dart.setLibraryUri(auth$.PhoneAuthProvider, L0);
+  const _is_ApplicationVerifier_default = Symbol('_is_ApplicationVerifier_default');
+  auth$.ApplicationVerifier$ = dart.generic(T => {
+    class ApplicationVerifier extends js$.JsObjectWrapper$(dart.legacy(T)) {
+      get type() {
+        return this.jsObject.type;
+      }
+      verify() {
+        return utils.handleThenable(StringL(), this.jsObject.verify());
+      }
+    }
+    (ApplicationVerifier.fromJsObject = function(jsObject) {
+      ApplicationVerifier.__proto__.fromJsObject.call(this, jsObject);
+      ;
+    }).prototype = ApplicationVerifier.prototype;
+    dart.addTypeTests(ApplicationVerifier);
+    ApplicationVerifier.prototype[_is_ApplicationVerifier_default] = true;
+    dart.addTypeCaches(ApplicationVerifier);
+    dart.setMethodSignature(ApplicationVerifier, () => ({
+      __proto__: dart.getMethods(ApplicationVerifier.__proto__),
+      verify: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [])
+    }));
+    dart.setGetterSignature(ApplicationVerifier, () => ({
+      __proto__: dart.getGetters(ApplicationVerifier.__proto__),
+      type: dart.legacy(core.String)
+    }));
+    dart.setLibraryUri(ApplicationVerifier, L0);
+    return ApplicationVerifier;
+  });
+  auth$.ApplicationVerifier = auth$.ApplicationVerifier$();
+  dart.addTypeTests(auth$.ApplicationVerifier, _is_ApplicationVerifier_default);
+  auth$.RecaptchaVerifier = class RecaptchaVerifier extends auth$.ApplicationVerifier$(dart.lazyJSType(() => dart.global.firebase.auth.RecaptchaVerifier, "firebase.auth.RecaptchaVerifier")) {
+    static new(container, parameters = null, app = null) {
+      return parameters != null ? app != null ? new auth$.RecaptchaVerifier.fromJsObject(new dart.global.firebase.auth.RecaptchaVerifier(container, utils$.jsify(parameters), app.jsObject)) : new auth$.RecaptchaVerifier.fromJsObject(new dart.global.firebase.auth.RecaptchaVerifier(container, utils$.jsify(parameters))) : new auth$.RecaptchaVerifier.fromJsObject(new dart.global.firebase.auth.RecaptchaVerifier(container));
+    }
+    clear() {
+      return this.jsObject.clear();
+    }
+    render() {
+      return utils.handleThenable(numL(), this.jsObject.render());
+    }
+  };
+  (auth$.RecaptchaVerifier.fromJsObject = function(jsObject) {
+    auth$.RecaptchaVerifier.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.RecaptchaVerifier.prototype;
+  dart.addTypeTests(auth$.RecaptchaVerifier);
+  dart.addTypeCaches(auth$.RecaptchaVerifier);
+  dart.setMethodSignature(auth$.RecaptchaVerifier, () => ({
+    __proto__: dart.getMethods(auth$.RecaptchaVerifier.__proto__),
+    clear: dart.fnType(dart.void, []),
+    render: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.num))), [])
+  }));
+  dart.setLibraryUri(auth$.RecaptchaVerifier, L0);
+  auth$.ConfirmationResult = class ConfirmationResult extends js$.JsObjectWrapper$(dart.lazyJSType(() => dart.global.firebase.auth.ConfirmationResult, "firebase.auth.ConfirmationResult")) {
+    get verificationId() {
+      return this.jsObject.verificationId;
+    }
+    confirm(verificationCode) {
+      return utils.handleThenable(dart.anonymousJSType("UserCredentialJsImpl"), this.jsObject.confirm(verificationCode)).then(UserCredentialL(), dart.fn(u => new auth$.UserCredential.fromJsObject(u), UserCredentialJsImplLToUserCredentialL()));
+    }
+  };
+  (auth$.ConfirmationResult.fromJsObject = function(jsObject) {
+    auth$.ConfirmationResult.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.ConfirmationResult.prototype;
+  dart.addTypeTests(auth$.ConfirmationResult);
+  dart.addTypeCaches(auth$.ConfirmationResult);
+  dart.setMethodSignature(auth$.ConfirmationResult, () => ({
+    __proto__: dart.getMethods(auth$.ConfirmationResult.__proto__),
+    confirm: dart.fnType(dart.legacy(async.Future$(dart.legacy(auth$.UserCredential))), [dart.legacy(core.String)])
+  }));
+  dart.setGetterSignature(auth$.ConfirmationResult, () => ({
+    __proto__: dart.getGetters(auth$.ConfirmationResult.__proto__),
+    verificationId: dart.legacy(core.String)
+  }));
+  dart.setLibraryUri(auth$.ConfirmationResult, L0);
+  auth$.UserCredential = class UserCredential extends js$.JsObjectWrapper$(dart.anonymousJSType("UserCredentialJsImpl")) {
+    get user() {
+      return auth$.User.getInstance(this.jsObject.user);
+    }
+    get credential() {
+      return this.jsObject.credential;
+    }
+    get operationType() {
+      return this.jsObject.operationType;
+    }
+    get additionalUserInfo() {
+      return new auth$.AdditionalUserInfo.fromJsObject(this.jsObject.additionalUserInfo);
+    }
+  };
+  (auth$.UserCredential.fromJsObject = function(jsObject) {
+    auth$.UserCredential.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.UserCredential.prototype;
+  dart.addTypeTests(auth$.UserCredential);
+  dart.addTypeCaches(auth$.UserCredential);
+  dart.setGetterSignature(auth$.UserCredential, () => ({
+    __proto__: dart.getGetters(auth$.UserCredential.__proto__),
+    user: dart.legacy(auth$.User),
+    credential: dart.anonymousJSType("OAuthCredential"),
+    operationType: dart.legacy(core.String),
+    additionalUserInfo: dart.legacy(auth$.AdditionalUserInfo)
+  }));
+  dart.setLibraryUri(auth$.UserCredential, L0);
+  auth$.AdditionalUserInfo = class AdditionalUserInfo extends js$.JsObjectWrapper$(dart.anonymousJSType("AdditionalUserInfoJsImpl")) {
+    get providerId() {
+      return this.jsObject.providerId;
+    }
+    get profile() {
+      return MapLOfStringL$dynamic().as(utils$.dartify(this.jsObject.profile));
+    }
+    get username() {
+      return this.jsObject.username;
+    }
+    get isNewUser() {
+      return this.jsObject.isNewUser;
+    }
+  };
+  (auth$.AdditionalUserInfo.fromJsObject = function(jsObject) {
+    auth$.AdditionalUserInfo.__proto__.fromJsObject.call(this, jsObject);
+    ;
+  }).prototype = auth$.AdditionalUserInfo.prototype;
+  dart.addTypeTests(auth$.AdditionalUserInfo);
+  dart.addTypeCaches(auth$.AdditionalUserInfo);
+  dart.setGetterSignature(auth$.AdditionalUserInfo, () => ({
+    __proto__: dart.getGetters(auth$.AdditionalUserInfo.__proto__),
+    providerId: dart.legacy(core.String),
+    profile: dart.legacy(core.Map$(dart.legacy(core.String), dart.dynamic)),
+    username: dart.legacy(core.String),
+    isNewUser: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(auth$.AdditionalUserInfo, L0);
+  auth$.getAuthInstance = function getAuthInstance(app = null) {
+    return auth$.Auth.getInstance(app != null ? dart.global.firebase.auth(app.jsObject) : dart.global.firebase.auth());
+  };
+  dart.trackLibraries("packages/firebase_auth_web/src/interop/auth.dart", {
+    "package:firebase_auth_web/src/interop/auth.dart": auth$
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["gradient.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/gradient.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["auth.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../packages/firebase_auth_web/src/interop/auth.dart.lib.js"}');
   // Exports:
   return {
-    src__painting__gradient: gradient
+    src__interop__auth: auth$
   };
 }));
 
-//# sourceMappingURL=gradient.dart.lib.js.map
+//# sourceMappingURL=auth.dart.lib.js.map

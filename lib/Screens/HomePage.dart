@@ -37,18 +37,6 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => EditorPage()));
-                        },
-                        child: Text(
-                          'Discover',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
                       SizedBox(width: screenSize.width / 20),
                       InkWell(
                         onTap: () {
@@ -65,14 +53,6 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                InkWell(
-                  onTap: () {},
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              
               ],
             ),
           ),

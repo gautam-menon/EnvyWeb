@@ -81,13 +81,13 @@
     },
     {
       "name": "firebase",
-      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase-7.3.0",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase-7.3.2",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.18.3",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.18.3+1",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -99,27 +99,39 @@
     },
     {
       "name": "firebase_auth_web",
-      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.3.2",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-0.3.2+1",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.5.2",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.5.2+1",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-2.0.0",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-2.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.1",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.1+1",
       "packageUri": "lib/",
       "languageVersion": "2.1"
+    },
+    {
+      "name": "firebase_storage",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-5.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "firebase_storage_platform_interface",
+      "rootUri": "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage_platform_interface-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
     },
     {
       "name": "flutter",
@@ -368,7 +380,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-11-28T17:51:01.075772Z",
+  "generated": "2020-11-29T09:41:27.907782Z",
   "generator": "pub",
   "generatorVersion": "2.12.0-29.10.beta"
 }

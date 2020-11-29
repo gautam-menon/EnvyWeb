@@ -1,335 +1,416 @@
-define(['dart_sdk', 'packages/file/src/backends/memory/style.dart', 'packages/file/src/backends/memory/clock.dart', 'packages/file/src/backends/memory/node.dart', 'packages/file/src/backends/memory/memory_link.dart', 'packages/file/src/backends/memory/common.dart', 'packages/file/src/backends/memory/utils.dart', 'packages/file/src/backends/memory/memory_file_stat.dart', 'packages/file/src/interface/link.dart', 'packages/path/src/path_set.dart'], (function load__packages__file__src__backends__memory__memory_file_system_dart(dart_sdk, packages__file__src__backends__memory__style$46dart, packages__file__src__backends__memory__clock$46dart, packages__file__src__backends__memory__node$46dart, packages__file__src__backends__memory__memory_link$46dart, packages__file__src__backends__memory__common$46dart, packages__file__src__backends__memory__utils$46dart, packages__file__src__backends__memory__memory_file_stat$46dart, packages__file__src__interface__link$46dart, packages__path__src__path_set$46dart) {
+define(['dart_sdk', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__list_body_dart(dart_sdk, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__foundation__debug$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const io = dart_sdk.io;
-  const async = dart_sdk.async;
+  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const style = packages__file__src__backends__memory__style$46dart.src__backends__memory__style;
-  const clock = packages__file__src__backends__memory__clock$46dart.src__backends__memory__clock;
-  const node = packages__file__src__backends__memory__node$46dart.src__backends__memory__node;
-  const memory_directory = packages__file__src__backends__memory__memory_link$46dart.src__backends__memory__memory_directory;
-  const memory_file = packages__file__src__backends__memory__memory_link$46dart.src__backends__memory__memory_file;
-  const memory_link = packages__file__src__backends__memory__memory_link$46dart.src__backends__memory__memory_link;
-  const common = packages__file__src__backends__memory__common$46dart.src__backends__memory__common;
-  const utils = packages__file__src__backends__memory__utils$46dart.src__backends__memory__utils;
-  const memory_file_stat = packages__file__src__backends__memory__memory_file_stat$46dart.src__backends__memory__memory_file_stat;
-  const file_system = packages__file__src__interface__link$46dart.src__interface__file_system;
-  const directory = packages__file__src__interface__link$46dart.src__interface__directory;
-  const file = packages__file__src__interface__link$46dart.src__interface__file;
-  const link = packages__file__src__interface__link$46dart.src__interface__link;
-  const context = packages__path__src__path_set$46dart.src__context;
-  var memory_file_system = Object.create(dart.library);
-  var $runtimeType = dartx.runtimeType;
-  var $substring = dartx.substring;
-  var $split = dartx.split;
-  var $removeWhere = dartx.removeWhere;
-  var $length = dartx.length;
-  var $_get = dartx._get;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $add = dartx.add;
-  var $sublist = dartx.sublist;
-  var $join = dartx.join;
-  var DirectoryL = () => (DirectoryL = dart.constFn(dart.legacy(io.Directory)))();
-  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
-  var VoidToStringL = () => (VoidToStringL = dart.constFn(dart.fnType(StringL(), [])))();
-  var FileStatL = () => (FileStatL = dart.constFn(dart.legacy(io.FileStat)))();
-  var FileSystemExceptionL = () => (FileSystemExceptionL = dart.constFn(dart.legacy(io.FileSystemException)))();
-  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
-  var FileSystemEntityTypeL = () => (FileSystemEntityTypeL = dart.constFn(dart.legacy(io.FileSystemEntityType)))();
-  var DirectoryNodeL = () => (DirectoryNodeL = dart.constFn(dart.legacy(node.DirectoryNode)))();
-  var StringLToboolL = () => (StringLToboolL = dart.constFn(dart.fnType(boolL(), [StringL()])))();
-  var LinkNodeL = () => (LinkNodeL = dart.constFn(dart.legacy(node.LinkNode)))();
-  var NodeL = () => (NodeL = dart.constFn(dart.legacy(node.Node)))();
-  var DirectoryNodeLAndStringLAndNodeLToNodeL = () => (DirectoryNodeLAndStringLAndNodeLToNodeL = dart.constFn(dart.fnType(NodeL(), [DirectoryNodeL(), StringL(), NodeL()])))();
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  var list_body = Object.create(dart.library);
+  var JSArrayOfDiagnosticsNode = () => (JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))();
+  var VoidTobool = () => (VoidTobool = dart.constFn(dart.fnType(core.bool, [])))();
+  var EnumPropertyOfAxisDirection = () => (EnumPropertyOfAxisDirection = dart.constFn(diagnostics.EnumProperty$(basic_types.AxisDirection)))();
+  var RenderBoxTodouble = () => (RenderBoxTodouble = dart.constFn(dart.fnType(core.double, [box.RenderBox])))();
   const CT = Object.create(null);
-  var L1 = "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/file-5.2.1/lib/src/backends/memory/memory_file_system.dart";
-  var L0 = "package:file/src/backends/memory/memory_file_system.dart";
+  var L0 = "package:flutter/src/rendering/list_body.dart";
+  var L1 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/rendering/list_body.dart";
   dart.defineLazy(CT, {
     get C0() {
       return C0 = dart.const({
-        __proto__: style._Posix.prototype
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.down",
+        index: 2
       });
     },
     get C1() {
       return C1 = dart.const({
-        __proto__: clock._RealtimeClock.prototype
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
       });
     },
     get C2() {
-      return C2 = dart.fn(utils.isEmpty, StringLToboolL());
+      return C2 = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.right",
+        index: 1
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.left",
+        index: 3
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.up",
+        index: 0
+      });
     }
   }, false);
+  list_body.ListBodyParentData = class ListBodyParentData extends box.ContainerBoxParentData$(box.RenderBox) {};
+  (list_body.ListBodyParentData.new = function() {
+    list_body.ListBodyParentData.__proto__.new.call(this);
+    ;
+  }).prototype = list_body.ListBodyParentData.prototype;
+  dart.addTypeTests(list_body.ListBodyParentData);
+  dart.addTypeCaches(list_body.ListBodyParentData);
+  dart.setLibraryUri(list_body.ListBodyParentData, L0);
+  var _name = dart.privateName(basic_types, "_name");
   var C0;
+  var _axisDirection = dart.privateName(list_body, "_axisDirection");
   var C1;
-  memory_file_system.MemoryFileSystem = class MemoryFileSystem extends core.Object {
-    static new(opts) {
-      let style = opts && 'style' in opts ? opts.style : C0 || CT.C0;
-      return new memory_file_system._MemoryFileSystem.new({style: style, clock: C1 || CT.C1});
-    }
-    static test(opts) {
-      let style = opts && 'style' in opts ? opts.style : C0 || CT.C0;
-      return new memory_file_system._MemoryFileSystem.new({style: style, clock: new clock._MonotonicTestClock.new()});
-    }
-  };
-  (memory_file_system.MemoryFileSystem[dart.mixinNew] = function() {
-  }).prototype = memory_file_system.MemoryFileSystem.prototype;
-  dart.addTypeTests(memory_file_system.MemoryFileSystem);
-  dart.addTypeCaches(memory_file_system.MemoryFileSystem);
-  memory_file_system.MemoryFileSystem[dart.implements] = () => [style.StyleableFileSystem];
-  dart.setLibraryUri(memory_file_system.MemoryFileSystem, L0);
-  var _root = dart.privateName(memory_file_system, "_root");
-  var _systemTemp = dart.privateName(memory_file_system, "_systemTemp");
-  var _context = dart.privateName(memory_file_system, "_context");
-  var _current = dart.privateName(memory_file_system, "_current");
   var C2;
-  memory_file_system._MemoryFileSystem = class _MemoryFileSystem extends file_system.FileSystem {
-    get root() {
-      return this[_root];
+  var C3;
+  var C4;
+  var C5;
+  var _getIntrinsicCrossAxis = dart.privateName(list_body, "_getIntrinsicCrossAxis");
+  var _getIntrinsicMainAxis = dart.privateName(list_body, "_getIntrinsicMainAxis");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(box.RenderBox, list_body.ListBodyParentData)[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, list_body.ListBodyParentData));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(box.RenderBox, list_body.ListBodyParentData));
+  list_body.RenderListBody = class RenderListBody extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (child == null) dart.nullFailed(L1, 41, 34, "child");
+      if (!list_body.ListBodyParentData.is(child.parentData)) child.parentData = new list_body.ListBodyParentData.new();
     }
-    get cwd() {
-      return this[_context].current;
+    get axisDirection() {
+      return this[_axisDirection];
     }
-    directory(path) {
-      return new memory_directory.MemoryDirectory.new(this, this.getPath(path));
+    set axisDirection(value) {
+      if (value == null) dart.nullFailed(L1, 52, 35, "value");
+      if (!(value != null)) dart.assertFailed(null, L1, 53, 12, "value != null");
+      if (dart.equals(this[_axisDirection], value)) return;
+      this[_axisDirection] = value;
+      this.markNeedsLayout();
     }
-    file(path) {
-      return new memory_file.MemoryFile.new(this, this.getPath(path));
+    get mainAxis() {
+      return basic_types.axisDirectionToAxis(this.axisDirection);
     }
-    link(path) {
-      return new memory_link.MemoryLink.new(this, this.getPath(path));
-    }
-    get path() {
-      return this[_context];
-    }
-    get systemTempDirectory() {
-      let t0;
-      this[_systemTemp] == null ? this[_systemTemp] = this.directory(this.style.root).createTempSync(".tmp_").path : null;
-      t0 = this.directory(this[_systemTemp]);
-      return (() => {
-        t0.createSync();
-        return t0;
-      })();
-    }
-    get currentDirectory() {
-      return this.directory(this.cwd);
-    }
-    set currentDirectory(path) {
-      let t0;
-      let value = null;
-      if (DirectoryL().is(path)) {
-        value = path.path;
-      } else if (StringL().is(path)) {
-        value = path;
-      } else {
-        dart.throw(new core.ArgumentError.new("Invalid type for \"path\": " + dart.str((t0 = path, t0 == null ? null : dart.runtimeType(t0)))));
-      }
-      value = this.directory(value).resolveSymbolicLinksSync();
-      let node = this.findNode(value);
-      common.checkExists(node, dart.fn(() => value, VoidToStringL()));
-      utils.checkIsDir(node, dart.fn(() => value, VoidToStringL()));
-      if (!dart.test(this[_context].isAbsolute(value))) dart.assertFailed(null, L1, 139, 12, "_context.isAbsolute(value)");
-      this[_context] = this.style.contextFor(value);
-    }
-    stat(path) {
-      return async.async(FileStatL(), (function* stat() {
-        return this.statSync(path);
-      }).bind(this));
-    }
-    statSync(path) {
-      let t0, t0$;
-      try {
-        t0$ = (t0 = this.findNode(path), t0 == null ? null : t0.stat);
-        return t0$ == null ? memory_file_stat.MemoryFileStat.notFound : t0$;
-      } catch (e) {
-        let ex = dart.getThrown(e);
-        if (FileSystemExceptionL().is(ex)) {
-          return memory_file_stat.MemoryFileStat.notFound;
-        } else
-          throw e;
-      }
-    }
-    identical(path1, path2) {
-      return async.async(boolL(), (function* identical() {
-        return this.identicalSync(path1, path2);
-      }).bind(this));
-    }
-    identicalSync(path1, path2) {
-      let node1 = this.findNode(path1);
-      common.checkExists(node1, dart.fn(() => path1, VoidToStringL()));
-      let node2 = this.findNode(path2);
-      common.checkExists(node2, dart.fn(() => path2, VoidToStringL()));
-      return node1 != null && dart.equals(node1, node2);
-    }
-    get isWatchSupported() {
-      return false;
-    }
-    type(path, opts) {
-      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
-      return async.async(FileSystemEntityTypeL(), (function* type() {
-        return this.typeSync(path, {followLinks: followLinks});
-      }).bind(this));
-    }
-    typeSync(path, opts) {
-      let followLinks = opts && 'followLinks' in opts ? opts.followLinks : true;
-      let node = null;
-      try {
-        node = this.findNode(path, {followTailLink: followLinks});
-      } catch (e) {
-        let ex = dart.getThrown(e);
-        if (FileSystemExceptionL().is(ex)) {
-          node = null;
-        } else
-          throw e;
-      }
-      if (node == null) {
-        return io.FileSystemEntityType.notFound;
-      }
-      return node.type;
-    }
-    get [_current]() {
-      return DirectoryNodeL().as(this.findNode(this.cwd));
-    }
-    findNode(path, opts) {
-      let t4;
-      let reference = opts && 'reference' in opts ? opts.reference : null;
-      let segmentVisitor = opts && 'segmentVisitor' in opts ? opts.segmentVisitor : null;
-      let visitLinks = opts && 'visitLinks' in opts ? opts.visitLinks : false;
-      let pathWithSymlinks = opts && 'pathWithSymlinks' in opts ? opts.pathWithSymlinks : null;
-      let followTailLink = opts && 'followTailLink' in opts ? opts.followTailLink : false;
-      if (path == null) {
-        dart.throw(new core.ArgumentError.notNull("path"));
-      }
-      if (dart.test(this[_context].isAbsolute(path))) {
-        reference = this[_root];
-        path = path[$substring](this.style.drive.length);
-      } else {
-        reference == null ? reference = this[_current] : null;
-      }
-      let parts = (t4 = path[$split](this.style.separator), (() => {
-        t4[$removeWhere](C2 || CT.C2);
-        return t4;
-      })());
-      let directory = reference.directory;
-      let child = directory;
-      let finalSegment = dart.notNull(parts[$length]) - 1;
-      for (let i = 0; i <= finalSegment; i = i + 1) {
-        let basename = parts[$_get](i);
-        if (!basename[$isNotEmpty]) dart.assertFailed(null, L1, 225, 14, "basename.isNotEmpty");
-        switch (basename) {
-          case ".":
+    performLayout() {
+      let constraints = this.constraints;
+      if (!dart.test(dart.fn(() => {
+        switch (this.mainAxis) {
+          case C1 || CT.C1:
           {
-            child = directory;
+            if (!dart.test(constraints.hasBoundedWidth)) return true;
             break;
           }
-          case "..":
+          case C2 || CT.C2:
           {
-            child = directory.parent;
-            directory = directory.parent;
+            if (!dart.test(constraints.hasBoundedHeight)) return true;
             break;
           }
           default:
           {
-            child = directory.children[$_get](basename);
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
           }
         }
-        if (pathWithSymlinks != null) {
-          pathWithSymlinks[$add](basename);
-        }
-        const subpath = () => {
-          return parts[$sublist](0, i + 1)[$join](this[_context].separator);
-        };
-        dart.fn(subpath, VoidToStringL());
-        if (dart.test(utils.isLink(child)) && (i < finalSegment || dart.test(followTailLink))) {
-          if (dart.test(visitLinks) || segmentVisitor == null) {
-            if (segmentVisitor != null) {
-              child = segmentVisitor(directory, basename, child, i, finalSegment);
-            }
-            child = utils.resolveLinks(LinkNodeL().as(child), subpath, {ledger: pathWithSymlinks});
-          } else {
-            child = utils.resolveLinks(LinkNodeL().as(child), subpath, {ledger: pathWithSymlinks, tailVisitor: dart.fn((parent, childName, child) => segmentVisitor(parent, childName, child, i, finalSegment), DirectoryNodeLAndStringLAndNodeLToNodeL())});
+        dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("RenderListBody must have unlimited space along its main axis."), new assertions.ErrorDescription.new("RenderListBody does not clip or resize its children, so it must be " + "placed in a parent that does not constrain the main " + "axis."), new assertions.ErrorHint.new("You probably want to put the RenderListBody inside a " + "RenderViewport with a matching main axis.")])));
+      }, VoidTobool())())) dart.assertFailed(null, L1, 67, 12, "() {\r\n      switch (mainAxis) {\r\n        case Axis.horizontal:\r\n          if (!constraints.hasBoundedWidth)\r\n            return true;\r\n          break;\r\n        case Axis.vertical:\r\n          if (!constraints.hasBoundedHeight)\r\n            return true;\r\n          break;\r\n      }\r\n      throw FlutterError.fromParts(<DiagnosticsNode>[\r\n        ErrorSummary('RenderListBody must have unlimited space along its main axis.'),\r\n        ErrorDescription(\r\n          'RenderListBody does not clip or resize its children, so it must be '\r\n          'placed in a parent that does not constrain the main '\r\n          'axis.'\r\n        ),\r\n        ErrorHint(\r\n          'You probably want to put the RenderListBody inside a '\r\n          'RenderViewport with a matching main axis.'\r\n        )\r\n      ]);\r\n    }()");
+      if (!dart.test(dart.fn(() => {
+        switch (this.mainAxis) {
+          case C1 || CT.C1:
+          {
+            if (dart.test(constraints.hasBoundedHeight)) return true;
+            break;
           }
-        } else if (segmentVisitor != null) {
-          child = segmentVisitor(directory, basename, child, i, finalSegment);
+          case C2 || CT.C2:
+          {
+            if (dart.test(constraints.hasBoundedWidth)) return true;
+            break;
+          }
+          default:
+          {
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+          }
         }
-        if (i < finalSegment) {
-          common.checkExists(child, subpath);
-          utils.checkIsDir(child, subpath);
-          directory = DirectoryNodeL().as(child);
+        dart.throw(new assertions.FlutterError.fromParts(JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("RenderListBody must have a bounded constraint for its cross axis."), new assertions.ErrorDescription.new("RenderListBody forces its children to expand to fit the RenderListBody's container, " + "so it must be placed in a parent that constrains the cross " + "axis to a finite dimension."), new assertions.ErrorHint.new("If you are attempting to nest a RenderListBody with " + "one direction inside one of another direction, you will want to " + "wrap the inner one inside a box that fixes the dimension in that direction, " + "for example, a RenderIntrinsicWidth or RenderIntrinsicHeight object. " + "This is relatively expensive, however.")])));
+      }, VoidTobool())())) dart.assertFailed(null, L1, 91, 12, "() {\r\n      switch (mainAxis) {\r\n        case Axis.horizontal:\r\n          if (constraints.hasBoundedHeight)\r\n            return true;\r\n          break;\r\n        case Axis.vertical:\r\n          if (constraints.hasBoundedWidth)\r\n            return true;\r\n          break;\r\n      }\r\n      // TODO(ianh): Detect if we're actually nested blocks and say something\r\n      // more specific to the exact situation in that case, and don't mention\r\n      // nesting blocks in the negative case.\r\n      throw FlutterError.fromParts(<DiagnosticsNode>[\r\n        ErrorSummary('RenderListBody must have a bounded constraint for its cross axis.'),\r\n        ErrorDescription(\r\n          \"RenderListBody forces its children to expand to fit the RenderListBody's container, \"\r\n          'so it must be placed in a parent that constrains the cross '\r\n          'axis to a finite dimension.'\r\n        ),\r\n        // TODO(jacobr): this hint is a great candidate to promote to being an\r\n        // automated quick fix in the future.\r\n        ErrorHint(\r\n          'If you are attempting to nest a RenderListBody with '\r\n          'one direction inside one of another direction, you will want to '\r\n          'wrap the inner one inside a box that fixes the dimension in that direction, '\r\n          'for example, a RenderIntrinsicWidth or RenderIntrinsicHeight object. '\r\n          'This is relatively expensive, however.' // (that's why we don't do it automatically)\r\n        )\r\n      ]);\r\n    }()");
+      let mainAxisExtent = 0.0;
+      let child = this.firstChild;
+      switch (this.axisDirection) {
+        case C3 || CT.C3:
+        {
+          let innerConstraints = new box.BoxConstraints.tightFor({height: constraints.maxHeight});
+          while (child != null) {
+            child.layout(innerConstraints, {parentUsesSize: true});
+            let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+            childParentData.offset = new ui.Offset.new(mainAxisExtent, 0.0);
+            mainAxisExtent = mainAxisExtent + dart.notNull(child.size.width);
+            if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L1, 133, 18, "child.parentData == childParentData");
+            child = childParentData.nextSibling;
+          }
+          this.size = constraints.constrain(new ui.Size.new(mainAxisExtent, constraints.maxHeight));
+          break;
+        }
+        case C4 || CT.C4:
+        {
+          let innerConstraints = new box.BoxConstraints.tightFor({height: constraints.maxHeight});
+          while (child != null) {
+            child.layout(innerConstraints, {parentUsesSize: true});
+            let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+            mainAxisExtent = mainAxisExtent + dart.notNull(child.size.width);
+            if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L1, 144, 18, "child.parentData == childParentData");
+            child = childParentData.nextSibling;
+          }
+          let position = 0.0;
+          child = this.firstChild;
+          while (child != null) {
+            let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+            position = position + dart.notNull(child.size.width);
+            childParentData.offset = new ui.Offset.new(mainAxisExtent - position, 0.0);
+            if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L1, 153, 18, "child.parentData == childParentData");
+            child = childParentData.nextSibling;
+          }
+          this.size = constraints.constrain(new ui.Size.new(mainAxisExtent, constraints.maxHeight));
+          break;
+        }
+        case C0 || CT.C0:
+        {
+          let innerConstraints = new box.BoxConstraints.tightFor({width: constraints.maxWidth});
+          while (child != null) {
+            child.layout(innerConstraints, {parentUsesSize: true});
+            let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+            childParentData.offset = new ui.Offset.new(0.0, mainAxisExtent);
+            mainAxisExtent = mainAxisExtent + dart.notNull(child.size.height);
+            if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L1, 165, 18, "child.parentData == childParentData");
+            child = childParentData.nextSibling;
+          }
+          this.size = constraints.constrain(new ui.Size.new(constraints.maxWidth, mainAxisExtent));
+          break;
+        }
+        case C5 || CT.C5:
+        {
+          let innerConstraints = new box.BoxConstraints.tightFor({width: constraints.maxWidth});
+          while (child != null) {
+            child.layout(innerConstraints, {parentUsesSize: true});
+            let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+            mainAxisExtent = mainAxisExtent + dart.notNull(child.size.height);
+            if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L1, 176, 18, "child.parentData == childParentData");
+            child = childParentData.nextSibling;
+          }
+          let position = 0.0;
+          child = this.firstChild;
+          while (child != null) {
+            let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+            position = position + dart.notNull(child.size.height);
+            childParentData.offset = new ui.Offset.new(0.0, mainAxisExtent - position);
+            if (!dart.equals(child.parentData, childParentData)) dart.assertFailed(null, L1, 185, 18, "child.parentData == childParentData");
+            child = childParentData.nextSibling;
+          }
+          this.size = constraints.constrain(new ui.Size.new(constraints.maxWidth, mainAxisExtent));
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
         }
       }
-      return child;
+      if (!dart.test(this.size.isFinite)) dart.assertFailed(null, L1, 191, 12, "size.isFinite");
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(L1, 195, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new (EnumPropertyOfAxisDirection()).new("axisDirection", this.axisDirection));
+    }
+    [_getIntrinsicCrossAxis](childSize) {
+      if (childSize == null) dart.nullFailed(L1, 200, 54, "childSize");
+      let extent = 0.0;
+      let child = this.firstChild;
+      while (child != null) {
+        extent = math.max(core.double, extent, childSize(child));
+        let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+        child = childParentData.nextSibling;
+      }
+      return extent;
+    }
+    [_getIntrinsicMainAxis](childSize) {
+      if (childSize == null) dart.nullFailed(L1, 211, 53, "childSize");
+      let extent = 0.0;
+      let child = this.firstChild;
+      while (child != null) {
+        extent = extent + dart.notNull(childSize(child));
+        let childParentData = list_body.ListBodyParentData.as(dart.nullCheck(child.parentData));
+        child = childParentData.nextSibling;
+      }
+      return extent;
+    }
+    computeMinIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(L1, 223, 42, "height");
+      if (!(this.mainAxis != null)) dart.assertFailed(null, L1, 224, 12, "mainAxis != null");
+      switch (this.mainAxis) {
+        case C1 || CT.C1:
+        {
+          return this[_getIntrinsicMainAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 227, 49, "child");
+            return child.getMinIntrinsicWidth(height);
+          }, RenderBoxTodouble()));
+        }
+        case C2 || CT.C2:
+        {
+          return this[_getIntrinsicCrossAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 229, 50, "child");
+            return child.getMinIntrinsicWidth(height);
+          }, RenderBoxTodouble()));
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    computeMaxIntrinsicWidth(height) {
+      if (height == null) dart.nullFailed(L1, 234, 42, "height");
+      if (!(this.mainAxis != null)) dart.assertFailed(null, L1, 235, 12, "mainAxis != null");
+      switch (this.mainAxis) {
+        case C1 || CT.C1:
+        {
+          return this[_getIntrinsicMainAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 238, 49, "child");
+            return child.getMaxIntrinsicWidth(height);
+          }, RenderBoxTodouble()));
+        }
+        case C2 || CT.C2:
+        {
+          return this[_getIntrinsicCrossAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 240, 50, "child");
+            return child.getMaxIntrinsicWidth(height);
+          }, RenderBoxTodouble()));
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    computeMinIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(L1, 245, 43, "width");
+      if (!(this.mainAxis != null)) dart.assertFailed(null, L1, 246, 12, "mainAxis != null");
+      switch (this.mainAxis) {
+        case C1 || CT.C1:
+        {
+          return this[_getIntrinsicMainAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 249, 49, "child");
+            return child.getMinIntrinsicHeight(width);
+          }, RenderBoxTodouble()));
+        }
+        case C2 || CT.C2:
+        {
+          return this[_getIntrinsicCrossAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 251, 50, "child");
+            return child.getMinIntrinsicHeight(width);
+          }, RenderBoxTodouble()));
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    computeMaxIntrinsicHeight(width) {
+      if (width == null) dart.nullFailed(L1, 256, 43, "width");
+      if (!(this.mainAxis != null)) dart.assertFailed(null, L1, 257, 12, "mainAxis != null");
+      switch (this.mainAxis) {
+        case C1 || CT.C1:
+        {
+          return this[_getIntrinsicMainAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 260, 49, "child");
+            return child.getMaxIntrinsicHeight(width);
+          }, RenderBoxTodouble()));
+        }
+        case C2 || CT.C2:
+        {
+          return this[_getIntrinsicCrossAxis](dart.fn(child => {
+            if (child == null) dart.nullFailed(L1, 262, 50, "child");
+            return child.getMaxIntrinsicHeight(width);
+          }, RenderBoxTodouble()));
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    computeDistanceToActualBaseline(baseline) {
+      if (baseline == null) dart.nullFailed(L1, 267, 56, "baseline");
+      return this.defaultComputeDistanceToFirstActualBaseline(baseline);
+    }
+    paint(context, offset) {
+      if (context == null) dart.nullFailed(L1, 272, 30, "context");
+      if (offset == null) dart.nullFailed(L1, 272, 46, "offset");
+      this.defaultPaint(context, offset);
+    }
+    hitTestChildren(result, opts) {
+      if (result == null) dart.nullFailed(L1, 277, 41, "result");
+      let position = opts && 'position' in opts ? opts.position : null;
+      if (position == null) dart.nullFailed(L1, 277, 67, "position");
+      return this.defaultHitTestChildren(result, {position: position});
     }
   };
-  (memory_file_system._MemoryFileSystem.new = function(opts) {
-    let style = opts && 'style' in opts ? opts.style : C0 || CT.C0;
-    let clock = opts && 'clock' in opts ? opts.clock : null;
-    this[_root] = null;
-    this[_systemTemp] = null;
-    this[_context] = null;
-    this.style = style;
-    this.clock = clock;
-    if (!(style != null)) dart.assertFailed(null, L1, 78, 16, "style != null");
-    if (!(clock != null)) dart.assertFailed(null, L1, 79, 16, "clock != null");
-    memory_file_system._MemoryFileSystem.__proto__.new.call(this);
-    this[_root] = new node.RootNode.new(this);
-    this[_context] = this.style.contextFor(this.style.root);
-  }).prototype = memory_file_system._MemoryFileSystem.prototype;
-  dart.addTypeTests(memory_file_system._MemoryFileSystem);
-  dart.addTypeCaches(memory_file_system._MemoryFileSystem);
-  memory_file_system._MemoryFileSystem[dart.implements] = () => [memory_file_system.MemoryFileSystem, node.NodeBasedFileSystem];
-  dart.setMethodSignature(memory_file_system._MemoryFileSystem, () => ({
-    __proto__: dart.getMethods(memory_file_system._MemoryFileSystem.__proto__),
-    directory: dart.fnType(dart.legacy(directory.Directory), [dart.dynamic]),
-    file: dart.fnType(dart.legacy(file.File), [dart.dynamic]),
-    link: dart.fnType(dart.legacy(link.Link), [dart.dynamic]),
-    stat: dart.fnType(dart.legacy(async.Future$(dart.legacy(io.FileStat))), [dart.legacy(core.String)]),
-    statSync: dart.fnType(dart.legacy(io.FileStat), [dart.legacy(core.String)]),
-    identical: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(core.String), dart.legacy(core.String)]),
-    identicalSync: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.String), dart.legacy(core.String)]),
-    type: dart.fnType(dart.legacy(async.Future$(dart.legacy(io.FileSystemEntityType))), [dart.legacy(core.String)], {followLinks: dart.legacy(core.bool)}, {}),
-    typeSync: dart.fnType(dart.legacy(io.FileSystemEntityType), [dart.legacy(core.String)], {followLinks: dart.legacy(core.bool)}, {}),
-    findNode: dart.fnType(dart.legacy(node.Node), [dart.legacy(core.String)], {followTailLink: dart.legacy(core.bool), pathWithSymlinks: dart.legacy(core.List$(dart.legacy(core.String))), reference: dart.legacy(node.Node), segmentVisitor: dart.legacy(dart.fnType(dart.legacy(node.Node), [dart.legacy(node.DirectoryNode), dart.legacy(core.String), dart.legacy(node.Node), dart.legacy(core.int), dart.legacy(core.int)])), visitLinks: dart.legacy(core.bool)}, {})
+  (list_body.RenderListBody.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let axisDirection = opts && 'axisDirection' in opts ? opts.axisDirection : C0 || CT.C0;
+    if (axisDirection == null) dart.nullFailed(L1, 34, 19, "axisDirection");
+    if (!(axisDirection != null)) dart.assertFailed(null, L1, 35, 15, "axisDirection != null");
+    this[_axisDirection] = axisDirection;
+    list_body.RenderListBody.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = list_body.RenderListBody.prototype;
+  dart.addTypeTests(list_body.RenderListBody);
+  dart.addTypeCaches(list_body.RenderListBody);
+  dart.setMethodSignature(list_body.RenderListBody, () => ({
+    __proto__: dart.getMethods(list_body.RenderListBody.__proto__),
+    [_getIntrinsicCrossAxis]: dart.fnType(core.double, [dart.fnType(core.double, [box.RenderBox])]),
+    [_getIntrinsicMainAxis]: dart.fnType(core.double, [dart.fnType(core.double, [box.RenderBox])])
   }));
-  dart.setGetterSignature(memory_file_system._MemoryFileSystem, () => ({
-    __proto__: dart.getGetters(memory_file_system._MemoryFileSystem.__proto__),
-    root: dart.legacy(node.RootNode),
-    cwd: dart.legacy(core.String),
-    path: dart.legacy(context.Context),
-    systemTempDirectory: dart.legacy(directory.Directory),
-    currentDirectory: dart.legacy(directory.Directory),
-    isWatchSupported: dart.legacy(core.bool),
-    [_current]: dart.legacy(node.DirectoryNode)
+  dart.setGetterSignature(list_body.RenderListBody, () => ({
+    __proto__: dart.getGetters(list_body.RenderListBody.__proto__),
+    axisDirection: basic_types.AxisDirection,
+    mainAxis: basic_types.Axis
   }));
-  dart.setSetterSignature(memory_file_system._MemoryFileSystem, () => ({
-    __proto__: dart.getSetters(memory_file_system._MemoryFileSystem.__proto__),
-    currentDirectory: dart.dynamic
+  dart.setSetterSignature(list_body.RenderListBody, () => ({
+    __proto__: dart.getSetters(list_body.RenderListBody.__proto__),
+    axisDirection: basic_types.AxisDirection
   }));
-  dart.setLibraryUri(memory_file_system._MemoryFileSystem, L0);
-  dart.setFieldSignature(memory_file_system._MemoryFileSystem, () => ({
-    __proto__: dart.getFields(memory_file_system._MemoryFileSystem.__proto__),
-    [_root]: dart.fieldType(dart.legacy(node.RootNode)),
-    [_systemTemp]: dart.fieldType(dart.legacy(core.String)),
-    [_context]: dart.fieldType(dart.legacy(context.Context)),
-    clock: dart.finalFieldType(dart.legacy(clock.Clock)),
-    style: dart.finalFieldType(dart.legacy(style.FileSystemStyle))
+  dart.setLibraryUri(list_body.RenderListBody, L0);
+  dart.setFieldSignature(list_body.RenderListBody, () => ({
+    __proto__: dart.getFields(list_body.RenderListBody.__proto__),
+    [_axisDirection]: dart.fieldType(basic_types.AxisDirection)
   }));
-  dart.defineLazy(memory_file_system, {
-    /*memory_file_system._thisDir*/get _thisDir() {
-      return ".";
-    },
-    /*memory_file_system._parentDir*/get _parentDir() {
-      return "..";
-    }
-  }, true);
-  dart.trackLibraries("packages/file/src/backends/memory/memory_file_system.dart", {
-    "package:file/src/backends/memory/memory_file_system.dart": memory_file_system
+  dart.trackLibraries("packages/flutter/src/rendering/list_body.dart", {
+    "package:flutter/src/rendering/list_body.dart": list_body
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["memory_file_system.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../packages/file/src/backends/memory/memory_file_system.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["list_body.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/rendering/list_body.dart.lib.js"}');
   // Exports:
   return {
-    src__backends__memory__memory_file_system: memory_file_system
+    src__rendering__list_body: list_body
   };
 }));
 
-//# sourceMappingURL=memory_file_system.dart.lib.js.map
+//# sourceMappingURL=list_body.dart.lib.js.map

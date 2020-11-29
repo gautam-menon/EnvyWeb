@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                                   Colors.purple
                                 ],
                               )),
-                              //decoration: BoxDecoration(border: Border.all()),
+                            
                               height: 400,
                               width: 400,
                               child: Padding(
@@ -205,63 +205,10 @@ class _LoginPageState extends State<LoginPage> {
                                           ),
                                         ),
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: <Widget>[
-                                          Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: InkWell(
-                                              onTap: () {
-                                                // Navigator.push(
-                                                //     context,
-                                                //     MaterialPageRoute(
-                                                //         builder: (context) =>
-                                                //             ForgotPass()));
-                                              },
-                                              child: Text(
-                                                "Forgot Password?",
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontFamily: "Poppins-Medium",
-                                                ),
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      )
                                     ],
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  "Don't have an account? ",
-                                  style: TextStyle(
-                                    fontFamily: "Poppins-Medium",
-                                    // color: themeColor,
-                                  ),
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    // Navigator.push(
-                                    //     context,
-                                    //     MaterialPageRoute(
-                                    //         builder: (context) => Signup()));
-                                  },
-                                  child: Text("Create one",
-                                      style: TextStyle(
-                                        color: Color(0xFF5d74e3),
-                                        fontFamily: "Poppins-Bold",
-                                      )),
-                                )
-                              ],
                             ),
                           ),
                         ],

@@ -1,8 +1,8 @@
 import 'dart:html';
 import 'dart:typed_data';
+import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:firebase/firebase.dart' as fb;
 import 'package:flutter/material.dart';
-import 'package:image_picker_web/image_picker_web.dart';
 
 class SubmitPage extends StatefulWidget {
   final String userId;
@@ -33,56 +33,124 @@ class _SubmitPageState extends State<SubmitPage> {
             children: [
               // InkWell(
               //   onTap: () async {
-                  // Image fromPicker =
-                  //     await ImagePickerWeb.getImage(outputType: ImageType.widget);
-                  //MediaInfo mediaData = await ImagePickerWeb.getImageInfo;
+              // Image fromPicker =
+              //     await ImagePickerWeb.getImage(outputType: ImageType.widget);
+              //MediaInfo mediaData = await ImagePickerWeb.getImageInfo;
 
-                  // if (mediaData != null) {
-                  //   setState(() {
-                  //     //image = fromPicker;
-                  //     bytes = mediaData.data;
-                  //   });
-                  // }
+              // if (mediaData != null) {
+              //   setState(() {
+              //     //image = fromPicker;
+              //     bytes = mediaData.data;
+              //   });
+              // }
               //  },
-                // child: Container(
-                //   color: Colors.grey,
-                //   height: screen.height * 0.5,
-                //   width: screen.width * 0.4,
-                //   child: bytes != null
-                //       ? Image.memory(bytes)
-                //       : Center(
-                //           child: Text(
-                //           'Click here to upload an image',
-                //           style: TextStyle(
-                //               fontSize: 20, fontWeight: FontWeight.bold),
-                //         )),
-                // ),
+              // child: Container(
+              //   color: Colors.grey,
+              //   height: screen.height * 0.5,
+              //   width: screen.width * 0.4,
+              //   child: bytes != null
+              //       ? Image.memory(bytes)
+              //       : Center(
+              //           child: Text(
+              //           'Click here to upload an image',
+              //           style: TextStyle(
+              //               fontSize: 20, fontWeight: FontWeight.bold),
+              //         )),
+              // ),
               //),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  RaisedButton(
-                    onPressed: () {
-                      setState(() {
-                        bytes = null;
-                      });
-                    },
-                    child: Text("Reselect Image"),
-                  ),
+                  // RaisedButton(
+                  //   onPressed: () {
+                  //     setState(() {
+                  //       bytes = null;
+                  //     });
+                  //   },
+                  //   child: Text("Reselect Image"),
+                  // ),
                   RaisedButton(
                     onPressed: () async {
                       final path = DateTime.now().toString();
-                      uploadImage(
-                        onSelected: (file) {
-                          fb
+                      String imgUrl;
+                      await uploadImage(
+                        onSelected: (file) async {
+                          var query = fb
                               .storage()
                               .refFromURL('gs://envy-f1ba5.appspot.com/')
-                              .child(path)
-                              .put(file)
-                              .future
-                              .then((_) {
-                            print(_.ref.getDownloadURL().toString());
-                            print(_.bytesTransferred.toString());
+                              .child(path);
+                          await query.put(file).future.then((_) async {
+                            await _.ref
+                                .getDownloadURL()
+                                .then((value) => imgUrl = value.toString());
+                            assert(imgUrl != null);
+                            var response = await ApiFunctionsEditors()
+                                .submitOrder(
+                                    imgUrl, widget.orderId, widget.userId);
+                            if (response['status']) {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => Dialog(
+                                      child: Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height /
+                                              2,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              2,
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Icon(
+                                                  Icons.done,
+                                                  size: 70,
+                                                  color: Colors.green,
+                                                ),
+                                                Text(response['req'] ??
+                                                    "Image submitted Successfully!"),
+                                                RaisedButton(
+                                                  child: Text("Okay"),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                )
+                                              ]))));
+                            } else {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => Dialog(
+                                      child: Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height /
+                                              2,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              2,
+                                          child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Icon(
+                                                  Icons.error,
+                                                  size: 70,
+                                                  color: Colors.red,
+                                                ),
+                                                Text(response['req'] ??
+                                                    "Account could not be created"),
+                                                RaisedButton(
+                                                  child: Text("Okay"),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                )
+                                              ]))));
+                            }
+                            print(response);
                           });
                         },
                       );
@@ -98,7 +166,7 @@ class _SubmitPageState extends State<SubmitPage> {
     );
   }
 
-  void uploadImage({@required Function(File file) onSelected}) {
+  uploadImage({@required Function(File file) onSelected}) {
     InputElement uploadInput = FileUploadInputElement()..accept = 'image/*';
     uploadInput.click();
 

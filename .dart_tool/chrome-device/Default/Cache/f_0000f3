@@ -1,375 +1,724 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__widgets__layout_builder_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__painting__alignment_dart(dart_sdk, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
-  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var layout_builder = Object.create(dart.library);
-  var SyncIterableOfDiagnosticsNode = () => (SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))();
-  var IterableOfDiagnosticsNode = () => (IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))();
-  var VoidToIterableOfDiagnosticsNode = () => (VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(IterableOfDiagnosticsNode(), [])))();
-  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
-  var VoidTobool = () => (VoidTobool = dart.constFn(dart.fnType(core.bool, [])))();
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  var alignment = Object.create(dart.library);
+  var $truncate = dartx.truncate;
+  var $toDouble = dartx.toDouble;
+  var $modulo = dartx['%'];
+  var $toStringAsFixed = dartx.toStringAsFixed;
+  var $runtimeType = dartx.runtimeType;
   const CT = Object.create(null);
-  var L1 = "package:flutter/src/widgets/layout_builder.dart";
-  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/widgets/layout_builder.dart";
-  const _is_ConstrainedLayoutBuilder_default = Symbol('_is_ConstrainedLayoutBuilder_default');
-  var builder$ = dart.privateName(layout_builder, "ConstrainedLayoutBuilder.builder");
-  layout_builder.ConstrainedLayoutBuilder$ = dart.generic(ConstraintType => {
-    var _LayoutBuilderElementOfConstraintType = () => (_LayoutBuilderElementOfConstraintType = dart.constFn(layout_builder._LayoutBuilderElement$(ConstraintType)))();
-    class ConstrainedLayoutBuilder extends framework.RenderObjectWidget {
-      get builder() {
-        return this[builder$];
-      }
-      set builder(value) {
-        super.builder = value;
-      }
-      createElement() {
-        return new (_LayoutBuilderElementOfConstraintType()).new(this);
-      }
+  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/painting/alignment.dart";
+  var L1 = "package:flutter/src/painting/alignment.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: -1,
+        [x$]: -1
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: -1,
+        [x$]: 0
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: -1,
+        [x$]: 1
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: 0,
+        [x$]: -1
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: 0,
+        [x$]: 0
+      });
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: 0,
+        [x$]: 1
+      });
+    },
+    get C6() {
+      return C6 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: 1,
+        [x$]: -1
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: 1,
+        [x$]: 0
+      });
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [y$]: 1,
+        [x$]: 1
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name]: "TextDirection.rtl",
+        index: 0
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: ui.TextDirection.prototype,
+        [_name]: "TextDirection.ltr",
+        index: 1
+      });
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: -1,
+        [start$]: -1
+      });
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: -1,
+        [start$]: 0
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: -1,
+        [start$]: 1
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: 0,
+        [start$]: -1
+      });
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: 0,
+        [start$]: 0
+      });
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: 0,
+        [start$]: 1
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: 1,
+        [start$]: -1
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: 1,
+        [start$]: 0
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: alignment.AlignmentDirectional.prototype,
+        [y$0]: 1,
+        [start$]: 1
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: alignment.TextAlignVertical.prototype,
+        [y$1]: -1
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: alignment.TextAlignVertical.prototype,
+        [y$1]: 0
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: alignment.TextAlignVertical.prototype,
+        [y$1]: 1
+      });
     }
-    (ConstrainedLayoutBuilder.new = function(opts) {
-      let key = opts && 'key' in opts ? opts.key : null;
-      let builder = opts && 'builder' in opts ? opts.builder : null;
-      if (builder == null) dart.nullFailed(L0, 42, 19, "builder");
-      let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-      this[builder$] = builder;
-      if (!(builder != null)) dart.assertFailed(null, L0, 43, 15, "builder != null");
-      ConstrainedLayoutBuilder.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-      ;
-    }).prototype = ConstrainedLayoutBuilder.prototype;
-    dart.addTypeTests(ConstrainedLayoutBuilder);
-    ConstrainedLayoutBuilder.prototype[_is_ConstrainedLayoutBuilder_default] = true;
-    dart.addTypeCaches(ConstrainedLayoutBuilder);
-    dart.setMethodSignature(ConstrainedLayoutBuilder, () => ({
-      __proto__: dart.getMethods(ConstrainedLayoutBuilder.__proto__),
-      createElement: dart.fnType(layout_builder._LayoutBuilderElement$(ConstraintType), [])
-    }));
-    dart.setLibraryUri(ConstrainedLayoutBuilder, L1);
-    dart.setFieldSignature(ConstrainedLayoutBuilder, () => ({
-      __proto__: dart.getFields(ConstrainedLayoutBuilder.__proto__),
-      builder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, ConstraintType]))
-    }));
-    return ConstrainedLayoutBuilder;
-  });
-  layout_builder.ConstrainedLayoutBuilder = layout_builder.ConstrainedLayoutBuilder$();
-  dart.addTypeTests(layout_builder.ConstrainedLayoutBuilder, _is_ConstrainedLayoutBuilder_default);
-  var _child = dart.privateName(layout_builder, "_child");
-  var _layout = dart.privateName(layout_builder, "_layout");
-  const _is__LayoutBuilderElement_default = Symbol('_is__LayoutBuilderElement_default');
-  layout_builder._LayoutBuilderElement$ = dart.generic(ConstraintType => {
-    var ConstrainedLayoutBuilderOfConstraintType = () => (ConstrainedLayoutBuilderOfConstraintType = dart.constFn(layout_builder.ConstrainedLayoutBuilder$(ConstraintType)))();
-    var RenderConstrainedLayoutBuilderOfConstraintType$RenderObject = () => (RenderConstrainedLayoutBuilderOfConstraintType$RenderObject = dart.constFn(layout_builder.RenderConstrainedLayoutBuilder$(ConstraintType, object.RenderObject)))();
-    var BuildContextAndConstraintTypeToWidget = () => (BuildContextAndConstraintTypeToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, ConstraintType])))();
-    class _LayoutBuilderElement extends framework.RenderObjectElement {
-      get widget() {
-        return ConstrainedLayoutBuilderOfConstraintType().as(super.widget);
-      }
-      get renderObject() {
-        return RenderConstrainedLayoutBuilderOfConstraintType$RenderObject().as(super.renderObject);
-      }
-      visitChildren(visitor) {
-        if (visitor == null) dart.nullFailed(L0, 69, 37, "visitor");
-        if (this[_child] != null) visitor(dart.nullCheck(this[_child]));
-      }
-      forgetChild(child) {
-        if (child == null) dart.nullFailed(L0, 75, 28, "child");
-        if (!dart.equals(child, this[_child])) dart.assertFailed(null, L0, 76, 12, "child == _child");
-        this[_child] = null;
-        super.forgetChild(child);
-      }
-      mount(parent, newSlot) {
-        super.mount(parent, newSlot);
-        this.renderObject.updateCallback(dart.bind(this, _layout));
-      }
-      update(newWidget) {
-        ConstrainedLayoutBuilderOfConstraintType().as(newWidget);
-        if (newWidget == null) dart.nullFailed(L0, 88, 56, "newWidget");
-        if (!!dart.equals(this.widget, newWidget)) dart.assertFailed(null, L0, 89, 12, "widget != newWidget");
-        super.update(newWidget);
-        if (!dart.equals(this.widget, newWidget)) dart.assertFailed(null, L0, 91, 12, "widget == newWidget");
-        this.renderObject.updateCallback(dart.bind(this, _layout));
-        this.renderObject.markNeedsBuild();
-      }
-      performRebuild() {
-        this.renderObject.markNeedsBuild();
-        super.performRebuild();
-      }
-      unmount() {
-        this.renderObject.updateCallback(null);
-        super.unmount();
-      }
-      [_layout](constraints) {
-        ConstraintType.as(constraints);
-        if (constraints == null) dart.nullFailed(L0, 117, 31, "constraints");
-        dart.nullCheck(this.owner).buildScope(this, dart.fn(() => {
-          let t1, t0;
-          let built = null;
-          try {
-            built = (t0 = this.widget, t1 = constraints, BuildContextAndConstraintTypeToWidget().as(t0.builder)(this, t1));
-            debug.debugWidgetBuilderValue(this.widget, built);
-          } catch (e$) {
-            let e = dart.getThrown(e$);
-            let stack = dart.stackTrace(e$);
-            if (core.Object.is(e)) {
-              built = framework.ErrorWidget.builder(layout_builder._debugReportException(new assertions.ErrorDescription.new("building " + dart.str(this.widget)), e, stack, {informationCollector: dart.fn(() => new (SyncIterableOfDiagnosticsNode()).new((function*() {
-                  yield new object.DiagnosticsDebugCreator.new(new framework.DebugCreator.new(this));
-                }).bind(this)), VoidToIterableOfDiagnosticsNode())}));
-            } else
-              throw e$;
-          }
-          try {
-            this[_child] = this.updateChild(this[_child], built, null);
-            if (!(this[_child] != null)) dart.assertFailed(null, L0, 137, 16, "_child != null");
-          } catch (e$0) {
-            let e = dart.getThrown(e$0);
-            let stack = dart.stackTrace(e$0);
-            if (core.Object.is(e)) {
-              built = framework.ErrorWidget.builder(layout_builder._debugReportException(new assertions.ErrorDescription.new("building " + dart.str(this.widget)), e, stack, {informationCollector: dart.fn(() => new (SyncIterableOfDiagnosticsNode()).new((function*() {
-                  yield new object.DiagnosticsDebugCreator.new(new framework.DebugCreator.new(this));
-                }).bind(this)), VoidToIterableOfDiagnosticsNode())}));
-              this[_child] = this.updateChild(null, built, this.slot);
-            } else
-              throw e$0;
-          }
-        }, VoidTovoid()));
-      }
-      insertRenderObjectChild(child, slot) {
-        object.RenderObject.as(child);
-        if (child == null) dart.nullFailed(L0, 155, 45, "child");
-        let renderObject = this.renderObject;
-        if (!(slot == null)) dart.assertFailed(null, L0, 157, 12, "slot == null");
-        if (!dart.test(renderObject.debugValidateChild(child))) dart.assertFailed(null, L0, 158, 12, "renderObject.debugValidateChild(child)");
-        renderObject.child = child;
-        if (!dart.equals(renderObject, this.renderObject)) dart.assertFailed(null, L0, 160, 12, "renderObject == this.renderObject");
-      }
-      moveRenderObjectChild(child, oldSlot, newSlot) {
-        object.RenderObject.as(child);
-        if (child == null) dart.nullFailed(L0, 164, 43, "child");
-        if (!false) dart.assertFailed(null, L0, 165, 12, "false");
-      }
-      removeRenderObjectChild(child, slot) {
-        object.RenderObject.as(child);
-        if (child == null) dart.nullFailed(L0, 169, 45, "child");
-        let renderObject = this.renderObject;
-        if (!dart.equals(renderObject.child, child)) dart.assertFailed(null, L0, 171, 12, "renderObject.child == child");
-        renderObject.child = null;
-        if (!dart.equals(renderObject, this.renderObject)) dart.assertFailed(null, L0, 173, 12, "renderObject == this.renderObject");
-      }
+  }, false);
+  var _x = dart.privateName(alignment, "_x");
+  var _start = dart.privateName(alignment, "_start");
+  var _y = dart.privateName(alignment, "_y");
+  alignment.AlignmentGeometry = class AlignmentGeometry extends core.Object {
+    add(other) {
+      if (other == null) dart.nullFailed(L0, 43, 43, "other");
+      return new alignment._MixedAlignment.new(dart.notNull(this[_x]) + dart.notNull(other[_x]), dart.notNull(this[_start]) + dart.notNull(other[_start]), dart.notNull(this[_y]) + dart.notNull(other[_y]));
     }
-    (_LayoutBuilderElement.new = function(widget) {
-      if (widget == null) dart.nullFailed(L0, 58, 66, "widget");
-      this[_child] = null;
-      _LayoutBuilderElement.__proto__.new.call(this, widget);
-      ;
-    }).prototype = _LayoutBuilderElement.prototype;
-    dart.addTypeTests(_LayoutBuilderElement);
-    _LayoutBuilderElement.prototype[_is__LayoutBuilderElement_default] = true;
-    dart.addTypeCaches(_LayoutBuilderElement);
-    dart.setMethodSignature(_LayoutBuilderElement, () => ({
-      __proto__: dart.getMethods(_LayoutBuilderElement.__proto__),
-      [_layout]: dart.fnType(dart.void, [dart.nullable(core.Object)])
-    }));
-    dart.setGetterSignature(_LayoutBuilderElement, () => ({
-      __proto__: dart.getGetters(_LayoutBuilderElement.__proto__),
-      widget: layout_builder.ConstrainedLayoutBuilder$(ConstraintType),
-      renderObject: layout_builder.RenderConstrainedLayoutBuilder$(ConstraintType, object.RenderObject)
-    }));
-    dart.setLibraryUri(_LayoutBuilderElement, L1);
-    dart.setFieldSignature(_LayoutBuilderElement, () => ({
-      __proto__: dart.getFields(_LayoutBuilderElement.__proto__),
-      [_child]: dart.fieldType(dart.nullable(framework.Element))
-    }));
-    return _LayoutBuilderElement;
-  });
-  layout_builder._LayoutBuilderElement = layout_builder._LayoutBuilderElement$();
-  dart.addTypeTests(layout_builder._LayoutBuilderElement, _is__LayoutBuilderElement_default);
-  var _callback = dart.privateName(layout_builder, "_callback");
-  var _needsBuild = dart.privateName(layout_builder, "_needsBuild");
-  var _previousConstraints = dart.privateName(layout_builder, "_previousConstraints");
-  const _is_RenderConstrainedLayoutBuilder_default = Symbol('_is_RenderConstrainedLayoutBuilder_default');
-  layout_builder.RenderConstrainedLayoutBuilder$ = dart.generic((ConstraintType, ChildType) => {
-    class RenderConstrainedLayoutBuilder extends object.RenderObjectWithChildMixin$(ChildType) {}
-    RenderConstrainedLayoutBuilder[dart.mixinOn] = RenderObjectWithChildMixin => class RenderConstrainedLayoutBuilder extends RenderObjectWithChildMixin {
-      updateCallback(value) {
-        if (dart.equals(value, this[_callback])) return;
-        this[_callback] = value;
-        this.markNeedsLayout();
-      }
-      markNeedsBuild() {
-        this[_needsBuild] = true;
-        this.markNeedsLayout();
-      }
-      rebuildIfNecessary() {
-        if (!(this[_callback] != null)) dart.assertFailed(null, L0, 221, 12, "_callback != null");
-        if (dart.test(this[_needsBuild]) || !dart.equals(this.constraints, this[_previousConstraints])) {
-          this[_previousConstraints] = this.constraints;
-          this[_needsBuild] = false;
-          this.invokeLayoutCallback(ConstraintType, dart.nullCheck(this[_callback]));
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(L0, 90, 85, "t");
+      if (!(t != null)) dart.assertFailed(null, L0, 91, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b)['*'](t);
+      if (b == null) return a['*'](1.0 - dart.notNull(t));
+      if (alignment.Alignment.is(a) && alignment.Alignment.is(b)) return alignment.Alignment.lerp(a, b, t);
+      if (alignment.AlignmentDirectional.is(a) && alignment.AlignmentDirectional.is(b)) return alignment.AlignmentDirectional.lerp(a, b, t);
+      return new alignment._MixedAlignment.new(dart.nullCheck(ui.lerpDouble(a[_x], b[_x], t)), dart.nullCheck(ui.lerpDouble(a[_start], b[_start], t)), dart.nullCheck(ui.lerpDouble(a[_y], b[_y], t)));
+    }
+    toString() {
+      if (this[_start] === 0.0) return alignment.Alignment._stringify(this[_x], this[_y]);
+      if (this[_x] === 0.0) return alignment.AlignmentDirectional._stringify(this[_start], this[_y]);
+      return dart.notNull(alignment.Alignment._stringify(this[_x], this[_y])) + " + " + dart.notNull(alignment.AlignmentDirectional._stringify(this[_start], 0.0));
+    }
+    _equals(other) {
+      if (other == null) return false;
+      return alignment.AlignmentGeometry.is(other) && other[_x] == this[_x] && other[_start] == this[_start] && other[_y] == this[_y];
+    }
+    get hashCode() {
+      return ui.hashValues(this[_x], this[_start], this[_y]);
+    }
+  };
+  (alignment.AlignmentGeometry.new = function() {
+    ;
+  }).prototype = alignment.AlignmentGeometry.prototype;
+  dart.addTypeTests(alignment.AlignmentGeometry);
+  dart.addTypeCaches(alignment.AlignmentGeometry);
+  dart.setMethodSignature(alignment.AlignmentGeometry, () => ({
+    __proto__: dart.getMethods(alignment.AlignmentGeometry.__proto__),
+    add: dart.fnType(alignment.AlignmentGeometry, [alignment.AlignmentGeometry])
+  }));
+  dart.setLibraryUri(alignment.AlignmentGeometry, L1);
+  dart.defineExtensionMethods(alignment.AlignmentGeometry, ['toString', '_equals']);
+  dart.defineExtensionAccessors(alignment.AlignmentGeometry, ['hashCode']);
+  var x$ = dart.privateName(alignment, "Alignment.x");
+  var y$ = dart.privateName(alignment, "Alignment.y");
+  var C0;
+  var C1;
+  var C2;
+  var C3;
+  var C4;
+  var C5;
+  var C6;
+  var C7;
+  var C8;
+  alignment.Alignment = class Alignment extends alignment.AlignmentGeometry {
+    get x() {
+      return this[x$];
+    }
+    set x(value) {
+      super.x = value;
+    }
+    get y() {
+      return this[y$];
+    }
+    set y(value) {
+      super.y = value;
+    }
+    get [_x]() {
+      return this.x;
+    }
+    get [_start]() {
+      return 0.0;
+    }
+    get [_y]() {
+      return this.y;
+    }
+    add(other) {
+      if (other == null) dart.nullFailed(L0, 243, 43, "other");
+      if (alignment.Alignment.is(other)) return this['+'](other);
+      return super.add(other);
+    }
+    ['-'](other) {
+      if (other == null) dart.nullFailed(L0, 250, 34, "other");
+      return new alignment.Alignment.new(dart.notNull(this.x) - dart.notNull(other.x), dart.notNull(this.y) - dart.notNull(other.y));
+    }
+    ['+'](other) {
+      if (other == null) dart.nullFailed(L0, 255, 34, "other");
+      return new alignment.Alignment.new(dart.notNull(this.x) + dart.notNull(other.x), dart.notNull(this.y) + dart.notNull(other.y));
+    }
+    _negate() {
+      return new alignment.Alignment.new(-dart.notNull(this.x), -dart.notNull(this.y));
+    }
+    ['*'](other) {
+      if (other == null) dart.nullFailed(L0, 267, 31, "other");
+      return new alignment.Alignment.new(dart.notNull(this.x) * dart.notNull(other), dart.notNull(this.y) * dart.notNull(other));
+    }
+    ['/'](other) {
+      if (other == null) dart.nullFailed(L0, 273, 31, "other");
+      return new alignment.Alignment.new(dart.notNull(this.x) / dart.notNull(other), dart.notNull(this.y) / dart.notNull(other));
+    }
+    ['~/'](other) {
+      if (other == null) dart.nullFailed(L0, 279, 32, "other");
+      return new alignment.Alignment.new((dart.notNull(this.x) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.y) / dart.notNull(other))[$truncate]()[$toDouble]());
+    }
+    ['%'](other) {
+      if (other == null) dart.nullFailed(L0, 285, 31, "other");
+      return new alignment.Alignment.new(this.x[$modulo](other), this.y[$modulo](other));
+    }
+    alongOffset(other) {
+      if (other == null) dart.nullFailed(L0, 290, 29, "other");
+      let centerX = dart.notNull(other.dx) / 2.0;
+      let centerY = dart.notNull(other.dy) / 2.0;
+      return new ui.Offset.new(centerX + dart.notNull(this.x) * centerX, centerY + dart.notNull(this.y) * centerY);
+    }
+    alongSize(other) {
+      if (other == null) dart.nullFailed(L0, 297, 25, "other");
+      let centerX = dart.notNull(other.width) / 2.0;
+      let centerY = dart.notNull(other.height) / 2.0;
+      return new ui.Offset.new(centerX + dart.notNull(this.x) * centerX, centerY + dart.notNull(this.y) * centerY);
+    }
+    withinRect(rect) {
+      if (rect == null) dart.nullFailed(L0, 304, 26, "rect");
+      let halfWidth = dart.notNull(rect.width) / 2.0;
+      let halfHeight = dart.notNull(rect.height) / 2.0;
+      return new ui.Offset.new(dart.notNull(rect.left) + halfWidth + dart.notNull(this.x) * halfWidth, dart.notNull(rect.top) + halfHeight + dart.notNull(this.y) * halfHeight);
+    }
+    inscribe(size, rect) {
+      if (size == null) dart.nullFailed(L0, 319, 22, "size");
+      if (rect == null) dart.nullFailed(L0, 319, 33, "rect");
+      let halfWidthDelta = (dart.notNull(rect.width) - dart.notNull(size.width)) / 2.0;
+      let halfHeightDelta = (dart.notNull(rect.height) - dart.notNull(size.height)) / 2.0;
+      return new ui.Rect.fromLTWH(dart.notNull(rect.left) + halfWidthDelta + dart.notNull(this.x) * halfWidthDelta, dart.notNull(rect.top) + halfHeightDelta + dart.notNull(this.y) * halfHeightDelta, size.width, size.height);
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(L0, 335, 61, "t");
+      if (!(t != null)) dart.assertFailed(null, L0, 336, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return new alignment.Alignment.new(dart.nullCheck(ui.lerpDouble(0.0, dart.nullCheck(b).x, t)), dart.nullCheck(ui.lerpDouble(0.0, b.y, t)));
+      if (b == null) return new alignment.Alignment.new(dart.nullCheck(ui.lerpDouble(a.x, 0.0, t)), dart.nullCheck(ui.lerpDouble(a.y, 0.0, t)));
+      return new alignment.Alignment.new(dart.nullCheck(ui.lerpDouble(a.x, b.x, t)), dart.nullCheck(ui.lerpDouble(a.y, b.y, t)));
+    }
+    resolve(direction) {
+      return this;
+    }
+    static _stringify(x, y) {
+      if (x == null) dart.nullFailed(L0, 349, 35, "x");
+      if (y == null) dart.nullFailed(L0, 349, 45, "y");
+      if (x === -1.0 && y === -1.0) return "Alignment.topLeft";
+      if (x === 0.0 && y === -1.0) return "Alignment.topCenter";
+      if (x === 1.0 && y === -1.0) return "Alignment.topRight";
+      if (x === -1.0 && y === 0.0) return "Alignment.centerLeft";
+      if (x === 0.0 && y === 0.0) return "Alignment.center";
+      if (x === 1.0 && y === 0.0) return "Alignment.centerRight";
+      if (x === -1.0 && y === 1.0) return "Alignment.bottomLeft";
+      if (x === 0.0 && y === 1.0) return "Alignment.bottomCenter";
+      if (x === 1.0 && y === 1.0) return "Alignment.bottomRight";
+      return "Alignment(" + x[$toStringAsFixed](1) + ", " + y[$toStringAsFixed](1) + ")";
+    }
+    toString() {
+      return alignment.Alignment._stringify(this.x, this.y);
+    }
+  };
+  (alignment.Alignment.new = function(x, y) {
+    if (x == null) dart.nullFailed(L0, 185, 24, "x");
+    if (y == null) dart.nullFailed(L0, 185, 32, "y");
+    this[x$] = x;
+    this[y$] = y;
+    if (!(x != null)) dart.assertFailed(null, L0, 186, 14, "x != null");
+    if (!(y != null)) dart.assertFailed(null, L0, 187, 14, "y != null");
+    alignment.Alignment.__proto__.new.call(this);
+    ;
+  }).prototype = alignment.Alignment.prototype;
+  dart.addTypeTests(alignment.Alignment);
+  dart.addTypeCaches(alignment.Alignment);
+  dart.setMethodSignature(alignment.Alignment, () => ({
+    __proto__: dart.getMethods(alignment.Alignment.__proto__),
+    '-': dart.fnType(alignment.Alignment, [alignment.Alignment]),
+    '+': dart.fnType(alignment.Alignment, [alignment.Alignment]),
+    _negate: dart.fnType(alignment.Alignment, []),
+    '*': dart.fnType(alignment.Alignment, [core.double]),
+    '/': dart.fnType(alignment.Alignment, [core.double]),
+    '~/': dart.fnType(alignment.Alignment, [core.double]),
+    '%': dart.fnType(alignment.Alignment, [core.double]),
+    alongOffset: dart.fnType(ui.Offset, [ui.Offset]),
+    alongSize: dart.fnType(ui.Offset, [ui.Size]),
+    withinRect: dart.fnType(ui.Offset, [ui.Rect]),
+    inscribe: dart.fnType(ui.Rect, [ui.Size, ui.Rect]),
+    resolve: dart.fnType(alignment.Alignment, [dart.nullable(ui.TextDirection)])
+  }));
+  dart.setGetterSignature(alignment.Alignment, () => ({
+    __proto__: dart.getGetters(alignment.Alignment.__proto__),
+    [_x]: core.double,
+    [_start]: core.double,
+    [_y]: core.double
+  }));
+  dart.setLibraryUri(alignment.Alignment, L1);
+  dart.setFieldSignature(alignment.Alignment, () => ({
+    __proto__: dart.getFields(alignment.Alignment.__proto__),
+    x: dart.finalFieldType(core.double),
+    y: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(alignment.Alignment, ['toString']);
+  dart.defineLazy(alignment.Alignment, {
+    /*alignment.Alignment.topLeft*/get topLeft() {
+      return C0 || CT.C0;
+    },
+    /*alignment.Alignment.topCenter*/get topCenter() {
+      return C1 || CT.C1;
+    },
+    /*alignment.Alignment.topRight*/get topRight() {
+      return C2 || CT.C2;
+    },
+    /*alignment.Alignment.centerLeft*/get centerLeft() {
+      return C3 || CT.C3;
+    },
+    /*alignment.Alignment.center*/get center() {
+      return C4 || CT.C4;
+    },
+    /*alignment.Alignment.centerRight*/get centerRight() {
+      return C5 || CT.C5;
+    },
+    /*alignment.Alignment.bottomLeft*/get bottomLeft() {
+      return C6 || CT.C6;
+    },
+    /*alignment.Alignment.bottomCenter*/get bottomCenter() {
+      return C7 || CT.C7;
+    },
+    /*alignment.Alignment.bottomRight*/get bottomRight() {
+      return C8 || CT.C8;
+    }
+  }, false);
+  var _name = dart.privateName(ui, "_name");
+  var C9;
+  var C10;
+  var start$ = dart.privateName(alignment, "AlignmentDirectional.start");
+  var y$0 = dart.privateName(alignment, "AlignmentDirectional.y");
+  var C11;
+  var C12;
+  var C13;
+  var C14;
+  var C15;
+  var C16;
+  var C17;
+  var C18;
+  var C19;
+  alignment.AlignmentDirectional = class AlignmentDirectional extends alignment.AlignmentGeometry {
+    get start() {
+      return this[start$];
+    }
+    set start(value) {
+      super.start = value;
+    }
+    get y() {
+      return this[y$0];
+    }
+    set y(value) {
+      super.y = value;
+    }
+    get [_x]() {
+      return 0.0;
+    }
+    get [_start]() {
+      return this.start;
+    }
+    get [_y]() {
+      return this.y;
+    }
+    add(other) {
+      if (other == null) dart.nullFailed(L0, 465, 43, "other");
+      if (alignment.AlignmentDirectional.is(other)) return this['+'](other);
+      return super.add(other);
+    }
+    ['-'](other) {
+      if (other == null) dart.nullFailed(L0, 472, 56, "other");
+      return new alignment.AlignmentDirectional.new(dart.notNull(this.start) - dart.notNull(other.start), dart.notNull(this.y) - dart.notNull(other.y));
+    }
+    ['+'](other) {
+      if (other == null) dart.nullFailed(L0, 477, 56, "other");
+      return new alignment.AlignmentDirectional.new(dart.notNull(this.start) + dart.notNull(other.start), dart.notNull(this.y) + dart.notNull(other.y));
+    }
+    _negate() {
+      return new alignment.AlignmentDirectional.new(-dart.notNull(this.start), -dart.notNull(this.y));
+    }
+    ['*'](other) {
+      if (other == null) dart.nullFailed(L0, 489, 42, "other");
+      return new alignment.AlignmentDirectional.new(dart.notNull(this.start) * dart.notNull(other), dart.notNull(this.y) * dart.notNull(other));
+    }
+    ['/'](other) {
+      if (other == null) dart.nullFailed(L0, 495, 42, "other");
+      return new alignment.AlignmentDirectional.new(dart.notNull(this.start) / dart.notNull(other), dart.notNull(this.y) / dart.notNull(other));
+    }
+    ['~/'](other) {
+      if (other == null) dart.nullFailed(L0, 501, 43, "other");
+      return new alignment.AlignmentDirectional.new((dart.notNull(this.start) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this.y) / dart.notNull(other))[$truncate]()[$toDouble]());
+    }
+    ['%'](other) {
+      if (other == null) dart.nullFailed(L0, 507, 42, "other");
+      return new alignment.AlignmentDirectional.new(this.start[$modulo](other), this.y[$modulo](other));
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(L0, 516, 94, "t");
+      if (!(t != null)) dart.assertFailed(null, L0, 517, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return new alignment.AlignmentDirectional.new(dart.nullCheck(ui.lerpDouble(0.0, dart.nullCheck(b).start, t)), dart.nullCheck(ui.lerpDouble(0.0, b.y, t)));
+      if (b == null) return new alignment.AlignmentDirectional.new(dart.nullCheck(ui.lerpDouble(a.start, 0.0, t)), dart.nullCheck(ui.lerpDouble(a.y, 0.0, t)));
+      return new alignment.AlignmentDirectional.new(dart.nullCheck(ui.lerpDouble(a.start, b.start, t)), dart.nullCheck(ui.lerpDouble(a.y, b.y, t)));
+    }
+    resolve(direction) {
+      if (!(direction != null)) dart.assertFailed("Cannot resolve " + dart.str(this[$runtimeType]) + " without a TextDirection.", L0, 529, 12, "direction != null");
+      switch (dart.nullCheck(direction)) {
+        case C9 || CT.C9:
+        {
+          return new alignment.Alignment.new(-dart.notNull(this.start), this.y);
+        }
+        case C10 || CT.C10:
+        {
+          return new alignment.Alignment.new(this.start, this.y);
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
         }
       }
-    };
-    (RenderConstrainedLayoutBuilder[dart.mixinNew] = function() {
-      this[_callback] = null;
-      this[_needsBuild] = true;
-      this[_previousConstraints] = null;
-    }).prototype = RenderConstrainedLayoutBuilder.prototype;
-    dart.addTypeTests(RenderConstrainedLayoutBuilder);
-    RenderConstrainedLayoutBuilder.prototype[_is_RenderConstrainedLayoutBuilder_default] = true;
-    dart.addTypeCaches(RenderConstrainedLayoutBuilder);
-    RenderConstrainedLayoutBuilder[dart.implements] = () => [object.RenderObjectWithChildMixin$(ChildType)];
-    dart.setMethodSignature(RenderConstrainedLayoutBuilder, () => ({
-      __proto__: dart.getMethods(RenderConstrainedLayoutBuilder.__proto__),
-      updateCallback: dart.fnType(dart.void, [dart.nullable(dart.fnType(dart.void, [ConstraintType]))]),
-      markNeedsBuild: dart.fnType(dart.void, []),
-      rebuildIfNecessary: dart.fnType(dart.void, [])
-    }));
-    dart.setLibraryUri(RenderConstrainedLayoutBuilder, L1);
-    dart.setFieldSignature(RenderConstrainedLayoutBuilder, () => ({
-      __proto__: dart.getFields(RenderConstrainedLayoutBuilder.__proto__),
-      [_callback]: dart.fieldType(dart.nullable(dart.fnType(dart.void, [ConstraintType]))),
-      [_needsBuild]: dart.fieldType(core.bool),
-      [_previousConstraints]: dart.fieldType(dart.nullable(object.Constraints))
-    }));
-    return RenderConstrainedLayoutBuilder;
-  });
-  layout_builder.RenderConstrainedLayoutBuilder = layout_builder.RenderConstrainedLayoutBuilder$();
-  dart.addTypeTests(layout_builder.RenderConstrainedLayoutBuilder, _is_RenderConstrainedLayoutBuilder_default);
-  layout_builder.LayoutBuilder = class LayoutBuilder extends layout_builder.ConstrainedLayoutBuilder$(box.BoxConstraints) {
-    get builder() {
-      return super.builder;
     }
-    createRenderObject(context) {
-      if (context == null) dart.nullFailed(L0, 320, 56, "context");
-      return new layout_builder._RenderLayoutBuilder.new();
+    static _stringify(start, y) {
+      if (start == null) dart.nullFailed(L0, 538, 35, "start");
+      if (y == null) dart.nullFailed(L0, 538, 49, "y");
+      if (start === -1.0 && y === -1.0) return "AlignmentDirectional.topStart";
+      if (start === 0.0 && y === -1.0) return "AlignmentDirectional.topCenter";
+      if (start === 1.0 && y === -1.0) return "AlignmentDirectional.topEnd";
+      if (start === -1.0 && y === 0.0) return "AlignmentDirectional.centerStart";
+      if (start === 0.0 && y === 0.0) return "AlignmentDirectional.center";
+      if (start === 1.0 && y === 0.0) return "AlignmentDirectional.centerEnd";
+      if (start === -1.0 && y === 1.0) return "AlignmentDirectional.bottomStart";
+      if (start === 0.0 && y === 1.0) return "AlignmentDirectional.bottomCenter";
+      if (start === 1.0 && y === 1.0) return "AlignmentDirectional.bottomEnd";
+      return "AlignmentDirectional(" + start[$toStringAsFixed](1) + ", " + y[$toStringAsFixed](1) + ")";
+    }
+    toString() {
+      return alignment.AlignmentDirectional._stringify(this.start, this.y);
     }
   };
-  (layout_builder.LayoutBuilder.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    if (builder == null) dart.nullFailed(L0, 312, 34, "builder");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    if (!(builder != null)) dart.assertFailed(null, L0, 313, 15, "builder != null");
-    layout_builder.LayoutBuilder.__proto__.new.call(this, {key: key, builder: builder, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (alignment.AlignmentDirectional.new = function(start, y) {
+    if (start == null) dart.nullFailed(L0, 391, 35, "start");
+    if (y == null) dart.nullFailed(L0, 391, 47, "y");
+    this[start$] = start;
+    this[y$0] = y;
+    if (!(start != null)) dart.assertFailed(null, L0, 392, 14, "start != null");
+    if (!(y != null)) dart.assertFailed(null, L0, 393, 14, "y != null");
+    alignment.AlignmentDirectional.__proto__.new.call(this);
     ;
-  }).prototype = layout_builder.LayoutBuilder.prototype;
-  dart.addTypeTests(layout_builder.LayoutBuilder);
-  dart.addTypeCaches(layout_builder.LayoutBuilder);
-  dart.setMethodSignature(layout_builder.LayoutBuilder, () => ({
-    __proto__: dart.getMethods(layout_builder.LayoutBuilder.__proto__),
-    createRenderObject: dart.fnType(layout_builder._RenderLayoutBuilder, [framework.BuildContext])
+  }).prototype = alignment.AlignmentDirectional.prototype;
+  dart.addTypeTests(alignment.AlignmentDirectional);
+  dart.addTypeCaches(alignment.AlignmentDirectional);
+  dart.setMethodSignature(alignment.AlignmentDirectional, () => ({
+    __proto__: dart.getMethods(alignment.AlignmentDirectional.__proto__),
+    '-': dart.fnType(alignment.AlignmentDirectional, [alignment.AlignmentDirectional]),
+    '+': dart.fnType(alignment.AlignmentDirectional, [alignment.AlignmentDirectional]),
+    _negate: dart.fnType(alignment.AlignmentDirectional, []),
+    '*': dart.fnType(alignment.AlignmentDirectional, [core.double]),
+    '/': dart.fnType(alignment.AlignmentDirectional, [core.double]),
+    '~/': dart.fnType(alignment.AlignmentDirectional, [core.double]),
+    '%': dart.fnType(alignment.AlignmentDirectional, [core.double]),
+    resolve: dart.fnType(alignment.Alignment, [dart.nullable(ui.TextDirection)])
   }));
-  dart.setGetterSignature(layout_builder.LayoutBuilder, () => ({
-    __proto__: dart.getGetters(layout_builder.LayoutBuilder.__proto__),
-    builder: dart.fnType(framework.Widget, [framework.BuildContext, box.BoxConstraints])
+  dart.setGetterSignature(alignment.AlignmentDirectional, () => ({
+    __proto__: dart.getGetters(alignment.AlignmentDirectional.__proto__),
+    [_x]: core.double,
+    [_start]: core.double,
+    [_y]: core.double
   }));
-  dart.setLibraryUri(layout_builder.LayoutBuilder, L1);
-  var _debugThrowIfNotCheckingIntrinsics = dart.privateName(layout_builder, "_debugThrowIfNotCheckingIntrinsics");
-  const RenderBox_RenderObjectWithChildMixin$36 = class RenderBox_RenderObjectWithChildMixin extends box.RenderBox {};
-  (RenderBox_RenderObjectWithChildMixin$36.new = function() {
-    object.RenderObjectWithChildMixin$(box.RenderBox)[dart.mixinNew].call(this);
-    RenderBox_RenderObjectWithChildMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_RenderObjectWithChildMixin$36.prototype;
-  dart.applyMixin(RenderBox_RenderObjectWithChildMixin$36, object.RenderObjectWithChildMixin$(box.RenderBox));
-  const RenderBox_RenderConstrainedLayoutBuilder$36 = class RenderBox_RenderConstrainedLayoutBuilder extends RenderBox_RenderObjectWithChildMixin$36 {};
-  (RenderBox_RenderConstrainedLayoutBuilder$36.new = function() {
-    layout_builder.RenderConstrainedLayoutBuilder$(box.BoxConstraints, box.RenderBox)[dart.mixinNew].call(this);
-    RenderBox_RenderConstrainedLayoutBuilder$36.__proto__.new.call(this);
-  }).prototype = RenderBox_RenderConstrainedLayoutBuilder$36.prototype;
-  dart.applyMixin(RenderBox_RenderConstrainedLayoutBuilder$36, layout_builder.RenderConstrainedLayoutBuilder$(box.BoxConstraints, box.RenderBox));
-  layout_builder._RenderLayoutBuilder = class _RenderLayoutBuilder extends RenderBox_RenderConstrainedLayoutBuilder$36 {
-    computeMinIntrinsicWidth(height) {
-      if (height == null) dart.nullFailed(L0, 325, 42, "height");
-      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, L0, 326, 12, "_debugThrowIfNotCheckingIntrinsics()");
-      return 0.0;
+  dart.setLibraryUri(alignment.AlignmentDirectional, L1);
+  dart.setFieldSignature(alignment.AlignmentDirectional, () => ({
+    __proto__: dart.getFields(alignment.AlignmentDirectional.__proto__),
+    start: dart.finalFieldType(core.double),
+    y: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(alignment.AlignmentDirectional, ['toString']);
+  dart.defineLazy(alignment.AlignmentDirectional, {
+    /*alignment.AlignmentDirectional.topStart*/get topStart() {
+      return C11 || CT.C11;
+    },
+    /*alignment.AlignmentDirectional.topCenter*/get topCenter() {
+      return C12 || CT.C12;
+    },
+    /*alignment.AlignmentDirectional.topEnd*/get topEnd() {
+      return C13 || CT.C13;
+    },
+    /*alignment.AlignmentDirectional.centerStart*/get centerStart() {
+      return C14 || CT.C14;
+    },
+    /*alignment.AlignmentDirectional.center*/get center() {
+      return C15 || CT.C15;
+    },
+    /*alignment.AlignmentDirectional.centerEnd*/get centerEnd() {
+      return C16 || CT.C16;
+    },
+    /*alignment.AlignmentDirectional.bottomStart*/get bottomStart() {
+      return C17 || CT.C17;
+    },
+    /*alignment.AlignmentDirectional.bottomCenter*/get bottomCenter() {
+      return C18 || CT.C18;
+    },
+    /*alignment.AlignmentDirectional.bottomEnd*/get bottomEnd() {
+      return C19 || CT.C19;
     }
-    computeMaxIntrinsicWidth(height) {
-      if (height == null) dart.nullFailed(L0, 331, 42, "height");
-      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, L0, 332, 12, "_debugThrowIfNotCheckingIntrinsics()");
-      return 0.0;
+  }, false);
+  var _x$ = dart.privateName(alignment, "_MixedAlignment._x");
+  var _start$ = dart.privateName(alignment, "_MixedAlignment._start");
+  var _y$ = dart.privateName(alignment, "_MixedAlignment._y");
+  alignment._MixedAlignment = class _MixedAlignment extends alignment.AlignmentGeometry {
+    get [_x]() {
+      return this[_x$];
     }
-    computeMinIntrinsicHeight(width) {
-      if (width == null) dart.nullFailed(L0, 337, 43, "width");
-      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, L0, 338, 12, "_debugThrowIfNotCheckingIntrinsics()");
-      return 0.0;
+    set [_x](value) {
+      super[_x] = value;
     }
-    computeMaxIntrinsicHeight(width) {
-      if (width == null) dart.nullFailed(L0, 343, 43, "width");
-      if (!dart.test(this[_debugThrowIfNotCheckingIntrinsics]())) dart.assertFailed(null, L0, 344, 12, "_debugThrowIfNotCheckingIntrinsics()");
-      return 0.0;
+    get [_start]() {
+      return this[_start$];
     }
-    performLayout() {
-      let constraints = this.constraints;
-      this.rebuildIfNecessary();
-      if (this.child != null) {
-        dart.nullCheck(this.child).layout(constraints, {parentUsesSize: true});
-        this.size = constraints.constrain(dart.nullCheck(this.child).size);
-      } else {
-        this.size = constraints.biggest;
+    set [_start](value) {
+      super[_start] = value;
+    }
+    get [_y]() {
+      return this[_y$];
+    }
+    set [_y](value) {
+      super[_y] = value;
+    }
+    _negate() {
+      return new alignment._MixedAlignment.new(-dart.notNull(this[_x]), -dart.notNull(this[_start]), -dart.notNull(this[_y]));
+    }
+    ['*'](other) {
+      if (other == null) dart.nullFailed(L0, 587, 37, "other");
+      return new alignment._MixedAlignment.new(dart.notNull(this[_x]) * dart.notNull(other), dart.notNull(this[_start]) * dart.notNull(other), dart.notNull(this[_y]) * dart.notNull(other));
+    }
+    ['/'](other) {
+      if (other == null) dart.nullFailed(L0, 596, 37, "other");
+      return new alignment._MixedAlignment.new(dart.notNull(this[_x]) / dart.notNull(other), dart.notNull(this[_start]) / dart.notNull(other), dart.notNull(this[_y]) / dart.notNull(other));
+    }
+    ['~/'](other) {
+      if (other == null) dart.nullFailed(L0, 605, 38, "other");
+      return new alignment._MixedAlignment.new((dart.notNull(this[_x]) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this[_start]) / dart.notNull(other))[$truncate]()[$toDouble](), (dart.notNull(this[_y]) / dart.notNull(other))[$truncate]()[$toDouble]());
+    }
+    ['%'](other) {
+      if (other == null) dart.nullFailed(L0, 614, 37, "other");
+      return new alignment._MixedAlignment.new(this[_x][$modulo](other), this[_start][$modulo](other), this[_y][$modulo](other));
+    }
+    resolve(direction) {
+      if (!(direction != null)) dart.assertFailed("Cannot resolve " + dart.str(this[$runtimeType]) + " without a TextDirection.", L0, 624, 12, "direction != null");
+      switch (dart.nullCheck(direction)) {
+        case C9 || CT.C9:
+        {
+          return new alignment.Alignment.new(dart.notNull(this[_x]) - dart.notNull(this[_start]), this[_y]);
+        }
+        case C10 || CT.C10:
+        {
+          return new alignment.Alignment.new(dart.notNull(this[_x]) + dart.notNull(this[_start]), this[_y]);
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
       }
     }
-    computeDistanceToActualBaseline(baseline) {
-      if (baseline == null) dart.nullFailed(L0, 361, 56, "baseline");
-      if (this.child != null) return dart.nullCheck(this.child).getDistanceToActualBaseline(baseline);
-      return super.computeDistanceToActualBaseline(baseline);
-    }
-    hitTestChildren(result, opts) {
-      let t2, t2$;
-      if (result == null) dart.nullFailed(L0, 368, 41, "result");
-      let position = opts && 'position' in opts ? opts.position : null;
-      if (position == null) dart.nullFailed(L0, 368, 67, "position");
-      t2$ = (t2 = this.child, t2 == null ? null : t2.hitTest(result, {position: position}));
-      return t2$ == null ? false : t2$;
-    }
-    paint(context, offset) {
-      if (context == null) dart.nullFailed(L0, 373, 30, "context");
-      if (offset == null) dart.nullFailed(L0, 373, 46, "offset");
-      if (this.child != null) context.paintChild(dart.nullCheck(this.child), offset);
-    }
-    [_debugThrowIfNotCheckingIntrinsics]() {
-      if (!dart.test(dart.fn(() => {
-        if (!dart.test(object.RenderObject.debugCheckingIntrinsics)) {
-          dart.throw(assertions.FlutterError.new("LayoutBuilder does not support returning intrinsic dimensions.\n" + "Calculating the intrinsic dimensions would require running the layout " + "callback speculatively, which might mutate the live render object tree."));
-        }
-        return true;
-      }, VoidTobool())())) dart.assertFailed(null, L0, 379, 12, "() {\r\n      if (!RenderObject.debugCheckingIntrinsics) {\r\n        throw FlutterError(\r\n          'LayoutBuilder does not support returning intrinsic dimensions.\\n'\r\n          'Calculating the intrinsic dimensions would require running the layout '\r\n          'callback speculatively, which might mutate the live render object tree.'\r\n        );\r\n      }\r\n      return true;\r\n    }()");
-      return true;
-    }
   };
-  (layout_builder._RenderLayoutBuilder.new = function() {
-    layout_builder._RenderLayoutBuilder.__proto__.new.call(this);
+  (alignment._MixedAlignment.new = function(_x, _start, _y) {
+    if (_x == null) dart.nullFailed(L0, 566, 30, "_x");
+    if (_start == null) dart.nullFailed(L0, 566, 39, "_start");
+    if (_y == null) dart.nullFailed(L0, 566, 52, "_y");
+    this[_x$] = _x;
+    this[_start$] = _start;
+    this[_y$] = _y;
+    alignment._MixedAlignment.__proto__.new.call(this);
     ;
-  }).prototype = layout_builder._RenderLayoutBuilder.prototype;
-  dart.addTypeTests(layout_builder._RenderLayoutBuilder);
-  dart.addTypeCaches(layout_builder._RenderLayoutBuilder);
-  dart.setMethodSignature(layout_builder._RenderLayoutBuilder, () => ({
-    __proto__: dart.getMethods(layout_builder._RenderLayoutBuilder.__proto__),
-    [_debugThrowIfNotCheckingIntrinsics]: dart.fnType(core.bool, [])
+  }).prototype = alignment._MixedAlignment.prototype;
+  dart.addTypeTests(alignment._MixedAlignment);
+  dart.addTypeCaches(alignment._MixedAlignment);
+  dart.setMethodSignature(alignment._MixedAlignment, () => ({
+    __proto__: dart.getMethods(alignment._MixedAlignment.__proto__),
+    _negate: dart.fnType(alignment._MixedAlignment, []),
+    '*': dart.fnType(alignment._MixedAlignment, [core.double]),
+    '/': dart.fnType(alignment._MixedAlignment, [core.double]),
+    '~/': dart.fnType(alignment._MixedAlignment, [core.double]),
+    '%': dart.fnType(alignment._MixedAlignment, [core.double]),
+    resolve: dart.fnType(alignment.Alignment, [dart.nullable(ui.TextDirection)])
   }));
-  dart.setLibraryUri(layout_builder._RenderLayoutBuilder, L1);
-  layout_builder._debugReportException = function _debugReportException(context, exception, stack, opts) {
-    if (context == null) dart.nullFailed(L0, 395, 19, "context");
-    if (exception == null) dart.nullFailed(L0, 396, 10, "exception");
-    if (stack == null) dart.nullFailed(L0, 397, 14, "stack");
-    let informationCollector = opts && 'informationCollector' in opts ? opts.informationCollector : null;
-    let details = new assertions.FlutterErrorDetails.new({exception: exception, stack: stack, library: "widgets library", context: context, informationCollector: informationCollector});
-    assertions.FlutterError.reportError(details);
-    return details;
+  dart.setLibraryUri(alignment._MixedAlignment, L1);
+  dart.setFieldSignature(alignment._MixedAlignment, () => ({
+    __proto__: dart.getFields(alignment._MixedAlignment.__proto__),
+    [_x]: dart.finalFieldType(core.double),
+    [_start]: dart.finalFieldType(core.double),
+    [_y]: dart.finalFieldType(core.double)
+  }));
+  var y$1 = dart.privateName(alignment, "TextAlignVertical.y");
+  var C20;
+  var C21;
+  var C22;
+  alignment.TextAlignVertical = class TextAlignVertical extends core.Object {
+    get y() {
+      return this[y$1];
+    }
+    set y(value) {
+      super.y = value;
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "TextAlignVertical")) + "(y: " + dart.str(this.y) + ")";
+    }
   };
-  dart.trackLibraries("packages/flutter/src/widgets/layout_builder.dart", {
-    "package:flutter/src/widgets/layout_builder.dart": layout_builder
+  (alignment.TextAlignVertical.new = function(opts) {
+    let y = opts && 'y' in opts ? opts.y : null;
+    if (y == null) dart.nullFailed(L0, 652, 19, "y");
+    this[y$1] = y;
+    if (!(y != null)) dart.assertFailed(null, L0, 653, 15, "y != null");
+    if (!(dart.notNull(y) >= -1.0 && dart.notNull(y) <= 1.0)) dart.assertFailed(null, L0, 654, 15, "y >= -1.0 && y <= 1.0");
+    ;
+  }).prototype = alignment.TextAlignVertical.prototype;
+  dart.addTypeTests(alignment.TextAlignVertical);
+  dart.addTypeCaches(alignment.TextAlignVertical);
+  dart.setLibraryUri(alignment.TextAlignVertical, L1);
+  dart.setFieldSignature(alignment.TextAlignVertical, () => ({
+    __proto__: dart.getFields(alignment.TextAlignVertical.__proto__),
+    y: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(alignment.TextAlignVertical, ['toString']);
+  dart.defineLazy(alignment.TextAlignVertical, {
+    /*alignment.TextAlignVertical.top*/get top() {
+      return C20 || CT.C20;
+    },
+    /*alignment.TextAlignVertical.center*/get center() {
+      return C21 || CT.C21;
+    },
+    /*alignment.TextAlignVertical.bottom*/get bottom() {
+      return C22 || CT.C22;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/painting/alignment.dart", {
+    "package:flutter/src/painting/alignment.dart": alignment
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["layout_builder.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/widgets/layout_builder.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["alignment.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/alignment.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__layout_builder: layout_builder
+    src__painting__alignment: alignment
   };
 }));
 
-//# sourceMappingURL=layout_builder.dart.lib.js.map
+//# sourceMappingURL=alignment.dart.lib.js.map

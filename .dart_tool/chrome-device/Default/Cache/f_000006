@@ -20,15 +20,15 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "RusNf7EQVnczWOZ92WmSww==";
+    window.$dartAppId = "sHb7YlURS4Hb3yLMnXqNyg==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "7.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:57583/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:56950/$dwdsSseHandler";
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "ws://127.0.0.1:57585/$debug";
+window.$dartExtensionUri = "ws://127.0.0.1:56952/$debug";
 
   } else {
     if(window.$dartMainExecuted){

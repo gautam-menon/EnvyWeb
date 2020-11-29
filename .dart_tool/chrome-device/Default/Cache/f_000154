@@ -1,331 +1,341 @@
-define(['dart_sdk'], (function load__packages__collection__src__canonicalized_map_dart(dart_sdk) {
+define(['dart_sdk', 'packages/flutter/src/gestures/debug.dart', 'packages/flutter/src/foundation/print.dart'], (function load__packages__flutter__src__gestures__arena_dart(dart_sdk, packages__flutter__src__gestures__debug$46dart, packages__flutter__src__foundation__print$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
   const _js_helper = dart_sdk._js_helper;
-  const collection = dart_sdk.collection;
+  const async = dart_sdk.async;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var canonicalized_map = Object.create(dart.library);
-  var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $forEach = dartx.forEach;
-  var $map = dartx.map;
-  var $addEntries = dartx.addEntries;
-  var $cast = dartx.cast;
-  var $clear = dartx.clear;
-  var $containsKey = dartx.containsKey;
-  var $values = dartx.values;
-  var $any = dartx.any;
-  var $entries = dartx.entries;
+  const debug = packages__flutter__src__gestures__debug$46dart.src__gestures__debug;
+  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
+  var arena = Object.create(dart.library);
+  var $add = dartx.add;
   var $isEmpty = dartx.isEmpty;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $length = dartx.length;
+  var $map = dartx.map;
+  var $join = dartx.join;
   var $putIfAbsent = dartx.putIfAbsent;
+  var $_get = dartx._get;
   var $remove = dartx.remove;
-  var $removeWhere = dartx.removeWhere;
-  var $update = dartx.update;
-  var $updateAll = dartx.updateAll;
-  var $addAll = dartx.addAll;
-  var $containsValue = dartx.containsValue;
-  var $keys = dartx.keys;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $first = dartx.first;
+  var $length = dartx.length;
+  var $contains = dartx.contains;
+  var $containsKey = dartx.containsKey;
+  var $toString = dartx.toString;
+  var $padRight = dartx.padRight;
+  var GestureDispositionL = () => (GestureDispositionL = dart.constFn(dart.legacy(arena.GestureDisposition)))();
+  var JSArrayOfGestureArenaMember = () => (JSArrayOfGestureArenaMember = dart.constFn(_interceptors.JSArray$(arena.GestureArenaMember)))();
+  var GestureArenaMemberToString = () => (GestureArenaMemberToString = dart.constFn(dart.fnType(core.String, [arena.GestureArenaMember])))();
+  var IdentityMapOfint$_GestureArena = () => (IdentityMapOfint$_GestureArena = dart.constFn(_js_helper.IdentityMap$(core.int, arena._GestureArena)))();
+  var VoidTo_GestureArena = () => (VoidTo_GestureArena = dart.constFn(dart.fnType(arena._GestureArena, [])))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  var VoidTobool = () => (VoidTobool = dart.constFn(dart.fnType(core.bool, [])))();
   const CT = Object.create(null);
-  var L1 = "package:collection/src/canonicalized_map.dart";
-  var L0 = "file:///C:/Users/HP/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0-nullsafety.5/lib/src/canonicalized_map.dart";
-  var _base = dart.privateName(canonicalized_map, "_base");
-  var _canonicalize = dart.privateName(canonicalized_map, "_canonicalize");
-  var _isValidKeyFn = dart.privateName(canonicalized_map, "_isValidKeyFn");
-  var _isValidKey = dart.privateName(canonicalized_map, "_isValidKey");
-  const _is_CanonicalizedMap_default = Symbol('_is_CanonicalizedMap_default');
-  canonicalized_map.CanonicalizedMap$ = dart.generic((C, K, V) => {
-    var LinkedMapOfC$MapEntryOfK$V = () => (LinkedMapOfC$MapEntryOfK$V = dart.constFn(_js_helper.LinkedMap$(C, MapEntryOfK$V())))();
-    var MapEntryOfC$MapEntryOfK$V = () => (MapEntryOfC$MapEntryOfK$V = dart.constFn(core.MapEntry$(C, MapEntryOfK$V())))();
-    var MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V = () => (MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfC$MapEntryOfK$V(), [MapEntryOfK$V()])))();
-    var MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V = () => (MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [MapEntryOfC$MapEntryOfK$V()])))();
-    var CAndMapEntryOfK$VTovoid = () => (CAndMapEntryOfK$VTovoid = dart.constFn(dart.fnType(dart.void, [C, MapEntryOfK$V()])))();
-    var CAndMapEntryOfK$VTobool = () => (CAndMapEntryOfK$VTobool = dart.constFn(dart.fnType(core.bool, [C, MapEntryOfK$V()])))();
-    var CAndMapEntryOfK$VToMapEntryOfK$V = () => (CAndMapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [C, MapEntryOfK$V()])))();
-    var MapEntryOfK$V = () => (MapEntryOfK$V = dart.constFn(core.MapEntry$(K, V)))();
-    var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
-    var KAndVTovoid = () => (KAndVTovoid = dart.constFn(dart.fnType(dart.void, [K, V])))();
-    var IterableOfMapEntryOfK$V = () => (IterableOfMapEntryOfK$V = dart.constFn(core.Iterable$(MapEntryOfK$V())))();
-    var MapEntryOfK$VTobool = () => (MapEntryOfK$VTobool = dart.constFn(dart.fnType(core.bool, [MapEntryOfK$V()])))();
-    var MapEntryOfK$VToK = () => (MapEntryOfK$VToK = dart.constFn(dart.fnType(K, [MapEntryOfK$V()])))();
-    var VoidToMapEntryOfK$V = () => (VoidToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [])))();
-    var MapEntryOfK$VToMapEntryOfK$V = () => (MapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [MapEntryOfK$V()])))();
-    var KAndVToV = () => (KAndVToV = dart.constFn(dart.fnType(V, [K, V])))();
-    var MapEntryOfK$VToV = () => (MapEntryOfK$VToV = dart.constFn(dart.fnType(V, [MapEntryOfK$V()])))();
-    var VoidToV = () => (VoidToV = dart.constFn(dart.fnType(V, [])))();
-    var VToV = () => (VToV = dart.constFn(dart.fnType(V, [V])))();
-    var VoidToNV = () => (VoidToNV = dart.constFn(dart.nullable(VoidToV())))();
-    class CanonicalizedMap extends core.Object {
-      _get(key) {
-        let t0;
-        if (!dart.test(this[_isValidKey](key))) return null;
-        let pair = this[_base][$_get]((t0 = K.as(key), this[_canonicalize](t0)));
-        return pair == null ? null : pair.value;
+  var L1 = "package:flutter/src/gestures/arena.dart";
+  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/gestures/arena.dart";
+  dart.defineLazy(CT, {
+    get C0() {
+      return C0 = dart.const({
+        __proto__: arena.GestureDisposition.prototype,
+        [_name$]: "GestureDisposition.accepted",
+        index: 0
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: arena.GestureDisposition.prototype,
+        [_name$]: "GestureDisposition.rejected",
+        index: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.constList([C0 || CT.C0, C1 || CT.C1], GestureDispositionL());
+    }
+  }, false);
+  var _name$ = dart.privateName(arena, "_name");
+  var C0;
+  var C1;
+  var C2;
+  arena.GestureDisposition = class GestureDisposition extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (arena.GestureDisposition.new = function(index, _name) {
+    if (index == null) dart.nullFailed(L0, 13, 6, "index");
+    if (_name == null) dart.nullFailed(L0, 13, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = arena.GestureDisposition.prototype;
+  dart.addTypeTests(arena.GestureDisposition);
+  dart.addTypeCaches(arena.GestureDisposition);
+  dart.setLibraryUri(arena.GestureDisposition, L1);
+  dart.setFieldSignature(arena.GestureDisposition, () => ({
+    __proto__: dart.getFields(arena.GestureDisposition.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(arena.GestureDisposition, ['toString']);
+  arena.GestureDisposition.accepted = C0 || CT.C0;
+  arena.GestureDisposition.rejected = C1 || CT.C1;
+  arena.GestureDisposition.values = C2 || CT.C2;
+  arena.GestureArenaMember = class GestureArenaMember extends core.Object {};
+  (arena.GestureArenaMember.new = function() {
+    ;
+  }).prototype = arena.GestureArenaMember.prototype;
+  dart.addTypeTests(arena.GestureArenaMember);
+  dart.addTypeCaches(arena.GestureArenaMember);
+  dart.setLibraryUri(arena.GestureArenaMember, L1);
+  var _arena$ = dart.privateName(arena, "_arena");
+  var _pointer$ = dart.privateName(arena, "_pointer");
+  var _member$ = dart.privateName(arena, "_member");
+  var _resolve = dart.privateName(arena, "_resolve");
+  arena.GestureArenaEntry = class GestureArenaEntry extends core.Object {
+    resolve(disposition) {
+      if (disposition == null) dart.nullFailed(L0, 52, 35, "disposition");
+      this[_arena$][_resolve](this[_pointer$], this[_member$], disposition);
+    }
+  };
+  (arena.GestureArenaEntry.__ = function(_arena, _pointer, _member) {
+    if (_arena == null) dart.nullFailed(L0, 42, 28, "_arena");
+    if (_pointer == null) dart.nullFailed(L0, 42, 41, "_pointer");
+    if (_member == null) dart.nullFailed(L0, 42, 56, "_member");
+    this[_arena$] = _arena;
+    this[_pointer$] = _pointer;
+    this[_member$] = _member;
+    ;
+  }).prototype = arena.GestureArenaEntry.prototype;
+  dart.addTypeTests(arena.GestureArenaEntry);
+  dart.addTypeCaches(arena.GestureArenaEntry);
+  dart.setMethodSignature(arena.GestureArenaEntry, () => ({
+    __proto__: dart.getMethods(arena.GestureArenaEntry.__proto__),
+    resolve: dart.fnType(dart.void, [arena.GestureDisposition])
+  }));
+  dart.setLibraryUri(arena.GestureArenaEntry, L1);
+  dart.setFieldSignature(arena.GestureArenaEntry, () => ({
+    __proto__: dart.getFields(arena.GestureArenaEntry.__proto__),
+    [_arena$]: dart.finalFieldType(arena.GestureArenaManager),
+    [_pointer$]: dart.finalFieldType(core.int),
+    [_member$]: dart.finalFieldType(arena.GestureArenaMember)
+  }));
+  arena._GestureArena = class _GestureArena extends core.Object {
+    add(member) {
+      if (member == null) dart.nullFailed(L0, 69, 31, "member");
+      if (!dart.test(this.isOpen)) dart.assertFailed(null, L0, 70, 12, "isOpen");
+      this.members[$add](member);
+    }
+    toString() {
+      let buffer = new core.StringBuffer.new();
+      if (dart.test(this.members[$isEmpty])) {
+        buffer.write("<empty>");
+      } else {
+        buffer.write(this.members[$map](core.String, dart.fn(member => {
+          if (member == null) dart.nullFailed(L0, 80, 60, "member");
+          if (dart.equals(member, this.eagerWinner)) return dart.str(member) + " (eager winner)";
+          return dart.str(member);
+        }, GestureArenaMemberToString()))[$join](", "));
       }
-      _set(key, value$) {
-        let value = value$;
-        let t0;
-        K.as(key);
-        V.as(value);
-        if (!dart.test(this[_isValidKey](key))) return value$;
-        this[_base][$_set]((t0 = key, this[_canonicalize](t0)), new (MapEntryOfK$V()).__(key, value));
-        return value$;
+      if (dart.test(this.isOpen)) buffer.write(" [open]");
+      if (dart.test(this.isHeld)) buffer.write(" [held]");
+      if (dart.test(this.hasPendingSweep)) buffer.write(" [hasPendingSweep]");
+      return buffer.toString();
+    }
+  };
+  (arena._GestureArena.new = function() {
+    this.members = JSArrayOfGestureArenaMember().of([]);
+    this.isOpen = true;
+    this.isHeld = false;
+    this.hasPendingSweep = false;
+    this.eagerWinner = null;
+    ;
+  }).prototype = arena._GestureArena.prototype;
+  dart.addTypeTests(arena._GestureArena);
+  dart.addTypeCaches(arena._GestureArena);
+  dart.setMethodSignature(arena._GestureArena, () => ({
+    __proto__: dart.getMethods(arena._GestureArena.__proto__),
+    add: dart.fnType(dart.void, [arena.GestureArenaMember])
+  }));
+  dart.setLibraryUri(arena._GestureArena, L1);
+  dart.setFieldSignature(arena._GestureArena, () => ({
+    __proto__: dart.getFields(arena._GestureArena.__proto__),
+    members: dart.finalFieldType(core.List$(arena.GestureArenaMember)),
+    isOpen: dart.fieldType(core.bool),
+    isHeld: dart.fieldType(core.bool),
+    hasPendingSweep: dart.fieldType(core.bool),
+    eagerWinner: dart.fieldType(dart.nullable(arena.GestureArenaMember))
+  }));
+  dart.defineExtensionMethods(arena._GestureArena, ['toString']);
+  var _arenas = dart.privateName(arena, "_arenas");
+  var _debugLogDiagnostic = dart.privateName(arena, "_debugLogDiagnostic");
+  var _tryToResolveArena = dart.privateName(arena, "_tryToResolveArena");
+  var _resolveInFavorOf = dart.privateName(arena, "_resolveInFavorOf");
+  var _resolveByDefault = dart.privateName(arena, "_resolveByDefault");
+  arena.GestureArenaManager = class GestureArenaManager extends core.Object {
+    add(pointer, member) {
+      if (pointer == null) dart.nullFailed(L0, 107, 29, "pointer");
+      if (member == null) dart.nullFailed(L0, 107, 57, "member");
+      let state = this[_arenas][$putIfAbsent](pointer, dart.fn(() => {
+        if (!dart.test(this[_debugLogDiagnostic](pointer, "★ Opening new gesture arena."))) dart.assertFailed(null, L0, 109, 14, "_debugLogDiagnostic(pointer, '★ Opening new gesture arena.')");
+        return new arena._GestureArena.new();
+      }, VoidTo_GestureArena()));
+      state.add(member);
+      if (!dart.test(this[_debugLogDiagnostic](pointer, "Adding: " + dart.str(member)))) dart.assertFailed(null, L0, 113, 12, "_debugLogDiagnostic(pointer, 'Adding: $member')");
+      return new arena.GestureArenaEntry.__(this, pointer, member);
+    }
+    close(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 120, 18, "pointer");
+      let state = this[_arenas][$_get](pointer);
+      if (state == null) return;
+      state.isOpen = false;
+      if (!dart.test(this[_debugLogDiagnostic](pointer, "Closing", state))) dart.assertFailed(null, L0, 125, 12, "_debugLogDiagnostic(pointer, 'Closing', state)");
+      this[_tryToResolveArena](pointer, state);
+    }
+    sweep(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 142, 18, "pointer");
+      let state = this[_arenas][$_get](pointer);
+      if (state == null) return;
+      if (!!dart.test(state.isOpen)) dart.assertFailed(null, L0, 146, 12, "!state.isOpen");
+      if (dart.test(state.isHeld)) {
+        state.hasPendingSweep = true;
+        if (!dart.test(this[_debugLogDiagnostic](pointer, "Delaying sweep", state))) dart.assertFailed(null, L0, 149, 14, "_debugLogDiagnostic(pointer, 'Delaying sweep', state)");
+        return;
       }
-      addAll(other) {
-        MapOfK$V().as(other);
-        if (other == null) dart.nullFailed(L0, 63, 25, "other");
-        other[$forEach](dart.fn((key, value) => {
-          let t1, t0;
-          t0 = key;
-          t1 = value;
-          this._set(t0, t1);
-          return t1;
-        }, KAndVTovoid()));
-      }
-      addEntries(entries) {
-        IterableOfMapEntryOfK$V().as(entries);
-        if (entries == null) dart.nullFailed(L0, 68, 44, "entries");
-        return this[_base][$addEntries](entries[$map](MapEntryOfC$MapEntryOfK$V(), dart.fn(e => {
-          let t0;
-          if (e == null) dart.nullFailed(L0, 69, 13, "e");
-          return new (MapEntryOfC$MapEntryOfK$V()).__((t0 = e.key, this[_canonicalize](t0)), new (MapEntryOfK$V()).__(e.key, e.value));
-        }, MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V())));
-      }
-      cast(K2, V2) {
-        return this[_base][$cast](K2, V2);
-      }
-      clear() {
-        this[_base][$clear]();
-      }
-      containsKey(key) {
-        let t0;
-        if (!dart.test(this[_isValidKey](key))) return false;
-        return this[_base][$containsKey]((t0 = K.as(key), this[_canonicalize](t0)));
-      }
-      containsValue(value) {
-        return this[_base][$values][$any](dart.fn(pair => {
-          if (pair == null) dart.nullFailed(L0, 87, 25, "pair");
-          return dart.equals(pair.value, value);
-        }, MapEntryOfK$VTobool()));
-      }
-      get entries() {
-        return this[_base][$entries][$map](MapEntryOfK$V(), dart.fn(e => {
-          if (e == null) dart.nullFailed(L0, 91, 26, "e");
-          return new (MapEntryOfK$V()).__(e.value.key, e.value.value);
-        }, MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V()));
-      }
-      forEach(f) {
-        if (f == null) dart.nullFailed(L0, 94, 36, "f");
-        this[_base][$forEach](dart.fn((key, pair) => {
-          if (pair == null) dart.nullFailed(L0, 95, 25, "pair");
-          return f(pair.key, pair.value);
-        }, CAndMapEntryOfK$VTovoid()));
-      }
-      get isEmpty() {
-        return this[_base][$isEmpty];
-      }
-      get isNotEmpty() {
-        return this[_base][$isNotEmpty];
-      }
-      get keys() {
-        return this[_base][$values][$map](K, dart.fn(pair => {
-          if (pair == null) dart.nullFailed(L0, 105, 45, "pair");
-          return pair.key;
-        }, MapEntryOfK$VToK()));
-      }
-      get length() {
-        return this[_base][$length];
-      }
-      map(K2, V2, transform) {
-        if (transform == null) dart.nullFailed(L0, 111, 59, "transform");
-        return this[_base][$map](K2, V2, dart.fn((_, pair) => {
-          if (pair == null) dart.nullFailed(L0, 112, 21, "pair");
-          return transform(pair.key, pair.value);
-        }, dart.fnType(core.MapEntry$(K2, V2), [C, MapEntryOfK$V()])));
-      }
-      putIfAbsent(key, ifAbsent) {
-        let t0;
-        K.as(key);
-        VoidToV().as(ifAbsent);
-        if (ifAbsent == null) dart.nullFailed(L0, 115, 37, "ifAbsent");
-        return this[_base][$putIfAbsent]((t0 = key, this[_canonicalize](t0)), dart.fn(() => new (MapEntryOfK$V()).__(key, ifAbsent()), VoidToMapEntryOfK$V())).value;
-      }
-      remove(key) {
-        let t0, t0$;
-        if (!dart.test(this[_isValidKey](key))) return null;
-        let pair = this[_base][$remove]((t0 = K.as(key), this[_canonicalize](t0)));
-        t0$ = pair;
-        return t0$ == null ? null : t0$.value;
-      }
-      removeWhere(test) {
-        if (test == null) dart.nullFailed(L0, 129, 50, "test");
-        return this[_base][$removeWhere](dart.fn((_, pair) => {
-          if (pair == null) dart.nullFailed(L0, 130, 29, "pair");
-          return test(pair.key, pair.value);
-        }, CAndMapEntryOfK$VTobool()));
-      }
-      retype(K2, V2) {
-        return this.cast(K2, V2);
-      }
-      update(key, update, opts) {
-        let t0;
-        K.as(key);
-        VToV().as(update);
-        if (update == null) dart.nullFailed(L0, 136, 33, "update");
-        let ifAbsent = opts && 'ifAbsent' in opts ? opts.ifAbsent : null;
-        VoidToNV().as(ifAbsent);
-        return this[_base][$update]((t0 = key, this[_canonicalize](t0)), dart.fn(pair => {
-          if (pair == null) dart.nullFailed(L0, 137, 41, "pair");
-          let value = pair.value;
-          let newValue = update(value);
-          if (core.identical(newValue, value)) return pair;
-          return new (MapEntryOfK$V()).__(key, newValue);
-        }, MapEntryOfK$VToMapEntryOfK$V()), {ifAbsent: ifAbsent == null ? null : dart.fn(() => new (MapEntryOfK$V()).__(key, ifAbsent()), VoidToMapEntryOfK$V())}).value;
-      }
-      updateAll(update) {
-        KAndVToV().as(update);
-        if (update == null) dart.nullFailed(L0, 147, 45, "update");
-        return this[_base][$updateAll](dart.fn((_, pair) => {
-          if (pair == null) dart.nullFailed(L0, 148, 27, "pair");
-          let value = pair.value;
-          let key = pair.key;
-          let newValue = update(key, value);
-          if (core.identical(value, newValue)) return pair;
-          return new (MapEntryOfK$V()).__(key, newValue);
-        }, CAndMapEntryOfK$VToMapEntryOfK$V()));
-      }
-      get values() {
-        return this[_base][$values][$map](V, dart.fn(pair => {
-          if (pair == null) dart.nullFailed(L0, 157, 47, "pair");
-          return pair.value;
-        }, MapEntryOfK$VToV()));
-      }
-      toString() {
-        return collection.MapBase.mapToString(this);
-      }
-      [_isValidKey](key) {
-        return K.is(key) && (this[_isValidKeyFn] == null || dart.test(dart.nullCheck(this[_isValidKeyFn])(key)));
+      if (!dart.test(this[_debugLogDiagnostic](pointer, "Sweeping", state))) dart.assertFailed(null, L0, 152, 12, "_debugLogDiagnostic(pointer, 'Sweeping', state)");
+      this[_arenas][$remove](pointer);
+      if (dart.test(state.members[$isNotEmpty])) {
+        if (!dart.test(this[_debugLogDiagnostic](pointer, "Winner: " + dart.str(state.members[$first])))) dart.assertFailed(null, L0, 156, 14, "_debugLogDiagnostic(pointer, 'Winner: ${state.members.first}')");
+        state.members[$first].acceptGesture(pointer);
+        for (let i = 1; i < dart.notNull(state.members[$length]); i = i + 1)
+          state.members[$_get](i).rejectGesture(pointer);
       }
     }
-    (CanonicalizedMap.new = function(canonicalize, opts) {
-      if (canonicalize == null) dart.nullFailed(L0, 28, 38, "canonicalize");
-      let isValidKey = opts && 'isValidKey' in opts ? opts.isValidKey : null;
-      this[_base] = new (LinkedMapOfC$MapEntryOfK$V()).new();
-      this[_canonicalize] = canonicalize;
-      this[_isValidKeyFn] = isValidKey;
-      ;
-    }).prototype = CanonicalizedMap.prototype;
-    (CanonicalizedMap.from = function(other, canonicalize, opts) {
-      if (other == null) dart.nullFailed(L0, 42, 35, "other");
-      if (canonicalize == null) dart.nullFailed(L0, 42, 60, "canonicalize");
-      let isValidKey = opts && 'isValidKey' in opts ? opts.isValidKey : null;
-      this[_base] = new (LinkedMapOfC$MapEntryOfK$V()).new();
-      this[_canonicalize] = canonicalize;
-      this[_isValidKeyFn] = isValidKey;
-      this.addAll(other);
-    }).prototype = CanonicalizedMap.prototype;
-    CanonicalizedMap.prototype[dart.isMap] = true;
-    dart.addTypeTests(CanonicalizedMap);
-    CanonicalizedMap.prototype[_is_CanonicalizedMap_default] = true;
-    dart.addTypeCaches(CanonicalizedMap);
-    CanonicalizedMap[dart.implements] = () => [core.Map$(K, V)];
-    dart.setMethodSignature(CanonicalizedMap, () => ({
-      __proto__: dart.getMethods(CanonicalizedMap.__proto__),
-      _get: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      [$_get]: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      _set: dart.fnType(dart.void, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$_set]: dart.fnType(dart.void, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      addAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [$addAll]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addEntries: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [$addEntries]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      cast: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$cast]: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      clear: dart.fnType(dart.void, []),
-      [$clear]: dart.fnType(dart.void, []),
-      containsKey: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      [$containsKey]: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      containsValue: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      [$containsValue]: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      forEach: dart.fnType(dart.void, [dart.fnType(dart.void, [K, V])]),
-      [$forEach]: dart.fnType(dart.void, [dart.fnType(dart.void, [K, V])]),
-      map: dart.gFnType((K2, V2) => [core.Map$(K2, V2), [dart.fnType(core.MapEntry$(K2, V2), [K, V])]], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$map]: dart.gFnType((K2, V2) => [core.Map$(K2, V2), [dart.fnType(core.MapEntry$(K2, V2), [K, V])]], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      putIfAbsent: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$putIfAbsent]: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      remove: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      [$remove]: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      removeWhere: dart.fnType(dart.void, [dart.fnType(core.bool, [K, V])]),
-      [$removeWhere]: dart.fnType(dart.void, [dart.fnType(core.bool, [K, V])]),
-      retype: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      update: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)], {ifAbsent: dart.nullable(core.Object)}, {}),
-      [$update]: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)], {ifAbsent: dart.nullable(core.Object)}, {}),
-      updateAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [$updateAll]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_isValidKey]: dart.fnType(core.bool, [dart.nullable(core.Object)])
-    }));
-    dart.setGetterSignature(CanonicalizedMap, () => ({
-      __proto__: dart.getGetters(CanonicalizedMap.__proto__),
-      entries: core.Iterable$(core.MapEntry$(K, V)),
-      [$entries]: core.Iterable$(core.MapEntry$(K, V)),
-      isEmpty: core.bool,
-      [$isEmpty]: core.bool,
-      isNotEmpty: core.bool,
-      [$isNotEmpty]: core.bool,
-      keys: core.Iterable$(K),
-      [$keys]: core.Iterable$(K),
-      length: core.int,
-      [$length]: core.int,
-      values: core.Iterable$(V),
-      [$values]: core.Iterable$(V)
-    }));
-    dart.setLibraryUri(CanonicalizedMap, L1);
-    dart.setFieldSignature(CanonicalizedMap, () => ({
-      __proto__: dart.getFields(CanonicalizedMap.__proto__),
-      [_canonicalize]: dart.finalFieldType(dart.fnType(C, [K])),
-      [_isValidKeyFn]: dart.finalFieldType(dart.nullable(dart.fnType(core.bool, [K]))),
-      [_base]: dart.finalFieldType(core.Map$(C, core.MapEntry$(K, V)))
-    }));
-    dart.defineExtensionMethods(CanonicalizedMap, [
-      '_get',
-      '_set',
-      'addAll',
-      'addEntries',
-      'cast',
-      'clear',
-      'containsKey',
-      'containsValue',
-      'forEach',
-      'map',
-      'putIfAbsent',
-      'remove',
-      'removeWhere',
-      'update',
-      'updateAll',
-      'toString'
-    ]);
-    dart.defineExtensionAccessors(CanonicalizedMap, [
-      'entries',
-      'isEmpty',
-      'isNotEmpty',
-      'keys',
-      'length',
-      'values'
-    ]);
-    return CanonicalizedMap;
-  });
-  canonicalized_map.CanonicalizedMap = canonicalized_map.CanonicalizedMap$();
-  dart.addTypeTests(canonicalized_map.CanonicalizedMap, _is_CanonicalizedMap_default);
-  dart.trackLibraries("packages/collection/src/canonicalized_map.dart", {
-    "package:collection/src/canonicalized_map.dart": canonicalized_map
+    hold(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 176, 17, "pointer");
+      let state = this[_arenas][$_get](pointer);
+      if (state == null) return;
+      state.isHeld = true;
+      if (!dart.test(this[_debugLogDiagnostic](pointer, "Holding", state))) dart.assertFailed(null, L0, 181, 12, "_debugLogDiagnostic(pointer, 'Holding', state)");
+    }
+    release(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 193, 20, "pointer");
+      let state = this[_arenas][$_get](pointer);
+      if (state == null) return;
+      state.isHeld = false;
+      if (!dart.test(this[_debugLogDiagnostic](pointer, "Releasing", state))) dart.assertFailed(null, L0, 198, 12, "_debugLogDiagnostic(pointer, 'Releasing', state)");
+      if (dart.test(state.hasPendingSweep)) this.sweep(pointer);
+    }
+    [_resolve](pointer, member, disposition) {
+      let t0;
+      if (pointer == null) dart.nullFailed(L0, 206, 21, "pointer");
+      if (member == null) dart.nullFailed(L0, 206, 49, "member");
+      if (disposition == null) dart.nullFailed(L0, 206, 76, "disposition");
+      let state = this[_arenas][$_get](pointer);
+      if (state == null) return;
+      if (!dart.test(this[_debugLogDiagnostic](pointer, (dart.equals(disposition, arena.GestureDisposition.accepted) ? "Accepting" : "Rejecting") + ": " + dart.str(member)))) dart.assertFailed(null, L0, 210, 12, "_debugLogDiagnostic(pointer, '${ disposition == GestureDisposition.accepted ? \"Accepting\" : \"Rejecting\" }: $member')");
+      if (!dart.test(state.members[$contains](member))) dart.assertFailed(null, L0, 211, 12, "state.members.contains(member)");
+      if (dart.equals(disposition, arena.GestureDisposition.rejected)) {
+        state.members[$remove](member);
+        member.rejectGesture(pointer);
+        if (!dart.test(state.isOpen)) this[_tryToResolveArena](pointer, state);
+      } else {
+        if (!dart.equals(disposition, arena.GestureDisposition.accepted)) dart.assertFailed(null, L0, 218, 14, "disposition == GestureDisposition.accepted");
+        if (dart.test(state.isOpen)) {
+          t0 = state;
+          t0.eagerWinner == null ? t0.eagerWinner = member : null;
+        } else {
+          if (!dart.test(this[_debugLogDiagnostic](pointer, "Self-declared winner: " + dart.str(member)))) dart.assertFailed(null, L0, 222, 16, "_debugLogDiagnostic(pointer, 'Self-declared winner: $member')");
+          this[_resolveInFavorOf](pointer, state, member);
+        }
+      }
+    }
+    [_tryToResolveArena](pointer, state) {
+      if (pointer == null) dart.nullFailed(L0, 228, 31, "pointer");
+      if (state == null) dart.nullFailed(L0, 228, 54, "state");
+      if (!dart.equals(this[_arenas][$_get](pointer), state)) dart.assertFailed(null, L0, 229, 12, "_arenas[pointer] == state");
+      if (!!dart.test(state.isOpen)) dart.assertFailed(null, L0, 230, 12, "!state.isOpen");
+      if (state.members[$length] === 1) {
+        async.scheduleMicrotask(dart.fn(() => this[_resolveByDefault](pointer, state), VoidTovoid()));
+      } else if (dart.test(state.members[$isEmpty])) {
+        this[_arenas][$remove](pointer);
+        if (!dart.test(this[_debugLogDiagnostic](pointer, "Arena empty."))) dart.assertFailed(null, L0, 235, 14, "_debugLogDiagnostic(pointer, 'Arena empty.')");
+      } else if (state.eagerWinner != null) {
+        if (!dart.test(this[_debugLogDiagnostic](pointer, "Eager winner: " + dart.str(state.eagerWinner)))) dart.assertFailed(null, L0, 237, 14, "_debugLogDiagnostic(pointer, 'Eager winner: ${state.eagerWinner}')");
+        this[_resolveInFavorOf](pointer, state, dart.nullCheck(state.eagerWinner));
+      }
+    }
+    [_resolveByDefault](pointer, state) {
+      if (pointer == null) dart.nullFailed(L0, 242, 30, "pointer");
+      if (state == null) dart.nullFailed(L0, 242, 53, "state");
+      if (!dart.test(this[_arenas][$containsKey](pointer))) return;
+      if (!dart.equals(this[_arenas][$_get](pointer), state)) dart.assertFailed(null, L0, 245, 12, "_arenas[pointer] == state");
+      if (!!dart.test(state.isOpen)) dart.assertFailed(null, L0, 246, 12, "!state.isOpen");
+      let members = state.members;
+      if (!(members[$length] === 1)) dart.assertFailed(null, L0, 248, 12, "members.length == 1");
+      this[_arenas][$remove](pointer);
+      if (!dart.test(this[_debugLogDiagnostic](pointer, "Default winner: " + dart.str(state.members[$first])))) dart.assertFailed(null, L0, 250, 12, "_debugLogDiagnostic(pointer, 'Default winner: ${state.members.first}')");
+      state.members[$first].acceptGesture(pointer);
+    }
+    [_resolveInFavorOf](pointer, state, member) {
+      if (pointer == null) dart.nullFailed(L0, 254, 30, "pointer");
+      if (state == null) dart.nullFailed(L0, 254, 53, "state");
+      if (member == null) dart.nullFailed(L0, 254, 79, "member");
+      if (!dart.equals(state, this[_arenas][$_get](pointer))) dart.assertFailed(null, L0, 255, 12, "state == _arenas[pointer]");
+      if (!(state != null)) dart.assertFailed(null, L0, 256, 12, "state != null");
+      if (!(state.eagerWinner == null || dart.equals(state.eagerWinner, member))) dart.assertFailed(null, L0, 257, 12, "state.eagerWinner == null || state.eagerWinner == member");
+      if (!!dart.test(state.isOpen)) dart.assertFailed(null, L0, 258, 12, "!state.isOpen");
+      this[_arenas][$remove](pointer);
+      for (let rejectedMember of state.members) {
+        if (!dart.equals(rejectedMember, member)) rejectedMember.rejectGesture(pointer);
+      }
+      member.acceptGesture(pointer);
+    }
+    [_debugLogDiagnostic](pointer, message, state = null) {
+      if (pointer == null) dart.nullFailed(L0, 267, 32, "pointer");
+      if (message == null) dart.nullFailed(L0, 267, 48, "message");
+      if (!dart.test(dart.fn(() => {
+        if (dart.test(debug.debugPrintGestureArenaDiagnostics)) {
+          let count = state != null ? state.members[$length] : null;
+          let s = count !== 1 ? "s" : "";
+          print.debugPrint("Gesture arena " + dart.toString(pointer)[$padRight](4) + " ❙ " + dart.str(message) + (count != null ? " with " + dart.str(count) + " member" + s + "." : ""));
+        }
+        return true;
+      }, VoidTobool())())) dart.assertFailed(null, L0, 268, 12, "() {\r\n      if (debugPrintGestureArenaDiagnostics) {\r\n        final int? count = state != null ? state.members.length : null;\r\n        final String s = count != 1 ? 's' : '';\r\n        debugPrint('Gesture arena ${pointer.toString().padRight(4)} ❙ $message${ count != null ? \" with $count member$s.\" : \"\"}');\r\n      }\r\n      return true;\r\n    }()");
+      return true;
+    }
+  };
+  (arena.GestureArenaManager.new = function() {
+    this[_arenas] = new (IdentityMapOfint$_GestureArena()).new();
+    ;
+  }).prototype = arena.GestureArenaManager.prototype;
+  dart.addTypeTests(arena.GestureArenaManager);
+  dart.addTypeCaches(arena.GestureArenaManager);
+  dart.setMethodSignature(arena.GestureArenaManager, () => ({
+    __proto__: dart.getMethods(arena.GestureArenaManager.__proto__),
+    add: dart.fnType(arena.GestureArenaEntry, [core.int, arena.GestureArenaMember]),
+    close: dart.fnType(dart.void, [core.int]),
+    sweep: dart.fnType(dart.void, [core.int]),
+    hold: dart.fnType(dart.void, [core.int]),
+    release: dart.fnType(dart.void, [core.int]),
+    [_resolve]: dart.fnType(dart.void, [core.int, arena.GestureArenaMember, arena.GestureDisposition]),
+    [_tryToResolveArena]: dart.fnType(dart.void, [core.int, arena._GestureArena]),
+    [_resolveByDefault]: dart.fnType(dart.void, [core.int, arena._GestureArena]),
+    [_resolveInFavorOf]: dart.fnType(dart.void, [core.int, arena._GestureArena, arena.GestureArenaMember]),
+    [_debugLogDiagnostic]: dart.fnType(core.bool, [core.int, core.String], [dart.nullable(arena._GestureArena)])
+  }));
+  dart.setLibraryUri(arena.GestureArenaManager, L1);
+  dart.setFieldSignature(arena.GestureArenaManager, () => ({
+    __proto__: dart.getFields(arena.GestureArenaManager.__proto__),
+    [_arenas]: dart.finalFieldType(core.Map$(core.int, arena._GestureArena))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/arena.dart", {
+    "package:flutter/src/gestures/arena.dart": arena
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["canonicalized_map.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/collection/src/canonicalized_map.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["arena.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAkBA;;;QANK;;;;;EAML;;;;;;;;;;;;;;;;EAgBA;;;;;;;;;;UAiBkC;AACiB,MAA/C,AAAO,wBAAS,iBAAU,gBAAS,WAAW;IAChD;;yCAZyB,QAAa,UAAe;QAA5B;QAAa;QAAe;IAA5B;IAAa;IAAe;;EAAQ;;;;;;;;;;;;;;;;UA2BjC;AAC1B,qBAAO;AACY,MAAnB,AAAQ,mBAAI,MAAM;IACpB;;AAIqB,mBAAS;AAC5B,oBAAI,AAAQ;AACa,QAAvB,AAAO,MAAD,OAAO;;AAMC,QAJd,AAAO,MAAD,OAAO,AAAQ,AAIlB,gCAJ8B;cAAoB;AACnD,cAAW,YAAP,MAAM,EAAI,mBACZ,MAA+B,UAAtB,MAAM;AACjB,gBAAgB,UAAP,MAAM;iDACT;;AAEV,oBAAI,cACF,AAAO,AAAgB,MAAjB,OAAO;AACf,oBAAI,cACF,AAAO,AAAgB,MAAjB,OAAO;AACf,oBAAI,uBACF,AAAO,AAA2B,MAA5B,OAAO;AACf,YAAO,AAAO,OAAD;IACf;;;IAnC+B,eAA8B;IACxD,cAAS;IACT,cAAS;IACT,uBAAkB;IAMH;;EA2BtB;;;;;;;;;;;;;;;;;;;;;;;QAa4B,SAA4B;UAA5B;UAA4B;AAChC,kBAAQ,AAAQ,4BAAY,OAAO,EAAE;AACvD,uBAAO,0BAAoB,OAAO,EAAE;AACpC,cAAO;;AAEQ,MAAjB,AAAM,KAAD,KAAK,MAAM;AAChB,qBAAO,0BAAoB,OAAO,EAAE,AAAiB,sBAAP,MAAM;AACpD,YAAyB,gCAAE,MAAM,OAAO,EAAE,MAAM;IAClD;;UAKe;AACQ,kBAAQ,AAAO,qBAAC,OAAO;AAC5C,UAAI,AAAM,KAAD,IAAI,MACX;AACkB,MAApB,AAAM,KAAD,UAAU;AACf,qBAAO,0BAAoB,OAAO,EAAE,WAAW,KAAK;AAClB,MAAlC,yBAAmB,OAAO,EAAE,KAAK;IACnC;;UAee;AACQ,kBAAQ,AAAO,qBAAC,OAAO;AAC5C,UAAI,AAAM,KAAD,IAAI,MACX;AACF,WAAO,WAAC,AAAM,KAAD;AACb,oBAAI,AAAM,KAAD;AACqB,QAA5B,AAAM,KAAD,mBAAmB;AACxB,uBAAO,0BAAoB,OAAO,EAAE,kBAAkB,KAAK;AAC3D;;AAEF,qBAAO,0BAAoB,OAAO,EAAE,YAAY,KAAK;AAC9B,MAAvB,AAAQ,uBAAO,OAAO;AACtB,oBAAI,AAAM,AAAQ,KAAT;AAEP,uBAAO,0BAAoB,OAAO,EAAE,AAAgC,sBAArB,AAAM,AAAQ,KAAT;AACV,QAA1C,AAAM,AAAQ,AAAM,KAAf,+BAA6B,OAAO;AAEzC,iBAAS,IAAI,GAAG,AAAE,CAAD,gBAAG,AAAM,AAAQ,KAAT,oBAAiB,IAAA,AAAC,CAAA;AACF,UAAvC,AAAM,AAAO,AAAI,KAAZ,gBAAS,CAAC,gBAAgB,OAAO;;IAE5C;;UAcc;AACS,kBAAQ,AAAO,qBAAC,OAAO;AAC5C,UAAI,AAAM,KAAD,IAAI,MACX;AACiB,MAAnB,AAAM,KAAD,UAAU;AACf,qBAAO,0BAAoB,OAAO,EAAE,WAAW,KAAK;IACtD;;UAWiB;AACM,kBAAQ,AAAO,qBAAC,OAAO;AAC5C,UAAI,AAAM,KAAD,IAAI,MACX;AACkB,MAApB,AAAM,KAAD,UAAU;AACf,qBAAO,0BAAoB,OAAO,EAAE,aAAa,KAAK;AACtD,oBAAI,AAAM,KAAD,mBACP,AAAc,WAAR,OAAO;IACjB;eAKkB,SAA4B,QAA2B;;UAAvD;UAA4B;UAA2B;AAClD,kBAAQ,AAAO,qBAAC,OAAO;AAC5C,UAAI,AAAM,KAAD,IAAI,MACX;AACF,qBAAO,0BAAoB,OAAO,EAAwF,CAAtE,YAAZ,WAAW,EAAuB,qCAAW,cAAc,eAAa,gBAAG,MAAM;AACzH,qBAAO,AAAM,AAAQ,KAAT,oBAAkB,MAAM;AACpC,UAAgB,YAAZ,WAAW,EAAuB;AACR,QAA5B,AAAM,AAAQ,KAAT,kBAAgB,MAAM;AACE,QAA7B,AAAO,MAAD,eAAe,OAAO;AAC5B,uBAAK,AAAM,KAAD,UACR,AAAkC,yBAAf,OAAO,EAAE,KAAK;;AAEnC,aAAmB,YAAZ,WAAW,EAAuB;AACzC,sBAAI,AAAM,KAAD;AACqB,eAA5B,KAAK;UAAC,AAAY,kBAAA,OAAZ,iBAAgB,MAAM,GAAV;;AAElB,yBAAO,0BAAoB,OAAO,EAAE,AAA+B,oCAAP,MAAM;AACzB,UAAzC,wBAAkB,OAAO,EAAE,KAAK,EAAE,MAAM;;;IAG9C;yBAE4B,SAAuB;UAAvB;UAAuB;AACjD,WAAwB,YAAjB,AAAO,qBAAC,OAAO,GAAK,KAAK;AAChC,WAAO,WAAC,AAAM,KAAD;AACb,UAAI,AAAM,AAAQ,AAAO,KAAhB,sBAAmB;AACgC,QAA1D,wBAAkB,cAAM,wBAAkB,OAAO,EAAE,KAAK;YACnD,eAAI,AAAM,AAAQ,KAAT;AACS,QAAvB,AAAQ,uBAAO,OAAO;AACtB,uBAAO,0BAAoB,OAAO,EAAE;YAC/B,KAAI,AAAM,KAAD,gBAAgB;AAC9B,uBAAO,0BAAoB,OAAO,EAAE,AAAoC,4BAAnB,AAAM,KAAD;AACL,QAArD,wBAAkB,OAAO,EAAE,KAAK,EAAmB,eAAjB,AAAM,KAAD;;IAE3C;wBAE2B,SAAuB;UAAvB;UAAuB;AAChD,qBAAK,AAAQ,4BAAY,OAAO,IAC9B;AACF,WAAwB,YAAjB,AAAO,qBAAC,OAAO,GAAK,KAAK;AAChC,WAAO,WAAC,AAAM,KAAD;AACkB,oBAAU,AAAM,KAAD;AAC9C,YAAO,AAAQ,AAAO,OAAR,cAAW;AACF,MAAvB,AAAQ,uBAAO,OAAO;AACtB,qBAAO,0BAAoB,OAAO,EAAE,AAAwC,8BAArB,AAAM,AAAQ,KAAT;AAClB,MAA1C,AAAM,AAAQ,AAAM,KAAf,+BAA6B,OAAO;IAC3C;wBAE2B,SAAuB,OAA0B;UAAjD;UAAuB;UAA0B;AAC1E,WAAa,YAAN,KAAK,EAAI,AAAO,qBAAC,OAAO;AAC/B,YAAO,AAAM,KAAD,IAAI;AAChB,YAAO,AAAM,AAAY,AAAQ,KAArB,gBAAgB,QAA0B,YAAlB,AAAM,KAAD,cAAgB,MAAM;AAC/D,WAAO,WAAC,AAAM,KAAD;AACU,MAAvB,AAAQ,uBAAO,OAAO;AACtB,eAA8B,iBAAkB,AAAM,MAAD;AACnD,yBAAI,cAAc,EAAI,MAAM,GAC1B,AAAe,AAAsB,cAAvB,eAAe,OAAO;;AAEX,MAA7B,AAAO,MAAD,eAAe,OAAO;IAC9B;0BAE6B,SAAgB,SAA0B;UAA1C;UAAgB;AAC3C,qBAAO,AAON;AANC,sBAAI;AACS,sBAAQ,AAAM,KAAD,IAAI,OAAO,AAAM,AAAQ,KAAT,oBAAkB;AAC7C,kBAAI,AAAM,KAAD,KAAI,IAAI,MAAM;AACqF,UAAzH,AAAU,iBAAC,AAA6G,mBAApF,AAAW,cAAnB,OAAO,aAAqB,KAAG,iBAAI,OAAO,KAAG,AAAM,KAAD,IAAI,OAAO,AAAyB,oBAAjB,KAAK,gBAAQ,CAAC,SAAK;;AAEtH,cAAO;;AAET,YAAO;IACT;;;IA7K8B,gBAA8B;;EA8K9D","file":"../../../../../../../../../packages/flutter/src/gestures/arena.dart.lib.js"}');
   // Exports:
   return {
-    src__canonicalized_map: canonicalized_map
+    src__gestures__arena: arena
   };
 }));
 
-//# sourceMappingURL=canonicalized_map.dart.lib.js.map
+//# sourceMappingURL=arena.dart.lib.js.map

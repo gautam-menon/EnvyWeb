@@ -1,575 +1,418 @@
-define(['dart_sdk'], (function load__packages__intl__src__plural_rules_dart(dart_sdk) {
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/physics/utils.dart', 'packages/flutter/src/physics/simulation.dart'], (function load__packages__flutter__src__physics__spring_simulation_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__physics__utils$46dart, packages__flutter__src__physics__simulation$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const math = dart_sdk.math;
-  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var plural_rules = Object.create(dart.library);
-  var $toString = dartx.toString;
-  var $round = dartx.round;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
+  const utils = packages__flutter__src__physics__utils$46dart.src__physics__utils;
+  const simulation = packages__flutter__src__physics__simulation$46dart.src__physics__simulation;
+  var spring_simulation = Object.create(dart.library);
   var $toStringAsFixed = dartx.toStringAsFixed;
-  var $indexOf = dartx.indexOf;
-  var $modulo = dartx['%'];
-  var $floor = dartx.floor;
-  var $containsKey = dartx.containsKey;
-  var PluralCaseL = () => (PluralCaseL = dart.constFn(dart.legacy(plural_rules.PluralCase)))();
-  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
-  var VoidToPluralCaseL = () => (VoidToPluralCaseL = dart.constFn(dart.fnType(PluralCaseL(), [])))();
+  var SpringTypeL = () => (SpringTypeL = dart.constFn(dart.legacy(spring_simulation.SpringType)))();
   const CT = Object.create(null);
-  var L0 = "package:intl/src/plural_rules.dart";
+  var L1 = "package:flutter/src/physics/spring_simulation.dart";
+  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/physics/spring_simulation.dart";
   dart.defineLazy(CT, {
     get C0() {
       return C0 = dart.const({
-        __proto__: plural_rules.PluralCase.prototype,
-        [_name$]: "PluralCase.ZERO",
+        __proto__: spring_simulation.SpringType.prototype,
+        [_name$]: "SpringType.criticallyDamped",
         index: 0
       });
     },
     get C1() {
       return C1 = dart.const({
-        __proto__: plural_rules.PluralCase.prototype,
-        [_name$]: "PluralCase.ONE",
+        __proto__: spring_simulation.SpringType.prototype,
+        [_name$]: "SpringType.underDamped",
         index: 1
       });
     },
     get C2() {
       return C2 = dart.const({
-        __proto__: plural_rules.PluralCase.prototype,
-        [_name$]: "PluralCase.TWO",
+        __proto__: spring_simulation.SpringType.prototype,
+        [_name$]: "SpringType.overDamped",
         index: 2
       });
     },
     get C3() {
-      return C3 = dart.const({
-        __proto__: plural_rules.PluralCase.prototype,
-        [_name$]: "PluralCase.FEW",
-        index: 3
-      });
+      return C3 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2], SpringTypeL());
     },
     get C4() {
       return C4 = dart.const({
-        __proto__: plural_rules.PluralCase.prototype,
-        [_name$]: "PluralCase.MANY",
-        index: 4
+        __proto__: tolerance.Tolerance.prototype,
+        [Tolerance_velocity]: 0.001,
+        [Tolerance_time]: 0.001,
+        [Tolerance_distance]: 0.001
       });
-    },
-    get C5() {
-      return C5 = dart.const({
-        __proto__: plural_rules.PluralCase.prototype,
-        [_name$]: "PluralCase.OTHER",
-        index: 5
-      });
-    },
-    get C6() {
-      return C6 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3, C4 || CT.C4, C5 || CT.C5], PluralCaseL());
-    },
-    get C7() {
-      return C7 = dart.fn(plural_rules._es_rule, VoidToPluralCaseL());
-    },
-    get C8() {
-      return C8 = dart.fn(plural_rules._hi_rule, VoidToPluralCaseL());
-    },
-    get C9() {
-      return C9 = dart.fn(plural_rules._ar_rule, VoidToPluralCaseL());
-    },
-    get C10() {
-      return C10 = dart.fn(plural_rules._be_rule, VoidToPluralCaseL());
-    },
-    get C11() {
-      return C11 = dart.fn(plural_rules._br_rule, VoidToPluralCaseL());
-    },
-    get C12() {
-      return C12 = dart.fn(plural_rules._sr_rule, VoidToPluralCaseL());
-    },
-    get C13() {
-      return C13 = dart.fn(plural_rules._en_rule, VoidToPluralCaseL());
-    },
-    get C14() {
-      return C14 = dart.fn(plural_rules._cs_rule, VoidToPluralCaseL());
-    },
-    get C15() {
-      return C15 = dart.fn(plural_rules._cy_rule, VoidToPluralCaseL());
-    },
-    get C16() {
-      return C16 = dart.fn(plural_rules._da_rule, VoidToPluralCaseL());
-    },
-    get C17() {
-      return C17 = dart.fn(plural_rules._fil_rule, VoidToPluralCaseL());
-    },
-    get C18() {
-      return C18 = dart.fn(plural_rules._fr_rule, VoidToPluralCaseL());
-    },
-    get C19() {
-      return C19 = dart.fn(plural_rules._ga_rule, VoidToPluralCaseL());
-    },
-    get C20() {
-      return C20 = dart.fn(plural_rules._he_rule, VoidToPluralCaseL());
-    },
-    get C21() {
-      return C21 = dart.fn(plural_rules._default_rule, VoidToPluralCaseL());
-    },
-    get C22() {
-      return C22 = dart.fn(plural_rules._is_rule, VoidToPluralCaseL());
-    },
-    get C23() {
-      return C23 = dart.fn(plural_rules._ak_rule, VoidToPluralCaseL());
-    },
-    get C24() {
-      return C24 = dart.fn(plural_rules._lt_rule, VoidToPluralCaseL());
-    },
-    get C25() {
-      return C25 = dart.fn(plural_rules._lv_rule, VoidToPluralCaseL());
-    },
-    get C26() {
-      return C26 = dart.fn(plural_rules._mk_rule, VoidToPluralCaseL());
-    },
-    get C27() {
-      return C27 = dart.fn(plural_rules._ro_rule, VoidToPluralCaseL());
-    },
-    get C28() {
-      return C28 = dart.fn(plural_rules._mt_rule, VoidToPluralCaseL());
-    },
-    get C29() {
-      return C29 = dart.fn(plural_rules._pl_rule, VoidToPluralCaseL());
-    },
-    get C30() {
-      return C30 = dart.fn(plural_rules._pt_rule, VoidToPluralCaseL());
-    },
-    get C31() {
-      return C31 = dart.fn(plural_rules._pt_PT_rule, VoidToPluralCaseL());
-    },
-    get C32() {
-      return C32 = dart.fn(plural_rules._ru_rule, VoidToPluralCaseL());
-    },
-    get C33() {
-      return C33 = dart.fn(plural_rules._si_rule, VoidToPluralCaseL());
-    },
-    get C34() {
-      return C34 = dart.fn(plural_rules._sl_rule, VoidToPluralCaseL());
     }
   }, false);
-  var _name$ = dart.privateName(plural_rules, "_name");
+  var mass$ = dart.privateName(spring_simulation, "SpringDescription.mass");
+  var stiffness$ = dart.privateName(spring_simulation, "SpringDescription.stiffness");
+  var damping$ = dart.privateName(spring_simulation, "SpringDescription.damping");
+  spring_simulation.SpringDescription = class SpringDescription extends core.Object {
+    get mass() {
+      return this[mass$];
+    }
+    set mass(value) {
+      super.mass = value;
+    }
+    get stiffness() {
+      return this[stiffness$];
+    }
+    set stiffness(value) {
+      super.stiffness = value;
+    }
+    get damping() {
+      return this[damping$];
+    }
+    set damping(value) {
+      super.damping = value;
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "SpringDescription")) + "(mass: " + this.mass[$toStringAsFixed](1) + ", stiffness: " + this.stiffness[$toStringAsFixed](1) + ", damping: " + this.damping[$toStringAsFixed](1) + ")";
+    }
+  };
+  (spring_simulation.SpringDescription.new = function(opts) {
+    let mass = opts && 'mass' in opts ? opts.mass : null;
+    if (mass == null) dart.nullFailed(L0, 21, 19, "mass");
+    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
+    if (stiffness == null) dart.nullFailed(L0, 22, 19, "stiffness");
+    let damping = opts && 'damping' in opts ? opts.damping : null;
+    if (damping == null) dart.nullFailed(L0, 23, 19, "damping");
+    this[mass$] = mass;
+    this[stiffness$] = stiffness;
+    this[damping$] = damping;
+    ;
+  }).prototype = spring_simulation.SpringDescription.prototype;
+  (spring_simulation.SpringDescription.withDampingRatio = function(opts) {
+    let mass = opts && 'mass' in opts ? opts.mass : null;
+    if (mass == null) dart.nullFailed(L0, 34, 19, "mass");
+    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
+    if (stiffness == null) dart.nullFailed(L0, 35, 19, "stiffness");
+    let ratio = opts && 'ratio' in opts ? opts.ratio : 1;
+    if (ratio == null) dart.nullFailed(L0, 36, 12, "ratio");
+    this[mass$] = mass;
+    this[stiffness$] = stiffness;
+    this[damping$] = dart.notNull(ratio) * 2.0 * math.sqrt(dart.notNull(mass) * dart.notNull(stiffness));
+    ;
+  }).prototype = spring_simulation.SpringDescription.prototype;
+  dart.addTypeTests(spring_simulation.SpringDescription);
+  dart.addTypeCaches(spring_simulation.SpringDescription);
+  dart.setLibraryUri(spring_simulation.SpringDescription, L1);
+  dart.setFieldSignature(spring_simulation.SpringDescription, () => ({
+    __proto__: dart.getFields(spring_simulation.SpringDescription.__proto__),
+    mass: dart.finalFieldType(core.double),
+    stiffness: dart.finalFieldType(core.double),
+    damping: dart.finalFieldType(core.double)
+  }));
+  dart.defineExtensionMethods(spring_simulation.SpringDescription, ['toString']);
+  var _name$ = dart.privateName(spring_simulation, "_name");
   var C0;
   var C1;
   var C2;
   var C3;
-  var C4;
-  var C5;
-  var C6;
-  plural_rules.PluralCase = class PluralCase extends core.Object {
+  spring_simulation.SpringType = class SpringType extends core.Object {
     toString() {
       return this[_name$];
     }
   };
-  (plural_rules.PluralCase.new = function(index, _name) {
+  (spring_simulation.SpringType.new = function(index, _name) {
+    if (index == null) dart.nullFailed(L0, 66, 6, "index");
+    if (_name == null) dart.nullFailed(L0, 66, 6, "_name");
     this.index = index;
     this[_name$] = _name;
     ;
-  }).prototype = plural_rules.PluralCase.prototype;
-  dart.addTypeTests(plural_rules.PluralCase);
-  dart.addTypeCaches(plural_rules.PluralCase);
-  dart.setMethodSignature(plural_rules.PluralCase, () => ({
-    __proto__: dart.getMethods(plural_rules.PluralCase.__proto__),
-    toString: dart.fnType(dart.legacy(core.String), []),
-    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }).prototype = spring_simulation.SpringType.prototype;
+  dart.addTypeTests(spring_simulation.SpringType);
+  dart.addTypeCaches(spring_simulation.SpringType);
+  dart.setLibraryUri(spring_simulation.SpringType, L1);
+  dart.setFieldSignature(spring_simulation.SpringType, () => ({
+    __proto__: dart.getFields(spring_simulation.SpringType.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.setLibraryUri(plural_rules.PluralCase, L0);
-  dart.setFieldSignature(plural_rules.PluralCase, () => ({
-    __proto__: dart.getFields(plural_rules.PluralCase.__proto__),
-    index: dart.finalFieldType(dart.legacy(core.int)),
-    [_name$]: dart.finalFieldType(dart.legacy(core.String))
+  dart.defineExtensionMethods(spring_simulation.SpringType, ['toString']);
+  spring_simulation.SpringType.criticallyDamped = C0 || CT.C0;
+  spring_simulation.SpringType.underDamped = C1 || CT.C1;
+  spring_simulation.SpringType.overDamped = C2 || CT.C2;
+  spring_simulation.SpringType.values = C3 || CT.C3;
+  var Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
+  var Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
+  var Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
+  var C4;
+  var _endPosition = dart.privateName(spring_simulation, "_endPosition");
+  var _solution = dart.privateName(spring_simulation, "_solution");
+  spring_simulation.SpringSimulation = class SpringSimulation extends simulation.Simulation {
+    get type() {
+      return this[_solution].type;
+    }
+    x(time) {
+      if (time == null) dart.nullFailed(L0, 112, 19, "time");
+      return dart.notNull(this[_endPosition]) + dart.notNull(this[_solution].x(time));
+    }
+    dx(time) {
+      if (time == null) dart.nullFailed(L0, 115, 20, "time");
+      return this[_solution].dx(time);
+    }
+    isDone(time) {
+      if (time == null) dart.nullFailed(L0, 118, 22, "time");
+      return dart.test(utils.nearZero(this[_solution].x(time), this.tolerance.distance)) && dart.test(utils.nearZero(this[_solution].dx(time), this.tolerance.velocity));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "SpringSimulation")) + "(end: " + dart.str(this[_endPosition]) + ", " + dart.str(this.type) + ")";
+    }
+  };
+  (spring_simulation.SpringSimulation.new = function(spring, start, end, velocity, opts) {
+    if (spring == null) dart.nullFailed(L0, 93, 23, "spring");
+    if (start == null) dart.nullFailed(L0, 94, 12, "start");
+    if (end == null) dart.nullFailed(L0, 95, 12, "end");
+    if (velocity == null) dart.nullFailed(L0, 96, 12, "velocity");
+    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C4 || CT.C4;
+    if (tolerance == null) dart.nullFailed(L0, 97, 15, "tolerance");
+    this[_endPosition] = end;
+    this[_solution] = spring_simulation._SpringSolution.new(spring, dart.notNull(start) - dart.notNull(end), velocity);
+    spring_simulation.SpringSimulation.__proto__.new.call(this, {tolerance: tolerance});
+    ;
+  }).prototype = spring_simulation.SpringSimulation.prototype;
+  dart.addTypeTests(spring_simulation.SpringSimulation);
+  dart.addTypeCaches(spring_simulation.SpringSimulation);
+  dart.setMethodSignature(spring_simulation.SpringSimulation, () => ({
+    __proto__: dart.getMethods(spring_simulation.SpringSimulation.__proto__),
+    x: dart.fnType(core.double, [core.double]),
+    dx: dart.fnType(core.double, [core.double]),
+    isDone: dart.fnType(core.bool, [core.double])
   }));
-  dart.defineExtensionMethods(plural_rules.PluralCase, ['toString']);
-  plural_rules.PluralCase.ZERO = C0 || CT.C0;
-  plural_rules.PluralCase.ONE = C1 || CT.C1;
-  plural_rules.PluralCase.TWO = C2 || CT.C2;
-  plural_rules.PluralCase.FEW = C3 || CT.C3;
-  plural_rules.PluralCase.MANY = C4 || CT.C4;
-  plural_rules.PluralCase.OTHER = C5 || CT.C5;
-  plural_rules.PluralCase.values = C6 || CT.C6;
-  plural_rules._default_rule = function _default_rule() {
-    return plural_rules.OTHER;
+  dart.setGetterSignature(spring_simulation.SpringSimulation, () => ({
+    __proto__: dart.getGetters(spring_simulation.SpringSimulation.__proto__),
+    type: spring_simulation.SpringType
+  }));
+  dart.setLibraryUri(spring_simulation.SpringSimulation, L1);
+  dart.setFieldSignature(spring_simulation.SpringSimulation, () => ({
+    __proto__: dart.getFields(spring_simulation.SpringSimulation.__proto__),
+    [_endPosition]: dart.finalFieldType(core.double),
+    [_solution]: dart.finalFieldType(spring_simulation._SpringSolution)
+  }));
+  dart.defineExtensionMethods(spring_simulation.SpringSimulation, ['toString']);
+  spring_simulation.ScrollSpringSimulation = class ScrollSpringSimulation extends spring_simulation.SpringSimulation {
+    x(time) {
+      if (time == null) dart.nullFailed(L0, 144, 19, "time");
+      return dart.test(this.isDone(time)) ? this[_endPosition] : super.x(time);
+    }
   };
-  plural_rules.startRuleEvaluation = function startRuleEvaluation(howMany, precision = 0) {
-    plural_rules._n = howMany;
-    plural_rules._precision = precision;
-    plural_rules._i = plural_rules._n[$round]();
-    plural_rules._updateVF(plural_rules._n, plural_rules._precision);
-    plural_rules._updateWT(plural_rules._f, plural_rules._v);
+  (spring_simulation.ScrollSpringSimulation.new = function(spring, start, end, velocity, opts) {
+    if (spring == null) dart.nullFailed(L0, 136, 23, "spring");
+    if (start == null) dart.nullFailed(L0, 137, 12, "start");
+    if (end == null) dart.nullFailed(L0, 138, 12, "end");
+    if (velocity == null) dart.nullFailed(L0, 139, 12, "velocity");
+    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C4 || CT.C4;
+    if (tolerance == null) dart.nullFailed(L0, 140, 15, "tolerance");
+    spring_simulation.ScrollSpringSimulation.__proto__.new.call(this, spring, start, end, velocity, {tolerance: tolerance});
+    ;
+  }).prototype = spring_simulation.ScrollSpringSimulation.prototype;
+  dart.addTypeTests(spring_simulation.ScrollSpringSimulation);
+  dart.addTypeCaches(spring_simulation.ScrollSpringSimulation);
+  dart.setLibraryUri(spring_simulation.ScrollSpringSimulation, L1);
+  spring_simulation._SpringSolution = class _SpringSolution extends core.Object {
+    static new(spring, initialPosition, initialVelocity) {
+      if (spring == null) dart.nullFailed(L0, 152, 23, "spring");
+      if (initialPosition == null) dart.nullFailed(L0, 153, 12, "initialPosition");
+      if (initialVelocity == null) dart.nullFailed(L0, 154, 12, "initialVelocity");
+      if (!(spring != null)) dart.assertFailed(null, L0, 156, 12, "spring != null");
+      if (!(spring.mass != null)) dart.assertFailed(null, L0, 157, 12, "spring.mass != null");
+      if (!(spring.stiffness != null)) dart.assertFailed(null, L0, 158, 12, "spring.stiffness != null");
+      if (!(spring.damping != null)) dart.assertFailed(null, L0, 159, 12, "spring.damping != null");
+      if (!(initialPosition != null)) dart.assertFailed(null, L0, 160, 12, "initialPosition != null");
+      if (!(initialVelocity != null)) dart.assertFailed(null, L0, 161, 12, "initialVelocity != null");
+      let cmk = dart.notNull(spring.damping) * dart.notNull(spring.damping) - 4 * dart.notNull(spring.mass) * dart.notNull(spring.stiffness);
+      if (cmk === 0.0) return spring_simulation._CriticalSolution.new(spring, initialPosition, initialVelocity);
+      if (cmk > 0.0) return spring_simulation._OverdampedSolution.new(spring, initialPosition, initialVelocity);
+      return spring_simulation._UnderdampedSolution.new(spring, initialPosition, initialVelocity);
+    }
   };
-  plural_rules._decimals = function _decimals(n, precision) {
-    let str = plural_rules._precision == null ? dart.str(n) : n[$toStringAsFixed](precision);
-    let result = str[$indexOf](".");
-    return result === -1 ? 0 : str.length - result - 1;
+  (spring_simulation._SpringSolution[dart.mixinNew] = function() {
+  }).prototype = spring_simulation._SpringSolution.prototype;
+  dart.addTypeTests(spring_simulation._SpringSolution);
+  dart.addTypeCaches(spring_simulation._SpringSolution);
+  dart.setLibraryUri(spring_simulation._SpringSolution, L1);
+  var _r = dart.privateName(spring_simulation, "_r");
+  var _c1 = dart.privateName(spring_simulation, "_c1");
+  var _c2 = dart.privateName(spring_simulation, "_c2");
+  spring_simulation._CriticalSolution = class _CriticalSolution extends core.Object {
+    static new(spring, distance, velocity) {
+      if (spring == null) dart.nullFailed(L0, 177, 23, "spring");
+      if (distance == null) dart.nullFailed(L0, 178, 12, "distance");
+      if (velocity == null) dart.nullFailed(L0, 179, 12, "velocity");
+      let r = -dart.notNull(spring.damping) / (2.0 * dart.notNull(spring.mass));
+      let c1 = distance;
+      let c2 = dart.notNull(velocity) / (r * dart.notNull(distance));
+      return new spring_simulation._CriticalSolution.withArgs(r, c1, c2);
+    }
+    x(time) {
+      if (time == null) dart.nullFailed(L0, 195, 19, "time");
+      return (dart.notNull(this[_c1]) + dart.notNull(this[_c2]) * dart.notNull(time)) * math.pow(2.718281828459045, dart.notNull(this[_r]) * dart.notNull(time));
+    }
+    dx(time) {
+      if (time == null) dart.nullFailed(L0, 200, 20, "time");
+      let power = math.pow(2.718281828459045, dart.notNull(this[_r]) * dart.notNull(time));
+      return dart.notNull(this[_r]) * (dart.notNull(this[_c1]) + dart.notNull(this[_c2]) * dart.notNull(time)) * power + dart.notNull(this[_c2]) * power;
+    }
+    get type() {
+      return spring_simulation.SpringType.criticallyDamped;
+    }
   };
-  plural_rules._updateVF = function _updateVF(n, precision) {
-    let t0;
-    let defaultDigits = 3;
-    plural_rules._v = (t0 = precision, t0 == null ? math.min(intL(), plural_rules._decimals(n, precision), defaultDigits) : t0);
-    let base = dart.asNullableInt(math.pow(10, plural_rules._v));
-    plural_rules._f = (dart.notNull(n) * base)[$floor]()[$modulo](base);
+  (spring_simulation._CriticalSolution.withArgs = function(r, c1, c2) {
+    if (r == null) dart.nullFailed(L0, 187, 37, "r");
+    if (c1 == null) dart.nullFailed(L0, 187, 47, "c1");
+    if (c2 == null) dart.nullFailed(L0, 187, 58, "c2");
+    this[_r] = r;
+    this[_c1] = c1;
+    this[_c2] = c2;
+    ;
+  }).prototype = spring_simulation._CriticalSolution.prototype;
+  dart.addTypeTests(spring_simulation._CriticalSolution);
+  dart.addTypeCaches(spring_simulation._CriticalSolution);
+  spring_simulation._CriticalSolution[dart.implements] = () => [spring_simulation._SpringSolution];
+  dart.setMethodSignature(spring_simulation._CriticalSolution, () => ({
+    __proto__: dart.getMethods(spring_simulation._CriticalSolution.__proto__),
+    x: dart.fnType(core.double, [core.double]),
+    dx: dart.fnType(core.double, [core.double])
+  }));
+  dart.setGetterSignature(spring_simulation._CriticalSolution, () => ({
+    __proto__: dart.getGetters(spring_simulation._CriticalSolution.__proto__),
+    type: spring_simulation.SpringType
+  }));
+  dart.setLibraryUri(spring_simulation._CriticalSolution, L1);
+  dart.setFieldSignature(spring_simulation._CriticalSolution, () => ({
+    __proto__: dart.getFields(spring_simulation._CriticalSolution.__proto__),
+    [_r]: dart.finalFieldType(core.double),
+    [_c1]: dart.finalFieldType(core.double),
+    [_c2]: dart.finalFieldType(core.double)
+  }));
+  var _r1 = dart.privateName(spring_simulation, "_r1");
+  var _r2 = dart.privateName(spring_simulation, "_r2");
+  spring_simulation._OverdampedSolution = class _OverdampedSolution extends core.Object {
+    static new(spring, distance, velocity) {
+      if (spring == null) dart.nullFailed(L0, 211, 23, "spring");
+      if (distance == null) dart.nullFailed(L0, 212, 12, "distance");
+      if (velocity == null) dart.nullFailed(L0, 213, 12, "velocity");
+      let cmk = dart.notNull(spring.damping) * dart.notNull(spring.damping) - 4 * dart.notNull(spring.mass) * dart.notNull(spring.stiffness);
+      let r1 = (-dart.notNull(spring.damping) - math.sqrt(cmk)) / (2.0 * dart.notNull(spring.mass));
+      let r2 = (-dart.notNull(spring.damping) + math.sqrt(cmk)) / (2.0 * dart.notNull(spring.mass));
+      let c2 = (dart.notNull(velocity) - r1 * dart.notNull(distance)) / (r2 - r1);
+      let c1 = dart.notNull(distance) - c2;
+      return new spring_simulation._OverdampedSolution.withArgs(r1, r2, c1, c2);
+    }
+    x(time) {
+      if (time == null) dart.nullFailed(L0, 232, 19, "time");
+      return dart.notNull(this[_c1]) * math.pow(2.718281828459045, dart.notNull(this[_r1]) * dart.notNull(time)) + dart.notNull(this[_c2]) * math.pow(2.718281828459045, dart.notNull(this[_r2]) * dart.notNull(time));
+    }
+    dx(time) {
+      if (time == null) dart.nullFailed(L0, 238, 20, "time");
+      return dart.notNull(this[_c1]) * dart.notNull(this[_r1]) * math.pow(2.718281828459045, dart.notNull(this[_r1]) * dart.notNull(time)) + dart.notNull(this[_c2]) * dart.notNull(this[_r2]) * math.pow(2.718281828459045, dart.notNull(this[_r2]) * dart.notNull(time));
+    }
+    get type() {
+      return spring_simulation.SpringType.overDamped;
+    }
   };
-  plural_rules._updateWT = function _updateWT(v, f) {
-    if (f === 0) {
-      plural_rules._t = 0;
-      return;
+  (spring_simulation._OverdampedSolution.withArgs = function(r1, r2, c1, c2) {
+    if (r1 == null) dart.nullFailed(L0, 223, 39, "r1");
+    if (r2 == null) dart.nullFailed(L0, 223, 50, "r2");
+    if (c1 == null) dart.nullFailed(L0, 223, 61, "c1");
+    if (c2 == null) dart.nullFailed(L0, 223, 72, "c2");
+    this[_r1] = r1;
+    this[_r2] = r2;
+    this[_c1] = c1;
+    this[_c2] = c2;
+    ;
+  }).prototype = spring_simulation._OverdampedSolution.prototype;
+  dart.addTypeTests(spring_simulation._OverdampedSolution);
+  dart.addTypeCaches(spring_simulation._OverdampedSolution);
+  spring_simulation._OverdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
+  dart.setMethodSignature(spring_simulation._OverdampedSolution, () => ({
+    __proto__: dart.getMethods(spring_simulation._OverdampedSolution.__proto__),
+    x: dart.fnType(core.double, [core.double]),
+    dx: dart.fnType(core.double, [core.double])
+  }));
+  dart.setGetterSignature(spring_simulation._OverdampedSolution, () => ({
+    __proto__: dart.getGetters(spring_simulation._OverdampedSolution.__proto__),
+    type: spring_simulation.SpringType
+  }));
+  dart.setLibraryUri(spring_simulation._OverdampedSolution, L1);
+  dart.setFieldSignature(spring_simulation._OverdampedSolution, () => ({
+    __proto__: dart.getFields(spring_simulation._OverdampedSolution.__proto__),
+    [_r1]: dart.finalFieldType(core.double),
+    [_r2]: dart.finalFieldType(core.double),
+    [_c1]: dart.finalFieldType(core.double),
+    [_c2]: dart.finalFieldType(core.double)
+  }));
+  var _w = dart.privateName(spring_simulation, "_w");
+  spring_simulation._UnderdampedSolution = class _UnderdampedSolution extends core.Object {
+    static new(spring, distance, velocity) {
+      if (spring == null) dart.nullFailed(L0, 249, 23, "spring");
+      if (distance == null) dart.nullFailed(L0, 250, 12, "distance");
+      if (velocity == null) dart.nullFailed(L0, 251, 12, "velocity");
+      let w = math.sqrt(4.0 * dart.notNull(spring.mass) * dart.notNull(spring.stiffness) - dart.notNull(spring.damping) * dart.notNull(spring.damping)) / (2.0 * dart.notNull(spring.mass));
+      let r = -(dart.notNull(spring.damping) / 2.0 * dart.notNull(spring.mass));
+      let c1 = distance;
+      let c2 = (dart.notNull(velocity) - r * dart.notNull(distance)) / w;
+      return new spring_simulation._UnderdampedSolution.withArgs(w, r, c1, c2);
     }
-    while (f[$modulo](10) === 0) {
-      f = (dart.notNull(f) / 10)[$floor]();
-      v = dart.notNull(v) - 1;
+    x(time) {
+      if (time == null) dart.nullFailed(L0, 270, 19, "time");
+      return math.pow(2.718281828459045, dart.notNull(this[_r]) * dart.notNull(time)) * (dart.notNull(this[_c1]) * math.cos(dart.notNull(this[_w]) * dart.notNull(time)) + dart.notNull(this[_c2]) * math.sin(dart.notNull(this[_w]) * dart.notNull(time)));
     }
-    plural_rules._t = f;
+    dx(time) {
+      if (time == null) dart.nullFailed(L0, 276, 20, "time");
+      let power = math.pow(2.718281828459045, dart.notNull(this[_r]) * dart.notNull(time));
+      let cosine = math.cos(dart.notNull(this[_w]) * dart.notNull(time));
+      let sine = math.sin(dart.notNull(this[_w]) * dart.notNull(time));
+      return power * (dart.notNull(this[_c2]) * dart.notNull(this[_w]) * cosine - dart.notNull(this[_c1]) * dart.notNull(this[_w]) * sine) + dart.notNull(this[_r]) * power * (dart.notNull(this[_c2]) * sine + dart.notNull(this[_c1]) * cosine);
+    }
+    get type() {
+      return spring_simulation.SpringType.underDamped;
+    }
   };
-  plural_rules._fil_rule = function _fil_rule() {
-    if (plural_rules._v === 0 && (plural_rules._i === 1 || plural_rules._i === 2 || plural_rules._i === 3) || plural_rules._v === 0 && plural_rules._i[$modulo](10) !== 4 && plural_rules._i[$modulo](10) !== 6 && plural_rules._i[$modulo](10) !== 9 || plural_rules._v !== 0 && plural_rules._f[$modulo](10) !== 4 && plural_rules._f[$modulo](10) !== 6 && plural_rules._f[$modulo](10) !== 9) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._pt_PT_rule = function _pt_PT_rule() {
-    if (plural_rules._n === 1 && plural_rules._v === 0) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._br_rule = function _br_rule() {
-    if (plural_rules._n[$modulo](10) === 1 && plural_rules._n[$modulo](100) !== 11 && plural_rules._n[$modulo](100) !== 71 && plural_rules._n[$modulo](100) !== 91) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._n[$modulo](10) === 2 && plural_rules._n[$modulo](100) !== 12 && plural_rules._n[$modulo](100) !== 72 && plural_rules._n[$modulo](100) !== 92) {
-      return plural_rules.TWO;
-    }
-    if ((plural_rules._n[$modulo](10) >= 3 && plural_rules._n[$modulo](10) <= 4 || plural_rules._n[$modulo](10) === 9) && (plural_rules._n[$modulo](100) < 10 || plural_rules._n[$modulo](100) > 19) && (plural_rules._n[$modulo](100) < 70 || plural_rules._n[$modulo](100) > 79) && (plural_rules._n[$modulo](100) < 90 || plural_rules._n[$modulo](100) > 99)) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._n !== 0 && plural_rules._n[$modulo](1000000) === 0) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._sr_rule = function _sr_rule() {
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](10) === 1 && plural_rules._i[$modulo](100) !== 11 || plural_rules._f[$modulo](10) === 1 && plural_rules._f[$modulo](100) !== 11) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](10) >= 2 && plural_rules._i[$modulo](10) <= 4 && (plural_rules._i[$modulo](100) < 12 || plural_rules._i[$modulo](100) > 14) || plural_rules._f[$modulo](10) >= 2 && plural_rules._f[$modulo](10) <= 4 && (plural_rules._f[$modulo](100) < 12 || plural_rules._f[$modulo](100) > 14)) {
-      return plural_rules.FEW;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._ro_rule = function _ro_rule() {
-    if (plural_rules._i === 1 && plural_rules._v === 0) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._v !== 0 || plural_rules._n === 0 || plural_rules._n !== 1 && plural_rules._n[$modulo](100) >= 1 && plural_rules._n[$modulo](100) <= 19) {
-      return plural_rules.FEW;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._hi_rule = function _hi_rule() {
-    if (plural_rules._i === 0 || plural_rules._n === 1) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._fr_rule = function _fr_rule() {
-    if (plural_rules._i === 0 || plural_rules._i === 1) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._cs_rule = function _cs_rule() {
-    if (plural_rules._i === 1 && plural_rules._v === 0) {
-      return plural_rules.ONE;
-    }
-    if (dart.notNull(plural_rules._i) >= 2 && dart.notNull(plural_rules._i) <= 4 && plural_rules._v === 0) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._v !== 0) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._pl_rule = function _pl_rule() {
-    if (plural_rules._i === 1 && plural_rules._v === 0) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](10) >= 2 && plural_rules._i[$modulo](10) <= 4 && (plural_rules._i[$modulo](100) < 12 || plural_rules._i[$modulo](100) > 14)) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._v === 0 && plural_rules._i !== 1 && plural_rules._i[$modulo](10) >= 0 && plural_rules._i[$modulo](10) <= 1 || plural_rules._v === 0 && plural_rules._i[$modulo](10) >= 5 && plural_rules._i[$modulo](10) <= 9 || plural_rules._v === 0 && plural_rules._i[$modulo](100) >= 12 && plural_rules._i[$modulo](100) <= 14) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._lv_rule = function _lv_rule() {
-    if (plural_rules._n[$modulo](10) === 0 || plural_rules._n[$modulo](100) >= 11 && plural_rules._n[$modulo](100) <= 19 || plural_rules._v === 2 && plural_rules._f[$modulo](100) >= 11 && plural_rules._f[$modulo](100) <= 19) {
-      return plural_rules.ZERO;
-    }
-    if (plural_rules._n[$modulo](10) === 1 && plural_rules._n[$modulo](100) !== 11 || plural_rules._v === 2 && plural_rules._f[$modulo](10) === 1 && plural_rules._f[$modulo](100) !== 11 || plural_rules._v !== 2 && plural_rules._f[$modulo](10) === 1) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._he_rule = function _he_rule() {
-    if (plural_rules._i === 1 && plural_rules._v === 0) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._i === 2 && plural_rules._v === 0) {
-      return plural_rules.TWO;
-    }
-    if (plural_rules._v === 0 && (dart.notNull(plural_rules._n) < 0 || dart.notNull(plural_rules._n) > 10) && plural_rules._n[$modulo](10) === 0) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._mt_rule = function _mt_rule() {
-    if (plural_rules._n === 1) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._n === 0 || plural_rules._n[$modulo](100) >= 2 && plural_rules._n[$modulo](100) <= 10) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._n[$modulo](100) >= 11 && plural_rules._n[$modulo](100) <= 19) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._si_rule = function _si_rule() {
-    if (plural_rules._n === 0 || plural_rules._n === 1 || plural_rules._i === 0 && plural_rules._f === 1) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._cy_rule = function _cy_rule() {
-    if (plural_rules._n === 0) {
-      return plural_rules.ZERO;
-    }
-    if (plural_rules._n === 1) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._n === 2) {
-      return plural_rules.TWO;
-    }
-    if (plural_rules._n === 3) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._n === 6) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._da_rule = function _da_rule() {
-    if (plural_rules._n === 1 || plural_rules._t !== 0 && (plural_rules._i === 0 || plural_rules._i === 1)) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._ru_rule = function _ru_rule() {
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](10) === 1 && plural_rules._i[$modulo](100) !== 11) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](10) >= 2 && plural_rules._i[$modulo](10) <= 4 && (plural_rules._i[$modulo](100) < 12 || plural_rules._i[$modulo](100) > 14)) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](10) === 0 || plural_rules._v === 0 && plural_rules._i[$modulo](10) >= 5 && plural_rules._i[$modulo](10) <= 9 || plural_rules._v === 0 && plural_rules._i[$modulo](100) >= 11 && plural_rules._i[$modulo](100) <= 14) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._be_rule = function _be_rule() {
-    if (plural_rules._n[$modulo](10) === 1 && plural_rules._n[$modulo](100) !== 11) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._n[$modulo](10) >= 2 && plural_rules._n[$modulo](10) <= 4 && (plural_rules._n[$modulo](100) < 12 || plural_rules._n[$modulo](100) > 14)) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._n[$modulo](10) === 0 || plural_rules._n[$modulo](10) >= 5 && plural_rules._n[$modulo](10) <= 9 || plural_rules._n[$modulo](100) >= 11 && plural_rules._n[$modulo](100) <= 14) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._mk_rule = function _mk_rule() {
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](10) === 1 || plural_rules._f[$modulo](10) === 1) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._ga_rule = function _ga_rule() {
-    if (plural_rules._n === 1) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._n === 2) {
-      return plural_rules.TWO;
-    }
-    if (dart.notNull(plural_rules._n) >= 3 && dart.notNull(plural_rules._n) <= 6) {
-      return plural_rules.FEW;
-    }
-    if (dart.notNull(plural_rules._n) >= 7 && dart.notNull(plural_rules._n) <= 10) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._pt_rule = function _pt_rule() {
-    if (dart.notNull(plural_rules._n) >= 0 && dart.notNull(plural_rules._n) <= 2 && plural_rules._n !== 2) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._es_rule = function _es_rule() {
-    if (plural_rules._n === 1) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._is_rule = function _is_rule() {
-    if (plural_rules._t === 0 && plural_rules._i[$modulo](10) === 1 && plural_rules._i[$modulo](100) !== 11 || plural_rules._t !== 0) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._ar_rule = function _ar_rule() {
-    if (plural_rules._n === 0) {
-      return plural_rules.ZERO;
-    }
-    if (plural_rules._n === 1) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._n === 2) {
-      return plural_rules.TWO;
-    }
-    if (plural_rules._n[$modulo](100) >= 3 && plural_rules._n[$modulo](100) <= 10) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._n[$modulo](100) >= 11 && plural_rules._n[$modulo](100) <= 99) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._sl_rule = function _sl_rule() {
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](100) === 1) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](100) === 2) {
-      return plural_rules.TWO;
-    }
-    if (plural_rules._v === 0 && plural_rules._i[$modulo](100) >= 3 && plural_rules._i[$modulo](100) <= 4 || plural_rules._v !== 0) {
-      return plural_rules.FEW;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._lt_rule = function _lt_rule() {
-    if (plural_rules._n[$modulo](10) === 1 && (plural_rules._n[$modulo](100) < 11 || plural_rules._n[$modulo](100) > 19)) {
-      return plural_rules.ONE;
-    }
-    if (plural_rules._n[$modulo](10) >= 2 && plural_rules._n[$modulo](10) <= 9 && (plural_rules._n[$modulo](100) < 11 || plural_rules._n[$modulo](100) > 19)) {
-      return plural_rules.FEW;
-    }
-    if (plural_rules._f !== 0) {
-      return plural_rules.MANY;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._en_rule = function _en_rule() {
-    if (plural_rules._i === 1 && plural_rules._v === 0) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules._ak_rule = function _ak_rule() {
-    if (dart.notNull(plural_rules._n) >= 0 && dart.notNull(plural_rules._n) <= 1) {
-      return plural_rules.ONE;
-    }
-    return plural_rules.OTHER;
-  };
-  plural_rules.localeHasPluralRules = function localeHasPluralRules(locale) {
-    return plural_rules.pluralRules[$containsKey](locale);
-  };
-  dart.copyProperties(plural_rules, {
-    get ZERO() {
-      return plural_rules.PluralCase.ZERO;
-    },
-    get ONE() {
-      return plural_rules.PluralCase.ONE;
-    },
-    get TWO() {
-      return plural_rules.PluralCase.TWO;
-    },
-    get FEW() {
-      return plural_rules.PluralCase.FEW;
-    },
-    get MANY() {
-      return plural_rules.PluralCase.MANY;
-    },
-    get OTHER() {
-      return plural_rules.PluralCase.OTHER;
-    }
-  });
-  var C7;
-  var C8;
-  var C9;
-  var C10;
-  var C11;
-  var C12;
-  var C13;
-  var C14;
-  var C15;
-  var C16;
-  var C17;
-  var C18;
-  var C19;
-  var C20;
-  var C21;
-  var C22;
-  var C23;
-  var C24;
-  var C25;
-  var C26;
-  var C27;
-  var C28;
-  var C29;
-  var C30;
-  var C31;
-  var C32;
-  var C33;
-  var C34;
-  dart.defineLazy(plural_rules, {
-    /*plural_rules._n*/get _n() {
-      return null;
-    },
-    set _n(_) {},
-    /*plural_rules._i*/get _i() {
-      return null;
-    },
-    set _i(_) {},
-    /*plural_rules._precision*/get _precision() {
-      return null;
-    },
-    set _precision(_) {},
-    /*plural_rules._v*/get _v() {
-      return 0;
-    },
-    set _v(_) {},
-    /*plural_rules._f*/get _f() {
-      return 0;
-    },
-    set _f(_) {},
-    /*plural_rules._t*/get _t() {
-      return 0;
-    },
-    set _t(_) {},
-    /*plural_rules.pluralRules*/get pluralRules() {
-      return new _js_helper.LinkedMap.from(["af", C7 || CT.C7, "am", C8 || CT.C8, "ar", C9 || CT.C9, "az", C7 || CT.C7, "be", C10 || CT.C10, "bg", C7 || CT.C7, "bn", C8 || CT.C8, "br", C11 || CT.C11, "bs", C12 || CT.C12, "ca", C13 || CT.C13, "chr", C7 || CT.C7, "cs", C14 || CT.C14, "cy", C15 || CT.C15, "da", C16 || CT.C16, "de", C13 || CT.C13, "de_AT", C13 || CT.C13, "de_CH", C13 || CT.C13, "el", C7 || CT.C7, "en", C13 || CT.C13, "en_AU", C13 || CT.C13, "en_CA", C13 || CT.C13, "en_GB", C13 || CT.C13, "en_IE", C13 || CT.C13, "en_IN", C13 || CT.C13, "en_SG", C13 || CT.C13, "en_US", C13 || CT.C13, "en_ZA", C13 || CT.C13, "es", C7 || CT.C7, "es_419", C7 || CT.C7, "es_ES", C7 || CT.C7, "es_MX", C7 || CT.C7, "es_US", C7 || CT.C7, "et", C13 || CT.C13, "eu", C7 || CT.C7, "fa", C8 || CT.C8, "fi", C13 || CT.C13, "fil", C17 || CT.C17, "fr", C18 || CT.C18, "fr_CA", C18 || CT.C18, "ga", C19 || CT.C19, "gl", C13 || CT.C13, "gsw", C7 || CT.C7, "gu", C8 || CT.C8, "haw", C7 || CT.C7, "he", C20 || CT.C20, "hi", C8 || CT.C8, "hr", C12 || CT.C12, "hu", C7 || CT.C7, "hy", C18 || CT.C18, "id", C21 || CT.C21, "in", C21 || CT.C21, "is", C22 || CT.C22, "it", C13 || CT.C13, "iw", C20 || CT.C20, "ja", C21 || CT.C21, "ka", C7 || CT.C7, "kk", C7 || CT.C7, "km", C21 || CT.C21, "kn", C8 || CT.C8, "ko", C21 || CT.C21, "ky", C7 || CT.C7, "ln", C23 || CT.C23, "lo", C21 || CT.C21, "lt", C24 || CT.C24, "lv", C25 || CT.C25, "mk", C26 || CT.C26, "ml", C7 || CT.C7, "mn", C7 || CT.C7, "mo", C27 || CT.C27, "mr", C8 || CT.C8, "ms", C21 || CT.C21, "mt", C28 || CT.C28, "my", C21 || CT.C21, "nb", C7 || CT.C7, "ne", C7 || CT.C7, "nl", C13 || CT.C13, "no", C7 || CT.C7, "no_NO", C7 || CT.C7, "or", C7 || CT.C7, "pa", C23 || CT.C23, "pl", C29 || CT.C29, "pt", C30 || CT.C30, "pt_BR", C30 || CT.C30, "pt_PT", C31 || CT.C31, "ro", C27 || CT.C27, "ru", C32 || CT.C32, "sh", C12 || CT.C12, "si", C33 || CT.C33, "sk", C14 || CT.C14, "sl", C34 || CT.C34, "sq", C7 || CT.C7, "sr", C12 || CT.C12, "sr_Latn", C12 || CT.C12, "sv", C13 || CT.C13, "sw", C13 || CT.C13, "ta", C7 || CT.C7, "te", C7 || CT.C7, "th", C21 || CT.C21, "tl", C17 || CT.C17, "tr", C7 || CT.C7, "uk", C32 || CT.C32, "ur", C13 || CT.C13, "uz", C7 || CT.C7, "vi", C21 || CT.C21, "zh", C21 || CT.C21, "zh_CN", C21 || CT.C21, "zh_HK", C21 || CT.C21, "zh_TW", C21 || CT.C21, "zu", C8 || CT.C8, "default", C21 || CT.C21]);
-    }
-  }, true);
-  dart.trackLibraries("packages/intl/src/plural_rules.dart", {
-    "package:intl/src/plural_rules.dart": plural_rules
+  (spring_simulation._UnderdampedSolution.withArgs = function(w, r, c1, c2) {
+    if (w == null) dart.nullFailed(L0, 261, 40, "w");
+    if (r == null) dart.nullFailed(L0, 261, 50, "r");
+    if (c1 == null) dart.nullFailed(L0, 261, 60, "c1");
+    if (c2 == null) dart.nullFailed(L0, 261, 71, "c2");
+    this[_w] = w;
+    this[_r] = r;
+    this[_c1] = c1;
+    this[_c2] = c2;
+    ;
+  }).prototype = spring_simulation._UnderdampedSolution.prototype;
+  dart.addTypeTests(spring_simulation._UnderdampedSolution);
+  dart.addTypeCaches(spring_simulation._UnderdampedSolution);
+  spring_simulation._UnderdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
+  dart.setMethodSignature(spring_simulation._UnderdampedSolution, () => ({
+    __proto__: dart.getMethods(spring_simulation._UnderdampedSolution.__proto__),
+    x: dart.fnType(core.double, [core.double]),
+    dx: dart.fnType(core.double, [core.double])
+  }));
+  dart.setGetterSignature(spring_simulation._UnderdampedSolution, () => ({
+    __proto__: dart.getGetters(spring_simulation._UnderdampedSolution.__proto__),
+    type: spring_simulation.SpringType
+  }));
+  dart.setLibraryUri(spring_simulation._UnderdampedSolution, L1);
+  dart.setFieldSignature(spring_simulation._UnderdampedSolution, () => ({
+    __proto__: dart.getFields(spring_simulation._UnderdampedSolution.__proto__),
+    [_w]: dart.finalFieldType(core.double),
+    [_r]: dart.finalFieldType(core.double),
+    [_c1]: dart.finalFieldType(core.double),
+    [_c2]: dart.finalFieldType(core.double)
+  }));
+  dart.trackLibraries("packages/flutter/src/physics/spring_simulation.dart", {
+    "package:flutter/src/physics/spring_simulation.dart": spring_simulation
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["plural_rules.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA0BmD;;iDAA9C;;;;EAA8C;;;;;;;;;;;;;;;;;;;;;;;AAGrB;EAAK;kEAIN,SAAc;AAC7B,IAAZ,kBAAK,OAAO;AACU,IAAtB,0BAAa,SAAS;AACP,IAAf,kBAAK,AAAG;AACiB,IAAzB,uBAAU,iBAAI;AACG,IAAjB,uBAAU,iBAAI;EAChB;8CAsBkB,GAAO;AACnB,cAAM,AAAW,2BAAG,OAAY,SAAH,CAAC,IAAI,AAAE,CAAD,mBAAiB,SAAS;AAC7D,iBAAS,AAAI,GAAD,WAAS;AACzB,UAAQ,AAAO,OAAD,KAAI,CAAC,IAAK,IAAI,AAAI,AAAO,AAAS,GAAjB,UAAU,MAAM,GAAG;EACpD;8CAOmB,GAAO;;AACpB,wBAAgB;AAE8C,IAAlE,mBAAe,KAAV,SAAS,QAAT,OAAa,iBAAS,uBAAU,CAAC,EAAE,SAAS,GAAG,aAAa;AAE7D,kCAAO,SAAS,IAAI;AACM,IAA9B,kBAAgB,AAAQ,CAAhB,aAAF,CAAC,IAAG,IAAI,qBAAY,IAAI;EAChC;8CAQmB,GAAO;AACxB,QAAI,AAAE,CAAD,KAAI;AAED,MAAN,kBAAK;AACL;;AAGF,WAAQ,AAAE,AAAM,CAAP,UAAG,QAAO;AACG,MAApB,IAAa,CAAN,aAAF,CAAC,IAAG;AACN,MAAH,IAAC,aAAD,CAAC;;AAIG,IAAN,kBAAK,CAAC;EACR;;AA+BE,QAAI,AAAG,oBAAG,MAAM,AAAG,oBAAG,KAAK,AAAG,oBAAG,KAAK,AAAG,oBAAG,MACxC,AAAG,oBAAG,KAAK,AAAG,yBAAE,QAAM,KAAK,AAAG,yBAAE,QAAM,KAAK,AAAG,yBAAE,QAAM,KACtD,oBAAM,KAAK,AAAG,yBAAE,QAAM,KAAK,AAAG,yBAAE,QAAM,KAAK,AAAG,yBAAE,QAAM;AACxD,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO,MAAM,AAAG,yBAAE,SAAO,MAAM,AAAG,yBAAE,SAAO;AAClE,YAAO;;AAET,QAAI,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO,MAAM,AAAG,yBAAE,SAAO,MAAM,AAAG,yBAAE,SAAO;AAClE,YAAO;;AAET,SAAK,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,QAAM,OAC3C,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM,QAC5B,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM,QAC5B,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM;AAC/B,YAAO;;AAET,QAAI,oBAAM,KAAK,AAAG,AAAU,yBAAR,aAAW;AAC7B,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO,MACvC,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO;AAC9B,YAAO;;AAET,QAAI,AAAG,oBAAG,KACF,AAAG,AAAK,yBAAH,OAAM,KACX,AAAG,AAAK,yBAAH,OAAM,MACV,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM,OACjC,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM;AAC/D,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,QAAI,oBAAM,KAAK,AAAG,oBAAG,KAAK,oBAAM,KAAK,AAAG,AAAM,yBAAJ,QAAO,KAAK,AAAG,AAAM,yBAAJ,QAAO;AAChE,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,QAAO,aAAH,oBAAM,KAAQ,aAAH,oBAAM,KAAK,AAAG,oBAAG;AAC9B,YAAO;;AAET,QAAI,oBAAM;AACR,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,QAAI,AAAG,oBAAG,KACN,AAAG,AAAK,yBAAH,OAAM,KACX,AAAG,AAAK,yBAAH,OAAM,MACV,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM;AAC/B,YAAO;;AAET,QAAI,AAAG,oBAAG,KAAK,oBAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,KACjD,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,KACtC,AAAG,oBAAG,KAAK,AAAG,AAAM,yBAAJ,QAAO,MAAM,AAAG,AAAM,yBAAJ,QAAO;AAC3C,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,AAAK,yBAAH,QAAM,KACX,AAAG,AAAM,yBAAJ,QAAO,MAAM,AAAG,AAAM,yBAAJ,QAAO,MAC9B,AAAG,oBAAG,KAAK,AAAG,AAAM,yBAAJ,QAAO,MAAM,AAAG,AAAM,yBAAJ,QAAO;AAC3C,YAAO;;AAET,QAAI,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO,MAC5B,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO,MACvC,oBAAM,KAAK,AAAG,AAAK,yBAAH,QAAM;AACxB,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,QAAI,AAAG,oBAAG,MAAS,aAAH,mBAAK,KAAQ,aAAH,mBAAK,OAAO,AAAG,AAAK,yBAAH,QAAM;AAC/C,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAM,yBAAJ,QAAO,KAAK,AAAG,AAAM,yBAAJ,QAAO;AAC1C,YAAO;;AAET,QAAI,AAAG,AAAM,yBAAJ,QAAO,MAAM,AAAG,AAAM,yBAAJ,QAAO;AAChC,YAAO;;AAET,UAAO;EACT;;AAGE,QAAK,AAAG,oBAAG,KAAK,AAAG,oBAAG,KAAM,AAAG,oBAAG,KAAK,AAAG,oBAAG;AAC3C,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,oBAAM,MAAM,AAAG,oBAAG,KAAK,AAAG,oBAAG;AAC1C,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO;AACzC,YAAO;;AAET,QAAI,AAAG,oBAAG,KACN,AAAG,AAAK,yBAAH,OAAM,KACX,AAAG,AAAK,yBAAH,OAAM,MACV,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM;AAC/B,YAAO;;AAET,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,QAAM,KACtB,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,KACtC,AAAG,oBAAG,KAAK,AAAG,AAAM,yBAAJ,QAAO,MAAM,AAAG,AAAM,yBAAJ,QAAO;AAC3C,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO;AAC9B,YAAO;;AAET,QAAI,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM;AAC/D,YAAO;;AAET,QAAI,AAAG,AAAK,yBAAH,QAAM,KACX,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,KAC3B,AAAG,AAAM,yBAAJ,QAAO,MAAM,AAAG,AAAM,yBAAJ,QAAO;AAChC,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,AAAK,yBAAH,QAAM;AACxC,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAO,aAAH,oBAAM,KAAQ,aAAH,oBAAM;AACnB,YAAO;;AAET,QAAO,aAAH,oBAAM,KAAQ,aAAH,oBAAM;AACnB,YAAO;;AAET,UAAO;EACT;;AAGE,QAAO,aAAH,oBAAM,KAAQ,aAAH,oBAAM,KAAK,oBAAM;AAC9B,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAK,yBAAH,QAAM,KAAK,AAAG,yBAAE,SAAO,MAAM,oBAAM;AACrD,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,oBAAG;AACR,YAAO;;AAET,QAAI,AAAG,AAAM,yBAAJ,QAAO,KAAK,AAAG,AAAM,yBAAJ,QAAO;AAC/B,YAAO;;AAET,QAAI,AAAG,AAAM,yBAAJ,QAAO,MAAM,AAAG,AAAM,yBAAJ,QAAO;AAChC,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAM,yBAAJ,SAAO;AACzB,YAAO;;AAET,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAM,yBAAJ,SAAO;AACzB,YAAO;;AAET,QAAI,AAAG,oBAAG,KAAK,AAAG,AAAM,yBAAJ,QAAO,KAAK,AAAG,AAAM,yBAAJ,QAAO,KAAK,oBAAM;AACrD,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,AAAK,yBAAH,QAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM;AAC/C,YAAO;;AAET,QAAI,AAAG,AAAK,yBAAH,OAAM,KAAK,AAAG,AAAK,yBAAH,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM,MAAM,AAAG,AAAM,yBAAJ,OAAM;AAC/D,YAAO;;AAET,QAAI,oBAAM;AACR,YAAO;;AAET,UAAO;EACT;;AAGE,QAAI,AAAG,oBAAG,KAAK,AAAG,oBAAG;AACnB,YAAO;;AAET,UAAO;EACT;;AAGE,QAAO,aAAH,oBAAM,KAAQ,aAAH,oBAAM;AACnB,YAAO;;AAET,UAAO;EACT;oEAqHiC;AAAW,UAAA,AAAY,wCAAY,MAAM;EAAC;;;AApbpD,YAAW;IAAI;;AAChB,YAAW;IAAG;;AACd,YAAW;IAAG;;AACd,YAAW;IAAG;;AACb,YAAW;IAAI;;AACd,YAAW;IAAK;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAjFpC,eAAE;;;;MAGF,eAAE;;;;MACF,uBAAU;;;;MAoDV,eAAE;YAAG;;;MAML,eAAE;YAAG;;;MAGL,eAAE;YAAG;;;MA6UC,wBAAW;YAAG,gCACtB,mBACA,mBACA,mBACA,mBACA,qBACA,mBACA,mBACA,qBACA,qBACA,qBACA,oBACA,qBACA,qBACA,qBACA,qBACA,wBACA,wBACA,mBACA,qBACA,wBACA,wBACA,wBACA,wBACA,wBACA,wBACA,wBACA,wBACA,mBACA,uBACA,sBACA,sBACA,sBACA,qBACA,mBACA,mBACA,qBACA,sBACA,qBACA,wBACA,qBACA,qBACA,oBACA,mBACA,oBACA,qBACA,mBACA,qBACA,mBACA,qBACA,qBACA,qBACA,qBACA,qBACA,qBACA,qBACA,mBACA,mBACA,qBACA,mBACA,qBACA,mBACA,qBACA,qBACA,qBACA,qBACA,qBACA,mBACA,mBACA,qBACA,mBACA,qBACA,qBACA,qBACA,mBACA,mBACA,qBACA,mBACA,sBACA,mBACA,qBACA,qBACA,qBACA,wBACA,wBACA,qBACA,qBACA,qBACA,qBACA,qBACA,qBACA,mBACA,qBACA,0BACA,qBACA,qBACA,mBACA,mBACA,qBACA,qBACA,mBACA,qBACA,qBACA,mBACA,qBACA,qBACA,wBACA,wBACA,wBACA,mBACA","file":"../../../../../../../../../../packages/intl/src/plural_rules.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["spring_simulation.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/physics/spring_simulation.dart.lib.js"}');
   // Exports:
   return {
-    src__plural_rules: plural_rules
+    src__physics__spring_simulation: spring_simulation
   };
 }));
 
-//# sourceMappingURL=plural_rules.dart.lib.js.map
+//# sourceMappingURL=spring_simulation.dart.lib.js.map

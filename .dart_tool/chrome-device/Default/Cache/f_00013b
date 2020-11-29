@@ -1,702 +1,605 @@
-define(['dart_sdk', 'packages/pedantic/pedantic.dart', 'packages/http/src/byte_stream.dart', 'packages/http/src/exception.dart', 'packages/http/src/utils.dart', 'packages/http_parser/src/media_type.dart'], (function load__packages__http__src__browser_client_dart(dart_sdk, packages__pedantic__pedantic$46dart, packages__http__src__byte_stream$46dart, packages__http__src__exception$46dart, packages__http__src__utils$46dart, packages__http_parser__src__media_type$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/binding.dart', 'packages/flutter/src/gestures/events.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__multitap_dart(dart_sdk, packages__flutter__src__gestures__binding$46dart, packages__flutter__src__gestures__events$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__recognizer$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const collection = dart_sdk.collection;
-  const html = dart_sdk.html;
   const async = dart_sdk.async;
-  const typed_data = dart_sdk.typed_data;
-  const convert = dart_sdk.convert;
-  const _native_typed_data = dart_sdk._native_typed_data;
+  const ui = dart_sdk.ui;
   const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const pedantic = packages__pedantic__pedantic$46dart.pedantic;
-  const byte_stream = packages__http__src__byte_stream$46dart.src__byte_stream;
-  const exception = packages__http__src__exception$46dart.src__exception;
-  const utils = packages__http__src__utils$46dart.src__utils;
-  const media_type = packages__http_parser__src__media_type$46dart.src__media_type;
-  var browser_client = Object.create(dart.library);
-  var response$ = Object.create(dart.library);
-  var request$ = Object.create(dart.library);
-  var base_response = Object.create(dart.library);
-  var streamed_response = Object.create(dart.library);
-  var base_request = Object.create(dart.library);
-  var base_client = Object.create(dart.library);
-  var client$ = Object.create(dart.library);
-  var $forEach = dartx.forEach;
-  var $onLoad = dartx.onLoad;
-  var $response = dartx.response;
-  var $result = dartx.result;
-  var $length = dartx.length;
-  var $responseHeaders = dartx.responseHeaders;
-  var $onError = dartx.onError;
-  var $toString = dartx.toString;
-  var $addAll = dartx.addAll;
-  var $cast = dartx.cast;
-  var $_get = dartx._get;
-  var $containsKey = dartx.containsKey;
+  const binding = packages__flutter__src__gestures__binding$46dart.src__gestures__binding;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  var multitap = Object.create(dart.library);
   var $_set = dartx._set;
-  var $toLowerCase = dartx.toLowerCase;
-  var $hashCode = dartx.hashCode;
-  var HttpRequestL = () => (HttpRequestL = dart.constFn(dart.legacy(html.HttpRequest)))();
-  var LinkedHashSetOfHttpRequestL = () => (LinkedHashSetOfHttpRequestL = dart.constFn(collection.LinkedHashSet$(HttpRequestL())))();
-  var StreamedResponseL = () => (StreamedResponseL = dart.constFn(dart.legacy(streamed_response.StreamedResponse)))();
-  var CompleterOfStreamedResponseL = () => (CompleterOfStreamedResponseL = dart.constFn(async.Completer$(StreamedResponseL())))();
-  var BlobL = () => (BlobL = dart.constFn(dart.legacy(html.Blob)))();
-  var Uint8ListL = () => (Uint8ListL = dart.constFn(dart.legacy(typed_data.Uint8List)))();
-  var ProgressEventL = () => (ProgressEventL = dart.constFn(dart.legacy(html.ProgressEvent)))();
-  var ProgressEventLToNull = () => (ProgressEventLToNull = dart.constFn(dart.fnType(core.Null, [ProgressEventL()])))();
-  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
-  var ListL = () => (ListL = dart.constFn(dart.legacy(core.List)))();
-  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
-  var MapL = () => (MapL = dart.constFn(dart.legacy(core.Map)))();
-  var ResponseL = () => (ResponseL = dart.constFn(dart.legacy(response$.Response)))();
-  var IdentityMapOfStringL$StringL = () => (IdentityMapOfStringL$StringL = dart.constFn(_js_helper.IdentityMap$(StringL(), StringL())))();
-  var LinkedHashMapOfStringL$StringL = () => (LinkedHashMapOfStringL$StringL = dart.constFn(collection.LinkedHashMap$(StringL(), StringL())))();
-  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
-  var StringLAndStringLToboolL = () => (StringLAndStringLToboolL = dart.constFn(dart.fnType(boolL(), [StringL(), StringL()])))();
-  var StringLTointL = () => (StringLTointL = dart.constFn(dart.fnType(intL(), [StringL()])))();
-  var ListOfintL = () => (ListOfintL = dart.constFn(core.List$(intL())))();
-  var ListLOfintL = () => (ListLOfintL = dart.constFn(dart.legacy(ListOfintL())))();
-  var UriL = () => (UriL = dart.constFn(dart.legacy(core.Uri)))();
+  var $_get = dartx._get;
+  var $remove = dartx.remove;
+  var $isEmpty = dartx.isEmpty;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $values = dartx.values;
+  var $toList = dartx.toList;
+  var $forEach = dartx.forEach;
+  var $containsKey = dartx.containsKey;
+  var IdentityMapOfint$_TapTracker = () => (IdentityMapOfint$_TapTracker = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapTracker)))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  var IdentityMapOfint$_TapGesture = () => (IdentityMapOfint$_TapGesture = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapGesture)))();
+  var ListOf_TapGesture = () => (ListOf_TapGesture = dart.constFn(core.List$(multitap._TapGesture)))();
   const CT = Object.create(null);
-  var L6 = "package:http/src/streamed_response.dart";
-  var L0 = "package:http/src/base_client.dart";
-  var L1 = "package:http/src/browser_client.dart";
-  var L3 = "package:http/src/response.dart";
-  var L2 = "package:http/src/base_response.dart";
-  var L5 = "package:http/src/request.dart";
-  var L7 = "package:http/src/client.dart";
-  var L4 = "package:http/src/base_request.dart";
+  var L1 = "package:flutter/src/gestures/multitap.dart";
+  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/gestures/multitap.dart";
   dart.defineLazy(CT, {
     get C0() {
-      return C0 = dart.constMap(StringL(), StringL(), []);
-    }
-  }, false);
-  var _xhrs = dart.privateName(browser_client, "_xhrs");
-  var _sendUnstreamed = dart.privateName(base_client, "_sendUnstreamed");
-  var _checkResponseSuccess = dart.privateName(base_client, "_checkResponseSuccess");
-  base_client.BaseClient = class BaseClient extends core.Object {
-    head(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("HEAD", url, headers);
-    }
-    get(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("GET", url, headers);
-    }
-    post(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("POST", url, headers, body, encoding);
-    }
-    put(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PUT", url, headers, body, encoding);
-    }
-    patch(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PATCH", url, headers, body, encoding);
-    }
-    delete(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("DELETE", url, headers);
-    }
-    read(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(StringL(), (function* read() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.body;
-      }).bind(this));
-    }
-    readBytes(url, opts) {
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(Uint8ListL(), (function* readBytes() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.bodyBytes;
-      }).bind(this));
-    }
-    [_sendUnstreamed](method, url, headers, body = null, encoding = null) {
-      return async.async(ResponseL(), (function* _sendUnstreamed() {
-        let request = new request$.Request.new(method, base_client._fromUriOrString(url));
-        if (headers != null) request.headers[$addAll](headers);
-        if (encoding != null) request.encoding = encoding;
-        if (body != null) {
-          if (StringL().is(body)) {
-            request.body = body;
-          } else if (ListL().is(body)) {
-            request.bodyBytes = body[$cast](intL());
-          } else if (MapL().is(body)) {
-            request.bodyFields = body[$cast](StringL(), StringL());
-          } else {
-            dart.throw(new core.ArgumentError.new("Invalid request body \"" + dart.str(body) + "\"."));
-          }
-        }
-        return response$.Response.fromStream(yield this.send(request));
-      }).bind(this));
-    }
-    [_checkResponseSuccess](url, response) {
-      if (dart.notNull(response.statusCode) < 400) return;
-      let message = "Request to " + dart.str(url) + " failed with status " + dart.str(response.statusCode);
-      if (response.reasonPhrase != null) {
-        message = message + ": " + dart.str(response.reasonPhrase);
-      }
-      dart.throw(new exception.ClientException.new(message + ".", base_client._fromUriOrString(url)));
-    }
-    close() {
-    }
-  };
-  (base_client.BaseClient.new = function() {
-    ;
-  }).prototype = base_client.BaseClient.prototype;
-  dart.addTypeTests(base_client.BaseClient);
-  dart.addTypeCaches(base_client.BaseClient);
-  base_client.BaseClient[dart.implements] = () => [client$.Client];
-  dart.setMethodSignature(base_client.BaseClient, () => ({
-    __proto__: dart.getMethods(base_client.BaseClient.__proto__),
-    head: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    get: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    post: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {body: dart.dynamic, encoding: dart.legacy(convert.Encoding), headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    put: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {body: dart.dynamic, encoding: dart.legacy(convert.Encoding), headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    patch: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {body: dart.dynamic, encoding: dart.legacy(convert.Encoding), headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    delete: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    read: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.String))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    readBytes: dart.fnType(dart.legacy(async.Future$(dart.legacy(typed_data.Uint8List))), [dart.dynamic], {headers: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))}, {}),
-    [_sendUnstreamed]: dart.fnType(dart.legacy(async.Future$(dart.legacy(response$.Response))), [dart.legacy(core.String), dart.dynamic, dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))], [dart.dynamic, dart.legacy(convert.Encoding)]),
-    [_checkResponseSuccess]: dart.fnType(dart.void, [dart.dynamic, dart.legacy(response$.Response)]),
-    close: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(base_client.BaseClient, L0);
-  var withCredentials = dart.privateName(browser_client, "BrowserClient.withCredentials");
-  browser_client.BrowserClient = class BrowserClient extends base_client.BaseClient {
-    get withCredentials() {
-      return this[withCredentials];
-    }
-    set withCredentials(value) {
-      this[withCredentials] = value;
-    }
-    send(request) {
-      return async.async(StreamedResponseL(), (function* send() {
-        let t0;
-        let bytes = (yield request.finalize().toBytes());
-        let xhr = html.HttpRequest.new();
-        this[_xhrs].add(xhr);
-        t0 = xhr;
-        (() => {
-          t0.open(request.method, dart.str(request.url), {async: true});
-          t0.responseType = "blob";
-          t0.withCredentials = this.withCredentials;
-          return t0;
-        })();
-        request.headers[$forEach](dart.bind(xhr, 'setRequestHeader'));
-        let completer = CompleterOfStreamedResponseL().new();
-        pedantic.unawaited(xhr[$onLoad].first.then(dart.void, dart.fn(_ => {
-          let t0;
-          let blob = (t0 = BlobL().as(xhr[$response]), t0 == null ? html.Blob.new([]) : t0);
-          let reader = html.FileReader.new();
-          reader[$onLoad].first.then(core.Null, dart.fn(_ => {
-            let body = Uint8ListL().as(reader[$result]);
-            completer.complete(new streamed_response.StreamedResponse.new(byte_stream.ByteStream.fromBytes(body), xhr.status, {contentLength: body[$length], request: request, headers: xhr[$responseHeaders], reasonPhrase: xhr.statusText}));
-          }, ProgressEventLToNull()));
-          reader[$onError].first.then(core.Null, dart.fn(error => {
-            completer.completeError(new exception.ClientException.new(dart.toString(error), request.url), core.StackTrace.current);
-          }, ProgressEventLToNull()));
-          reader.readAsArrayBuffer(blob);
-        }, ProgressEventLToNull())));
-        pedantic.unawaited(xhr[$onError].first.then(dart.void, dart.fn(_ => {
-          completer.completeError(new exception.ClientException.new("XMLHttpRequest error.", request.url), core.StackTrace.current);
-        }, ProgressEventLToNull())));
-        xhr.send(bytes);
-        try {
-          return yield completer.future;
-        } finally {
-          this[_xhrs].remove(xhr);
-        }
-      }).bind(this));
-    }
-    close() {
-      for (let xhr of this[_xhrs]) {
-        xhr.abort();
-      }
-    }
-  };
-  (browser_client.BrowserClient.new = function() {
-    this[_xhrs] = LinkedHashSetOfHttpRequestL().new();
-    this[withCredentials] = false;
-    ;
-  }).prototype = browser_client.BrowserClient.prototype;
-  dart.addTypeTests(browser_client.BrowserClient);
-  dart.addTypeCaches(browser_client.BrowserClient);
-  dart.setMethodSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getMethods(browser_client.BrowserClient.__proto__),
-    send: dart.fnType(dart.legacy(async.Future$(dart.legacy(streamed_response.StreamedResponse))), [dart.legacy(base_request.BaseRequest)])
-  }));
-  dart.setLibraryUri(browser_client.BrowserClient, L1);
-  dart.setFieldSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getFields(browser_client.BrowserClient.__proto__),
-    [_xhrs]: dart.finalFieldType(dart.legacy(core.Set$(dart.legacy(html.HttpRequest)))),
-    withCredentials: dart.fieldType(dart.legacy(core.bool))
-  }));
-  browser_client.createClient = function createClient() {
-    return new browser_client.BrowserClient.new();
-  };
-  var C0;
-  var request$0 = dart.privateName(base_response, "BaseResponse.request");
-  var statusCode$ = dart.privateName(base_response, "BaseResponse.statusCode");
-  var reasonPhrase$ = dart.privateName(base_response, "BaseResponse.reasonPhrase");
-  var contentLength$ = dart.privateName(base_response, "BaseResponse.contentLength");
-  var headers$ = dart.privateName(base_response, "BaseResponse.headers");
-  var isRedirect$ = dart.privateName(base_response, "BaseResponse.isRedirect");
-  var persistentConnection$ = dart.privateName(base_response, "BaseResponse.persistentConnection");
-  base_response.BaseResponse = class BaseResponse extends core.Object {
-    get request() {
-      return this[request$0];
-    }
-    set request(value) {
-      super.request = value;
-    }
-    get statusCode() {
-      return this[statusCode$];
-    }
-    set statusCode(value) {
-      super.statusCode = value;
-    }
-    get reasonPhrase() {
-      return this[reasonPhrase$];
-    }
-    set reasonPhrase(value) {
-      super.reasonPhrase = value;
-    }
-    get contentLength() {
-      return this[contentLength$];
-    }
-    set contentLength(value) {
-      super.contentLength = value;
-    }
-    get headers() {
-      return this[headers$];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    get isRedirect() {
-      return this[isRedirect$];
-    }
-    set isRedirect(value) {
-      super.isRedirect = value;
-    }
-    get persistentConnection() {
-      return this[persistentConnection$];
-    }
-    set persistentConnection(value) {
-      super.persistentConnection = value;
-    }
-  };
-  (base_response.BaseResponse.new = function(statusCode, opts) {
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C0 || CT.C0;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[statusCode$] = statusCode;
-    this[contentLength$] = contentLength;
-    this[request$0] = request;
-    this[headers$] = headers;
-    this[isRedirect$] = isRedirect;
-    this[persistentConnection$] = persistentConnection;
-    this[reasonPhrase$] = reasonPhrase;
-    if (dart.notNull(this.statusCode) < 100) {
-      dart.throw(new core.ArgumentError.new("Invalid status code " + dart.str(this.statusCode) + "."));
-    } else if (this.contentLength != null && dart.notNull(this.contentLength) < 0) {
-      dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(this.contentLength) + "."));
-    }
-  }).prototype = base_response.BaseResponse.prototype;
-  dart.addTypeTests(base_response.BaseResponse);
-  dart.addTypeCaches(base_response.BaseResponse);
-  dart.setLibraryUri(base_response.BaseResponse, L2);
-  dart.setFieldSignature(base_response.BaseResponse, () => ({
-    __proto__: dart.getFields(base_response.BaseResponse.__proto__),
-    request: dart.finalFieldType(dart.legacy(base_request.BaseRequest)),
-    statusCode: dart.finalFieldType(dart.legacy(core.int)),
-    reasonPhrase: dart.finalFieldType(dart.legacy(core.String)),
-    contentLength: dart.finalFieldType(dart.legacy(core.int)),
-    headers: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))),
-    isRedirect: dart.finalFieldType(dart.legacy(core.bool)),
-    persistentConnection: dart.finalFieldType(dart.legacy(core.bool))
-  }));
-  var bodyBytes$ = dart.privateName(response$, "Response.bodyBytes");
-  response$.Response = class Response extends base_response.BaseResponse {
-    get bodyBytes() {
-      return this[bodyBytes$];
-    }
-    set bodyBytes(value) {
-      super.bodyBytes = value;
-    }
-    get body() {
-      return response$._encodingForHeaders(this.headers).decode(this.bodyBytes);
-    }
-    static fromStream(response) {
-      return async.async(ResponseL(), function* fromStream() {
-        let body = (yield response.stream.toBytes());
-        return new response$.Response.bytes(body, response.statusCode, {request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
+      return C0 = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 0
       });
     }
+  }, false);
+  var _timeout = dart.privateName(multitap, "_timeout");
+  var _onTimeout = dart.privateName(multitap, "_onTimeout");
+  multitap._CountdownZoned = class _CountdownZoned extends core.Object {
+    get timeout() {
+      return this[_timeout];
+    }
+    [_onTimeout]() {
+      this[_timeout] = true;
+    }
   };
-  (response$.Response.new = function(body, statusCode, opts) {
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C0 || CT.C0;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    response$.Response.bytes.call(this, response$._encodingForHeaders(headers).encode(body), statusCode, {request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-  }).prototype = response$.Response.prototype;
-  (response$.Response.bytes = function(bodyBytes, statusCode, opts) {
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C0 || CT.C0;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[bodyBytes$] = utils.toUint8List(bodyBytes);
-    response$.Response.__proto__.new.call(this, statusCode, {contentLength: bodyBytes[$length], request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-    ;
-  }).prototype = response$.Response.prototype;
-  dart.addTypeTests(response$.Response);
-  dart.addTypeCaches(response$.Response);
-  dart.setGetterSignature(response$.Response, () => ({
-    __proto__: dart.getGetters(response$.Response.__proto__),
-    body: dart.legacy(core.String)
+  (multitap._CountdownZoned.new = function(opts) {
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    if (duration == null) dart.nullFailed(L0, 43, 39, "duration");
+    this[_timeout] = false;
+    if (!(duration != null)) dart.assertFailed(null, L0, 44, 17, "duration != null");
+    async.Timer.new(duration, dart.bind(this, _onTimeout));
+  }).prototype = multitap._CountdownZoned.prototype;
+  dart.addTypeTests(multitap._CountdownZoned);
+  dart.addTypeCaches(multitap._CountdownZoned);
+  dart.setMethodSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getMethods(multitap._CountdownZoned.__proto__),
+    [_onTimeout]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(response$.Response, L3);
-  dart.setFieldSignature(response$.Response, () => ({
-    __proto__: dart.getFields(response$.Response.__proto__),
-    bodyBytes: dart.finalFieldType(dart.legacy(typed_data.Uint8List))
+  dart.setGetterSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getGetters(multitap._CountdownZoned.__proto__),
+    timeout: core.bool
   }));
-  response$._encodingForHeaders = function _encodingForHeaders(headers) {
-    return utils.encodingForCharset(response$._contentTypeForHeaders(headers).parameters[$_get]("charset"));
-  };
-  response$._contentTypeForHeaders = function _contentTypeForHeaders(headers) {
-    let contentType = headers[$_get]("content-type");
-    if (contentType != null) return media_type.MediaType.parse(contentType);
-    return new media_type.MediaType.new("application", "octet-stream");
-  };
-  var _defaultEncoding = dart.privateName(request$, "_defaultEncoding");
-  var _bodyBytes = dart.privateName(request$, "_bodyBytes");
-  var _contentType = dart.privateName(request$, "_contentType");
-  var _checkFinalized = dart.privateName(request$, "_checkFinalized");
-  var _contentLength = dart.privateName(base_request, "_contentLength");
-  var _persistentConnection = dart.privateName(base_request, "_persistentConnection");
-  var _followRedirects = dart.privateName(base_request, "_followRedirects");
-  var _maxRedirects = dart.privateName(base_request, "_maxRedirects");
-  var _finalized = dart.privateName(base_request, "_finalized");
-  var _checkFinalized$ = dart.privateName(base_request, "_checkFinalized");
-  var method$ = dart.privateName(base_request, "BaseRequest.method");
-  var url$ = dart.privateName(base_request, "BaseRequest.url");
-  var headers = dart.privateName(base_request, "BaseRequest.headers");
-  base_request.BaseRequest = class BaseRequest extends core.Object {
-    get method() {
-      return this[method$];
-    }
-    set method(value) {
-      super.method = value;
-    }
-    get url() {
-      return this[url$];
-    }
-    set url(value) {
-      super.url = value;
-    }
-    get headers() {
-      return this[headers];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    get contentLength() {
-      return this[_contentLength];
-    }
-    set contentLength(value) {
-      if (value != null && dart.notNull(value) < 0) {
-        dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(value) + "."));
+  dart.setLibraryUri(multitap._CountdownZoned, L1);
+  dart.setFieldSignature(multitap._CountdownZoned, () => ({
+    __proto__: dart.getFields(multitap._CountdownZoned.__proto__),
+    [_timeout]: dart.fieldType(core.bool)
+  }));
+  var _isTrackingPointer = dart.privateName(multitap, "_isTrackingPointer");
+  var _initialGlobalPosition = dart.privateName(multitap, "_initialGlobalPosition");
+  var _doubleTapMinTimeCountdown = dart.privateName(multitap, "_doubleTapMinTimeCountdown");
+  multitap._TapTracker = class _TapTracker extends core.Object {
+    startTrackingPointer(route, transform) {
+      if (route == null) dart.nullFailed(L0, 80, 42, "route");
+      if (!dart.test(this[_isTrackingPointer])) {
+        this[_isTrackingPointer] = true;
+        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.addRoute(this.pointer, route, transform);
       }
-      this[_checkFinalized$]();
-      this[_contentLength] = value;
     }
-    get persistentConnection() {
-      return this[_persistentConnection];
+    stopTrackingPointer(route) {
+      if (route == null) dart.nullFailed(L0, 87, 41, "route");
+      if (dart.test(this[_isTrackingPointer])) {
+        this[_isTrackingPointer] = false;
+        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.removeRoute(this.pointer, route);
+      }
     }
-    set persistentConnection(value) {
-      this[_checkFinalized$]();
-      this[_persistentConnection] = value;
+    isWithinGlobalTolerance(event, tolerance) {
+      if (event == null) dart.nullFailed(L0, 94, 45, "event");
+      if (tolerance == null) dart.nullFailed(L0, 94, 59, "tolerance");
+      let offset = event.position['-'](this[_initialGlobalPosition]);
+      return dart.notNull(offset.distance) <= dart.notNull(tolerance);
     }
-    get followRedirects() {
-      return this[_followRedirects];
+    hasElapsedMinTime() {
+      return this[_doubleTapMinTimeCountdown].timeout;
     }
-    set followRedirects(value) {
-      this[_checkFinalized$]();
-      this[_followRedirects] = value;
+    hasSameButton(event) {
+      if (event == null) dart.nullFailed(L0, 103, 39, "event");
+      return event.buttons == this.initialButtons;
     }
-    get maxRedirects() {
-      return this[_maxRedirects];
+  };
+  (multitap._TapTracker.new = function(opts) {
+    let event = opts && 'event' in opts ? opts.event : null;
+    if (event == null) dart.nullFailed(L0, 61, 31, "event");
+    let entry = opts && 'entry' in opts ? opts.entry : null;
+    if (entry == null) dart.nullFailed(L0, 62, 19, "entry");
+    let doubleTapMinTime = opts && 'doubleTapMinTime' in opts ? opts.doubleTapMinTime : null;
+    if (doubleTapMinTime == null) dart.nullFailed(L0, 63, 23, "doubleTapMinTime");
+    this[_isTrackingPointer] = false;
+    this.entry = entry;
+    if (!(doubleTapMinTime != null)) dart.assertFailed(null, L0, 64, 15, "doubleTapMinTime != null");
+    if (!(event != null)) dart.assertFailed(null, L0, 65, 15, "event != null");
+    if (!(event.buttons != null)) dart.assertFailed(null, L0, 66, 15, "event.buttons != null");
+    this.pointer = event.pointer;
+    this[_initialGlobalPosition] = event.position;
+    this.initialButtons = event.buttons;
+    this[_doubleTapMinTimeCountdown] = new multitap._CountdownZoned.new({duration: doubleTapMinTime});
+    ;
+  }).prototype = multitap._TapTracker.prototype;
+  dart.addTypeTests(multitap._TapTracker);
+  dart.addTypeCaches(multitap._TapTracker);
+  dart.setMethodSignature(multitap._TapTracker, () => ({
+    __proto__: dart.getMethods(multitap._TapTracker.__proto__),
+    startTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent]), dart.nullable(vector_math_64.Matrix4)]),
+    stopTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent])]),
+    isWithinGlobalTolerance: dart.fnType(core.bool, [events.PointerEvent, core.double]),
+    hasElapsedMinTime: dart.fnType(core.bool, []),
+    hasSameButton: dart.fnType(core.bool, [events.PointerDownEvent])
+  }));
+  dart.setLibraryUri(multitap._TapTracker, L1);
+  dart.setFieldSignature(multitap._TapTracker, () => ({
+    __proto__: dart.getFields(multitap._TapTracker.__proto__),
+    pointer: dart.finalFieldType(core.int),
+    entry: dart.finalFieldType(arena.GestureArenaEntry),
+    [_initialGlobalPosition]: dart.finalFieldType(ui.Offset),
+    initialButtons: dart.finalFieldType(core.int),
+    [_doubleTapMinTimeCountdown]: dart.finalFieldType(multitap._CountdownZoned),
+    [_isTrackingPointer]: dart.fieldType(core.bool)
+  }));
+  var _doubleTapTimer = dart.privateName(multitap, "_doubleTapTimer");
+  var _firstTap = dart.privateName(multitap, "_firstTap");
+  var _trackers = dart.privateName(multitap, "_trackers");
+  var _reset = dart.privateName(multitap, "_reset");
+  var _trackTap = dart.privateName(multitap, "_trackTap");
+  var _stopDoubleTapTimer = dart.privateName(multitap, "_stopDoubleTapTimer");
+  var _handleEvent = dart.privateName(multitap, "_handleEvent");
+  var _registerFirstTap = dart.privateName(multitap, "_registerFirstTap");
+  var _registerSecondTap = dart.privateName(multitap, "_registerSecondTap");
+  var _reject = dart.privateName(multitap, "_reject");
+  var _freezeTracker = dart.privateName(multitap, "_freezeTracker");
+  var _checkCancel = dart.privateName(multitap, "_checkCancel");
+  var _clearTrackers = dart.privateName(multitap, "_clearTrackers");
+  var _startDoubleTapTimer = dart.privateName(multitap, "_startDoubleTapTimer");
+  var _checkUp = dart.privateName(multitap, "_checkUp");
+  var onDoubleTapDown = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapDown");
+  var onDoubleTap = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTap");
+  var onDoubleTapCancel = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapCancel");
+  multitap.DoubleTapGestureRecognizer = class DoubleTapGestureRecognizer extends recognizer.GestureRecognizer {
+    get onDoubleTapDown() {
+      return this[onDoubleTapDown];
     }
-    set maxRedirects(value) {
-      this[_checkFinalized$]();
-      this[_maxRedirects] = value;
+    set onDoubleTapDown(value) {
+      this[onDoubleTapDown] = value;
     }
-    get finalized() {
-      return this[_finalized];
+    get onDoubleTap() {
+      return this[onDoubleTap];
     }
-    finalize() {
-      if (dart.test(this.finalized)) dart.throw(new core.StateError.new("Can't finalize a finalized Request."));
-      this[_finalized] = true;
-      return null;
+    set onDoubleTap(value) {
+      this[onDoubleTap] = value;
     }
-    send() {
-      return async.async(StreamedResponseL(), (function* send() {
-        let client = client$.Client.new();
-        try {
-          let response = (yield client.send(this));
-          let stream = utils.onDone(ListLOfintL(), response.stream, dart.bind(client, 'close'));
-          return new streamed_response.StreamedResponse.new(new byte_stream.ByteStream.new(stream), response.statusCode, {contentLength: response.contentLength, request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
-        } catch (e) {
-          let _ = dart.getThrown(e);
-          client.close();
-          dart.rethrow(e);
+    get onDoubleTapCancel() {
+      return this[onDoubleTapCancel];
+    }
+    set onDoubleTapCancel(value) {
+      this[onDoubleTapCancel] = value;
+    }
+    isPointerAllowed(event) {
+      if (event == null) dart.nullFailed(L0, 194, 42, "event");
+      if (this[_firstTap] == null) {
+        switch (event.buttons) {
+          case 1:
+          {
+            if (this.onDoubleTapDown == null && this.onDoubleTap == null && this.onDoubleTapCancel == null) return false;
+            break;
+          }
+          default:
+          {
+            return false;
+          }
         }
-      }).bind(this));
+      }
+      return super.isPointerAllowed(event);
     }
-    [_checkFinalized$]() {
-      if (!dart.test(this.finalized)) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
+    addAllowedPointer(event) {
+      if (event == null) dart.nullFailed(L0, 211, 43, "event");
+      if (this[_firstTap] != null) {
+        if (!dart.test(dart.nullCheck(this[_firstTap]).isWithinGlobalTolerance(event, 100))) {
+          return;
+        } else if (!dart.test(dart.nullCheck(this[_firstTap]).hasElapsedMinTime()) || !dart.test(dart.nullCheck(this[_firstTap]).hasSameButton(event))) {
+          this[_reset]();
+          return this[_trackTap](event);
+        } else if (this.onDoubleTapDown != null) {
+          let details = new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: this.getKindForPointer(event.pointer)});
+          this.invokeCallback(dart.void, "onDoubleTapDown", dart.fn(() => dart.nullCheck(this.onDoubleTapDown)(details), VoidTovoid()));
+        }
+      }
+      this[_trackTap](event);
     }
-    toString() {
-      return dart.str(this.method) + " " + dart.str(this.url);
+    [_trackTap](event) {
+      if (event == null) dart.nullFailed(L0, 233, 35, "event");
+      this[_stopDoubleTapTimer]();
+      let tracker = new multitap._TapTracker.new({event: event, entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, this), doubleTapMinTime: constants.kDoubleTapMinTime});
+      this[_trackers][$_set](event.pointer, tracker);
+      tracker.startTrackingPointer(dart.bind(this, _handleEvent), event.transform);
+    }
+    [_handleEvent](event) {
+      if (event == null) dart.nullFailed(L0, 244, 34, "event");
+      let tracker = dart.nullCheck(this[_trackers][$_get](event.pointer));
+      if (events.PointerUpEvent.is(event)) {
+        if (this[_firstTap] == null)
+          this[_registerFirstTap](tracker);
+        else
+          this[_registerSecondTap](tracker);
+      } else if (events.PointerMoveEvent.is(event)) {
+        if (!dart.test(tracker.isWithinGlobalTolerance(event, 18))) this[_reject](tracker);
+      } else if (events.PointerCancelEvent.is(event)) {
+        this[_reject](tracker);
+      }
+    }
+    acceptGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 260, 26, "pointer");
+    }
+    rejectGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 263, 26, "pointer");
+      let tracker = this[_trackers][$_get](pointer);
+      if (tracker == null && this[_firstTap] != null && dart.nullCheck(this[_firstTap]).pointer == pointer) tracker = this[_firstTap];
+      if (tracker != null) this[_reject](tracker);
+    }
+    [_reject](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 275, 28, "tracker");
+      this[_trackers][$remove](tracker.pointer);
+      tracker.entry.resolve(arena.GestureDisposition.rejected);
+      this[_freezeTracker](tracker);
+      if (this[_firstTap] != null) {
+        if (dart.equals(tracker, this[_firstTap])) {
+          this[_reset]();
+        } else {
+          this[_checkCancel]();
+          if (dart.test(this[_trackers][$isEmpty])) this[_reset]();
+        }
+      }
+    }
+    dispose() {
+      this[_reset]();
+      super.dispose();
+    }
+    [_reset]() {
+      this[_stopDoubleTapTimer]();
+      if (this[_firstTap] != null) {
+        if (dart.test(this[_trackers][$isNotEmpty])) this[_checkCancel]();
+        let tracker = dart.nullCheck(this[_firstTap]);
+        this[_firstTap] = null;
+        this[_reject](tracker);
+        dart.nullCheck(binding.GestureBinding.instance).gestureArena.release(tracker.pointer);
+      }
+      this[_clearTrackers]();
+    }
+    [_registerFirstTap](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 311, 38, "tracker");
+      this[_startDoubleTapTimer]();
+      dart.nullCheck(binding.GestureBinding.instance).gestureArena.hold(tracker.pointer);
+      this[_freezeTracker](tracker);
+      this[_trackers][$remove](tracker.pointer);
+      this[_clearTrackers]();
+      this[_firstTap] = tracker;
+    }
+    [_registerSecondTap](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 322, 39, "tracker");
+      dart.nullCheck(this[_firstTap]).entry.resolve(arena.GestureDisposition.accepted);
+      tracker.entry.resolve(arena.GestureDisposition.accepted);
+      this[_freezeTracker](tracker);
+      this[_trackers][$remove](tracker.pointer);
+      this[_checkUp](tracker.initialButtons);
+      this[_reset]();
+    }
+    [_clearTrackers]() {
+      this[_trackers][$values][$toList]()[$forEach](dart.bind(this, _reject));
+      if (!dart.test(this[_trackers][$isEmpty])) dart.assertFailed(null, L0, 333, 12, "_trackers.isEmpty");
+    }
+    [_freezeTracker](tracker) {
+      if (tracker == null) dart.nullFailed(L0, 336, 35, "tracker");
+      tracker.stopTrackingPointer(dart.bind(this, _handleEvent));
+    }
+    [_startDoubleTapTimer]() {
+      this[_doubleTapTimer] == null ? this[_doubleTapTimer] = async.Timer.new(constants.kDoubleTapTimeout, dart.bind(this, _reset)) : null;
+    }
+    [_stopDoubleTapTimer]() {
+      if (this[_doubleTapTimer] != null) {
+        dart.nullCheck(this[_doubleTapTimer]).cancel();
+        this[_doubleTapTimer] = null;
+      }
+    }
+    [_checkUp](buttons) {
+      if (buttons == null) dart.nullFailed(L0, 351, 21, "buttons");
+      if (!(buttons === 1)) dart.assertFailed(null, L0, 352, 12, "buttons == kPrimaryButton");
+      if (this.onDoubleTap != null) this.invokeCallback(dart.void, "onDoubleTap", dart.nullCheck(this.onDoubleTap));
+    }
+    [_checkCancel]() {
+      if (this.onDoubleTapCancel != null) this.invokeCallback(dart.void, "onDoubleTapCancel", dart.nullCheck(this.onDoubleTapCancel));
+    }
+    get debugDescription() {
+      return "double tap";
     }
   };
-  (base_request.BaseRequest.new = function(method, url) {
-    this[_contentLength] = null;
-    this[_persistentConnection] = true;
-    this[_followRedirects] = true;
-    this[_maxRedirects] = 5;
-    this[_finalized] = false;
-    this[method$] = method;
-    this[url$] = url;
-    this[headers] = LinkedHashMapOfStringL$StringL().new({equals: dart.fn((key1, key2) => key1[$toLowerCase]() === key2[$toLowerCase](), StringLAndStringLToboolL()), hashCode: dart.fn(key => key[$toLowerCase]()[$hashCode], StringLTointL())});
+  (multitap.DoubleTapGestureRecognizer.new = function(opts) {
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onDoubleTapDown] = null;
+    this[onDoubleTap] = null;
+    this[onDoubleTapCancel] = null;
+    this[_doubleTapTimer] = null;
+    this[_firstTap] = null;
+    this[_trackers] = new (IdentityMapOfint$_TapTracker()).new();
+    multitap.DoubleTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
     ;
-  }).prototype = base_request.BaseRequest.prototype;
-  dart.addTypeTests(base_request.BaseRequest);
-  dart.addTypeCaches(base_request.BaseRequest);
-  dart.setMethodSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getMethods(base_request.BaseRequest.__proto__),
-    finalize: dart.fnType(dart.legacy(byte_stream.ByteStream), []),
-    send: dart.fnType(dart.legacy(async.Future$(dart.legacy(streamed_response.StreamedResponse))), []),
-    [_checkFinalized$]: dart.fnType(dart.void, []),
-    toString: dart.fnType(dart.legacy(core.String), []),
-    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }).prototype = multitap.DoubleTapGestureRecognizer.prototype;
+  dart.addTypeTests(multitap.DoubleTapGestureRecognizer);
+  dart.addTypeCaches(multitap.DoubleTapGestureRecognizer);
+  dart.setMethodSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(multitap.DoubleTapGestureRecognizer.__proto__),
+    [_trackTap]: dart.fnType(dart.void, [events.PointerDownEvent]),
+    [_handleEvent]: dart.fnType(dart.void, [events.PointerEvent]),
+    acceptGesture: dart.fnType(dart.void, [core.int]),
+    rejectGesture: dart.fnType(dart.void, [core.int]),
+    [_reject]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_reset]: dart.fnType(dart.void, []),
+    [_registerFirstTap]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_registerSecondTap]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_clearTrackers]: dart.fnType(dart.void, []),
+    [_freezeTracker]: dart.fnType(dart.void, [multitap._TapTracker]),
+    [_startDoubleTapTimer]: dart.fnType(dart.void, []),
+    [_stopDoubleTapTimer]: dart.fnType(dart.void, []),
+    [_checkUp]: dart.fnType(dart.void, [core.int]),
+    [_checkCancel]: dart.fnType(dart.void, [])
   }));
-  dart.setGetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getGetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.legacy(core.int),
-    persistentConnection: dart.legacy(core.bool),
-    followRedirects: dart.legacy(core.bool),
-    maxRedirects: dart.legacy(core.int),
-    finalized: dart.legacy(core.bool)
+  dart.setGetterSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(multitap.DoubleTapGestureRecognizer.__proto__),
+    debugDescription: core.String
   }));
-  dart.setSetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getSetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.legacy(core.int),
-    persistentConnection: dart.legacy(core.bool),
-    followRedirects: dart.legacy(core.bool),
-    maxRedirects: dart.legacy(core.int)
+  dart.setLibraryUri(multitap.DoubleTapGestureRecognizer, L1);
+  dart.setFieldSignature(multitap.DoubleTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(multitap.DoubleTapGestureRecognizer.__proto__),
+    onDoubleTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
+    onDoubleTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onDoubleTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    [_doubleTapTimer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_firstTap]: dart.fieldType(dart.nullable(multitap._TapTracker)),
+    [_trackers]: dart.finalFieldType(core.Map$(core.int, multitap._TapTracker))
   }));
-  dart.setLibraryUri(base_request.BaseRequest, L4);
-  dart.setFieldSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getFields(base_request.BaseRequest.__proto__),
-    method: dart.finalFieldType(dart.legacy(core.String)),
-    url: dart.finalFieldType(dart.legacy(core.Uri)),
-    [_contentLength]: dart.fieldType(dart.legacy(core.int)),
-    [_persistentConnection]: dart.fieldType(dart.legacy(core.bool)),
-    [_followRedirects]: dart.fieldType(dart.legacy(core.bool)),
-    [_maxRedirects]: dart.fieldType(dart.legacy(core.int)),
-    headers: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))),
-    [_finalized]: dart.fieldType(dart.legacy(core.bool))
-  }));
-  dart.defineExtensionMethods(base_request.BaseRequest, ['toString']);
-  request$.Request = class Request extends base_request.BaseRequest {
-    get contentLength() {
-      return this.bodyBytes[$length];
-    }
-    set contentLength(value) {
-      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "non-streaming Request objects."));
-    }
-    get encoding() {
-      if (this[_contentType] == null || !dart.test(this[_contentType].parameters[$containsKey]("charset"))) {
-        return this[_defaultEncoding];
-      }
-      return utils.requiredEncodingForCharset(this[_contentType].parameters[$_get]("charset"));
-    }
-    set encoding(value) {
-      this[_checkFinalized]();
-      this[_defaultEncoding] = value;
-      let contentType = this[_contentType];
-      if (contentType == null) return;
-      this[_contentType] = contentType.change({parameters: new (IdentityMapOfStringL$StringL()).from(["charset", value.name])});
-    }
-    get bodyBytes() {
-      return this[_bodyBytes];
-    }
-    set bodyBytes(value) {
-      this[_checkFinalized]();
-      this[_bodyBytes] = utils.toUint8List(value);
-    }
-    get body() {
-      return this.encoding.decode(this.bodyBytes);
-    }
-    set body(value) {
-      this.bodyBytes = this.encoding.encode(value);
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("text", "plain", new (IdentityMapOfStringL$StringL()).from(["charset", this.encoding.name]));
-      } else if (!dart.test(contentType.parameters[$containsKey]("charset"))) {
-        this[_contentType] = contentType.change({parameters: new (IdentityMapOfStringL$StringL()).from(["charset", this.encoding.name])});
+  var _wonArena = dart.privateName(multitap, "_wonArena");
+  var _timer = dart.privateName(multitap, "_timer");
+  var _finalPosition = dart.privateName(multitap, "_finalPosition");
+  var _lastPosition = dart.privateName(multitap, "_lastPosition");
+  var _dispatchLongTap = dart.privateName(multitap, "_dispatchLongTap");
+  var _check = dart.privateName(multitap, "_check");
+  var _dispatchCancel = dart.privateName(multitap, "_dispatchCancel");
+  var _dispatchTap = dart.privateName(multitap, "_dispatchTap");
+  multitap._TapGesture = class _TapGesture extends multitap._TapTracker {
+    handleEvent(event) {
+      if (event == null) dart.nullFailed(L0, 398, 33, "event");
+      if (!(event.pointer == this.pointer)) dart.assertFailed(null, L0, 399, 12, "event.pointer == pointer");
+      if (events.PointerMoveEvent.is(event)) {
+        if (!dart.test(this.isWithinGlobalTolerance(event, events.computeHitSlop(event.kind))))
+          this.cancel();
+        else
+          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+      } else if (events.PointerCancelEvent.is(event)) {
+        this.cancel();
+      } else if (events.PointerUpEvent.is(event)) {
+        this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
+        this[_finalPosition] = recognizer.OffsetPair.fromEventPosition(event);
+        this[_check]();
       }
     }
-    get bodyFields() {
-      let contentType = this[_contentType];
-      if (contentType == null || contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot access the body fields of a Request without " + "content-type \"application/x-www-form-urlencoded\"."));
-      }
-      return core.Uri.splitQueryString(this.body, {encoding: this.encoding});
+    stopTrackingPointer(route) {
+      let t0;
+      if (route == null) dart.nullFailed(L0, 415, 41, "route");
+      t0 = this[_timer];
+      t0 == null ? null : t0.cancel();
+      this[_timer] = null;
+      super.stopTrackingPointer(route);
     }
-    set bodyFields(fields) {
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("application", "x-www-form-urlencoded");
-      } else if (contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot set the body fields of a Request with " + "content-type \"" + dart.str(contentType.mimeType) + "\"."));
-      }
-      this.body = utils.mapToQuery(fields, {encoding: this.encoding});
+    accept() {
+      this[_wonArena] = true;
+      this[_check]();
     }
-    finalize() {
-      super.finalize();
-      return byte_stream.ByteStream.fromBytes(this.bodyBytes);
+    reject() {
+      this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
+      this.gestureRecognizer[_dispatchCancel](this.pointer);
     }
-    get [_contentType]() {
-      let contentType = this.headers[$_get]("content-type");
-      if (contentType == null) return null;
-      return media_type.MediaType.parse(contentType);
+    cancel() {
+      if (dart.test(this[_wonArena]))
+        this.reject();
+      else
+        this.entry.resolve(arena.GestureDisposition.rejected);
     }
-    set [_contentType](value) {
-      this.headers[$_set]("content-type", dart.toString(value));
-    }
-    [_checkFinalized]() {
-      if (!dart.test(this.finalized)) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
+    [_check]() {
+      if (dart.test(this[_wonArena]) && this[_finalPosition] != null) this.gestureRecognizer[_dispatchTap](this.pointer, dart.nullCheck(this[_finalPosition]));
     }
   };
-  (request$.Request.new = function(method, url) {
-    this[_defaultEncoding] = convert.utf8;
-    this[_bodyBytes] = _native_typed_data.NativeUint8List.new(0);
-    request$.Request.__proto__.new.call(this, method, url);
+  (multitap._TapGesture.new = function(opts) {
+    let gestureRecognizer = opts && 'gestureRecognizer' in opts ? opts.gestureRecognizer : null;
+    if (gestureRecognizer == null) dart.nullFailed(L0, 372, 19, "gestureRecognizer");
+    let event = opts && 'event' in opts ? opts.event : null;
+    if (event == null) dart.nullFailed(L0, 373, 27, "event");
+    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : null;
+    if (longTapDelay == null) dart.nullFailed(L0, 374, 23, "longTapDelay");
+    this[_wonArena] = false;
+    this[_timer] = null;
+    this[_finalPosition] = null;
+    this.gestureRecognizer = gestureRecognizer;
+    this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
+    multitap._TapGesture.__proto__.new.call(this, {event: events.PointerDownEvent.as(event), entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, gestureRecognizer), doubleTapMinTime: constants.kDoubleTapMinTime});
+    this.startTrackingPointer(dart.bind(this, 'handleEvent'), event.transform);
+    if (dart.test(longTapDelay['>'](core.Duration.zero))) {
+      this[_timer] = async.Timer.new(longTapDelay, dart.fn(() => {
+        this[_timer] = null;
+        this.gestureRecognizer[_dispatchLongTap](event.pointer, this[_lastPosition]);
+      }, VoidTovoid()));
+    }
+  }).prototype = multitap._TapGesture.prototype;
+  dart.addTypeTests(multitap._TapGesture);
+  dart.addTypeCaches(multitap._TapGesture);
+  dart.setMethodSignature(multitap._TapGesture, () => ({
+    __proto__: dart.getMethods(multitap._TapGesture.__proto__),
+    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
+    accept: dart.fnType(dart.void, []),
+    reject: dart.fnType(dart.void, []),
+    cancel: dart.fnType(dart.void, []),
+    [_check]: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(multitap._TapGesture, L1);
+  dart.setFieldSignature(multitap._TapGesture, () => ({
+    __proto__: dart.getFields(multitap._TapGesture.__proto__),
+    gestureRecognizer: dart.finalFieldType(multitap.MultiTapGestureRecognizer),
+    [_wonArena]: dart.fieldType(core.bool),
+    [_timer]: dart.fieldType(dart.nullable(async.Timer)),
+    [_lastPosition]: dart.fieldType(recognizer.OffsetPair),
+    [_finalPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair))
+  }));
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  var C0;
+  var _gestureMap = dart.privateName(multitap, "_gestureMap");
+  var onTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapDown");
+  var onTapUp = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapUp");
+  var onTap = dart.privateName(multitap, "MultiTapGestureRecognizer.onTap");
+  var onTapCancel = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapCancel");
+  var longTapDelay$ = dart.privateName(multitap, "MultiTapGestureRecognizer.longTapDelay");
+  var onLongTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onLongTapDown");
+  multitap.MultiTapGestureRecognizer = class MultiTapGestureRecognizer extends recognizer.GestureRecognizer {
+    get onTapDown() {
+      return this[onTapDown];
+    }
+    set onTapDown(value) {
+      this[onTapDown] = value;
+    }
+    get onTapUp() {
+      return this[onTapUp];
+    }
+    set onTapUp(value) {
+      this[onTapUp] = value;
+    }
+    get onTap() {
+      return this[onTap];
+    }
+    set onTap(value) {
+      this[onTap] = value;
+    }
+    get onTapCancel() {
+      return this[onTapCancel];
+    }
+    set onTapCancel(value) {
+      this[onTapCancel] = value;
+    }
+    get longTapDelay() {
+      return this[longTapDelay$];
+    }
+    set longTapDelay(value) {
+      this[longTapDelay$] = value;
+    }
+    get onLongTapDown() {
+      return this[onLongTapDown];
+    }
+    set onLongTapDown(value) {
+      this[onLongTapDown] = value;
+    }
+    addAllowedPointer(event) {
+      if (event == null) dart.nullFailed(L0, 491, 39, "event");
+      if (!!dart.test(this[_gestureMap][$containsKey](event.pointer))) dart.assertFailed(null, L0, 492, 12, "!_gestureMap.containsKey(event.pointer)");
+      this[_gestureMap][$_set](event.pointer, new multitap._TapGesture.new({gestureRecognizer: this, event: event, longTapDelay: this.longTapDelay}));
+      if (this.onTapDown != null) this.invokeCallback(dart.void, "onTapDown", dart.fn(() => {
+        dart.nullCheck(this.onTapDown)(event.pointer, new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: event.kind}));
+      }, VoidTovoid()));
+    }
+    acceptGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 509, 26, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 510, 12, "_gestureMap.containsKey(pointer)");
+      dart.nullCheck(this[_gestureMap][$_get](pointer)).accept();
+    }
+    rejectGesture(pointer) {
+      if (pointer == null) dart.nullFailed(L0, 515, 26, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 516, 12, "_gestureMap.containsKey(pointer)");
+      dart.nullCheck(this[_gestureMap][$_get](pointer)).reject();
+      if (!!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 518, 12, "!_gestureMap.containsKey(pointer)");
+    }
+    [_dispatchCancel](pointer) {
+      if (pointer == null) dart.nullFailed(L0, 521, 28, "pointer");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 522, 12, "_gestureMap.containsKey(pointer)");
+      this[_gestureMap][$remove](pointer);
+      if (this.onTapCancel != null) this.invokeCallback(dart.void, "onTapCancel", dart.fn(() => dart.nullCheck(this.onTapCancel)(pointer), VoidTovoid()));
+    }
+    [_dispatchTap](pointer, position) {
+      if (pointer == null) dart.nullFailed(L0, 528, 25, "pointer");
+      if (position == null) dart.nullFailed(L0, 528, 45, "position");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 529, 12, "_gestureMap.containsKey(pointer)");
+      this[_gestureMap][$remove](pointer);
+      if (this.onTapUp != null) this.invokeCallback(dart.void, "onTapUp", dart.fn(() => {
+        dart.nullCheck(this.onTapUp)(pointer, new tap.TapUpDetails.new({kind: this.getKindForPointer(pointer), localPosition: position.local, globalPosition: position.global}));
+      }, VoidTovoid()));
+      if (this.onTap != null) this.invokeCallback(dart.void, "onTap", dart.fn(() => dart.nullCheck(this.onTap)(pointer), VoidTovoid()));
+    }
+    [_dispatchLongTap](pointer, lastPosition) {
+      if (pointer == null) dart.nullFailed(L0, 543, 29, "pointer");
+      if (lastPosition == null) dart.nullFailed(L0, 543, 49, "lastPosition");
+      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, L0, 544, 12, "_gestureMap.containsKey(pointer)");
+      if (this.onLongTapDown != null) this.invokeCallback(dart.void, "onLongTapDown", dart.fn(() => {
+        dart.nullCheck(this.onLongTapDown)(pointer, new tap.TapDownDetails.new({globalPosition: lastPosition.global, localPosition: lastPosition.local, kind: this.getKindForPointer(pointer)}));
+      }, VoidTovoid()));
+    }
+    dispose() {
+      let localGestures = ListOf_TapGesture().from(this[_gestureMap][$values]);
+      for (let gesture of localGestures)
+        gesture.cancel();
+      if (!dart.test(this[_gestureMap][$isEmpty])) dart.assertFailed(null, L0, 564, 12, "_gestureMap.isEmpty");
+      super.dispose();
+    }
+    get debugDescription() {
+      return "multitap";
+    }
+  };
+  (multitap.MultiTapGestureRecognizer.new = function(opts) {
+    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : C0 || CT.C0;
+    if (longTapDelay == null) dart.nullFailed(L0, 461, 10, "longTapDelay");
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    let kind = opts && 'kind' in opts ? opts.kind : null;
+    this[onTapDown] = null;
+    this[onTapUp] = null;
+    this[onTap] = null;
+    this[onTapCancel] = null;
+    this[onLongTapDown] = null;
+    this[_gestureMap] = new (IdentityMapOfint$_TapGesture()).new();
+    this[longTapDelay$] = longTapDelay;
+    multitap.MultiTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
     ;
-  }).prototype = request$.Request.prototype;
-  dart.addTypeTests(request$.Request);
-  dart.addTypeCaches(request$.Request);
-  dart.setMethodSignature(request$.Request, () => ({
-    __proto__: dart.getMethods(request$.Request.__proto__),
-    [_checkFinalized]: dart.fnType(dart.void, [])
+  }).prototype = multitap.MultiTapGestureRecognizer.prototype;
+  dart.addTypeTests(multitap.MultiTapGestureRecognizer);
+  dart.addTypeCaches(multitap.MultiTapGestureRecognizer);
+  dart.setMethodSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getMethods(multitap.MultiTapGestureRecognizer.__proto__),
+    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    acceptGesture: dart.fnType(dart.void, [core.int]),
+    rejectGesture: dart.fnType(dart.void, [core.int]),
+    [_dispatchCancel]: dart.fnType(dart.void, [core.int]),
+    [_dispatchTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair]),
+    [_dispatchLongTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair])
   }));
-  dart.setGetterSignature(request$.Request, () => ({
-    __proto__: dart.getGetters(request$.Request.__proto__),
-    encoding: dart.legacy(convert.Encoding),
-    bodyBytes: dart.legacy(typed_data.Uint8List),
-    body: dart.legacy(core.String),
-    bodyFields: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String))),
-    [_contentType]: dart.legacy(media_type.MediaType)
+  dart.setGetterSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getGetters(multitap.MultiTapGestureRecognizer.__proto__),
+    debugDescription: core.String
   }));
-  dart.setSetterSignature(request$.Request, () => ({
-    __proto__: dart.getSetters(request$.Request.__proto__),
-    encoding: dart.legacy(convert.Encoding),
-    bodyBytes: dart.legacy(core.List$(dart.legacy(core.int))),
-    body: dart.legacy(core.String),
-    bodyFields: dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String))),
-    [_contentType]: dart.legacy(media_type.MediaType)
+  dart.setLibraryUri(multitap.MultiTapGestureRecognizer, L1);
+  dart.setFieldSignature(multitap.MultiTapGestureRecognizer, () => ({
+    __proto__: dart.getFields(multitap.MultiTapGestureRecognizer.__proto__),
+    onTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
+    onTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapUpDetails]))),
+    onTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    onTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
+    longTapDelay: dart.fieldType(core.Duration),
+    onLongTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
+    [_gestureMap]: dart.finalFieldType(core.Map$(core.int, multitap._TapGesture))
   }));
-  dart.setLibraryUri(request$.Request, L5);
-  dart.setFieldSignature(request$.Request, () => ({
-    __proto__: dart.getFields(request$.Request.__proto__),
-    [_defaultEncoding]: dart.fieldType(dart.legacy(convert.Encoding)),
-    [_bodyBytes]: dart.fieldType(dart.legacy(typed_data.Uint8List))
-  }));
-  var stream$ = dart.privateName(streamed_response, "StreamedResponse.stream");
-  streamed_response.StreamedResponse = class StreamedResponse extends base_response.BaseResponse {
-    get stream() {
-      return this[stream$];
-    }
-    set stream(value) {
-      super.stream = value;
-    }
-  };
-  (streamed_response.StreamedResponse.new = function(stream, statusCode, opts) {
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C0 || CT.C0;
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[stream$] = utils.toByteStream(stream);
-    streamed_response.StreamedResponse.__proto__.new.call(this, statusCode, {contentLength: contentLength, request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-    ;
-  }).prototype = streamed_response.StreamedResponse.prototype;
-  dart.addTypeTests(streamed_response.StreamedResponse);
-  dart.addTypeCaches(streamed_response.StreamedResponse);
-  dart.setLibraryUri(streamed_response.StreamedResponse, L6);
-  dart.setFieldSignature(streamed_response.StreamedResponse, () => ({
-    __proto__: dart.getFields(streamed_response.StreamedResponse.__proto__),
-    stream: dart.finalFieldType(dart.legacy(byte_stream.ByteStream))
-  }));
-  base_client._fromUriOrString = function _fromUriOrString(uri) {
-    return StringL().is(uri) ? core.Uri.parse(uri) : UriL().as(uri);
-  };
-  client$.Client = class Client extends core.Object {
-    static new() {
-      return browser_client.createClient();
-    }
-  };
-  (client$.Client[dart.mixinNew] = function() {
-  }).prototype = client$.Client.prototype;
-  dart.addTypeTests(client$.Client);
-  dart.addTypeCaches(client$.Client);
-  dart.setLibraryUri(client$.Client, L7);
-  dart.trackLibraries("packages/http/src/browser_client.dart", {
-    "package:http/src/browser_client.dart": browser_client,
-    "package:http/src/response.dart": response$,
-    "package:http/src/request.dart": request$,
-    "package:http/src/base_response.dart": base_response,
-    "package:http/src/streamed_response.dart": streamed_response,
-    "package:http/src/base_request.dart": base_request,
-    "package:http/src/base_client.dart": base_client,
-    "package:http/src/client.dart": client$
+  dart.trackLibraries("packages/flutter/src/gestures/multitap.dart", {
+    "package:flutter/src/gestures/multitap.dart": multitap
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["base_client.dart","browser_client.dart","base_response.dart","response.dart","base_request.dart","request.dart","streamed_response.dart","client.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;SAyBwB;UAA0B;AAC5C,mCAAgB,QAAQ,GAAG,EAAE,OAAO;IAAC;QAOpB;UAA0B;AAC3C,mCAAgB,OAAO,GAAG,EAAE,OAAO;IAAC;SAqBlB;UACO;UAAS;UAAe;AACjD,mCAAgB,QAAQ,GAAG,EAAE,OAAO,EAAE,IAAI,EAAE,QAAQ;IAAC;QAqBpC;UACQ;UAAS;UAAe;AACjD,mCAAgB,OAAO,GAAG,EAAE,OAAO,EAAE,IAAI,EAAE,QAAQ;IAAC;UAqBjC;UACM;UAAS;UAAe;AACjD,mCAAgB,SAAS,GAAG,EAAE,OAAO,EAAE,IAAI,EAAE,QAAQ;IAAC;WAOlC;UAA0B;AAC9C,mCAAgB,UAAU,GAAG,EAAE,OAAO;IAAC;SAYvB;UAA0B;AAA3B;AACX,wBAAW,MAAM,SAAI,GAAG,YAAW,OAAO;AACZ,QAApC,4BAAsB,GAAG,EAAE,QAAQ;AACnC,cAAO,AAAS,SAAD;MACjB;;cAY4B;UAA0B;AAA3B;AACnB,wBAAW,MAAM,SAAI,GAAG,YAAW,OAAO;AACZ,QAApC,4BAAsB,GAAG,EAAE,QAAQ;AACnC,cAAO,AAAS,SAAD;MACjB;;sBAcW,QAAQ,KAAyB,SACvC,aAAe;AAFY;AAG1B,sBAAU,yBAAQ,MAAM,EAAE,6BAAiB,GAAG;AAElD,YAAI,OAAO,IAAI,MAAM,AAAQ,AAAQ,AAAe,OAAxB,kBAAgB,OAAO;AACnD,YAAI,QAAQ,IAAI,MAAM,AAAQ,AAAmB,OAApB,YAAY,QAAQ;AACjD,YAAI,IAAI,IAAI;AACV,cAAS,aAAL,IAAI;AACa,YAAnB,AAAQ,OAAD,QAAQ,IAAI;gBACd,KAAS,WAAL,IAAI;AACuB,YAApC,AAAQ,OAAD,aAAa,AAAK,IAAD;gBACnB,KAAS,UAAL,IAAI;AACmC,YAAhD,AAAQ,OAAD,cAAc,AAAK,IAAD;;AAE2B,YAApD,WAAM,2BAAc,AAA+B,qCAAP,IAAI;;;AAIpD,cAAgB,+BAAW,MAAM,UAAK,OAAO;MAC/C;;4BAG2B,KAAc;AACvC,UAAwB,aAApB,AAAS,QAAD,eAAc,KAAK;AAC3B,oBAAU,AAA2D,yBAA9C,GAAG,sCAAsB,AAAS,QAAD;AAC5D,UAAI,AAAS,QAAD,iBAAiB;AACmB,QAA9C,UAAY,AAAkC,OAA3B,mBAAI,AAAS,QAAD;;AAEwB,MAAzD,WAAM,kCAAkB,AAAS,OAAF,QAAI,6BAAiB,GAAG;IACzD;;IAOc;;;;EAChB;;;;;;;;;;;;;;;;;;;;;IC3JO;;;;;;SAIqC;AAAb;;AACvB,qBAAQ,MAAM,AAAQ,AAAW,OAAZ;AACrB,kBAAM;AACI,QAAd,AAAM,gBAAI,GAAG;AAIwB,aAHrC,GAAG;QAAH;AACI,kBAAK,AAAQ,OAAD,SAAyB,SAAb,AAAQ,OAAD,eAAe;AAC9C,4BAAe;AACf,+BAAkB;;;AACuB,QAA7C,AAAQ,AAAQ,OAAT,mBAAqB,UAAJ,GAAG;AAEvB,wBAAY;AAuBb,QAtBH,mBAAU,AAAI,AAAO,AAAM,GAAd,gCAAmB,QAAC;;AAG3B,sBAA4B,KAAR,WAAb,AAAI,GAAD,oBAAU,OAAW,cAAK;AACpC,uBAAS;AAUX,UARF,AAAO,AAAO,AAAM,MAAd,gCAAmB,QAAC;AACpB,uBAAqB,gBAAd,AAAO,MAAD;AAMiB,YALlC,AAAU,SAAD,UAAU,2CACJ,iCAAU,IAAI,GAAG,AAAI,GAAD,yBAChB,AAAK,IAAD,oBACV,OAAO,WACP,AAAI,GAAD,kCACE,AAAI,GAAD;;AAMrB,UAHF,AAAO,AAAQ,AAAM,MAAf,iCAAoB,QAAC;AAE8C,YADvE,AAAU,SAAD,eACL,kCAAsB,cAAN,KAAK,GAAa,AAAQ,OAAD,OAAkB;;AAGnC,UAA9B,AAAO,MAAD,mBAAmB,IAAI;;AAS5B,QANH,mBAAU,AAAI,AAAQ,AAAM,GAAf,iCAAoB,QAAC;AAKT,UAFvB,AAAU,SAAD,eACL,kCAAgB,yBAAyB,AAAQ,OAAD,OACrC;;AAGF,QAAf,AAAI,GAAD,MAAM,KAAK;AAEd;AACE,gBAAO,OAAM,AAAU,SAAD;;AAEL,UAAjB,AAAM,mBAAO,GAAG;;MAEpB;;;AAOE,eAAS,MAAO;AACH,QAAX,AAAI,GAAD;;IAEP;;;IAtEM,cAAqB;IAMtB,wBAAkB;;EAiEzB;;;;;;;;;;;;;;AArF6B;EAAe;;;;;;;;;;ICPxB;;;;;;IAGR;;;;;;IAGG;;;;;;IAKH;;;;;;IAKgB;;;;;;IAEf;;;;;;IAGA;;;;;;;6CAEO;QACR;QACD;QACA;QACA;QACA;QACA;IANS;IACR;IACD;IACA;IACA;IACA;IACA;AACP,QAAe,aAAX,mBAAa;AACwC,MAAvD,WAAM,2BAAc,AAAkC,kCAAZ,mBAAU;UAC/C,KAAI,sBAAiB,QAAsB,aAAd,sBAAgB;AACW,MAA7D,WAAM,2BAAc,AAAwC,qCAAf,sBAAa;;EAE9D;;;;;;;;;;;;;;;;IC7BgB;;;;;;;AAUG,YAAA,AAA6B,+BAAT,qBAAgB;IAAU;sBAkCb;AAAlB;AAC1B,oBAAO,MAAM,AAAS,AAAO,QAAR;AAC3B,cAAgB,8BAAM,IAAI,EAAE,AAAS,QAAD,uBACvB,AAAS,QAAD,mBACR,AAAS,QAAD,sBACL,AAAS,QAAD,mCACE,AAAS,QAAD,qCAChB,AAAS,QAAD;MAC5B;;;qCAvCgB,MAAU;QACT;QACO;QACf;QACA;QACE;wCACM,AAA6B,8BAAT,OAAO,SAAS,IAAI,GAAG,UAAU,YACnD,OAAO,WACP,OAAO,cACJ,UAAU,wBACA,oBAAoB,gBAC5B,YAAY;EAAC;uCAGZ,WAAe;QACvB;QACO;QACf;QACA;QACE;IACK,mBAAE,kBAAY,SAAS;AACjC,gDAAM,UAAU,kBACG,AAAU,SAAD,oBACf,OAAO,WACP,OAAO,cACJ,UAAU,wBACA,oBAAoB,gBAC5B,YAAY;;EAAC;;;;;;;;;;;;+DAmBU;AAC7C,oCAAmB,AAAgC,AAAU,iCAAnB,OAAO,oBAAa;EAAW;qEAKxB;AAC/C,sBAAc,AAAO,OAAA,QAAC;AAC1B,QAAI,WAAW,IAAI,MAAM,MAAiB,4BAAM,WAAW;AAC3D,UAAO,8BAAU,eAAe;EAClC;;;;;;;;;;;;;;;IChEe;;;;;;IAGH;;;;;;IAsDgB;;;;;;;AAhDD;IAAc;sBAGjB;AACpB,UAAI,KAAK,IAAI,QAAc,aAAN,KAAK,IAAG;AAC0B,QAArD,WAAM,2BAAc,AAAgC,qCAAP,KAAK;;AAEnC,MAAjB;AACsB,MAAtB,uBAAiB,KAAK;IACxB;;AAKiC;IAAqB;6BAGxB;AACX,MAAjB;AAC6B,MAA7B,8BAAwB,KAAK;IAC/B;;AAK4B;IAAgB;wBAGnB;AACN,MAAjB;AACwB,MAAxB,yBAAmB,KAAK;IAC1B;;AAMwB;IAAa;qBAGhB;AACF,MAAjB;AACqB,MAArB,sBAAgB,KAAK;IACvB;;AAQsB;IAAU;;AAoB9B,oBAAI,iBAAW,AAAuD,WAAjD,wBAAW;AACf,MAAjB,mBAAa;AACb,YAAO;IACT;;AAQ6B;AACvB,qBAAS;AAEb;AACM,0BAAW,MAAM,AAAO,MAAD,MAAM;AAC7B,uBAAS,4BAAO,AAAS,QAAD,SAAgB,UAAP,MAAM;AAC3C,gBAAO,4CAAiB,+BAAW,MAAM,GAAG,AAAS,QAAD,6BACjC,AAAS,QAAD,yBACd,AAAS,QAAD,mBACR,AAAS,QAAD,sBACL,AAAS,QAAD,mCACE,AAAS,QAAD,qCAChB,AAAS,QAAD;;cACnB;AACO,UAAd,AAAO,MAAD;AACC,UAAP;;MAEJ;;;AAIE,qBAAK,iBAAW;AACqC,MAArD,WAAM,wBAAW;IACnB;;AAGqB,YAAc,UAAZ,eAAM,eAAE;IAAI;;2CAtDlB,QAAa;IArD1B;IAcC,8BAAwB;IAWxB,yBAAmB;IAYpB,sBAAgB;IAcf,mBAAa;IAED;IAAa;IAChB,gBAAE,8CACE,SAAC,MAAM,SAAS,AAAK,AAAc,IAAf,qBAAkB,AAAK,IAAD,yDACxC,QAAC,OAAQ,AAAI,AAAc,GAAf;;EAAwB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ACpE/B,YAAA,AAAU;IAAM;sBAGnB;AAEiB,MADrC,WAAM,8BAAgB,AAAC,8CACnB;IACN;;AAwBE,UAAI,AAAa,sBAAG,mBACf,AAAa,AAAW,4CAAY;AACvC,cAAO;;AAET,YAAO,kCAA2B,AAAa,AAAU,qCAAC;IAC5D;iBAEsB;AACH,MAAjB;AACwB,MAAxB,yBAAmB,KAAK;AACpB,wBAAc;AAClB,UAAI,AAAY,WAAD,IAAI,MAAM;AAC6C,MAAtE,qBAAe,AAAY,WAAD,qBAAoB,2CAAC,WAAW,AAAM,KAAD;IACjE;;AAQ2B;IAAU;kBAGb;AACL,MAAjB;AAC+B,MAA/B,mBAAa,kBAAY,KAAK;IAChC;;AAUmB,YAAA,AAAS,sBAAO;IAAU;aAE7B;AACoB,MAAlC,iBAAY,AAAS,qBAAO,KAAK;AAC7B,wBAAc;AAClB,UAAI,AAAY,WAAD,IAAI;AACoD,QAArE,qBAAe,6BAAU,QAAQ,SAAS,2CAAC,WAAW,AAAS;YAC1D,gBAAK,AAAY,AAAW,WAAZ,0BAAwB;AAC4B,QAAzE,qBAAe,AAAY,WAAD,qBAAoB,2CAAC,WAAW,AAAS;;IAEvE;;AAmBM,wBAAc;AAClB,UAAI,AAAY,WAAD,IAAI,QACf,AAAY,WAAD,cAAa;AAE8B,QADxD,WAAM,wBAAU,AAAC,wDACb;;AAGN,YAAW,2BAAiB,sBAAgB;IAC9C;mBAEmC;AAC7B,wBAAc;AAClB,UAAI,AAAY,WAAD,IAAI;AAC+C,QAAhE,qBAAe,6BAAU,eAAe;YACnC,KAAI,AAAY,WAAD,cAAa;AAEa,QAD9C,WAAM,wBAAU,AAAC,kDACb,6BAAiB,AAAY,WAAD,aAAU;;AAGC,MAA7C,YAAO,iBAAW,MAAM,aAAY;IACtC;;AAWkB,MAAV;AACN,YAAkB,kCAAU;IAC9B;;AAIM,wBAAc,AAAO,oBAAC;AAC1B,UAAI,AAAY,WAAD,IAAI,MAAM,MAAO;AAChC,YAAiB,4BAAM,WAAW;IACpC;uBAE2B;AACiB,MAA1C,AAAO,oBAAC,gBAAwB,cAAN,KAAK;IACjC;;AAIE,qBAAK,iBAAW;AACqC,MAArD,WAAM,wBAAW;IACnB;;mCA5Be,QAAY;IACJ,yBAAE;IACR,mBAAE,uCAAU;AACvB,8CAAM,MAAM,EAAE,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IC7HP;;;;;;;qDAKkB,QAAY;QACtC;QACO;QACQ;QACf;QACA;QACE;IACE,gBAAE,mBAAa,MAAM;AAC5B,gEAAM,UAAU,kBACG,aAAa,WACnB,OAAO,WACP,OAAO,cACJ,UAAU,wBACA,oBAAoB,gBAC5B,YAAY;;EAAC;;;;;;;;2DNgKlB;AAAQ,UAAI,cAAJ,GAAG,IAAiB,eAAM,GAAG,IAAQ,UAAJ,GAAG;EAAO;;;AOlKlD;IAAc","file":"../../../../../../../../../../packages/http/src/browser_client.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["multitap.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/gestures/multitap.dart.lib.js"}');
   // Exports:
   return {
-    src__browser_client: browser_client,
-    src__response: response$,
-    src__request: request$,
-    src__base_response: base_response,
-    src__streamed_response: streamed_response,
-    src__base_request: base_request,
-    src__base_client: base_client,
-    src__client: client$
+    src__gestures__multitap: multitap
   };
 }));
 
-//# sourceMappingURL=browser_client.dart.lib.js.map
+//# sourceMappingURL=multitap.dart.lib.js.map

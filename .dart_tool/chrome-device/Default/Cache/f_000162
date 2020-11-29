@@ -1,1337 +1,322 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/single_child_scroll_view.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/widgets/async.dart', 'packages/envyweb/Services/ApiFunctions%20-Editor.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/cached_network_image/src/image_provider/_load_async_web.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/http/http.dart', 'packages/flutter/src/material/page.dart', 'packages/envyweb/Screens/Editor/SubmitPage.dart'], (function load__packages__envyweb__Screens__Editor__OrderPage_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__single_child_scroll_view$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__widgets__async$46dart, packages__envyweb__Services__ApiFunctions$3720_Editor$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__cached_network_image__src__image_provider___load_async_web$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__http__http$46dart, packages__flutter__src__material__page$46dart, packages__envyweb__Screens__Editor__SubmitPage$46dart) {
+define(['dart_sdk', 'packages/flutter_cache_manager/src/storage/cache_object.dart', 'packages/file/src/interface/link.dart', 'packages/sqflite/src/factory_impl.dart', 'packages/flutter_cache_manager/src/storage/cache_object_provider.dart', 'packages/path/src/path_set.dart', 'packages/flutter_cache_manager/src/storage/cache_info_repository.dart', 'packages/flutter_cache_manager/src/result/file_info.dart', 'packages/pedantic/pedantic.dart'], (function load__packages__flutter_cache_manager__src__cache_store_dart(dart_sdk, packages__flutter_cache_manager__src__storage__cache_object$46dart, packages__file__src__interface__link$46dart, packages__sqflite__src__factory_impl$46dart, packages__flutter_cache_manager__src__storage__cache_object_provider$46dart, packages__path__src__path_set$46dart, packages__flutter_cache_manager__src__storage__cache_info_repository$46dart, packages__flutter_cache_manager__src__result__file_info$46dart, packages__pedantic__pedantic$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const convert = dart_sdk.convert;
-  const ui = dart_sdk.ui;
-  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
   const async = dart_sdk.async;
+  const io = dart_sdk.io;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
-  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
-  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
-  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
-  const raised_button = packages__flutter__src__material__icon_button$46dart.src__material__raised_button;
-  const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
-  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
-  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
-  const ApiFunctions$32_Editor = packages__envyweb__Services__ApiFunctions$3720_Editor$46dart.Services__ApiFunctions$32_Editor;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const cached_image_widget = packages__cached_network_image__src__image_provider___load_async_web$46dart.src__cached_image_widget;
-  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
-  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
-  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
-  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
-  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
-  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
-  const http = packages__http__http$46dart.http;
-  const page = packages__flutter__src__material__page$46dart.src__material__page;
-  const SubmitPage = packages__envyweb__Screens__Editor__SubmitPage$46dart.Screens__Editor__SubmitPage;
-  var OrderPage = Object.create(dart.library);
-  var $length = dartx.length;
+  const cache_object = packages__flutter_cache_manager__src__storage__cache_object$46dart.src__storage__cache_object;
+  const directory = packages__file__src__interface__link$46dart.src__interface__directory;
+  const sqflite = packages__sqflite__src__factory_impl$46dart.sqflite;
+  const cache_object_provider = packages__flutter_cache_manager__src__storage__cache_object_provider$46dart.src__storage__cache_object_provider;
+  const path = packages__path__src__path_set$46dart.path;
+  const cache_info_repository = packages__flutter_cache_manager__src__storage__cache_info_repository$46dart.src__storage__cache_info_repository;
+  const file_info = packages__flutter_cache_manager__src__result__file_info$46dart.src__result__file_info;
+  const pedantic = packages__pedantic__pedantic$46dart.pedantic;
+  var cache_store = Object.create(dart.library);
+  var $_set = dartx._set;
+  var $containsKey = dartx.containsKey;
   var $_get = dartx._get;
-  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
-  var ListL = () => (ListL = dart.constFn(dart.legacy(core.List)))();
-  var CircularProgressIndicatorL = () => (CircularProgressIndicatorL = dart.constFn(dart.legacy(progress_indicator.CircularProgressIndicator)))();
-  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var $remove = dartx.remove;
+  var $clear = dartx.clear;
+  var $contains = dartx.contains;
+  var $add = dartx.add;
   var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
-  var BuildContextLAndStringLToCircularProgressIndicatorL = () => (BuildContextLAndStringLToCircularProgressIndicatorL = dart.constFn(dart.fnType(CircularProgressIndicatorL(), [BuildContextL(), StringL()])))();
-  var IconL = () => (IconL = dart.constFn(dart.legacy(icon.Icon)))();
-  var BuildContextLAndStringLAnddynamicToIconL = () => (BuildContextLAndStringLAnddynamicToIconL = dart.constFn(dart.fnType(IconL(), [BuildContextL(), StringL(), dart.dynamic])))();
-  var CenterL = () => (CenterL = dart.constFn(dart.legacy(basic.Center)))();
-  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
-  var BuildContextLAndintLToCenterL = () => (BuildContextLAndintLToCenterL = dart.constFn(dart.fnType(CenterL(), [BuildContextL(), intL()])))();
-  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
-  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  var CacheObjectL = () => (CacheObjectL = dart.constFn(dart.legacy(cache_object.CacheObject)))();
+  var FutureOfCacheObjectL = () => (FutureOfCacheObjectL = dart.constFn(async.Future$(CacheObjectL())))();
+  var FutureLOfCacheObjectL = () => (FutureLOfCacheObjectL = dart.constFn(dart.legacy(FutureOfCacheObjectL())))();
+  var IdentityMapOfStringL$FutureLOfCacheObjectL = () => (IdentityMapOfStringL$FutureLOfCacheObjectL = dart.constFn(_js_helper.IdentityMap$(StringL(), FutureLOfCacheObjectL())))();
+  var IdentityMapOfStringL$CacheObjectL = () => (IdentityMapOfStringL$CacheObjectL = dart.constFn(_js_helper.IdentityMap$(StringL(), CacheObjectL())))();
+  var DirectoryL = () => (DirectoryL = dart.constFn(dart.legacy(directory.Directory)))();
+  var DirectoryLToDirectoryL = () => (DirectoryLToDirectoryL = dart.constFn(dart.fnType(DirectoryL(), [DirectoryL()])))();
+  var CacheInfoRepositoryL = () => (CacheInfoRepositoryL = dart.constFn(dart.legacy(cache_info_repository.CacheInfoRepository)))();
+  var FileInfoL = () => (FileInfoL = dart.constFn(dart.legacy(file_info.FileInfo)))();
+  var CompleterOfCacheObjectL = () => (CompleterOfCacheObjectL = dart.constFn(async.Completer$(CacheObjectL())))();
   var FutureOfNull = () => (FutureOfNull = dart.constFn(async.Future$(core.Null)))();
   var FutureLOfNull = () => (FutureLOfNull = dart.constFn(dart.legacy(FutureOfNull())))();
-  var VoidToFutureLOfNull = () => (VoidToFutureLOfNull = dart.constFn(dart.fnType(FutureLOfNull(), [])))();
-  var SubmitPageL = () => (SubmitPageL = dart.constFn(dart.legacy(SubmitPage.SubmitPage)))();
-  var BuildContextLToSubmitPageL = () => (BuildContextLToSubmitPageL = dart.constFn(dart.fnType(SubmitPageL(), [BuildContextL()])))();
+  var CacheObjectLToFutureLOfNull = () => (CacheObjectLToFutureLOfNull = dart.constFn(dart.fnType(FutureLOfNull(), [CacheObjectL()])))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
   var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
-  var AsyncSnapshotL = () => (AsyncSnapshotL = dart.constFn(dart.legacy(async$.AsyncSnapshot)))();
-  var BuildContextLAndAsyncSnapshotLToWidgetL = () => (BuildContextLAndAsyncSnapshotLToWidgetL = dart.constFn(dart.fnType(WidgetL(), [BuildContextL(), AsyncSnapshotL()])))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var JSArrayOfintL = () => (JSArrayOfintL = dart.constFn(_interceptors.JSArray$(intL())))();
   const CT = Object.create(null);
-  var L0 = "package:envyweb/Screens/Editor/OrderPage.dart";
+  var L0 = "package:flutter_cache_manager/src/cache_store.dart";
   dart.defineLazy(CT, {
-    get C2() {
-      return C2 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 34,
-        [_Location_line]: 21,
-        [_Location_file]: null
-      });
-    },
-    get C1() {
-      return C1 = dart.constList([C2 || CT.C2], _LocationL());
-    },
     get C0() {
       return C0 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C1 || CT.C1,
-        [_Location_name]: null,
-        [_Location_column]: 29,
-        [_Location_line]: 21,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C5() {
-      return C5 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "title",
-        [_Location_column]: 22,
-        [_Location_line]: 21,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C6 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "centerTitle",
-        [_Location_column]: 52,
-        [_Location_line]: 21,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C4 = dart.constList([C5 || CT.C5, C6 || CT.C6], _LocationL());
-    },
-    get C3() {
-      return C3 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C4 || CT.C4,
-        [_Location_name]: null,
-        [_Location_column]: 15,
-        [_Location_line]: 21,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C7() {
-      return C7 = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 8,
-        [EdgeInsets_right]: 8,
-        [EdgeInsets_top]: 8,
-        [EdgeInsets_left]: 8
-      });
-    },
-    get C9() {
-      return C9 = dart.constList([], _LocationL());
-    },
-    get C8() {
-      return C8 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C9 || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 53,
-        [_Location_line]: 48,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C12() {
-      return C12 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "icon",
-        [_Location_column]: 68,
-        [_Location_line]: 51,
-        [_Location_file]: null
-      });
-    },
-    get C11() {
-      return C11 = dart.constList([C12 || CT.C12], _LocationL());
-    },
-    get C10() {
-      return C10 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C11 || CT.C11,
-        [_Location_name]: null,
-        [_Location_column]: 57,
-        [_Location_line]: 51,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C15() {
-      return C15 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "placeholder",
-        [_Location_column]: 49,
-        [_Location_line]: 47,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C16 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "errorWidget",
-        [_Location_column]: 49,
-        [_Location_line]: 49,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C17 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "imageUrl",
-        [_Location_column]: 49,
-        [_Location_line]: 52,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C14 = dart.constList([C15 || CT.C15, C16 || CT.C16, C17 || CT.C17], _LocationL());
-    },
-    get C13() {
-      return C13 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C14 || CT.C14,
-        [_Location_name]: null,
-        [_Location_column]: 54,
-        [_Location_line]: 46,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C20() {
-      return C20 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 47,
-        [_Location_line]: 46,
-        [_Location_file]: null
-      });
-    },
-    get C21() {
-      return C21 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 47,
-        [_Location_line]: 56,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C22 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 47,
-        [_Location_line]: 57,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C19 = dart.constList([C20 || CT.C20, C21 || CT.C21, C22 || CT.C22], _LocationL());
-    },
-    get C18() {
-      return C18 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C19 || CT.C19,
-        [_Location_name]: null,
-        [_Location_column]: 50,
-        [_Location_line]: 45,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C25() {
-      return C25 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "padding",
-        [_Location_column]: 43,
-        [_Location_line]: 44,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C26 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 43,
-        [_Location_line]: 45,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C24 = dart.constList([C25 || CT.C25, C26 || CT.C26], _LocationL());
-    },
-    get C23() {
-      return C23 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C24 || CT.C24,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 43,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C29() {
-      return C29 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 46,
-        [_Location_line]: 59,
-        [_Location_file]: null
-      });
-    },
-    get C30() {
-      return C30 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 45,
-        [_Location_line]: 60,
-        [_Location_file]: null
-      });
-    },
-    get C28() {
-      return C28 = dart.constList([C29 || CT.C29, C30 || CT.C30], _LocationL());
-    },
-    get C27() {
-      return C27 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C28 || CT.C28,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 59,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C33() {
-      return C33 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 70,
-        [_Location_line]: 63,
-        [_Location_file]: null
-      });
-    },
-    get C32() {
-      return C32 = dart.constList([C33 || CT.C33], _LocationL());
-    },
-    get C31() {
-      return C31 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C32 || CT.C32,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 63,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C36() {
-      return C36 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 46,
-        [_Location_line]: 64,
-        [_Location_file]: null
-      });
-    },
-    get C37() {
-      return C37 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 45,
-        [_Location_line]: 65,
-        [_Location_file]: null
-      });
-    },
-    get C35() {
-      return C35 = dart.constList([C36 || CT.C36, C37 || CT.C37], _LocationL());
-    },
-    get C34() {
-      return C34 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C35 || CT.C35,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 64,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C40() {
-      return C40 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 73,
-        [_Location_line]: 68,
-        [_Location_file]: null
-      });
-    },
-    get C39() {
-      return C39 = dart.constList([C40 || CT.C40], _LocationL());
-    },
-    get C38() {
-      return C38 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C39 || CT.C39,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 68,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C43() {
-      return C43 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 46,
-        [_Location_line]: 70,
-        [_Location_file]: null
-      });
-    },
-    get C44() {
-      return C44 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 45,
-        [_Location_line]: 71,
-        [_Location_file]: null
-      });
-    },
-    get C42() {
-      return C42 = dart.constList([C43 || CT.C43, C44 || CT.C44], _LocationL());
-    },
-    get C41() {
-      return C41 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C42 || CT.C42,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 70,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C47() {
-      return C47 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 71,
-        [_Location_line]: 74,
-        [_Location_file]: null
-      });
-    },
-    get C46() {
-      return C46 = dart.constList([C47 || CT.C47], _LocationL());
-    },
-    get C45() {
-      return C45 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C46 || CT.C46,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 74,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C50() {
-      return C50 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 54,
-        [_Location_line]: 81,
-        [_Location_file]: null
-      });
-    },
-    get C51() {
-      return C51 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 53,
-        [_Location_line]: 82,
-        [_Location_file]: null
-      });
-    },
-    get C49() {
-      return C49 = dart.constList([C50 || CT.C50, C51 || CT.C51], _LocationL());
-    },
-    get C48() {
-      return C48 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C49 || CT.C49,
-        [_Location_name]: null,
-        [_Location_column]: 49,
-        [_Location_line]: 81,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C54() {
-      return C54 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 65,
-        [_Location_line]: 94,
-        [_Location_file]: null
-      });
-    },
-    get C53() {
-      return C53 = dart.constList([C54 || CT.C54], _LocationL());
-    },
-    get C52() {
-      return C52 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C53 || CT.C53,
-        [_Location_name]: null,
-        [_Location_column]: 64,
-        [_Location_line]: 92,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C57() {
-      return C57 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 57,
-        [_Location_line]: 92,
-        [_Location_file]: null
-      });
-    },
-    get C56() {
-      return C56 = dart.constList([C57 || CT.C57], _LocationL());
-    },
-    get C55() {
-      return C55 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C56 || CT.C56,
-        [_Location_name]: null,
-        [_Location_column]: 60,
-        [_Location_line]: 91,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C60() {
-      return C60 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "shrinkWrap",
-        [_Location_column]: 51,
-        [_Location_line]: 87,
-        [_Location_file]: null
-      });
-    },
-    get C61() {
-      return C61 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "itemCount",
-        [_Location_column]: 51,
-        [_Location_line]: 88,
-        [_Location_file]: null
-      });
-    },
-    get C62() {
-      return C62 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "itemBuilder",
-        [_Location_column]: 51,
-        [_Location_line]: 89,
-        [_Location_file]: null
-      });
-    },
-    get C59() {
-      return C59 = dart.constList([C60 || CT.C60, C61 || CT.C61, C62 || CT.C62], _LocationL());
-    },
-    get C58() {
-      return C58 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C59 || CT.C59,
-        [_Location_name]: null,
-        [_Location_column]: 58,
-        [_Location_line]: 86,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C65() {
-      return C65 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 47,
-        [_Location_line]: 80,
-        [_Location_file]: null
-      });
-    },
-    get C64() {
-      return C64 = dart.constList([C65 || CT.C65], _LocationL());
-    },
-    get C63() {
-      return C63 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C64 || CT.C64,
-        [_Location_name]: null,
-        [_Location_column]: 52,
-        [_Location_line]: 79,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C68() {
-      return C68 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 45,
-        [_Location_line]: 76,
-        [_Location_file]: null
-      });
-    },
-    get C69() {
-      return C69 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "height",
-        [_Location_column]: 45,
-        [_Location_line]: 77,
-        [_Location_file]: null
-      });
-    },
-    get C70() {
-      return C70 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "width",
-        [_Location_column]: 45,
-        [_Location_line]: 78,
-        [_Location_file]: null
-      });
-    },
-    get C71() {
-      return C71 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 45,
-        [_Location_line]: 79,
-        [_Location_file]: null
-      });
-    },
-    get C67() {
-      return C67 = dart.constList([C68 || CT.C68, C69 || CT.C69, C70 || CT.C70, C71 || CT.C71], _LocationL());
-    },
-    get C66() {
-      return C66 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C67 || CT.C67,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 75,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C74() {
-      return C74 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 59,
-        [_Location_line]: 119,
-        [_Location_file]: null
-      });
-    },
-    get C73() {
-      return C73 = dart.constList([C74 || CT.C74], _LocationL());
-    },
-    get C72() {
-      return C72 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C73 || CT.C73,
-        [_Location_name]: null,
-        [_Location_column]: 54,
-        [_Location_line]: 119,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C77() {
-      return C77 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 47,
-        [_Location_line]: 104,
-        [_Location_file]: null
-      });
-    },
-    get C78() {
-      return C78 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 47,
-        [_Location_line]: 119,
-        [_Location_file]: null
-      });
-    },
-    get C76() {
-      return C76 = dart.constList([C77 || CT.C77, C78 || CT.C78], _LocationL());
-    },
-    get C75() {
-      return C75 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C76 || CT.C76,
-        [_Location_name]: null,
-        [_Location_column]: 45,
-        [_Location_line]: 103,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C81() {
-      return C81 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "orderId",
-        [_Location_column]: 65,
-        [_Location_line]: 128,
-        [_Location_file]: null
-      });
-    },
-    get C82() {
-      return C82 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "userId",
-        [_Location_column]: 65,
-        [_Location_line]: 130,
-        [_Location_file]: null
-      });
-    },
-    get C80() {
-      return C80 = dart.constList([C81 || CT.C81, C82 || CT.C82], _LocationL());
-    },
-    get C79() {
-      return C79 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C80 || CT.C80,
-        [_Location_name]: null,
-        [_Location_column]: 61,
-        [_Location_line]: 127,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C85() {
-      return C85 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 56,
-        [_Location_line]: 135,
-        [_Location_file]: null
-      });
-    },
-    get C84() {
-      return C84 = dart.constList([C85 || CT.C85], _LocationL());
-    },
-    get C83() {
-      return C83 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C84 || CT.C84,
-        [_Location_name]: null,
-        [_Location_column]: 51,
-        [_Location_line]: 135,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C88() {
-      return C88 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "onPressed",
-        [_Location_column]: 47,
-        [_Location_line]: 122,
-        [_Location_file]: null
-      });
-    },
-    get C89() {
-      return C89 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 47,
-        [_Location_line]: 134,
-        [_Location_file]: null
-      });
-    },
-    get C87() {
-      return C87 = dart.constList([C88 || CT.C88, C89 || CT.C89], _LocationL());
-    },
-    get C86() {
-      return C86 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C87 || CT.C87,
-        [_Location_name]: null,
-        [_Location_column]: 45,
-        [_Location_line]: 121,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C92() {
-      return C92 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 43,
-        [_Location_line]: 100,
-        [_Location_file]: null
-      });
-    },
-    get C93() {
-      return C93 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 43,
-        [_Location_line]: 102,
-        [_Location_file]: null
-      });
-    },
-    get C91() {
-      return C91 = dart.constList([C92 || CT.C92, C93 || CT.C93], _LocationL());
-    },
-    get C90() {
-      return C90 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C91 || CT.C91,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 99,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C96() {
-      return C96 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 37,
-        [_Location_line]: 40,
-        [_Location_file]: null
-      });
-    },
-    get C97() {
-      return C97 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 37,
-        [_Location_line]: 42,
-        [_Location_file]: null
-      });
-    },
-    get C95() {
-      return C95 = dart.constList([C96 || CT.C96, C97 || CT.C97], _LocationL());
-    },
-    get C94() {
-      return C94 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C95 || CT.C95,
-        [_Location_name]: null,
-        [_Location_column]: 35,
-        [_Location_line]: 39,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C100() {
-      return C100 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "data",
-        [_Location_column]: 37,
-        [_Location_line]: 142,
-        [_Location_file]: null
-      });
-    },
-    get C101() {
-      return C101 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "style",
-        [_Location_column]: 37,
-        [_Location_line]: 143,
-        [_Location_file]: null
-      });
-    },
-    get C99() {
-      return C99 = dart.constList([C100 || CT.C100, C101 || CT.C101], _LocationL());
-    },
-    get C98() {
-      return C98 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C99 || CT.C99,
-        [_Location_name]: null,
-        [_Location_column]: 44,
-        [_Location_line]: 141,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C104() {
-      return C104 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 37,
-        [_Location_line]: 141,
-        [_Location_file]: null
-      });
-    },
-    get C103() {
-      return C103 = dart.constList([C104 || CT.C104], _LocationL());
-    },
-    get C102() {
-      return C102 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C103 || CT.C103,
-        [_Location_name]: null,
-        [_Location_column]: 35,
-        [_Location_line]: 140,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C105() {
-      return C105 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C9 || CT.C9,
-        [_Location_name]: null,
-        [_Location_column]: 31,
-        [_Location_line]: 147,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C108() {
-      return C108 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "future",
-        [_Location_column]: 23,
-        [_Location_line]: 30,
-        [_Location_file]: null
-      });
-    },
-    get C109() {
-      return C109 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 23,
-        [_Location_line]: 32,
-        [_Location_file]: null
-      });
-    },
-    get C107() {
-      return C107 = dart.constList([C108 || CT.C108, C109 || CT.C109], _LocationL());
-    },
-    get C106() {
-      return C106 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C107 || CT.C107,
-        [_Location_name]: null,
-        [_Location_column]: 26,
-        [_Location_line]: 29,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C112() {
-      return C112 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 19,
-        [_Location_line]: 29,
-        [_Location_file]: null
-      });
-    },
-    get C111() {
-      return C111 = dart.constList([C112 || CT.C112], _LocationL());
-    },
-    get C110() {
-      return C110 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C111 || CT.C111,
-        [_Location_name]: null,
-        [_Location_column]: 17,
-        [_Location_line]: 28,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C115() {
-      return C115 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "mainAxisAlignment",
-        [_Location_column]: 15,
-        [_Location_line]: 26,
-        [_Location_file]: null
-      });
-    },
-    get C116() {
-      return C116 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "children",
-        [_Location_column]: 15,
-        [_Location_line]: 27,
-        [_Location_file]: null
-      });
-    },
-    get C114() {
-      return C114 = dart.constList([C115 || CT.C115, C116 || CT.C116], _LocationL());
-    },
-    get C113() {
-      return C113 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C114 || CT.C114,
-        [_Location_name]: null,
-        [_Location_column]: 20,
-        [_Location_line]: 25,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C119() {
-      return C119 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 25,
-        [_Location_file]: null
-      });
-    },
-    get C118() {
-      return C118 = dart.constList([C119 || CT.C119], _LocationL());
-    },
-    get C117() {
-      return C117 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C118 || CT.C118,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 24,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C122() {
-      return C122 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 24,
-        [_Location_file]: null
-      });
-    },
-    get C121() {
-      return C121 = dart.constList([C122 || CT.C122], _LocationL());
-    },
-    get C120() {
-      return C120 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C121 || CT.C121,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 23,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C125() {
-      return C125 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 23,
-        [_Location_file]: null
-      });
-    },
-    get C124() {
-      return C124 = dart.constList([C125 || CT.C125], _LocationL());
-    },
-    get C123() {
-      return C123 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C124 || CT.C124,
-        [_Location_name]: null,
-        [_Location_column]: 13,
-        [_Location_line]: 22,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
-      });
-    },
-    get C128() {
-      return C128 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "appBar",
-        [_Location_column]: 7,
-        [_Location_line]: 21,
-        [_Location_file]: null
-      });
-    },
-    get C129() {
-      return C129 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "body",
-        [_Location_column]: 7,
-        [_Location_line]: 22,
-        [_Location_file]: null
-      });
-    },
-    get C127() {
-      return C127 = dart.constList([C128 || CT.C128, C129 || CT.C129], _LocationL());
-    },
-    get C126() {
-      return C126 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C127 || CT.C127,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 20,
-        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Editor/OrderPage.dart"
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 10000000
       });
     }
   }, false);
-  var orderId$ = dart.privateName(OrderPage, "OrderPage.orderId");
-  var uid$ = dart.privateName(OrderPage, "OrderPage.uid");
-  OrderPage.OrderPage = class OrderPage$ extends framework.StatefulWidget {
-    get orderId() {
-      return this[orderId$];
-    }
-    set orderId(value) {
-      super.orderId = value;
-    }
-    get uid() {
-      return this[uid$];
-    }
-    set uid(value) {
-      super.uid = value;
-    }
-    createState() {
-      return new OrderPage._OrderPageState.new();
-    }
-  };
-  (OrderPage.OrderPage.new = function(opts) {
-    let orderId = opts && 'orderId' in opts ? opts.orderId : null;
-    let uid = opts && 'uid' in opts ? opts.uid : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[orderId$] = orderId;
-    this[uid$] = uid;
-    OrderPage.OrderPage.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = OrderPage.OrderPage.prototype;
-  dart.addTypeTests(OrderPage.OrderPage);
-  dart.addTypeCaches(OrderPage.OrderPage);
-  dart.setMethodSignature(OrderPage.OrderPage, () => ({
-    __proto__: dart.getMethods(OrderPage.OrderPage.__proto__),
-    createState: dart.fnType(dart.legacy(OrderPage._OrderPageState), [])
-  }));
-  dart.setLibraryUri(OrderPage.OrderPage, L0);
-  dart.setFieldSignature(OrderPage.OrderPage, () => ({
-    __proto__: dart.getFields(OrderPage.OrderPage.__proto__),
-    orderId: dart.finalFieldType(dart.legacy(core.String)),
-    uid: dart.finalFieldType(dart.legacy(core.String))
-  }));
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var C2;
-  var C1;
+  var Duration__duration = dart.privateName(core, "Duration._duration");
   var C0;
-  var C5;
-  var C6;
-  var C4;
-  var C3;
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var C7;
-  var C9;
-  var C8;
-  var C12;
-  var C11;
-  var C10;
-  var C15;
-  var C16;
-  var C17;
-  var C14;
-  var C13;
-  var C20;
-  var C21;
-  var C22;
-  var C19;
-  var C18;
-  var C25;
-  var C26;
-  var C24;
-  var C23;
-  var C29;
-  var C30;
-  var C28;
-  var C27;
-  var C33;
-  var C32;
-  var C31;
-  var C36;
-  var C37;
-  var C35;
-  var C34;
-  var C40;
-  var C39;
-  var C38;
-  var C43;
-  var C44;
-  var C42;
-  var C41;
-  var C47;
-  var C46;
-  var C45;
-  var C50;
-  var C51;
-  var C49;
-  var C48;
-  var C54;
-  var C53;
-  var C52;
-  var C57;
-  var C56;
-  var C55;
-  var C60;
-  var C61;
-  var C62;
-  var C59;
-  var C58;
-  var C65;
-  var C64;
-  var C63;
-  var C68;
-  var C69;
-  var C70;
-  var C71;
-  var C67;
-  var C66;
-  var C74;
-  var C73;
-  var C72;
-  var C77;
-  var C78;
-  var C76;
-  var C75;
-  var C81;
-  var C82;
-  var C80;
-  var C79;
-  var C85;
-  var C84;
-  var C83;
-  var C88;
-  var C89;
-  var C87;
-  var C86;
-  var C92;
-  var C93;
-  var C91;
-  var C90;
-  var C96;
-  var C97;
-  var C95;
-  var C94;
-  var C100;
-  var C101;
-  var C99;
-  var C98;
-  var C104;
-  var C103;
-  var C102;
-  var C105;
-  var C108;
-  var C109;
-  var C107;
-  var C106;
-  var C112;
-  var C111;
-  var C110;
-  var C115;
-  var C116;
-  var C114;
-  var C113;
-  var C119;
-  var C118;
-  var C117;
-  var C122;
-  var C121;
-  var C120;
-  var C125;
-  var C124;
-  var C123;
-  var C128;
-  var C129;
-  var C127;
-  var C126;
-  OrderPage._OrderPageState = class _OrderPageState extends framework.State$(dart.legacy(OrderPage.OrderPage)) {
-    build(context) {
-      let _media = media_query.MediaQuery.of(context).size;
-      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Order Details", {$creationLocationd_0dea112b090073317d4: C0 || CT.C0}), centerTitle: true, $creationLocationd_0dea112b090073317d4: C3 || CT.C3}), body: new container.Container.new({child: new single_child_scroll_view.SingleChildScrollView.new({child: new basic.Center.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new container.Container.new({child: new async$.FutureBuilder.new({future: new ApiFunctions$32_Editor.ApiFunctionsEditors.new().getOrderDetails(this.widget.orderId), builder: dart.fn((context, snapshot) => {
-                        let t0, t0$, t0$0, t0$1;
-                        let features = ListL().as(dart.test(snapshot.hasData) && !dart.equals(snapshot.data, false) ? convert.json.decode(core.String.as(dart.dsend(snapshot.data, '_get', ["features"]))) : []);
-                        return dart.test(snapshot.hasData) ? !dart.equals(snapshot.data, false) ? new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new basic.Padding.new({padding: C7 || CT.C7, child: new basic.SizedBox.new({child: new cached_image_widget.CachedNetworkImage.new({placeholder: dart.fn((context, url) => new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C8 || CT.C8}), BuildContextLAndStringLToCircularProgressIndicatorL()), errorWidget: dart.fn((context, url, error) => new icon.Icon.new(icons.Icons.error, {$creationLocationd_0dea112b090073317d4: C10 || CT.C10}), BuildContextLAndStringLAnddynamicToIconL()), imageUrl: StringL().as((t0 = dart.dsend(snapshot.data, '_get', ["rawBase64"]), t0 == null ? "https://wallpaperaccess.com/full/2109.jpg" : t0)), $creationLocationd_0dea112b090073317d4: C13 || CT.C13}), height: dart.notNull(_media.height) * 0.5, width: dart.notNull(_media.width) * 0.3, $creationLocationd_0dea112b090073317d4: C18 || CT.C18}), $creationLocationd_0dea112b090073317d4: C23 || CT.C23}), new text.Text.new("Tier", {style: new text_style.TextStyle.new({fontSize: 20.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C27 || CT.C27}), new text.Text.new(core.String.as((t0$ = dart.dsend(snapshot.data, '_get', ["tierId"]), t0$ == null ? "Tier" : t0$)), {$creationLocationd_0dea112b090073317d4: C31 || CT.C31}), new text.Text.new("Date of ordering", {style: new text_style.TextStyle.new({fontSize: 20.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C34 || CT.C34}), new text.Text.new(core.String.as((t0$0 = dart.dsend(snapshot.data, '_get', ["timestamp"]), t0$0 == null ? "Timestamp" : t0$0)), {$creationLocationd_0dea112b090073317d4: C38 || CT.C38}), new text.Text.new("Deadline", {style: new text_style.TextStyle.new({fontSize: 20.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C41 || CT.C41}), new text.Text.new(core.String.as((t0$1 = dart.dsend(snapshot.data, '_get', ["endTime"]), t0$1 == null ? "5" : t0$1)), {$creationLocationd_0dea112b090073317d4: C45 || CT.C45}), new container.Container.new({color: colors.Colors.grey._get(100), height: dart.notNull(_media.height) * 0.15, width: dart.notNull(_media.width) * 0.3, child: new basic.Column.new({children: JSArrayOfWidgetL().of([new text.Text.new("Features Ordered", {style: new text_style.TextStyle.new({fontSize: 20.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C48 || CT.C48}), new scroll_view.ListView.builder({shrinkWrap: true, itemCount: features[$length], itemBuilder: dart.fn((context, index) => new basic.Center.new({child: new text.Text.new(core.String.as(dart.dsend(features[$_get](index), '_get', ["title"])), {$creationLocationd_0dea112b090073317d4: C52 || CT.C52}), $creationLocationd_0dea112b090073317d4: C55 || CT.C55}), BuildContextLAndintLToCenterL()), $creationLocationd_0dea112b090073317d4: C58 || CT.C58})]), $creationLocationd_0dea112b090073317d4: C63 || CT.C63}), $creationLocationd_0dea112b090073317d4: C66 || CT.C66}), new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new raised_button.RaisedButton.new({onPressed: dart.fn(() => async.async(core.Null, function*() {
-                                    let imageUrl = StringL().as(dart.dsend(snapshot.data, '_get', ["rawBase64"]));
-                                    let x = (yield http.get(imageUrl));
-                                    try {
-                                    } catch (e$) {
-                                      let e = dart.getThrown(e$);
-                                      core.print(e);
-                                    }
-                                  }), VoidToFutureLOfNull()), child: new text.Text.new("Download Image", {$creationLocationd_0dea112b090073317d4: C72 || CT.C72}), $creationLocationd_0dea112b090073317d4: C75 || CT.C75}), new raised_button.RaisedButton.new({onPressed: dart.fn(() => {
-                                    navigator.Navigator.push(dart.dynamic, context, new page.MaterialPageRoute.new({builder: dart.fn(context => new SubmitPage.SubmitPage.new({orderId: this.widget.orderId, userId: StringL().as(dart.dsend(snapshot.data, '_get', ["uid"])), $creationLocationd_0dea112b090073317d4: C79 || CT.C79}), BuildContextLToSubmitPageL())}));
-                                  }, VoidToNull()), child: new text.Text.new("Upload Edited Image", {$creationLocationd_0dea112b090073317d4: C83 || CT.C83}), $creationLocationd_0dea112b090073317d4: C86 || CT.C86})]), $creationLocationd_0dea112b090073317d4: C90 || CT.C90})]), $creationLocationd_0dea112b090073317d4: C94 || CT.C94}) : new basic.Center.new({child: new text.Text.new("Order details unavailable", {style: new text_style.TextStyle.new({fontWeight: ui.FontWeight.bold, fontSize: 30.0}), $creationLocationd_0dea112b090073317d4: C98 || CT.C98}), $creationLocationd_0dea112b090073317d4: C102 || CT.C102}) : new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C105 || CT.C105});
-                      }, BuildContextLAndAsyncSnapshotLToWidgetL()), $creationLocationd_0dea112b090073317d4: C106 || CT.C106}), $creationLocationd_0dea112b090073317d4: C110 || CT.C110})]), $creationLocationd_0dea112b090073317d4: C113 || CT.C113}), $creationLocationd_0dea112b090073317d4: C117 || CT.C117}), $creationLocationd_0dea112b090073317d4: C120 || CT.C120}), $creationLocationd_0dea112b090073317d4: C123 || CT.C123}), $creationLocationd_0dea112b090073317d4: C126 || CT.C126});
+  var _futureCache = dart.privateName(cache_store, "_futureCache");
+  var _memCache = dart.privateName(cache_store, "_memCache");
+  var _fileDir = dart.privateName(cache_store, "_fileDir");
+  var _cacheInfoRepository = dart.privateName(cache_store, "_cacheInfoRepository");
+  var _scheduledCleanup = dart.privateName(cache_store, "_scheduledCleanup");
+  var _capacity$ = dart.privateName(cache_store, "_capacity");
+  var _maxAge$ = dart.privateName(cache_store, "_maxAge");
+  var _getObjectProvider = dart.privateName(cache_store, "_getObjectProvider");
+  var _updateCacheDataInDatabase = dart.privateName(cache_store, "_updateCacheDataInDatabase");
+  var _fileExists = dart.privateName(cache_store, "_fileExists");
+  var _getCacheDataFromDatabase = dart.privateName(cache_store, "_getCacheDataFromDatabase");
+  var _scheduleCleanup = dart.privateName(cache_store, "_scheduleCleanup");
+  var _cleanupCache = dart.privateName(cache_store, "_cleanupCache");
+  var _removeCachedFile = dart.privateName(cache_store, "_removeCachedFile");
+  var cleanupRunMinInterval$ = dart.privateName(cache_store, "CacheStore.cleanupRunMinInterval");
+  var fileDir = dart.privateName(cache_store, "CacheStore.fileDir");
+  var storeKey$ = dart.privateName(cache_store, "CacheStore.storeKey");
+  var lastCleanupRun = dart.privateName(cache_store, "CacheStore.lastCleanupRun");
+  cache_store.CacheStore = class CacheStore extends core.Object {
+    get cleanupRunMinInterval() {
+      return this[cleanupRunMinInterval$];
+    }
+    set cleanupRunMinInterval(value) {
+      this[cleanupRunMinInterval$] = value;
+    }
+    get fileDir() {
+      return this[fileDir];
+    }
+    set fileDir(value) {
+      this[fileDir] = value;
+    }
+    get storeKey() {
+      return this[storeKey$];
+    }
+    set storeKey(value) {
+      super.storeKey = value;
+    }
+    get lastCleanupRun() {
+      return this[lastCleanupRun];
+    }
+    set lastCleanupRun(value) {
+      this[lastCleanupRun] = value;
+    }
+    [_getObjectProvider]() {
+      return async.async(CacheInfoRepositoryL(), (function* _getObjectProvider() {
+        let databasesPath = (yield sqflite.getDatabasesPath());
+        try {
+          yield io.Directory.new(databasesPath).create({recursive: true});
+        } catch (e) {
+          let _ = dart.getThrown(e);
+        }
+        let provider = new cache_object_provider.CacheObjectProvider.new(path.join(databasesPath, dart.str(this.storeKey) + ".db"));
+        yield provider.open();
+        return provider;
+      }).bind(this));
+    }
+    getFile(url, opts) {
+      let ignoreMemCache = opts && 'ignoreMemCache' in opts ? opts.ignoreMemCache : false;
+      return async.async(FileInfoL(), (function* getFile() {
+        let cacheObject = (yield this.retrieveCacheData(url, {ignoreMemCache: ignoreMemCache}));
+        if (cacheObject == null || cacheObject.relativePath == null) {
+          return null;
+        }
+        let file = (yield this.fileDir).childFile(cacheObject.relativePath);
+        return new file_info.FileInfo.new(file, file_info.FileSource.Cache, cacheObject.validTill, url);
+      }).bind(this));
+    }
+    putFile(cacheObject) {
+      return async.async(dart.void, (function* putFile() {
+        this[_memCache][$_set](cacheObject.url, cacheObject);
+        yield this[_updateCacheDataInDatabase](cacheObject);
+      }).bind(this));
+    }
+    retrieveCacheData(url, opts) {
+      let ignoreMemCache = opts && 'ignoreMemCache' in opts ? opts.ignoreMemCache : false;
+      return async.async(CacheObjectL(), (function* retrieveCacheData() {
+        if (!dart.test(ignoreMemCache) && dart.test(this[_memCache][$containsKey](url))) {
+          if (dart.test(yield this[_fileExists](this[_memCache][$_get](url)))) {
+            return this[_memCache][$_get](url);
+          }
+        }
+        if (!dart.test(this[_futureCache][$containsKey](url))) {
+          let completer = CompleterOfCacheObjectL().new();
+          pedantic.unawaited(this[_getCacheDataFromDatabase](url).then(dart.void, dart.fn(cacheObject => async.async(core.Null, (function*() {
+            if (cacheObject != null && !dart.test(yield this[_fileExists](cacheObject))) {
+              let provider = (yield this[_cacheInfoRepository]);
+              yield provider.delete(cacheObject.id);
+              cacheObject = null;
+            }
+            this[_memCache][$_set](url, cacheObject);
+            completer.complete(cacheObject);
+            pedantic.unawaited(this[_futureCache][$remove](url));
+          }).bind(this)), CacheObjectLToFutureLOfNull())));
+          this[_futureCache][$_set](url, completer.future);
+        }
+        return this[_futureCache][$_get](url);
+      }).bind(this));
+    }
+    getFileFromMemory(url) {
+      if (this[_memCache][$_get](url) == null || this[_fileDir] == null) {
+        return null;
+      }
+      let cacheObject = this[_memCache][$_get](url);
+      let file = this[_fileDir].childFile(cacheObject.relativePath);
+      return new file_info.FileInfo.new(file, file_info.FileSource.Cache, cacheObject.validTill, url);
+    }
+    [_fileExists](cacheObject) {
+      return async.async(boolL(), (function* _fileExists() {
+        let t1;
+        if ((t1 = cacheObject, t1 == null ? null : t1.relativePath) == null) {
+          return false;
+        }
+        let dirPath = (yield this.fileDir);
+        let file = dirPath.childFile(cacheObject.relativePath);
+        return file.exists();
+      }).bind(this));
+    }
+    [_getCacheDataFromDatabase](url) {
+      return async.async(CacheObjectL(), (function* _getCacheDataFromDatabase() {
+        let provider = (yield this[_cacheInfoRepository]);
+        let data = (yield provider.get(url));
+        if (dart.test(yield this[_fileExists](data))) {
+          pedantic.unawaited(this[_updateCacheDataInDatabase](data));
+        }
+        this[_scheduleCleanup]();
+        return data;
+      }).bind(this));
+    }
+    [_scheduleCleanup]() {
+      if (this[_scheduledCleanup] != null) {
+        return;
+      }
+      this[_scheduledCleanup] = async.Timer.new(this.cleanupRunMinInterval, dart.fn(() => {
+        this[_scheduledCleanup] = null;
+        this[_cleanupCache]();
+      }, VoidToNull()));
+    }
+    [_updateCacheDataInDatabase](cacheObject) {
+      return async.async(dart.dynamic, (function* _updateCacheDataInDatabase() {
+        let provider = (yield this[_cacheInfoRepository]);
+        return provider.updateOrInsert(cacheObject);
+      }).bind(this));
+    }
+    [_cleanupCache]() {
+      return async.async(dart.void, (function* _cleanupCache() {
+        let toRemove = JSArrayOfintL().of([]);
+        let provider = (yield this[_cacheInfoRepository]);
+        let overCapacity = (yield provider.getObjectsOverCapacity(this[_capacity$]));
+        for (let cacheObject of overCapacity) {
+          pedantic.unawaited(this[_removeCachedFile](cacheObject, toRemove));
+        }
+        let oldObjects = (yield provider.getOldObjects(this[_maxAge$]));
+        for (let cacheObject of oldObjects) {
+          pedantic.unawaited(this[_removeCachedFile](cacheObject, toRemove));
+        }
+        yield provider.deleteAll(toRemove);
+      }).bind(this));
+    }
+    emptyCache() {
+      return async.async(dart.void, (function* emptyCache() {
+        let provider = (yield this[_cacheInfoRepository]);
+        let toRemove = JSArrayOfintL().of([]);
+        let allObjects = (yield provider.getAllObjects());
+        for (let cacheObject of allObjects) {
+          pedantic.unawaited(this[_removeCachedFile](cacheObject, toRemove));
+        }
+        yield provider.deleteAll(toRemove);
+      }).bind(this));
+    }
+    emptyMemoryCache() {
+      this[_memCache][$clear]();
+    }
+    removeCachedFile(cacheObject) {
+      return async.async(dart.void, (function* removeCachedFile() {
+        let provider = (yield this[_cacheInfoRepository]);
+        let toRemove = JSArrayOfintL().of([]);
+        pedantic.unawaited(this[_removeCachedFile](cacheObject, toRemove));
+        yield provider.deleteAll(toRemove);
+      }).bind(this));
+    }
+    [_removeCachedFile](cacheObject, toRemove) {
+      return async.async(dart.void, (function* _removeCachedFile() {
+        if (dart.test(toRemove[$contains](cacheObject.id))) return;
+        toRemove[$add](cacheObject.id);
+        if (dart.test(this[_memCache][$containsKey](cacheObject.url))) {
+          this[_memCache][$remove](cacheObject.url);
+        }
+        if (dart.test(this[_futureCache][$containsKey](cacheObject.url))) {
+          pedantic.unawaited(this[_futureCache][$remove](cacheObject.url));
+        }
+        let file = (yield this.fileDir).childFile(cacheObject.relativePath);
+        if (dart.test(yield file.exists())) {
+          pedantic.unawaited(file.delete());
+        }
+      }).bind(this));
+    }
+    dispose() {
+      return async.async(dart.void, (function* dispose() {
+        let provider = (yield this[_cacheInfoRepository]);
+        yield provider.close();
+      }).bind(this));
     }
   };
-  (OrderPage._OrderPageState.new = function() {
-    OrderPage._OrderPageState.__proto__.new.call(this);
-    ;
-  }).prototype = OrderPage._OrderPageState.prototype;
-  dart.addTypeTests(OrderPage._OrderPageState);
-  dart.addTypeCaches(OrderPage._OrderPageState);
-  dart.setMethodSignature(OrderPage._OrderPageState, () => ({
-    __proto__: dart.getMethods(OrderPage._OrderPageState.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  (cache_store.CacheStore.new = function(basedir, storeKey, _capacity, _maxAge, opts) {
+    let t0;
+    let cacheRepoProvider = opts && 'cacheRepoProvider' in opts ? opts.cacheRepoProvider : null;
+    let cleanupRunMinInterval = opts && 'cleanupRunMinInterval' in opts ? opts.cleanupRunMinInterval : C0 || CT.C0;
+    this[_futureCache] = new (IdentityMapOfStringL$FutureLOfCacheObjectL()).new();
+    this[_memCache] = new (IdentityMapOfStringL$CacheObjectL()).new();
+    this[fileDir] = null;
+    this[_fileDir] = null;
+    this[_cacheInfoRepository] = null;
+    this[lastCleanupRun] = new core.DateTime.now();
+    this[_scheduledCleanup] = null;
+    this[storeKey$] = storeKey;
+    this[_capacity$] = _capacity;
+    this[_maxAge$] = _maxAge;
+    this[cleanupRunMinInterval$] = cleanupRunMinInterval;
+    this.fileDir = basedir.then(DirectoryL(), dart.fn(dir => this[_fileDir] = dir, DirectoryLToDirectoryL()));
+    this[_cacheInfoRepository] = (t0 = cacheRepoProvider, t0 == null ? this[_getObjectProvider]() : t0);
+  }).prototype = cache_store.CacheStore.prototype;
+  dart.addTypeTests(cache_store.CacheStore);
+  dart.addTypeCaches(cache_store.CacheStore);
+  dart.setMethodSignature(cache_store.CacheStore, () => ({
+    __proto__: dart.getMethods(cache_store.CacheStore.__proto__),
+    [_getObjectProvider]: dart.fnType(dart.legacy(async.Future$(dart.legacy(cache_info_repository.CacheInfoRepository))), []),
+    getFile: dart.fnType(dart.legacy(async.Future$(dart.legacy(file_info.FileInfo))), [dart.legacy(core.String)], {ignoreMemCache: dart.legacy(core.bool)}, {}),
+    putFile: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(cache_object.CacheObject)]),
+    retrieveCacheData: dart.fnType(dart.legacy(async.Future$(dart.legacy(cache_object.CacheObject))), [dart.legacy(core.String)], {ignoreMemCache: dart.legacy(core.bool)}, {}),
+    getFileFromMemory: dart.fnType(dart.legacy(file_info.FileInfo), [dart.legacy(core.String)]),
+    [_fileExists]: dart.fnType(dart.legacy(async.Future$(dart.legacy(core.bool))), [dart.legacy(cache_object.CacheObject)]),
+    [_getCacheDataFromDatabase]: dart.fnType(dart.legacy(async.Future$(dart.legacy(cache_object.CacheObject))), [dart.legacy(core.String)]),
+    [_scheduleCleanup]: dart.fnType(dart.void, []),
+    [_updateCacheDataInDatabase]: dart.fnType(dart.legacy(async.Future), [dart.legacy(cache_object.CacheObject)]),
+    [_cleanupCache]: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    emptyCache: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    emptyMemoryCache: dart.fnType(dart.void, []),
+    removeCachedFile: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(cache_object.CacheObject)]),
+    [_removeCachedFile]: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(cache_object.CacheObject), dart.legacy(core.List$(dart.legacy(core.int)))]),
+    dispose: dart.fnType(dart.legacy(async.Future$(dart.void)), [])
   }));
-  dart.setLibraryUri(OrderPage._OrderPageState, L0);
-  dart.trackLibraries("packages/envyweb/Screens/Editor/OrderPage.dart", {
-    "package:envyweb/Screens/Editor/OrderPage.dart": OrderPage
+  dart.setLibraryUri(cache_store.CacheStore, L0);
+  dart.setFieldSignature(cache_store.CacheStore, () => ({
+    __proto__: dart.getFields(cache_store.CacheStore.__proto__),
+    cleanupRunMinInterval: dart.fieldType(dart.legacy(core.Duration)),
+    [_futureCache]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(async.Future$(dart.legacy(cache_object.CacheObject)))))),
+    [_memCache]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(cache_object.CacheObject)))),
+    fileDir: dart.fieldType(dart.legacy(async.Future$(dart.legacy(directory.Directory)))),
+    [_fileDir]: dart.fieldType(dart.legacy(directory.Directory)),
+    storeKey: dart.finalFieldType(dart.legacy(core.String)),
+    [_cacheInfoRepository]: dart.fieldType(dart.legacy(async.Future$(dart.legacy(cache_info_repository.CacheInfoRepository)))),
+    [_capacity$]: dart.finalFieldType(dart.legacy(core.int)),
+    [_maxAge$]: dart.finalFieldType(dart.legacy(core.Duration)),
+    lastCleanupRun: dart.fieldType(dart.legacy(core.DateTime)),
+    [_scheduledCleanup]: dart.fieldType(dart.legacy(async.Timer))
+  }));
+  dart.trackLibraries("packages/flutter_cache_manager/src/cache_store.dart", {
+    "package:flutter_cache_manager/src/cache_store.dart": cache_store
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["OrderPage.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/envyweb/Screens/Editor/OrderPage.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["cache_store.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../packages/flutter_cache_manager/src/cache_store.dart.lib.js"}');
   // Exports:
   return {
-    Screens__Editor__OrderPage: OrderPage
+    src__cache_store: cache_store
   };
 }));
 
-//# sourceMappingURL=OrderPage.dart.lib.js.map
+//# sourceMappingURL=cache_store.dart.lib.js.map

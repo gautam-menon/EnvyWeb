@@ -1,346 +1,437 @@
-define(['dart_sdk', 'packages/file/src/forwarding/forwarding_link.dart', 'packages/file/src/interface/link.dart', 'packages/file/src/common.dart'], (function load__packages__file__src__backends__local__local_link_dart(dart_sdk, packages__file__src__forwarding__forwarding_link$46dart, packages__file__src__interface__link$46dart, packages__file__src__common$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/implicit_animations.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/material/constants.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/widgets/icon_theme.dart', 'packages/flutter/src/painting/_network_image_web.dart'], (function load__packages__flutter__src__material__circle_avatar_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__implicit_animations$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__material__constants$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__widgets__icon_theme$46dart, packages__flutter__src__painting___network_image_web$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
   const _internal = dart_sdk._internal;
-  const io = dart_sdk.io;
-  const async = dart_sdk.async;
-  const typed_data = dart_sdk.typed_data;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const forwarding_file_system_entity = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_file_system_entity;
-  const forwarding_link = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_link;
-  const forwarding_file = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_file;
-  const forwarding_directory = packages__file__src__forwarding__forwarding_link$46dart.src__forwarding__forwarding_directory;
-  const directory = packages__file__src__interface__link$46dart.src__interface__directory;
-  const file = packages__file__src__interface__link$46dart.src__interface__file;
-  const link = packages__file__src__interface__link$46dart.src__interface__link;
-  const file_system = packages__file__src__interface__link$46dart.src__interface__file_system;
-  const common = packages__file__src__common$46dart.src__common;
-  var local_link = Object.create(dart.library);
-  var local_file = Object.create(dart.library);
-  var local_file_system_entity = Object.create(dart.library);
-  var local_directory = Object.create(dart.library);
-  var $toString = dartx.toString;
-  var SymbolL = () => (SymbolL = dart.constFn(dart.legacy(core.Symbol)))();
-  var LinkedMapOfSymbolL$dynamic = () => (LinkedMapOfSymbolL$dynamic = dart.constFn(_js_helper.LinkedMap$(SymbolL(), dart.dynamic)))();
-  var FileSystemEntityL = () => (FileSystemEntityL = dart.constFn(dart.legacy(io.FileSystemEntity)))();
-  var FutureOfFileSystemEntityL = () => (FutureOfFileSystemEntityL = dart.constFn(async.Future$(FileSystemEntityL())))();
-  var FutureLOfFileSystemEntityL = () => (FutureLOfFileSystemEntityL = dart.constFn(dart.legacy(FutureOfFileSystemEntityL())))();
-  var Uint8ListL = () => (Uint8ListL = dart.constFn(dart.legacy(typed_data.Uint8List)))();
-  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const implicit_animations = packages__flutter__src__widgets__implicit_animations$46dart.src__widgets__implicit_animations;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const constants = packages__flutter__src__material__constants$46dart.src__material__constants;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const icon_theme = packages__flutter__src__widgets__icon_theme$46dart.src__widgets__icon_theme;
+  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
+  var circle_avatar = Object.create(dart.library);
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
   const CT = Object.create(null);
-  var L0 = "package:file/src/backends/local/local_file_system_entity.dart";
-  var L1 = "package:file/src/backends/local/local_link.dart";
-  var L2 = "package:file/src/backends/local/local_file.dart";
-  var L3 = "package:file/src/backends/local/local_directory.dart";
+  var L1 = "package:flutter/src/material/circle_avatar.dart";
+  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/material/circle_avatar.dart";
   dart.defineLazy(CT, {
     get C0() {
-      return C0 = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync));
+      return C0 = dart.const({
+        __proto__: ui.Brightness.prototype,
+        [_name]: "Brightness.dark",
+        index: 0
+      });
     },
     get C1() {
-      return C1 = dart.const(new _internal.Symbol.new('recursive'));
-    },
-    get C2() {
-      return C2 = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete));
-    },
-    get C3() {
-      return C3 = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath));
+      return C1 = dart.const({
+        __proto__: ui.Brightness.prototype,
+        [_name]: "Brightness.light",
+        index: 1
+      });
     },
     get C4() {
-      return C4 = dart.const(new _js_helper.PrivateSymbol.new('_path', _path));
+      return C4 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 230,
+        [_Location_file]: null
+      });
     },
     get C5() {
-      return C5 = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath));
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 231,
+        [_Location_file]: null
+      });
     },
-    get C6() {
-      return C6 = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync$0));
+    get C3() {
+      return C3 = dart.constList([C4 || CT.C4, C5 || CT.C5], _LocationL());
     },
-    get C7() {
-      return C7 = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete$0));
+    get C2() {
+      return C2 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C3 || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 229,
+        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
+      });
     },
     get C8() {
-      return C8 = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath$0));
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 19,
+        [_Location_line]: 228,
+        [_Location_file]: null
+      });
     },
     get C9() {
-      return C9 = dart.const(new _js_helper.PrivateSymbol.new('_path', _path$0));
+      return C9 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 229,
+        [_Location_file]: null
+      });
     },
-    get C10() {
-      return C10 = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath$0));
+    get C7() {
+      return C7 = dart.constList([C8 || CT.C8, C9 || CT.C9], _LocationL());
     },
-    get C11() {
-      return C11 = dart.const(new _js_helper.PrivateSymbol.new('_deleteSync', _deleteSync$1));
+    get C6() {
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C7 || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 227,
+        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
+      });
     },
     get C12() {
-      return C12 = dart.const(new _js_helper.PrivateSymbol.new('_delete', _delete$1));
+      return C12 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 17,
+        [_Location_line]: 226,
+        [_Location_file]: null
+      });
     },
     get C13() {
-      return C13 = dart.const(new _js_helper.PrivateSymbol.new('_rawPath', _rawPath$1));
+      return C13 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 227,
+        [_Location_file]: null
+      });
     },
-    get C14() {
-      return C14 = dart.const(new _js_helper.PrivateSymbol.new('_path', _path$1));
+    get C11() {
+      return C11 = dart.constList([C12 || CT.C12, C13 || CT.C13], _LocationL());
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C11 || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 223,
+        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
+      });
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 223,
+        [_Location_file]: null
+      });
     },
     get C15() {
-      return C15 = dart.const(new _js_helper.PrivateSymbol.new('_absolutePath', _absolutePath$1));
+      return C15 = dart.constList([C16 || CT.C16], _LocationL());
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C15 || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 222,
+        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
+      });
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 7,
+        [_Location_line]: 202,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C20 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "duration",
+        [_Location_column]: 7,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.constList([C19 || CT.C19, C20 || CT.C20, C21 || CT.C21, C22 || CT.C22], _LocationL());
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C18 || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 201,
+        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/material/circle_avatar.dart"
+      });
     }
   }, false);
-  var _deleteSync = dart.privateName(local_link, "_deleteSync");
+  var _minDiameter = dart.privateName(circle_avatar, "_minDiameter");
+  var _maxDiameter = dart.privateName(circle_avatar, "_maxDiameter");
+  var _name = dart.privateName(ui, "_name");
   var C0;
   var C1;
-  var _deleteSync$ = dart.privateName(io, "_deleteSync");
-  var _delete = dart.privateName(local_link, "_delete");
-  var C2;
-  var _delete$ = dart.privateName(io, "_delete");
-  var _rawPath = dart.privateName(local_link, "_rawPath");
-  var C3;
-  var _rawPath$ = dart.privateName(io, "_rawPath");
-  var _path = dart.privateName(local_link, "_path");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
   var C4;
-  var _path$ = dart.privateName(io, "_path");
-  var _absolutePath = dart.privateName(local_link, "_absolutePath");
   var C5;
-  var _absolutePath$ = dart.privateName(io, "_absolutePath");
-  const _is_LocalFileSystemEntity_default = Symbol('_is_LocalFileSystemEntity_default');
-  var fileSystem$ = dart.privateName(local_file_system_entity, "LocalFileSystemEntity.fileSystem");
-  var delegate$ = dart.privateName(local_file_system_entity, "LocalFileSystemEntity.delegate");
-  local_file_system_entity.LocalFileSystemEntity$ = dart.generic((T, D) => {
-    class LocalFileSystemEntity extends forwarding_file_system_entity.ForwardingFileSystemEntity$(dart.legacy(T), dart.legacy(D)) {
-      get fileSystem() {
-        return this[fileSystem$];
-      }
-      set fileSystem(value) {
-        super.fileSystem = value;
-      }
-      get delegate() {
-        return this[delegate$];
-      }
-      set delegate(value) {
-        super.delegate = value;
-      }
-      get dirname() {
-        return this.fileSystem.path.dirname(this.path);
-      }
-      get basename() {
-        return this.fileSystem.path.basename(this.path);
-      }
-      wrapDirectory(delegate) {
-        return new local_directory.LocalDirectory.new(this.fileSystem, delegate);
-      }
-      wrapFile(delegate) {
-        return new local_file.LocalFile.new(this.fileSystem, delegate);
-      }
-      wrapLink(delegate) {
-        return new local_link.LocalLink.new(this.fileSystem, delegate);
-      }
-    }
-    (LocalFileSystemEntity.new = function(fileSystem, delegate) {
-      this[fileSystem$] = fileSystem;
-      this[delegate$] = delegate;
-      ;
-    }).prototype = LocalFileSystemEntity.prototype;
-    dart.addTypeTests(LocalFileSystemEntity);
-    LocalFileSystemEntity.prototype[_is_LocalFileSystemEntity_default] = true;
-    dart.addTypeCaches(LocalFileSystemEntity);
-    dart.setMethodSignature(LocalFileSystemEntity, () => ({
-      __proto__: dart.getMethods(LocalFileSystemEntity.__proto__),
-      wrapDirectory: dart.fnType(dart.legacy(directory.Directory), [dart.legacy(io.Directory)]),
-      wrapFile: dart.fnType(dart.legacy(file.File), [dart.legacy(io.File)]),
-      wrapLink: dart.fnType(dart.legacy(link.Link), [dart.legacy(io.Link)])
-    }));
-    dart.setLibraryUri(LocalFileSystemEntity, L0);
-    dart.setFieldSignature(LocalFileSystemEntity, () => ({
-      __proto__: dart.getFields(LocalFileSystemEntity.__proto__),
-      fileSystem: dart.finalFieldType(dart.legacy(file_system.FileSystem)),
-      delegate: dart.finalFieldType(dart.legacy(D))
-    }));
-    return LocalFileSystemEntity;
-  });
-  local_file_system_entity.LocalFileSystemEntity = local_file_system_entity.LocalFileSystemEntity$();
-  dart.addTypeTests(local_file_system_entity.LocalFileSystemEntity, _is_LocalFileSystemEntity_default);
-  const LocalFileSystemEntity_ForwardingLink$36 = class LocalFileSystemEntity_ForwardingLink extends local_file_system_entity.LocalFileSystemEntity$(dart.legacy(link.Link), dart.legacy(io.Link)) {};
-  (LocalFileSystemEntity_ForwardingLink$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_ForwardingLink$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_ForwardingLink$36.prototype;
-  dart.applyMixin(LocalFileSystemEntity_ForwardingLink$36, forwarding_link.ForwardingLink);
-  local_link.LocalLink = class LocalLink extends LocalFileSystemEntity_ForwardingLink$36 {
-    toString() {
-      return "LocalLink: '" + dart.str(this.path) + "'";
-    }
-    [_deleteSync$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return this.noSuchMethod(new core._Invocation.method(C0 || CT.C0, null, [], new (LinkedMapOfSymbolL$dynamic()).from([C1 || CT.C1, recursive])));
-    }
-    [_delete$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return FutureLOfFileSystemEntityL().as(this.noSuchMethod(new core._Invocation.method(C2 || CT.C2, null, [], new (LinkedMapOfSymbolL$dynamic()).from([C1 || CT.C1, recursive]))));
-    }
-    get [_rawPath$]() {
-      return Uint8ListL().as(this.noSuchMethod(new core._Invocation.getter(C3 || CT.C3)));
-    }
-    get [_path$]() {
-      return StringL().as(this.noSuchMethod(new core._Invocation.getter(C4 || CT.C4)));
-    }
-    get [_absolutePath$]() {
-      return StringL().as(this.noSuchMethod(new core._Invocation.getter(C5 || CT.C5)));
-    }
-  };
-  (local_link.LocalLink.new = function(fs, delegate) {
-    local_link.LocalLink.__proto__.new.call(this, fs, delegate);
-    ;
-  }).prototype = local_link.LocalLink.prototype;
-  dart.addTypeTests(local_link.LocalLink);
-  dart.addTypeCaches(local_link.LocalLink);
-  dart.setMethodSignature(local_link.LocalLink, () => ({
-    __proto__: dart.getMethods(local_link.LocalLink.__proto__),
-    toString: dart.fnType(dart.legacy(core.String), []),
-    [$toString]: dart.fnType(dart.legacy(core.String), []),
-    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: dart.legacy(core.bool)}, {}),
-    [_delete$]: dart.fnType(dart.legacy(async.Future$(dart.legacy(io.FileSystemEntity))), [], {recursive: dart.legacy(core.bool)}, {})
-  }));
-  dart.setGetterSignature(local_link.LocalLink, () => ({
-    __proto__: dart.getGetters(local_link.LocalLink.__proto__),
-    [_rawPath$]: dart.legacy(typed_data.Uint8List),
-    [_path$]: dart.legacy(core.String),
-    [_absolutePath$]: dart.legacy(core.String)
-  }));
-  dart.setLibraryUri(local_link.LocalLink, L1);
-  dart.defineExtensionMethods(local_link.LocalLink, ['toString']);
-  var _deleteSync$0 = dart.privateName(local_file, "_deleteSync");
-  var C6;
-  var _delete$0 = dart.privateName(local_file, "_delete");
-  var C7;
-  var _rawPath$0 = dart.privateName(local_file, "_rawPath");
+  var C3;
+  var C2;
   var C8;
-  var _path$0 = dart.privateName(local_file, "_path");
   var C9;
-  var _absolutePath$0 = dart.privateName(local_file, "_absolutePath");
-  var C10;
-  const LocalFileSystemEntity_ForwardingFile$36 = class LocalFileSystemEntity_ForwardingFile extends local_file_system_entity.LocalFileSystemEntity$(dart.legacy(file.File), dart.legacy(io.File)) {};
-  (LocalFileSystemEntity_ForwardingFile$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_ForwardingFile$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_ForwardingFile$36.prototype;
-  dart.applyMixin(LocalFileSystemEntity_ForwardingFile$36, forwarding_file.ForwardingFile);
-  local_file.LocalFile = class LocalFile extends LocalFileSystemEntity_ForwardingFile$36 {
-    toString() {
-      return "LocalFile: '" + dart.str(this.path) + "'";
-    }
-    [_deleteSync$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return this.noSuchMethod(new core._Invocation.method(C6 || CT.C6, null, [], new (LinkedMapOfSymbolL$dynamic()).from([C1 || CT.C1, recursive])));
-    }
-    [_delete$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return FutureLOfFileSystemEntityL().as(this.noSuchMethod(new core._Invocation.method(C7 || CT.C7, null, [], new (LinkedMapOfSymbolL$dynamic()).from([C1 || CT.C1, recursive]))));
-    }
-    get [_rawPath$]() {
-      return Uint8ListL().as(this.noSuchMethod(new core._Invocation.getter(C8 || CT.C8)));
-    }
-    get [_path$]() {
-      return StringL().as(this.noSuchMethod(new core._Invocation.getter(C9 || CT.C9)));
-    }
-    get [_absolutePath$]() {
-      return StringL().as(this.noSuchMethod(new core._Invocation.getter(C10 || CT.C10)));
-    }
-  };
-  (local_file.LocalFile.new = function(fs, delegate) {
-    local_file.LocalFile.__proto__.new.call(this, fs, delegate);
-    ;
-  }).prototype = local_file.LocalFile.prototype;
-  dart.addTypeTests(local_file.LocalFile);
-  dart.addTypeCaches(local_file.LocalFile);
-  dart.setMethodSignature(local_file.LocalFile, () => ({
-    __proto__: dart.getMethods(local_file.LocalFile.__proto__),
-    toString: dart.fnType(dart.legacy(core.String), []),
-    [$toString]: dart.fnType(dart.legacy(core.String), []),
-    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: dart.legacy(core.bool)}, {}),
-    [_delete$]: dart.fnType(dart.legacy(async.Future$(dart.legacy(io.FileSystemEntity))), [], {recursive: dart.legacy(core.bool)}, {})
-  }));
-  dart.setGetterSignature(local_file.LocalFile, () => ({
-    __proto__: dart.getGetters(local_file.LocalFile.__proto__),
-    [_rawPath$]: dart.legacy(typed_data.Uint8List),
-    [_path$]: dart.legacy(core.String),
-    [_absolutePath$]: dart.legacy(core.String)
-  }));
-  dart.setLibraryUri(local_file.LocalFile, L2);
-  dart.defineExtensionMethods(local_file.LocalFile, ['toString']);
-  var _deleteSync$1 = dart.privateName(local_directory, "_deleteSync");
-  var C11;
-  var _delete$1 = dart.privateName(local_directory, "_delete");
+  var C7;
+  var C6;
   var C12;
-  var _rawPath$1 = dart.privateName(local_directory, "_rawPath");
   var C13;
-  var _path$1 = dart.privateName(local_directory, "_path");
-  var C14;
-  var _absolutePath$1 = dart.privateName(local_directory, "_absolutePath");
+  var C11;
+  var C10;
+  var C16;
   var C15;
-  const LocalFileSystemEntity_ForwardingDirectory$36 = class LocalFileSystemEntity_ForwardingDirectory extends local_file_system_entity.LocalFileSystemEntity {};
-  (LocalFileSystemEntity_ForwardingDirectory$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_ForwardingDirectory$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_ForwardingDirectory$36.prototype;
-  const LocalFileSystemEntity_DirectoryAddOnsMixin$36 = class LocalFileSystemEntity_DirectoryAddOnsMixin extends LocalFileSystemEntity_ForwardingDirectory$36 {};
-  (LocalFileSystemEntity_DirectoryAddOnsMixin$36.new = function(fileSystem, delegate) {
-    LocalFileSystemEntity_DirectoryAddOnsMixin$36.__proto__.new.call(this, fileSystem, delegate);
-  }).prototype = LocalFileSystemEntity_DirectoryAddOnsMixin$36.prototype;
-  dart.applyMixin(LocalFileSystemEntity_DirectoryAddOnsMixin$36, common.DirectoryAddOnsMixin);
-  local_directory.LocalDirectory = class LocalDirectory extends LocalFileSystemEntity_DirectoryAddOnsMixin$36 {
-    toString() {
-      return "LocalDirectory: '" + dart.str(this.path) + "'";
+  var C14;
+  var C19;
+  var C20;
+  var C21;
+  var C22;
+  var C18;
+  var C17;
+  var child$ = dart.privateName(circle_avatar, "CircleAvatar.child");
+  var backgroundColor$ = dart.privateName(circle_avatar, "CircleAvatar.backgroundColor");
+  var foregroundColor$ = dart.privateName(circle_avatar, "CircleAvatar.foregroundColor");
+  var backgroundImage$ = dart.privateName(circle_avatar, "CircleAvatar.backgroundImage");
+  var onBackgroundImageError$ = dart.privateName(circle_avatar, "CircleAvatar.onBackgroundImageError");
+  var radius$ = dart.privateName(circle_avatar, "CircleAvatar.radius");
+  var minRadius$ = dart.privateName(circle_avatar, "CircleAvatar.minRadius");
+  var maxRadius$ = dart.privateName(circle_avatar, "CircleAvatar.maxRadius");
+  circle_avatar.CircleAvatar = class CircleAvatar extends framework.StatelessWidget {
+    get child() {
+      return this[child$];
     }
-    [_deleteSync$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return this.noSuchMethod(new core._Invocation.method(C11 || CT.C11, null, [], new (LinkedMapOfSymbolL$dynamic()).from([C1 || CT.C1, recursive])));
+    set child(value) {
+      super.child = value;
     }
-    [_delete$](opts) {
-      let recursive = opts && 'recursive' in opts ? opts.recursive : false;
-      return FutureLOfFileSystemEntityL().as(this.noSuchMethod(new core._Invocation.method(C12 || CT.C12, null, [], new (LinkedMapOfSymbolL$dynamic()).from([C1 || CT.C1, recursive]))));
+    get backgroundColor() {
+      return this[backgroundColor$];
     }
-    get [_rawPath$]() {
-      return Uint8ListL().as(this.noSuchMethod(new core._Invocation.getter(C13 || CT.C13)));
+    set backgroundColor(value) {
+      super.backgroundColor = value;
     }
-    get [_path$]() {
-      return StringL().as(this.noSuchMethod(new core._Invocation.getter(C14 || CT.C14)));
+    get foregroundColor() {
+      return this[foregroundColor$];
     }
-    get [_absolutePath$]() {
-      return StringL().as(this.noSuchMethod(new core._Invocation.getter(C15 || CT.C15)));
+    set foregroundColor(value) {
+      super.foregroundColor = value;
+    }
+    get backgroundImage() {
+      return this[backgroundImage$];
+    }
+    set backgroundImage(value) {
+      super.backgroundImage = value;
+    }
+    get onBackgroundImageError() {
+      return this[onBackgroundImageError$];
+    }
+    set onBackgroundImageError(value) {
+      super.onBackgroundImageError = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get minRadius() {
+      return this[minRadius$];
+    }
+    set minRadius(value) {
+      super.minRadius = value;
+    }
+    get maxRadius() {
+      return this[maxRadius$];
+    }
+    set maxRadius(value) {
+      super.maxRadius = value;
+    }
+    get [_minDiameter]() {
+      let t0, t0$;
+      if (this.radius == null && this.minRadius == null && this.maxRadius == null) {
+        return 20 * 2.0;
+      }
+      return 2.0 * dart.notNull((t0$ = (t0 = this.radius, t0 == null ? this.minRadius : t0), t0$ == null ? 0 : t0$));
+    }
+    get [_maxDiameter]() {
+      let t0, t0$;
+      if (this.radius == null && this.minRadius == null && this.maxRadius == null) {
+        return 20 * 2.0;
+      }
+      return 2.0 * dart.notNull((t0$ = (t0 = this.radius, t0 == null ? this.maxRadius : t0), t0$ == null ? 1 / 0 : t0$));
+    }
+    build(context) {
+      if (context == null) dart.nullFailed(L0, 175, 29, "context");
+      if (!dart.test(debug.debugCheckHasMediaQuery(context))) dart.assertFailed(null, L0, 176, 12, "debugCheckHasMediaQuery(context)");
+      let theme = theme$.Theme.of(context);
+      let textStyle = dart.nullCheck(theme.primaryTextTheme.subtitle1).copyWith({color: this.foregroundColor});
+      let effectiveBackgroundColor = this.backgroundColor;
+      if (effectiveBackgroundColor == null) {
+        switch (theme_data.ThemeData.estimateBrightnessForColor(dart.nullCheck(textStyle.color))) {
+          case C0 || CT.C0:
+          {
+            effectiveBackgroundColor = theme.primaryColorLight;
+            break;
+          }
+          case C1 || CT.C1:
+          {
+            effectiveBackgroundColor = theme.primaryColorDark;
+            break;
+          }
+          default:
+          {
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+          }
+        }
+      } else if (this.foregroundColor == null) {
+        switch (theme_data.ThemeData.estimateBrightnessForColor(dart.nullCheck(this.backgroundColor))) {
+          case C0 || CT.C0:
+          {
+            textStyle = textStyle.copyWith({color: theme.primaryColorLight});
+            break;
+          }
+          case C1 || CT.C1:
+          {
+            textStyle = textStyle.copyWith({color: theme.primaryColorDark});
+            break;
+          }
+          default:
+          {
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+          }
+        }
+      }
+      let minDiameter = this[_minDiameter];
+      let maxDiameter = this[_maxDiameter];
+      return new implicit_animations.AnimatedContainer.new({constraints: new box.BoxConstraints.new({minHeight: minDiameter, minWidth: minDiameter, maxWidth: maxDiameter, maxHeight: maxDiameter}), duration: constants.kThemeChangeDuration, decoration: new box_decoration.BoxDecoration.new({color: effectiveBackgroundColor, image: this.backgroundImage != null ? new decoration_image.DecorationImage.new({image: dart.nullCheck(this.backgroundImage), onError: this.onBackgroundImageError, fit: box_fit.BoxFit.cover}) : null, shape: box_border.BoxShape.circle}), child: this.child == null ? null : new basic.Center.new({child: new media_query.MediaQuery.new({data: media_query.MediaQuery.of(context).copyWith({textScaleFactor: 1.0}), child: new icon_theme.IconTheme.new({data: theme.iconTheme.copyWith({color: textStyle.color}), child: new text.DefaultTextStyle.new({style: textStyle, child: dart.nullCheck(this.child), $creationLocationd_0dea112b090073317d4: C2 || CT.C2}), $creationLocationd_0dea112b090073317d4: C6 || CT.C6}), $creationLocationd_0dea112b090073317d4: C10 || CT.C10}), $creationLocationd_0dea112b090073317d4: C14 || CT.C14}), $creationLocationd_0dea112b090073317d4: C17 || CT.C17});
     }
   };
-  (local_directory.LocalDirectory.new = function(fs, delegate) {
-    local_directory.LocalDirectory.__proto__.new.call(this, fs, delegate);
+  (circle_avatar.CircleAvatar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let backgroundImage = opts && 'backgroundImage' in opts ? opts.backgroundImage : null;
+    let onBackgroundImageError = opts && 'onBackgroundImageError' in opts ? opts.onBackgroundImageError : null;
+    let foregroundColor = opts && 'foregroundColor' in opts ? opts.foregroundColor : null;
+    let radius = opts && 'radius' in opts ? opts.radius : null;
+    let minRadius = opts && 'minRadius' in opts ? opts.minRadius : null;
+    let maxRadius = opts && 'maxRadius' in opts ? opts.maxRadius : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[child$] = child;
+    this[backgroundColor$] = backgroundColor;
+    this[backgroundImage$] = backgroundImage;
+    this[onBackgroundImageError$] = onBackgroundImageError;
+    this[foregroundColor$] = foregroundColor;
+    this[radius$] = radius;
+    this[minRadius$] = minRadius;
+    this[maxRadius$] = maxRadius;
+    if (!(radius == null || minRadius == null && maxRadius == null)) dart.assertFailed(null, L0, 68, 15, "radius == null || (minRadius == null && maxRadius == null)");
+    if (!(backgroundImage != null || onBackgroundImageError == null)) dart.assertFailed(null, L0, 69, 15, "backgroundImage != null || onBackgroundImageError == null");
+    circle_avatar.CircleAvatar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = local_directory.LocalDirectory.prototype;
-  dart.addTypeTests(local_directory.LocalDirectory);
-  dart.addTypeCaches(local_directory.LocalDirectory);
-  dart.setMethodSignature(local_directory.LocalDirectory, () => ({
-    __proto__: dart.getMethods(local_directory.LocalDirectory.__proto__),
-    toString: dart.fnType(dart.legacy(core.String), []),
-    [$toString]: dart.fnType(dart.legacy(core.String), []),
-    [_deleteSync$]: dart.fnType(dart.void, [], {recursive: dart.legacy(core.bool)}, {}),
-    [_delete$]: dart.fnType(dart.legacy(async.Future$(dart.legacy(io.FileSystemEntity))), [], {recursive: dart.legacy(core.bool)}, {})
+  }).prototype = circle_avatar.CircleAvatar.prototype;
+  dart.addTypeTests(circle_avatar.CircleAvatar);
+  dart.addTypeCaches(circle_avatar.CircleAvatar);
+  dart.setMethodSignature(circle_avatar.CircleAvatar, () => ({
+    __proto__: dart.getMethods(circle_avatar.CircleAvatar.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setGetterSignature(local_directory.LocalDirectory, () => ({
-    __proto__: dart.getGetters(local_directory.LocalDirectory.__proto__),
-    [_rawPath$]: dart.legacy(typed_data.Uint8List),
-    [_path$]: dart.legacy(core.String),
-    [_absolutePath$]: dart.legacy(core.String)
+  dart.setGetterSignature(circle_avatar.CircleAvatar, () => ({
+    __proto__: dart.getGetters(circle_avatar.CircleAvatar.__proto__),
+    [_minDiameter]: core.double,
+    [_maxDiameter]: core.double
   }));
-  dart.setLibraryUri(local_directory.LocalDirectory, L3);
-  dart.defineExtensionMethods(local_directory.LocalDirectory, ['toString']);
-  dart.setBaseClass(local_directory.LocalDirectory.__proto__.__proto__, local_file_system_entity.LocalFileSystemEntity$(local_directory.LocalDirectory, io.Directory));
-  dart.applyMixin(local_directory.LocalDirectory.__proto__.__proto__, forwarding_directory.ForwardingDirectory$(local_directory.LocalDirectory));
-  dart.trackLibraries("packages/file/src/backends/local/local_link.dart", {
-    "package:file/src/backends/local/local_link.dart": local_link,
-    "package:file/src/backends/local/local_file.dart": local_file,
-    "package:file/src/backends/local/local_file_system_entity.dart": local_file_system_entity,
-    "package:file/src/backends/local/local_directory.dart": local_directory
+  dart.setLibraryUri(circle_avatar.CircleAvatar, L1);
+  dart.setFieldSignature(circle_avatar.CircleAvatar, () => ({
+    __proto__: dart.getFields(circle_avatar.CircleAvatar.__proto__),
+    child: dart.finalFieldType(dart.nullable(framework.Widget)),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    foregroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    backgroundImage: dart.finalFieldType(dart.nullable(image_provider.ImageProvider$(core.Object))),
+    onBackgroundImageError: dart.finalFieldType(dart.nullable(dart.fnType(dart.void, [core.Object, dart.nullable(core.StackTrace)]))),
+    radius: dart.finalFieldType(dart.nullable(core.double)),
+    minRadius: dart.finalFieldType(dart.nullable(core.double)),
+    maxRadius: dart.finalFieldType(dart.nullable(core.double))
+  }));
+  dart.defineLazy(circle_avatar.CircleAvatar, {
+    /*circle_avatar.CircleAvatar._defaultRadius*/get _defaultRadius() {
+      return 20;
+    },
+    /*circle_avatar.CircleAvatar._defaultMinRadius*/get _defaultMinRadius() {
+      return 0;
+    },
+    /*circle_avatar.CircleAvatar._defaultMaxRadius*/get _defaultMaxRadius() {
+      return 1 / 0;
+    }
+  }, false);
+  dart.trackLibraries("packages/flutter/src/material/circle_avatar.dart", {
+    "package:flutter/src/material/circle_avatar.dart": circle_avatar
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["local_file_system_entity.dart","local_link.dart","local_file.dart","local_directory.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAoBmB;;;;;;MAGT;;;;;;;AAGc,cAAA,AAAW,AAAK,8BAAQ;MAAK;;AAG5B,cAAA,AAAW,AAAK,+BAAS;MAAK;oBAGhB;AACjC,sDAAe,iBAAY,QAAQ;MAAC;eAGlB;AAAa,4CAAU,iBAAY,QAAQ;MAAC;eAG5C;AAAa,4CAAU,iBAAY,QAAQ;MAAC;;0CAtBvC,YAAiB;MAAjB;MAAiB;;IAAS;;;;;;;;;;;;;;;;;;;;;0DAA1B,YAAiB;qEAAjB,YAAiB;;;;;ACCvB,YAAA,AAAoB,2BAAN,aAAI;IAAE;;;;;;;;;;;;;;;;;;;uCAHpB,IAAY;AAAY,kDAAM,EAAE,EAAE,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;0DDErC,YAAiB;qEAAjB,YAAiB;;;;;AECvB,YAAA,AAAoB,2BAAN,aAAI;IAAE;;;;;;;;;;;;;;;;;;;uCAHpB,IAAY;AAAY,kDAAM,EAAE,EAAE,QAAQ;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;+DFErC,YAAiB;0EAAjB,YAAiB;;;gEAAjB,YAAiB;2EAAjB,YAAiB;;;;;AGEvB,YAAA,AAAyB,gCAAN,aAAI;IAAE;;;;;;;;;;;;;;;;;;;iDAHpB,IAAiB;AAAY,4DAAM,EAAE,EAAE,QAAQ;;EAAC","file":"../../../../../../../../../../../../packages/file/src/backends/local/local_link.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["circle_avatar.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA2EgB;;;;;;IAQD;;;;;;IASA;;;;;;IAMQ;;;;;;IAIK;;;;;;IAcZ;;;;;;IAgBA;;;;;;IAgBA;;;;;;;;AAYZ,UAAI,AAAO,eAAG,QAAQ,AAAU,kBAAG,QAAQ,AAAU,kBAAG;AACtD,cAAsB,MAAE;;AAE1B,YAAO,AAAI,qBAAuB,OAAb,wBAAP,OAAU,6BAAH;IACvB;;;AAGE,UAAI,AAAO,eAAG,QAAQ,AAAU,kBAAG,QAAQ,AAAU,kBAAG;AACtD,cAAsB,MAAE;;AAE1B,YAAO,AAAI,qBAAuB,OAAb,wBAAP,OAAU,6BAAH;IACvB;;UAG0B;AACxB,qBAAO,8BAAwB,OAAO;AACtB,kBAAc,gBAAG,OAAO;AAC9B,sBAA4C,AAAE,eAAlC,AAAM,AAAiB,KAAlB,8CAA6C;AACjE,qCAA2B;AAClC,UAAI,AAAyB,wBAAD,IAAI;AAC9B,gBAAkB,gDAA0C,eAAf,AAAU,SAAD;;;AAEA,YAAlD,2BAA2B,AAAM,KAAD;AAChC;;;;AAEiD,YAAjD,2BAA2B,AAAM,KAAD;AAChC;;;;AANJ;;;YAQK,KAAI,AAAgB,wBAAG;AAC5B,gBAAkB,gDAA0C,eAAf;;;AAEqB,YAA9D,YAAY,AAAU,SAAD,kBAAiB,AAAM,KAAD;AAC3C;;;;AAE6D,YAA7D,YAAY,AAAU,SAAD,kBAAiB,AAAM,KAAD;AAC3C;;;;AANJ;;;;AASW,wBAAc;AACd,wBAAc;AAC3B,YAAO,6DACQ,uCACA,WAAW,YACZ,WAAW,YACX,WAAW,aACV,WAAW,cAEd,4CACE,6CACH,wBAAwB,SACxB,AAAgB,wBAAG,OACtB,iDACwB,eAAf,gCACE,kCACG,yBAEd,aACY,qCAEX,AAAM,cAAG,OACV,OACA,6BACS,sCAGY,AAAY,0BAAT,OAAO,6BAA4B,cAChD,oCACC,AAAM,AAAU,KAAX,4BAA2B,AAAU,SAAD,iBACxC,sCACE,SAAS,SACJ,eAAL;IAMzB;;;QAlLO;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IAPA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;UACK,AAAO,AAAQ,MAAT,IAAI,QAAS,AAAU,SAAD,IAAI,QAAQ,AAAU,SAAD,IAAI;UACrD,AAAwB,eAAT,IAAI,QAAQ,AAAuB,sBAAD,IAAI;AAC5D,8DAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;MAkFA,yCAAc;;;MAGd,4CAAiB;;;MAGjB,4CAAiB","file":"../../../../../../../../../packages/flutter/src/material/circle_avatar.dart.lib.js"}');
   // Exports:
   return {
-    src__backends__local__local_link: local_link,
-    src__backends__local__local_file: local_file,
-    src__backends__local__local_file_system_entity: local_file_system_entity,
-    src__backends__local__local_directory: local_directory
+    src__material__circle_avatar: circle_avatar
   };
 }));
 
-//# sourceMappingURL=local_link.dart.lib.js.map
+//# sourceMappingURL=circle_avatar.dart.lib.js.map

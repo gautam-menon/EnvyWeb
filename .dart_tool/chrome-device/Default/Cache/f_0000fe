@@ -1,458 +1,1518 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/resampler.dart', 'packages/flutter/src/scheduler/binding.dart', 'packages/flutter/src/gestures/debug.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/pointer_router.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/pointer_signal_resolver.dart', 'packages/flutter/src/gestures/hit_test.dart', 'packages/flutter/src/gestures/converter.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/binding.dart'], (function load__packages__flutter__src__gestures__binding_dart(dart_sdk, packages__flutter__src__gestures__resampler$46dart, packages__flutter__src__scheduler__binding$46dart, packages__flutter__src__gestures__debug$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__pointer_router$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__pointer_signal_resolver$46dart, packages__flutter__src__gestures__hit_test$46dart, packages__flutter__src__gestures__converter$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__binding$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/form.dart', 'packages/envyweb/Services/ApiFunctions%20-Admin.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/material/text_form_field.dart', 'packages/flutter/src/services/text_input.dart'], (function load__packages__envyweb__Screens__Admin__AddEditor_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__form$46dart, packages__envyweb__Services__ApiFunctions$3720_Admin$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__material__text_form_field$46dart, packages__flutter__src__services__text_input$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
-  const ui = dart_sdk.ui;
-  const collection = dart_sdk.collection;
+  const _interceptors = dart_sdk._interceptors;
   const async = dart_sdk.async;
-  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const resampler$ = packages__flutter__src__gestures__resampler$46dart.src__gestures__resampler;
-  const binding = packages__flutter__src__scheduler__binding$46dart.src__scheduler__binding;
-  const debug = packages__flutter__src__gestures__debug$46dart.src__gestures__debug;
-  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const pointer_router = packages__flutter__src__gestures__pointer_router$46dart.src__gestures__pointer_router;
-  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
-  const pointer_signal_resolver = packages__flutter__src__gestures__pointer_signal_resolver$46dart.src__gestures__pointer_signal_resolver;
-  const hit_test = packages__flutter__src__gestures__hit_test$46dart.src__gestures__hit_test;
-  const converter = packages__flutter__src__gestures__converter$46dart.src__gestures__converter;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  const binding$ = packages__flutter__src__foundation__binding$46dart.src__foundation__binding;
-  var binding$0 = Object.create(dart.library);
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $values = dartx.values;
-  var $removeWhere = dartx.removeWhere;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $clear = dartx.clear;
-  var $isEmpty = dartx.isEmpty;
-  var $containsKey = dartx.containsKey;
-  var $_set = dartx._set;
-  var $remove = dartx.remove;
-  var $_get = dartx._get;
-  var IdentityMapOfint$PointerEventResampler = () => (IdentityMapOfint$PointerEventResampler = dart.constFn(_js_helper.IdentityMap$(core.int, resampler$.PointerEventResampler)))();
-  var VoidToPointerEventResampler = () => (VoidToPointerEventResampler = dart.constFn(dart.fnType(resampler$.PointerEventResampler, [])))();
-  var intAndPointerEventResamplerTobool = () => (intAndPointerEventResamplerTobool = dart.constFn(dart.fnType(core.bool, [core.int, resampler$.PointerEventResampler])))();
-  var VoidTobool = () => (VoidTobool = dart.constFn(dart.fnType(core.bool, [])))();
-  var DurationTovoid = () => (DurationTovoid = dart.constFn(dart.fnType(dart.void, [core.Duration])))();
-  var ListQueueOfPointerEvent = () => (ListQueueOfPointerEvent = dart.constFn(collection.ListQueue$(events.PointerEvent)))();
-  var IdentityMapOfint$HitTestResult = () => (IdentityMapOfint$HitTestResult = dart.constFn(_js_helper.IdentityMap$(core.int, hit_test.HitTestResult)))();
-  var DiagnosticsPropertyOfPointerEvent = () => (DiagnosticsPropertyOfPointerEvent = dart.constFn(diagnostics.DiagnosticsProperty$(events.PointerEvent)))();
-  var SyncIterableOfDiagnosticsNode = () => (SyncIterableOfDiagnosticsNode = dart.constFn(_js_helper.SyncIterable$(diagnostics.DiagnosticsNode)))();
-  var IterableOfDiagnosticsNode = () => (IterableOfDiagnosticsNode = dart.constFn(core.Iterable$(diagnostics.DiagnosticsNode)))();
-  var VoidToIterableOfDiagnosticsNode = () => (VoidToIterableOfDiagnosticsNode = dart.constFn(dart.fnType(IterableOfDiagnosticsNode(), [])))();
-  var DiagnosticsPropertyOfHitTestTarget = () => (DiagnosticsPropertyOfHitTestTarget = dart.constFn(diagnostics.DiagnosticsProperty$(hit_test.HitTestTarget)))();
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const visibility = packages__flutter__src__widgets__widget_span$46dart.src__widgets__visibility;
+  const form = packages__flutter__src__widgets__form$46dart.src__widgets__form;
+  const ApiFunctions$32_Admin = packages__envyweb__Services__ApiFunctions$3720_Admin$46dart.Services__ApiFunctions$32_Admin;
+  const dialog = packages__flutter__src__material__icon_button$46dart.src__material__dialog;
+  const raised_button = packages__flutter__src__material__icon_button$46dart.src__material__raised_button;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const text_form_field = packages__flutter__src__material__text_form_field$46dart.src__material__text_form_field;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  var AddEditor = Object.create(dart.library);
+  var $contains = dartx.contains;
+  var FormStateL = () => (FormStateL = dart.constFn(dart.legacy(form.FormState)))();
+  var GlobalKeyOfFormStateL = () => (GlobalKeyOfFormStateL = dart.constFn(framework.GlobalKey$(FormStateL())))();
+  var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+  var boolL = () => (boolL = dart.constFn(dart.legacy(core.bool)))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var ObjectL = () => (ObjectL = dart.constFn(dart.legacy(core.Object)))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
+  var DialogL = () => (DialogL = dart.constFn(dart.legacy(dialog.Dialog)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var BuildContextLToDialogL = () => (BuildContextLToDialogL = dart.constFn(dart.fnType(DialogL(), [BuildContextL()])))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var StringLToStringL = () => (StringLToStringL = dart.constFn(dart.fnType(StringL(), [StringL()])))();
+  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
   const CT = Object.create(null);
-  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/gestures/binding.dart";
-  var L1 = "package:flutter/src/gestures/binding.dart";
+  var L0 = "package:envyweb/Screens/Admin/AddEditor.dart";
   dart.defineLazy(CT, {
-    get C0() {
-      return C0 = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: -38000
+    get C2() {
+      return C2 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 27,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 27,
+        [_Location_line]: 46,
+        [_Location_file]: null
       });
     },
     get C1() {
-      return C1 = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 16667
+      return C1 = dart.constList([C2 || CT.C2, C3 || CT.C3, C4 || CT.C4], _LocationL());
+    },
+    get C0() {
+      return C0 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 38,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C6 = dart.constList([C7 || CT.C7], _LocationL());
+    },
+    get C5() {
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C6 || CT.C6,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C9 = dart.constList([C10 || CT.C10], _LocationL());
+    },
+    get C8() {
+      return C8 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C9 || CT.C9,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C13() {
+      return C13 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 27,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C12 = dart.constList([C13 || CT.C13, C14 || CT.C14], _LocationL());
+    },
+    get C11() {
+      return C11 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C12 || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C17() {
+      return C17 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 23,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 23,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C16 = dart.constList([C17 || CT.C17, C18 || CT.C18], _LocationL());
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C16 || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 19,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C20 = dart.constList([C21 || CT.C21, C22 || CT.C22, C23 || CT.C23], _LocationL());
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C20 || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C25 = dart.constList([C26 || CT.C26], _LocationL());
+    },
+    get C24() {
+      return C24 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C25 || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C29() {
+      return C29 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C30 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "size",
+        [_Location_column]: 27,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 27,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C28 = dart.constList([C29 || CT.C29, C30 || CT.C30, C31 || CT.C31], _LocationL());
+    },
+    get C27() {
+      return C27 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C28 || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C34() {
+      return C34 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 49,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C33() {
+      return C33 = dart.constList([C34 || CT.C34], _LocationL());
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C33 || CT.C33,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 74,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C37() {
+      return C37 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C36 = dart.constList([C37 || CT.C37], _LocationL());
+    },
+    get C35() {
+      return C35 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C36 || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C40() {
+      return C40 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C41 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 27,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C39 = dart.constList([C40 || CT.C40, C41 || CT.C41], _LocationL());
+    },
+    get C38() {
+      return C38 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C39 || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C44() {
+      return C44 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 23,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C45 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 23,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C43 = dart.constList([C44 || CT.C44, C45 || CT.C45], _LocationL());
+    },
+    get C42() {
+      return C42 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C43 || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C48() {
+      return C48 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 64,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C49 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 19,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C50 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C47 = dart.constList([C48 || CT.C48, C49 || CT.C49, C50 || CT.C50], _LocationL());
+    },
+    get C46() {
+      return C46 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C47 || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C53() {
+      return C53 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C52 = dart.constList([C53 || CT.C53], _LocationL());
+    },
+    get C51() {
+      return C51 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C52 || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C56() {
+      return C56 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C55 = dart.constList([C56 || CT.C56], _LocationL());
+    },
+    get C54() {
+      return C54 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C55 || CT.C55,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 100,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C59() {
+      return C59 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 100,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C60 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "centerTitle",
+        [_Location_column]: 11,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C58 = dart.constList([C59 || CT.C59, C60 || CT.C60], _LocationL());
+    },
+    get C57() {
+      return C57 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C58 || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 99,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C61() {
+      return C61 = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C64() {
+      return C64 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 34,
+        [_Location_line]: 124,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C65 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 33,
+        [_Location_line]: 125,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C63 = dart.constList([C64 || CT.C64, C65 || CT.C65], _LocationL());
+    },
+    get C62() {
+      return C62 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C63 || CT.C63,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 124,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C67() {
+      return C67 = dart.constList([], _LocationL());
+    },
+    get C66() {
+      return C66 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C67 || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 129,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C70() {
+      return C70 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 27,
+        [_Location_line]: 122,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C71 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 27,
+        [_Location_line]: 123,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C69 = dart.constList([C70 || CT.C70, C71 || CT.C71], _LocationL());
+    },
+    get C68() {
+      return C68 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C69 || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 121,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C74() {
+      return C74 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 118,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C75 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 25,
+        [_Location_line]: 119,
+        [_Location_file]: null
+      });
+    },
+    get C76() {
+      return C76 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 25,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C77 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 121,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C73 = dart.constList([C74 || CT.C74, C75 || CT.C75, C76 || CT.C76, C77 || CT.C77], _LocationL());
+    },
+    get C72() {
+      return C72 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C73 || CT.C73,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 117,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C80() {
+      return C80 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "visible",
+        [_Location_column]: 21,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C81 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 117,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C79 = dart.constList([C80 || CT.C80, C81 || CT.C81], _LocationL());
+    },
+    get C78() {
+      return C78 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C79 || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 115,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C84() {
+      return C84 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 134,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C85 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 136,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C86 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 137,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C87 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 138,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C83 = dart.constList([C84 || CT.C84, C85 || CT.C85, C86 || CT.C86, C87 || CT.C87], _LocationL());
+    },
+    get C82() {
+      return C82 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C83 || CT.C83,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 133,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C90() {
+      return C90 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 21,
+        [_Location_line]: 144,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C91 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 145,
+        [_Location_file]: null
+      });
+    },
+    get C92() {
+      return C92 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 148,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C93 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C94 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 150,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C89 = dart.constList([C90 || CT.C90, C91 || CT.C91, C92 || CT.C92, C93 || CT.C93, C94 || CT.C94], _LocationL());
+    },
+    get C88() {
+      return C88 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C89 || CT.C89,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 143,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C97() {
+      return C97 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 156,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C98 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 159,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C99 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "obscureText",
+        [_Location_column]: 21,
+        [_Location_line]: 160,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C100 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C101 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 162,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C96 = dart.constList([C97 || CT.C97, C98 || CT.C98, C99 || CT.C99, C100 || CT.C100, C101 || CT.C101], _LocationL());
+    },
+    get C95() {
+      return C95 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C96 || CT.C96,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 155,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C104() {
+      return C104 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C105 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C106 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C107 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C103 = dart.constList([C104 || CT.C104, C105 || CT.C105, C106 || CT.C106, C107 || CT.C107], _LocationL());
+    },
+    get C102() {
+      return C102 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C103 || CT.C103,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 167,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C110() {
+      return C110 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C111 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 21,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C112 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C113 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 182,
+        [_Location_file]: null
+      });
+    },
+    get C109() {
+      return C109 = dart.constList([C110 || CT.C110, C111 || CT.C111, C112 || CT.C112, C113 || CT.C113], _LocationL());
+    },
+    get C108() {
+      return C108 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C109 || CT.C109,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 178,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C116() {
+      return C116 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 35,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C115 = dart.constList([C116 || CT.C116], _LocationL());
+    },
+    get C114() {
+      return C114 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C115 || CT.C115,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 188,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C119() {
+      return C119 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 188,
+        [_Location_file]: null
+      });
+    },
+    get C120() {
+      return C120 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 23,
+        [_Location_line]: 189,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C118 = dart.constList([C119 || CT.C119, C120 || CT.C120], _LocationL());
+    },
+    get C117() {
+      return C117 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C118 || CT.C118,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 187,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C123() {
+      return C123 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C124() {
+      return C124 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C125 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 114,
+        [_Location_file]: null
+      });
+    },
+    get C122() {
+      return C122 = dart.constList([C123 || CT.C123, C124 || CT.C124, C125 || CT.C125], _LocationL());
+    },
+    get C121() {
+      return C121 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C122 || CT.C122,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C128() {
+      return C128 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 15,
+        [_Location_line]: 110,
+        [_Location_file]: null
+      });
+    },
+    get C129() {
+      return C129 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C127() {
+      return C127 = dart.constList([C128 || CT.C128, C129 || CT.C129], _LocationL());
+    },
+    get C126() {
+      return C126 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C127 || CT.C127,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 109,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C132() {
+      return C132 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 13,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C133() {
+      return C133 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C131 = dart.constList([C132 || CT.C132, C133 || CT.C133], _LocationL());
+    },
+    get C130() {
+      return C130 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C131 || CT.C131,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 107,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C136() {
+      return C136 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 11,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C137() {
+      return C137 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 11,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C138() {
+      return C138 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 106,
+        [_Location_file]: null
+      });
+    },
+    get C139() {
+      return C139 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C135 = dart.constList([C136 || CT.C136, C137 || CT.C137, C138 || CT.C138, C139 || CT.C139], _LocationL());
+    },
+    get C134() {
+      return C134 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C135 || CT.C135,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 103,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
+      });
+    },
+    get C142() {
+      return C142 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C143() {
+      return C143 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 103,
+        [_Location_file]: null
+      });
+    },
+    get C141() {
+      return C141 = dart.constList([C142 || CT.C142, C143 || CT.C143], _LocationL());
+    },
+    get C140() {
+      return C140 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C141 || CT.C141,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 98,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/AddEditor.dart"
       });
     }
   }, false);
-  var _resamplers = dart.privateName(binding$0, "_resamplers");
-  var _frameCallbackScheduled = dart.privateName(binding$0, "_frameCallbackScheduled");
-  var _frameTime = dart.privateName(binding$0, "_frameTime");
-  var _lastSampleTime = dart.privateName(binding$0, "_lastSampleTime");
-  var _lastEventTime = dart.privateName(binding$0, "_lastEventTime");
-  var _handlePointerEvent$ = dart.privateName(binding$0, "_handlePointerEvent");
-  var _handleSampleTimeChanged$ = dart.privateName(binding$0, "_handleSampleTimeChanged");
-  binding$0._Resampler = class _Resampler extends core.Object {
-    addOrDispatch(event) {
-      let t0;
-      if (event == null) dart.nullFailed(L0, 55, 35, "event");
-      let scheduler = binding.SchedulerBinding.instance;
-      if (!(scheduler != null)) dart.assertFailed(null, L0, 57, 12, "scheduler != null");
-      if (dart.equals(event.kind, ui.PointerDeviceKind.touch)) {
-        this[_lastEventTime] = event.timeStamp;
-        let resampler = this[_resamplers][$putIfAbsent](event.device, dart.fn(() => new resampler$.PointerEventResampler.new(), VoidToPointerEventResampler()));
-        resampler.addEvent(event);
-      } else {
-        t0 = event;
-        this[_handlePointerEvent$](t0);
-      }
-    }
-    sample(samplingOffset, samplingInterval) {
-      let t0;
-      if (samplingOffset == null) dart.nullFailed(L0, 81, 24, "samplingOffset");
-      if (samplingInterval == null) dart.nullFailed(L0, 81, 49, "samplingInterval");
-      let scheduler = binding.SchedulerBinding.instance;
-      if (!(scheduler != null)) dart.assertFailed(null, L0, 83, 12, "scheduler != null");
-      let sampleTime = this[_frameTime]['+'](samplingOffset);
-      let nextSampleTime = sampleTime['+'](samplingInterval);
-      for (let resampler of this[_resamplers][$values]) {
-        resampler.sample(sampleTime, nextSampleTime, this[_handlePointerEvent$]);
-      }
-      this[_resamplers][$removeWhere](dart.fn((key, resampler) => {
-        if (key == null) dart.nullFailed(L0, 102, 34, "key");
-        if (resampler == null) dart.nullFailed(L0, 102, 61, "resampler");
-        return !dart.test(resampler.hasPendingEvents) && !dart.test(resampler.isDown);
-      }, intAndPointerEventResamplerTobool()));
-      this[_lastSampleTime] = sampleTime;
-      if (!dart.test(this[_frameCallbackScheduled]) && dart.test(this[_resamplers][$isNotEmpty])) {
-        this[_frameCallbackScheduled] = true;
-        t0 = scheduler;
-        t0 == null ? null : t0.scheduleFrameCallback(dart.fn(_ => {
-          if (_ == null) dart.nullFailed(L0, 112, 41, "_");
-          this[_frameCallbackScheduled] = false;
-          this[_frameTime] = scheduler.currentSystemFrameTimeStamp;
-          if (!dart.test(dart.fn(() => {
-            if (dart.test(debug.debugPrintResamplingMargin)) {
-              let resamplingMargin = this[_lastEventTime]['-'](this[_lastSampleTime]);
-              print.debugPrint(dart.str(resamplingMargin));
-            }
-            return true;
-          }, VoidTobool())())) dart.assertFailed(null, L0, 118, 16, "() {\r\n          if (debugPrintResamplingMargin) {\r\n            final Duration resamplingMargin = _lastEventTime - _lastSampleTime;\r\n              debugPrint('$resamplingMargin');\r\n          }\r\n          return true;\r\n        }()");
-          this[_handleSampleTimeChanged$]();
-        }, DurationTovoid()));
-      }
-    }
-    stop() {
-      for (let resampler of this[_resamplers][$values]) {
-        resampler.stop(this[_handlePointerEvent$]);
-      }
-      this[_resamplers][$clear]();
+  AddEditor.AddEditor = class AddEditor$ extends framework.StatefulWidget {
+    createState() {
+      return new AddEditor._AddEditorState.new();
     }
   };
-  (binding$0._Resampler.new = function(_handlePointerEvent, _handleSampleTimeChanged) {
-    if (_handlePointerEvent == null) dart.nullFailed(L0, 30, 19, "_handlePointerEvent");
-    if (_handleSampleTimeChanged == null) dart.nullFailed(L0, 30, 45, "_handleSampleTimeChanged");
-    this[_resamplers] = new (IdentityMapOfint$PointerEventResampler()).new();
-    this[_frameCallbackScheduled] = false;
-    this[_frameTime] = core.Duration.zero;
-    this[_lastSampleTime] = core.Duration.zero;
-    this[_lastEventTime] = core.Duration.zero;
-    this[_handlePointerEvent$] = _handlePointerEvent;
-    this[_handleSampleTimeChanged$] = _handleSampleTimeChanged;
+  (AddEditor.AddEditor.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    AddEditor.AddEditor.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = binding$0._Resampler.prototype;
-  dart.addTypeTests(binding$0._Resampler);
-  dart.addTypeCaches(binding$0._Resampler);
-  dart.setMethodSignature(binding$0._Resampler, () => ({
-    __proto__: dart.getMethods(binding$0._Resampler.__proto__),
-    addOrDispatch: dart.fnType(dart.void, [events.PointerEvent]),
-    sample: dart.fnType(dart.void, [core.Duration, core.Duration]),
-    stop: dart.fnType(dart.void, [])
+  }).prototype = AddEditor.AddEditor.prototype;
+  dart.addTypeTests(AddEditor.AddEditor);
+  dart.addTypeCaches(AddEditor.AddEditor);
+  dart.setMethodSignature(AddEditor.AddEditor, () => ({
+    __proto__: dart.getMethods(AddEditor.AddEditor.__proto__),
+    createState: dart.fnType(dart.legacy(AddEditor._AddEditorState), [])
   }));
-  dart.setLibraryUri(binding$0._Resampler, L1);
-  dart.setFieldSignature(binding$0._Resampler, () => ({
-    __proto__: dart.getFields(binding$0._Resampler.__proto__),
-    [_resamplers]: dart.finalFieldType(core.Map$(core.int, resampler$.PointerEventResampler)),
-    [_frameCallbackScheduled]: dart.fieldType(core.bool),
-    [_frameTime]: dart.fieldType(core.Duration),
-    [_lastSampleTime]: dart.fieldType(core.Duration),
-    [_lastEventTime]: dart.fieldType(core.Duration),
-    [_handlePointerEvent$]: dart.finalFieldType(dart.fnType(dart.void, [events.PointerEvent])),
-    [_handleSampleTimeChanged$]: dart.finalFieldType(dart.fnType(dart.void, []))
-  }));
-  var _pendingPointerEvents = dart.privateName(binding$0, "_pendingPointerEvents");
-  var _hitTests = dart.privateName(binding$0, "_hitTests");
-  var __GestureBinding__resampler = dart.privateName(binding$0, "_#GestureBinding#_resampler");
-  var __GestureBinding__resampler_isSet = dart.privateName(binding$0, "_#GestureBinding#_resampler#isSet");
-  var _handlePointerDataPacket = dart.privateName(binding$0, "_handlePointerDataPacket");
-  var _flushPointerEventQueue = dart.privateName(binding$0, "_flushPointerEventQueue");
-  var _resampler = dart.privateName(binding$0, "_resampler");
-  var _handlePointerEventImmediately = dart.privateName(binding$0, "_handlePointerEventImmediately");
-  var pointerRouter = dart.privateName(binding$0, "GestureBinding.pointerRouter");
-  var gestureArena = dart.privateName(binding$0, "GestureBinding.gestureArena");
-  var pointerSignalResolver = dart.privateName(binding$0, "GestureBinding.pointerSignalResolver");
-  var resamplingEnabled = dart.privateName(binding$0, "GestureBinding.resamplingEnabled");
-  var samplingOffset = dart.privateName(binding$0, "GestureBinding.samplingOffset");
-  binding$0.GestureBinding = class GestureBinding extends binding$.BindingBase {
-    static get instance() {
-      return binding$0.GestureBinding._instance;
-    }
-  };
-  binding$0.GestureBinding[dart.mixinOn] = BindingBase => class GestureBinding extends BindingBase {
-    get pointerRouter() {
-      return this[pointerRouter];
-    }
-    set pointerRouter(value) {
-      super.pointerRouter = value;
-    }
-    get gestureArena() {
-      return this[gestureArena];
-    }
-    set gestureArena(value) {
-      super.gestureArena = value;
-    }
-    get pointerSignalResolver() {
-      return this[pointerSignalResolver];
-    }
-    set pointerSignalResolver(value) {
-      super.pointerSignalResolver = value;
-    }
-    get resamplingEnabled() {
-      return this[resamplingEnabled];
-    }
-    set resamplingEnabled(value) {
-      this[resamplingEnabled] = value;
-    }
-    get samplingOffset() {
-      return this[samplingOffset];
-    }
-    set samplingOffset(value) {
-      this[samplingOffset] = value;
-    }
-    initInstances() {
-      super.initInstances();
-      binding$0.GestureBinding._instance = this;
-      this.window.onPointerDataPacket = dart.bind(this, _handlePointerDataPacket);
-    }
-    unlocked() {
-      super.unlocked();
-      this[_flushPointerEventQueue]();
-    }
-    [_handlePointerDataPacket](packet) {
-      if (packet == null) dart.nullFailed(L0, 216, 54, "packet");
-      this[_pendingPointerEvents].addAll(converter.PointerEventConverter.expand(packet.data, this.window.devicePixelRatio));
-      if (!dart.test(this.locked)) this[_flushPointerEventQueue]();
-    }
-    cancelPointer(pointer) {
-      if (pointer == null) dart.nullFailed(L0, 228, 26, "pointer");
-      if (dart.test(this[_pendingPointerEvents][$isEmpty]) && !dart.test(this.locked)) async.scheduleMicrotask(dart.bind(this, _flushPointerEventQueue));
-      this[_pendingPointerEvents].addFirst(new events.PointerCancelEvent.new({pointer: pointer}));
-    }
-    [_flushPointerEventQueue]() {
-      if (!!dart.test(this.locked)) dart.assertFailed(null, L0, 235, 12, "!locked");
-      while (dart.test(this[_pendingPointerEvents][$isNotEmpty]))
-        this.handlePointerEvent(this[_pendingPointerEvents].removeFirst());
-    }
-    handlePointerEvent(event) {
-      if (event == null) dart.nullFailed(L0, 268, 40, "event");
-      if (!!dart.test(this.locked)) dart.assertFailed(null, L0, 269, 12, "!locked");
-      if (dart.test(this.resamplingEnabled)) {
-        this[_resampler].addOrDispatch(event);
-        this[_resampler].sample(this.samplingOffset, binding$0._samplingInterval);
-        return;
-      }
-      this[_resampler].stop();
-      this[_handlePointerEventImmediately](event);
-    }
-    [_handlePointerEventImmediately](event) {
-      if (event == null) dart.nullFailed(L0, 283, 52, "event");
-      let hitTestResult = null;
-      if (events.PointerDownEvent.is(event) || events.PointerSignalEvent.is(event) || events.PointerHoverEvent.is(event)) {
-        if (!!dart.test(this[_hitTests][$containsKey](event.pointer))) dart.assertFailed(null, L0, 286, 14, "!_hitTests.containsKey(event.pointer)");
-        hitTestResult = new hit_test.HitTestResult.new();
-        this.hitTest(hitTestResult, event.position);
-        if (events.PointerDownEvent.is(event)) {
-          this[_hitTests][$_set](event.pointer, hitTestResult);
-        }
-        if (!dart.test(dart.fn(() => {
-          if (dart.test(debug.debugPrintHitTestResults)) print.debugPrint(dart.str(event) + ": " + dart.str(hitTestResult));
-          return true;
-        }, VoidTobool())())) dart.assertFailed(null, L0, 292, 14, "() {\r\n        if (debugPrintHitTestResults)\r\n          debugPrint('$event: $hitTestResult');\r\n        return true;\r\n      }()");
-      } else if (events.PointerUpEvent.is(event) || events.PointerCancelEvent.is(event)) {
-        hitTestResult = this[_hitTests][$remove](event.pointer);
-      } else if (dart.test(event.down)) {
-        hitTestResult = this[_hitTests][$_get](event.pointer);
-      }
-      if (!dart.test(dart.fn(() => {
-        if (dart.test(debug.debugPrintMouseHoverEvents) && events.PointerHoverEvent.is(event)) print.debugPrint(dart.str(event));
-        return true;
-      }, VoidTobool())())) dart.assertFailed(null, L0, 307, 12, "() {\r\n      if (debugPrintMouseHoverEvents && event is PointerHoverEvent)\r\n        debugPrint('$event');\r\n      return true;\r\n    }()");
-      if (hitTestResult != null || events.PointerAddedEvent.is(event) || events.PointerRemovedEvent.is(event)) {
-        if (!(event.position != null)) dart.assertFailed(null, L0, 315, 14, "event.position != null");
-        this.dispatchEvent(event, hitTestResult);
-      }
-    }
-    hitTest(result, position) {
-      if (result == null) dart.nullFailed(L0, 322, 30, "result");
-      if (position == null) dart.nullFailed(L0, 322, 45, "position");
-      result.add(new hit_test.HitTestEntry.new(this));
-    }
-    dispatchEvent(event, hitTestResult) {
-      if (event == null) dart.nullFailed(L0, 335, 35, "event");
-      if (!!dart.test(this.locked)) dart.assertFailed(null, L0, 336, 12, "!locked");
-      if (hitTestResult == null) {
-        if (!(events.PointerAddedEvent.is(event) || events.PointerRemovedEvent.is(event))) dart.assertFailed(null, L0, 341, 14, "event is PointerAddedEvent || event is PointerRemovedEvent");
-        try {
-          this.pointerRouter.route(event);
-        } catch (e) {
-          let exception = dart.getThrown(e);
-          let stack = dart.stackTrace(e);
-          if (core.Object.is(exception)) {
-            assertions.FlutterError.reportError(new binding$0.FlutterErrorDetailsForPointerEventDispatcher.new({exception: exception, stack: stack, library: "gesture library", context: new assertions.ErrorDescription.new("while dispatching a non-hit-tested pointer event"), event: event, hitTestEntry: null, informationCollector: dart.fn(() => new (SyncIterableOfDiagnosticsNode()).new(function*() {
-                yield new (DiagnosticsPropertyOfPointerEvent()).new("Event", event, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
-              }), VoidToIterableOfDiagnosticsNode())}));
-          } else
-            throw e;
-        }
-        return;
-      }
-      for (let entry of hitTestResult.path) {
-        try {
-          entry.target.handleEvent(event.transformed(entry.transform), entry);
-        } catch (e$) {
-          let exception = dart.getThrown(e$);
-          let stack = dart.stackTrace(e$);
-          if (core.Object.is(exception)) {
-            assertions.FlutterError.reportError(new binding$0.FlutterErrorDetailsForPointerEventDispatcher.new({exception: exception, stack: stack, library: "gesture library", context: new assertions.ErrorDescription.new("while dispatching a pointer event"), event: event, hitTestEntry: entry, informationCollector: dart.fn(() => new (SyncIterableOfDiagnosticsNode()).new(function*() {
-                yield new (DiagnosticsPropertyOfPointerEvent()).new("Event", event, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
-                yield new (DiagnosticsPropertyOfHitTestTarget()).new("Target", entry.target, {style: diagnostics.DiagnosticsTreeStyle.errorProperty});
-              }), VoidToIterableOfDiagnosticsNode())}));
-          } else
-            throw e$;
-        }
-      }
-    }
-    handleEvent(event, entry) {
-      if (event == null) dart.nullFailed(L0, 380, 33, "event");
-      if (entry == null) dart.nullFailed(L0, 380, 53, "entry");
-      this.pointerRouter.route(event);
-      if (events.PointerDownEvent.is(event)) {
-        this.gestureArena.close(event.pointer);
-      } else if (events.PointerUpEvent.is(event)) {
-        this.gestureArena.sweep(event.pointer);
-      } else if (events.PointerSignalEvent.is(event)) {
-        this.pointerSignalResolver.resolve(event);
-      }
-    }
-    resetGestureBinding() {
-      this[_hitTests][$clear]();
-    }
-    [_handleSampleTimeChanged$]() {
-      if (!dart.test(this.locked)) {
-        if (dart.test(this.resamplingEnabled)) {
-          this[_resampler].sample(this.samplingOffset, binding$0._samplingInterval);
-        } else {
-          this[_resampler].stop();
-        }
-      }
-    }
-    get [_resampler]() {
-      let t3;
-      if (!dart.test(this[__GestureBinding__resampler_isSet])) {
-        let t2 = new binding$0._Resampler.new(dart.bind(this, _handlePointerEventImmediately), dart.bind(this, _handleSampleTimeChanged$));
-        if (dart.test(this[__GestureBinding__resampler_isSet])) dart.throw(new _internal.LateError.fieldADI("_resampler"));
-        this[__GestureBinding__resampler] = t2;
-        this[__GestureBinding__resampler_isSet] = true;
-      }
-      t3 = this[__GestureBinding__resampler];
-      return t3;
-    }
-  };
-  (binding$0.GestureBinding[dart.mixinNew] = function() {
-    this[_pendingPointerEvents] = new (ListQueueOfPointerEvent()).new();
-    this[pointerRouter] = new pointer_router.PointerRouter.new();
-    this[gestureArena] = new arena.GestureArenaManager.new();
-    this[pointerSignalResolver] = new pointer_signal_resolver.PointerSignalResolver.new();
-    this[_hitTests] = new (IdentityMapOfint$HitTestResult()).new();
-    this[__GestureBinding__resampler] = null;
-    this[__GestureBinding__resampler_isSet] = false;
-    this[resamplingEnabled] = false;
-    this[samplingOffset] = binding$0._defaultSamplingOffset;
-  }).prototype = binding$0.GestureBinding.prototype;
-  dart.addTypeTests(binding$0.GestureBinding);
-  dart.addTypeCaches(binding$0.GestureBinding);
-  binding$0.GestureBinding[dart.implements] = () => [hit_test.HitTestable, hit_test.HitTestDispatcher, hit_test.HitTestTarget, binding$.BindingBase];
-  dart.setMethodSignature(binding$0.GestureBinding, () => ({
-    __proto__: dart.getMethods(binding$0.GestureBinding.__proto__),
-    [_handlePointerDataPacket]: dart.fnType(dart.void, [ui.PointerDataPacket]),
-    cancelPointer: dart.fnType(dart.void, [core.int]),
-    [_flushPointerEventQueue]: dart.fnType(dart.void, []),
-    handlePointerEvent: dart.fnType(dart.void, [events.PointerEvent]),
-    [_handlePointerEventImmediately]: dart.fnType(dart.void, [events.PointerEvent]),
-    hitTest: dart.fnType(dart.void, [hit_test.HitTestResult, ui.Offset]),
-    dispatchEvent: dart.fnType(dart.void, [events.PointerEvent, dart.nullable(hit_test.HitTestResult)]),
-    handleEvent: dart.fnType(dart.void, [events.PointerEvent, hit_test.HitTestEntry]),
-    resetGestureBinding: dart.fnType(dart.void, []),
-    [_handleSampleTimeChanged$]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(binding$0.GestureBinding, () => ({
-    __proto__: dart.getGetters(binding$0.GestureBinding.__proto__),
-    [_resampler]: binding$0._Resampler
-  }));
-  dart.setLibraryUri(binding$0.GestureBinding, L1);
-  dart.setFieldSignature(binding$0.GestureBinding, () => ({
-    __proto__: dart.getFields(binding$0.GestureBinding.__proto__),
-    [_pendingPointerEvents]: dart.finalFieldType(collection.Queue$(events.PointerEvent)),
-    pointerRouter: dart.finalFieldType(pointer_router.PointerRouter),
-    gestureArena: dart.finalFieldType(arena.GestureArenaManager),
-    pointerSignalResolver: dart.finalFieldType(pointer_signal_resolver.PointerSignalResolver),
-    [_hitTests]: dart.finalFieldType(core.Map$(core.int, hit_test.HitTestResult)),
-    [__GestureBinding__resampler]: dart.fieldType(dart.nullable(binding$0._Resampler)),
-    [__GestureBinding__resampler_isSet]: dart.fieldType(core.bool),
-    resamplingEnabled: dart.fieldType(core.bool),
-    samplingOffset: dart.fieldType(core.Duration)
-  }));
-  dart.defineLazy(binding$0.GestureBinding, {
-    /*binding$0.GestureBinding._instance*/get _instance() {
-      return null;
-    },
-    set _instance(_) {}
-  }, false);
-  var event$ = dart.privateName(binding$0, "FlutterErrorDetailsForPointerEventDispatcher.event");
-  var hitTestEntry$ = dart.privateName(binding$0, "FlutterErrorDetailsForPointerEventDispatcher.hitTestEntry");
-  binding$0.FlutterErrorDetailsForPointerEventDispatcher = class FlutterErrorDetailsForPointerEventDispatcher extends assertions.FlutterErrorDetails {
-    get event() {
-      return this[event$];
-    }
-    set event(value) {
-      super.event = value;
-    }
-    get hitTestEntry() {
-      return this[hitTestEntry$];
-    }
-    set hitTestEntry(value) {
-      super.hitTestEntry = value;
-    }
-  };
-  (binding$0.FlutterErrorDetailsForPointerEventDispatcher.new = function(opts) {
-    let exception = opts && 'exception' in opts ? opts.exception : null;
-    if (exception == null) dart.nullFailed(L0, 448, 21, "exception");
-    let stack = opts && 'stack' in opts ? opts.stack : null;
-    let library = opts && 'library' in opts ? opts.library : null;
-    let context = opts && 'context' in opts ? opts.context : null;
-    let event = opts && 'event' in opts ? opts.event : null;
-    let hitTestEntry = opts && 'hitTestEntry' in opts ? opts.hitTestEntry : null;
-    let informationCollector = opts && 'informationCollector' in opts ? opts.informationCollector : null;
-    let silent = opts && 'silent' in opts ? opts.silent : false;
-    if (silent == null) dart.nullFailed(L0, 455, 10, "silent");
-    this[event$] = event;
-    this[hitTestEntry$] = hitTestEntry;
-    binding$0.FlutterErrorDetailsForPointerEventDispatcher.__proto__.new.call(this, {exception: exception, stack: stack, library: library, context: context, informationCollector: informationCollector, silent: silent});
-    ;
-  }).prototype = binding$0.FlutterErrorDetailsForPointerEventDispatcher.prototype;
-  dart.addTypeTests(binding$0.FlutterErrorDetailsForPointerEventDispatcher);
-  dart.addTypeCaches(binding$0.FlutterErrorDetailsForPointerEventDispatcher);
-  dart.setLibraryUri(binding$0.FlutterErrorDetailsForPointerEventDispatcher, L1);
-  dart.setFieldSignature(binding$0.FlutterErrorDetailsForPointerEventDispatcher, () => ({
-    __proto__: dart.getFields(binding$0.FlutterErrorDetailsForPointerEventDispatcher.__proto__),
-    event: dart.finalFieldType(dart.nullable(events.PointerEvent)),
-    hitTestEntry: dart.finalFieldType(dart.nullable(hit_test.HitTestEntry))
-  }));
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  var C0;
+  dart.setLibraryUri(AddEditor.AddEditor, L0);
+  var _submit = dart.privateName(AddEditor, "_submit");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var C2;
+  var C3;
+  var C4;
   var C1;
-  dart.defineLazy(binding$0, {
-    /*binding$0._defaultSamplingOffset*/get _defaultSamplingOffset() {
-      return C0 || CT.C0;
-    },
-    /*binding$0._samplingInterval*/get _samplingInterval() {
-      return C1 || CT.C1;
+  var C0;
+  var C7;
+  var C6;
+  var C5;
+  var C10;
+  var C9;
+  var C8;
+  var C13;
+  var C14;
+  var C12;
+  var C11;
+  var C17;
+  var C18;
+  var C16;
+  var C15;
+  var C21;
+  var C22;
+  var C23;
+  var C20;
+  var C19;
+  var C26;
+  var C25;
+  var C24;
+  var C29;
+  var C30;
+  var C31;
+  var C28;
+  var C27;
+  var C34;
+  var C33;
+  var C32;
+  var C37;
+  var C36;
+  var C35;
+  var C40;
+  var C41;
+  var C39;
+  var C38;
+  var C44;
+  var C45;
+  var C43;
+  var C42;
+  var C48;
+  var C49;
+  var C50;
+  var C47;
+  var C46;
+  var C53;
+  var C52;
+  var C51;
+  var C56;
+  var C55;
+  var C54;
+  var C59;
+  var C60;
+  var C58;
+  var C57;
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  var C61;
+  var C64;
+  var C65;
+  var C63;
+  var C62;
+  var C67;
+  var C66;
+  var C70;
+  var C71;
+  var C69;
+  var C68;
+  var C74;
+  var C75;
+  var C76;
+  var C77;
+  var C73;
+  var C72;
+  var C80;
+  var C81;
+  var C79;
+  var C78;
+  var C84;
+  var C85;
+  var C86;
+  var C87;
+  var C83;
+  var C82;
+  var C90;
+  var C91;
+  var C92;
+  var C93;
+  var C94;
+  var C89;
+  var C88;
+  var C97;
+  var C98;
+  var C99;
+  var C100;
+  var C101;
+  var C96;
+  var C95;
+  var C104;
+  var C105;
+  var C106;
+  var C107;
+  var C103;
+  var C102;
+  var C110;
+  var C111;
+  var C112;
+  var C113;
+  var C109;
+  var C108;
+  var C116;
+  var C115;
+  var C114;
+  var C119;
+  var C120;
+  var C118;
+  var C117;
+  var C123;
+  var C124;
+  var C125;
+  var C122;
+  var C121;
+  var C128;
+  var C129;
+  var C127;
+  var C126;
+  var C132;
+  var C133;
+  var C131;
+  var C130;
+  var C136;
+  var C137;
+  var C138;
+  var C139;
+  var C135;
+  var C134;
+  var C142;
+  var C143;
+  var C141;
+  var C140;
+  AddEditor._AddEditorState = class _AddEditorState extends framework.State$(dart.legacy(AddEditor.AddEditor)) {
+    [_submit](context) {
+      let form = this.formKey.currentState;
+      if (dart.test(form.validate())) {
+        form.save();
+        this.setState(dart.fn(() => {
+          this.visible = true;
+        }, VoidToNull()));
+        this.createEditor(context);
+      }
     }
-  }, false);
-  dart.trackLibraries("packages/flutter/src/gestures/binding.dart", {
-    "package:flutter/src/gestures/binding.dart": binding$0
+    createEditor(context) {
+      return async.async(dart.dynamic, (function* createEditor() {
+        let response = (yield new ApiFunctions$32_Admin.ApiFunctionsAdmin.new().addEditor(this.name.text, this.email.text, this.password.text, this.tier.text, this.phoneNo.text));
+        core.print(response);
+        let condition = boolL().as(dart.dsend(response, '_get', ["status"]));
+        let message = dart.dsend(response, '_get', ["req"]);
+        if (dart.test(condition)) {
+          dialog.showDialog(dart.dynamic, {context: framework.BuildContext.as(context), builder: dart.fn(context => {
+              let t0;
+              return new dialog.Dialog.new({child: new container.Container.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 2, width: dart.notNull(media_query.MediaQuery.of(context).size.width) / 2, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new icon.Icon.new(icons.Icons.done, {size: 70.0, color: colors.Colors.green, $creationLocationd_0dea112b090073317d4: C0 || CT.C0}), new text.Text.new(core.String.as((t0 = message, t0 == null ? "Account Created Successfully!" : t0)), {$creationLocationd_0dea112b090073317d4: C5 || CT.C5}), new raised_button.RaisedButton.new({child: new text.Text.new("Okay", {$creationLocationd_0dea112b090073317d4: C8 || CT.C8}), onPressed: dart.fn(() => {
+                          this.setState(dart.fn(() => {
+                            this.visible = false;
+                          }, VoidToNull()));
+                          navigator.Navigator.of(context).pop(ObjectL());
+                        }, VoidToNull()), $creationLocationd_0dea112b090073317d4: C11 || CT.C11})]), $creationLocationd_0dea112b090073317d4: C15 || CT.C15}), $creationLocationd_0dea112b090073317d4: C19 || CT.C19}), $creationLocationd_0dea112b090073317d4: C24 || CT.C24});
+            }, BuildContextLToDialogL())});
+        } else {
+          dialog.showDialog(dart.dynamic, {context: framework.BuildContext.as(context), builder: dart.fn(context => {
+              let t0;
+              return new dialog.Dialog.new({child: new container.Container.new({height: dart.notNull(media_query.MediaQuery.of(context).size.height) / 2, width: dart.notNull(media_query.MediaQuery.of(context).size.width) / 2, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new icon.Icon.new(icons.Icons.error, {size: 70.0, color: colors.Colors.red, $creationLocationd_0dea112b090073317d4: C27 || CT.C27}), new text.Text.new(core.String.as((t0 = dart.dsend(message, '_get', ["message"]), t0 == null ? "Account could not be created" : t0)), {$creationLocationd_0dea112b090073317d4: C32 || CT.C32}), new raised_button.RaisedButton.new({child: new text.Text.new("Okay", {$creationLocationd_0dea112b090073317d4: C35 || CT.C35}), onPressed: dart.fn(() => {
+                          this.setState(dart.fn(() => {
+                            this.visible = false;
+                          }, VoidToNull()));
+                          navigator.Navigator.of(context).pop(ObjectL());
+                        }, VoidToNull()), $creationLocationd_0dea112b090073317d4: C38 || CT.C38})]), $creationLocationd_0dea112b090073317d4: C42 || CT.C42}), $creationLocationd_0dea112b090073317d4: C46 || CT.C46}), $creationLocationd_0dea112b090073317d4: C51 || CT.C51});
+            }, BuildContextLToDialogL())});
+        }
+      }).bind(this));
+    }
+    build(context) {
+      let screenSize = media_query.MediaQuery.of(context).size;
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Add Editor", {$creationLocationd_0dea112b090073317d4: C54 || CT.C54}), centerTitle: true, $creationLocationd_0dea112b090073317d4: C57 || CT.C57}), body: new container.Container.new({height: screenSize.height, width: screenSize.width, color: colors.Colors.grey, child: new form.Form.new({key: this.formKey, child: new basic.Padding.new({padding: C61 || CT.C61, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, crossAxisAlignment: flex.CrossAxisAlignment.center, children: JSArrayOfWidgetL().of([new visibility.Visibility.new({visible: this.visible, child: new container.Container.new({width: screenSize.width, height: dart.notNull(screenSize.height) * 0.1, color: colors.Colors.green, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: JSArrayOfWidgetL().of([new text.Text.new("Creating account...", {style: new text_style.TextStyle.new({color: colors.Colors.white, fontSize: 30.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C62 || CT.C62}), new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C66 || CT.C66})]), $creationLocationd_0dea112b090073317d4: C68 || CT.C68}), $creationLocationd_0dea112b090073317d4: C72 || CT.C72}), $creationLocationd_0dea112b090073317d4: C78 || CT.C78}), new text_form_field.TextFormField.new({validator: dart.fn(val => val.length < 1 ? "Name too short" : null, StringLToStringL()), controller: this.name, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Name", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C82 || CT.C82}), new text_form_field.TextFormField.new({keyboardType: text_input.TextInputType.emailAddress, validator: dart.fn(val => !val[$contains]("@") ? "Please enter a valid email address." : null, StringLToStringL()), controller: this.email, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Email", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C88 || CT.C88}), new text_form_field.TextFormField.new({validator: dart.fn(val => val.length < 8 ? "Password too short (Should be at least 8 characters)" : null, StringLToStringL()), controller: this.password, obscureText: true, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Password", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C95 || CT.C95}), new text_form_field.TextFormField.new({validator: dart.fn(val => val.length < 8 ? "Number too short (Should be at least 9 characters)" : null, StringLToStringL()), controller: this.phoneNo, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Phone Number", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C102 || CT.C102}), new text_form_field.TextFormField.new({validator: dart.fn(val => val === "basic" || val === "premium" || val === "pro" ? null : "Invalid tier", StringLToStringL()), controller: this.tier, style: new text_style.TextStyle.new({color: colors.Colors.black}), decoration: new input_decorator.InputDecoration.new({hintText: "Tier", hintStyle: new text_style.TextStyle.new({color: colors.Colors.black, fontSize: 12.0})}), $creationLocationd_0dea112b090073317d4: C108 || CT.C108}), new raised_button.RaisedButton.new({child: new text.Text.new("Create User", {$creationLocationd_0dea112b090073317d4: C114 || CT.C114}), onPressed: dart.fn(() => this[_submit](context), VoidTovoid()), $creationLocationd_0dea112b090073317d4: C117 || CT.C117})]), $creationLocationd_0dea112b090073317d4: C121 || CT.C121}), $creationLocationd_0dea112b090073317d4: C126 || CT.C126}), $creationLocationd_0dea112b090073317d4: C130 || CT.C130}), $creationLocationd_0dea112b090073317d4: C134 || CT.C134}), $creationLocationd_0dea112b090073317d4: C140 || CT.C140});
+    }
+  };
+  (AddEditor._AddEditorState.new = function() {
+    this.visible = false;
+    this.name = new editable_text.TextEditingController.new();
+    this.email = new editable_text.TextEditingController.new();
+    this.password = new editable_text.TextEditingController.new();
+    this.tier = new editable_text.TextEditingController.new();
+    this.phoneNo = new editable_text.TextEditingController.new();
+    this.formKey = GlobalKeyOfFormStateL().new();
+    AddEditor._AddEditorState.__proto__.new.call(this);
+    ;
+  }).prototype = AddEditor._AddEditorState.prototype;
+  dart.addTypeTests(AddEditor._AddEditorState);
+  dart.addTypeCaches(AddEditor._AddEditorState);
+  dart.setMethodSignature(AddEditor._AddEditorState, () => ({
+    __proto__: dart.getMethods(AddEditor._AddEditorState.__proto__),
+    [_submit]: dart.fnType(dart.void, [dart.dynamic]),
+    createEditor: dart.fnType(dart.dynamic, [dart.dynamic]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(AddEditor._AddEditorState, L0);
+  dart.setFieldSignature(AddEditor._AddEditorState, () => ({
+    __proto__: dart.getFields(AddEditor._AddEditorState.__proto__),
+    visible: dart.fieldType(dart.legacy(core.bool)),
+    name: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    email: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    password: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    tier: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    phoneNo: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    formKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(form.FormState))))
+  }));
+  dart.trackLibraries("packages/envyweb/Screens/Admin/AddEditor.dart", {
+    "package:envyweb/Screens/Admin/AddEditor.dart": AddEditor
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["binding.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/gestures/binding.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["AddEditor.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../../packages/envyweb/Screens/Admin/AddEditor.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__binding: binding$0
+    Screens__Admin__AddEditor: AddEditor
   };
 }));
 
-//# sourceMappingURL=binding.dart.lib.js.map
+//# sourceMappingURL=AddEditor.dart.lib.js.map

@@ -8,7 +8,8 @@ class ApiFunctionsEditors {
       "https://envytestserver.herokuapp.com/EditorPage/GetEditorDetails";
   String getOrderDetailsUrl =
       "https://envytestserver.herokuapp.com/EditorPage/showOrderDetails";
-  String submitOrderUrl = "https://envytestserver.herokuapp.com/order/SubmitOrder";
+  String submitOrderUrl =
+      "https://envytestserver.herokuapp.com/order/SubmitOrder";
 
   String getUnconfirmedWorkOrdersUrl =
       "https://envytestserver.herokuapp.com/EditorPage/GetUnconfirmedWorkOrders";
@@ -59,17 +60,12 @@ class ApiFunctionsEditors {
     }
   }
 
-  Future<bool> submitOrder(String imgUrl, String orderId, String userId) async {
+  Future submitOrder(String imgUrl, String orderId, String userId) async {
     var response = await http.post(submitOrderUrl,
-        body: {"image": imgUrl, "orderId": orderId, "uid": userId});
+        body: {"imageUrl": imgUrl, "orderId": orderId, "uid": userId});
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
-      print(data);
-      if (data['status'] == false) {
-        return false;
-      } else {
-        return data['req'];
-      }
+      return data;
     } else {
       return false;
     }

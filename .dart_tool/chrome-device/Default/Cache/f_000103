@@ -1,799 +1,618 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/widgets/layout_builder.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/widgets/scroll_simulation.dart', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__widgets__draggable_scrollable_sheet_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__widgets__layout_builder$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__widgets__scroll_simulation$46dart, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__foundation__object$46dart) {
+define(['dart_sdk', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/object.dart'], (function load__packages__flutter__src__painting__gradient_dart(dart_sdk, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__object$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _internal = dart_sdk._internal;
+  const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const typed_data = dart_sdk.typed_data;
+  const collection = dart_sdk.collection;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
-  const notification_listener = packages__flutter__src__widgets__widget_span$46dart.src__widgets__notification_listener;
-  const scroll_notification = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_notification;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
-  const scroll_context = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_context;
-  const scroll_position = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_position;
-  const scroll_position_with_single_context = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_position_with_single_context;
-  const inherited_notifier = packages__flutter__src__widgets__widget_span$46dart.src__widgets__inherited_notifier;
-  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
-  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
-  const layout_builder = packages__flutter__src__widgets__layout_builder$46dart.src__widgets__layout_builder;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
   const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
-  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
-  const scroll_simulation = packages__flutter__src__widgets__scroll_simulation$46dart.src__widgets__scroll_simulation;
-  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
   const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  var draggable_scrollable_sheet = Object.create(dart.library);
-  var $add = dartx.add;
-  var $clamp = dartx.clamp;
-  var $sign = dartx.sign;
-  var ValueNotifierOfdouble = () => (ValueNotifierOfdouble = dart.constFn(change_notifier.ValueNotifier$(core.double)))();
-  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
-  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
-  var BuildContextAndBoxConstraintsToWidget = () => (BuildContextAndBoxConstraintsToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, box.BoxConstraints])))();
+  var gradient = Object.create(dart.library);
+  var $length = dartx.length;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var $runtimeType = dartx.runtimeType;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $first = dartx.first;
+  var $last = dartx.last;
+  var $lastIndexWhere = dartx.lastIndexWhere;
+  var $_get = dartx._get;
+  var ListOfdouble = () => (ListOfdouble = dart.constFn(core.List$(core.double)))();
+  var intTodouble = () => (intTodouble = dart.constFn(dart.fnType(core.double, [core.int])))();
+  var ColorToColor = () => (ColorToColor = dart.constFn(dart.fnType(ui.Color, [ui.Color])))();
+  var LinearGradientN = () => (LinearGradientN = dart.constFn(dart.nullable(gradient.LinearGradient)))();
+  var RadialGradientN = () => (RadialGradientN = dart.constFn(dart.nullable(gradient.RadialGradient)))();
+  var SweepGradientN = () => (SweepGradientN = dart.constFn(dart.nullable(gradient.SweepGradient)))();
+  var doubleTobool = () => (doubleTobool = dart.constFn(dart.fnType(core.bool, [core.double])))();
+  var SplayTreeSetOfdouble = () => (SplayTreeSetOfdouble = dart.constFn(collection.SplayTreeSet$(core.double)))();
+  var doubleToColor = () => (doubleToColor = dart.constFn(dart.fnType(ui.Color, [core.double])))();
   const CT = Object.create(null);
-  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/widgets/draggable_scrollable_sheet.dart";
-  var L1 = "package:flutter/src/widgets/draggable_scrollable_sheet.dart";
+  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/painting/gradient.dart";
+  var L1 = "package:flutter/src/painting/gradient.dart";
   dart.defineLazy(CT, {
     get C0() {
       return C0 = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 1000
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: -1
+      });
+    },
+    get C1() {
+      return C1 = dart.const({
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 1
+      });
+    },
+    get C2() {
+      return C2 = dart.const({
+        __proto__: ui.TileMode.prototype,
+        [_name]: "TileMode.clamp",
+        index: 0
       });
     },
     get C3() {
       return C3 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "heightFactor",
-        [_Location_column]: 11,
-        [_Location_line]: 355,
-        [_Location_file]: null
-      });
-    },
-    get C4() {
-      return C4 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 356,
-        [_Location_file]: null
-      });
-    },
-    get C5() {
-      return C5 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "alignment",
-        [_Location_column]: 11,
-        [_Location_line]: 357,
-        [_Location_file]: null
-      });
-    },
-    get C2() {
-      return C2 = dart.constList([C3 || CT.C3, C4 || CT.C4, C5 || CT.C5], _LocationL());
-    },
-    get C1() {
-      return C1 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C2 || CT.C2,
-        [_Location_name]: null,
-        [_Location_column]: 30,
-        [_Location_line]: 354,
-        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/widgets/draggable_scrollable_sheet.dart"
-      });
-    },
-    get C8() {
-      return C8 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 48,
-        [_Location_line]: 359,
-        [_Location_file]: null
-      });
-    },
-    get C7() {
-      return C7 = dart.constList([C8 || CT.C8], _LocationL());
-    },
-    get C6() {
-      return C6 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C7 || CT.C7,
-        [_Location_name]: null,
-        [_Location_column]: 41,
-        [_Location_line]: 359,
-        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/widgets/draggable_scrollable_sheet.dart"
-      });
-    },
-    get C11() {
-      return C11 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "builder",
-        [_Location_column]: 7,
-        [_Location_line]: 352,
-        [_Location_file]: null
-      });
-    },
-    get C10() {
-      return C10 = dart.constList([C11 || CT.C11], _LocationL());
-    },
-    get C9() {
-      return C9 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C10 || CT.C10,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 351,
-        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/widgets/draggable_scrollable_sheet.dart"
-      });
-    },
-    get C14() {
-      return C14 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 36,
-        [_Location_line]: 576,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C15 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "notifier",
-        [_Location_column]: 50,
-        [_Location_line]: 576,
-        [_Location_file]: null
-      });
-    },
-    get C13() {
-      return C13 = dart.constList([C14 || CT.C14, C15 || CT.C15], _LocationL());
-    },
-    get C12() {
-      return C12 = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C13 || CT.C13,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 576,
-        [_Location_file]: "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/widgets/draggable_scrollable_sheet.dart"
+        __proto__: alignment.Alignment.prototype,
+        [Alignment_y]: 0,
+        [Alignment_x]: 0
       });
     }
   }, false);
-  var initialChildSize$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableSheet.initialChildSize");
-  var minChildSize$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableSheet.minChildSize");
-  var maxChildSize$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableSheet.maxChildSize");
-  var expand$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableSheet.expand");
-  var builder$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableSheet.builder");
-  draggable_scrollable_sheet.DraggableScrollableSheet = class DraggableScrollableSheet extends framework.StatefulWidget {
-    get initialChildSize() {
-      return this[initialChildSize$];
-    }
-    set initialChildSize(value) {
-      super.initialChildSize = value;
-    }
-    get minChildSize() {
-      return this[minChildSize$];
-    }
-    set minChildSize(value) {
-      super.minChildSize = value;
-    }
-    get maxChildSize() {
-      return this[maxChildSize$];
-    }
-    set maxChildSize(value) {
-      super.maxChildSize = value;
-    }
-    get expand() {
-      return this[expand$];
-    }
-    set expand(value) {
-      super.expand = value;
-    }
-    get builder() {
-      return this[builder$];
-    }
-    set builder(value) {
-      super.builder = value;
-    }
-    createState() {
-      return new draggable_scrollable_sheet._DraggableScrollableSheetState.new();
-    }
-  };
-  (draggable_scrollable_sheet.DraggableScrollableSheet.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let initialChildSize = opts && 'initialChildSize' in opts ? opts.initialChildSize : 0.5;
-    if (initialChildSize == null) dart.nullFailed(L0, 103, 10, "initialChildSize");
-    let minChildSize = opts && 'minChildSize' in opts ? opts.minChildSize : 0.25;
-    if (minChildSize == null) dart.nullFailed(L0, 104, 10, "minChildSize");
-    let maxChildSize = opts && 'maxChildSize' in opts ? opts.maxChildSize : 1;
-    if (maxChildSize == null) dart.nullFailed(L0, 105, 10, "maxChildSize");
-    let expand = opts && 'expand' in opts ? opts.expand : true;
-    if (expand == null) dart.nullFailed(L0, 106, 10, "expand");
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    if (builder == null) dart.nullFailed(L0, 107, 19, "builder");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[initialChildSize$] = initialChildSize;
-    this[minChildSize$] = minChildSize;
-    this[maxChildSize$] = maxChildSize;
-    this[expand$] = expand;
-    this[builder$] = builder;
-    if (!(initialChildSize != null)) dart.assertFailed(null, L0, 108, 16, "initialChildSize != null");
-    if (!(minChildSize != null)) dart.assertFailed(null, L0, 109, 16, "minChildSize != null");
-    if (!(maxChildSize != null)) dart.assertFailed(null, L0, 110, 16, "maxChildSize != null");
-    if (!(dart.notNull(minChildSize) >= 0.0)) dart.assertFailed(null, L0, 111, 16, "minChildSize >= 0.0");
-    if (!(dart.notNull(maxChildSize) <= 1.0)) dart.assertFailed(null, L0, 112, 16, "maxChildSize <= 1.0");
-    if (!(dart.notNull(minChildSize) <= dart.notNull(initialChildSize))) dart.assertFailed(null, L0, 113, 16, "minChildSize <= initialChildSize");
-    if (!(dart.notNull(initialChildSize) <= dart.notNull(maxChildSize))) dart.assertFailed(null, L0, 114, 16, "initialChildSize <= maxChildSize");
-    if (!(expand != null)) dart.assertFailed(null, L0, 115, 16, "expand != null");
-    if (!(builder != null)) dart.assertFailed(null, L0, 116, 16, "builder != null");
-    draggable_scrollable_sheet.DraggableScrollableSheet.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  gradient._ColorsAndStops = class _ColorsAndStops extends core.Object {};
+  (gradient._ColorsAndStops.new = function(colors, stops) {
+    if (colors == null) dart.nullFailed(L0, 18, 24, "colors");
+    if (stops == null) dart.nullFailed(L0, 18, 37, "stops");
+    this.colors = colors;
+    this.stops = stops;
     ;
-  }).prototype = draggable_scrollable_sheet.DraggableScrollableSheet.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet.DraggableScrollableSheet);
-  dart.addTypeCaches(draggable_scrollable_sheet.DraggableScrollableSheet);
-  dart.setMethodSignature(draggable_scrollable_sheet.DraggableScrollableSheet, () => ({
-    __proto__: dart.getMethods(draggable_scrollable_sheet.DraggableScrollableSheet.__proto__),
-    createState: dart.fnType(draggable_scrollable_sheet._DraggableScrollableSheetState, [])
+  }).prototype = gradient._ColorsAndStops.prototype;
+  dart.addTypeTests(gradient._ColorsAndStops);
+  dart.addTypeCaches(gradient._ColorsAndStops);
+  dart.setLibraryUri(gradient._ColorsAndStops, L1);
+  dart.setFieldSignature(gradient._ColorsAndStops, () => ({
+    __proto__: dart.getFields(gradient._ColorsAndStops.__proto__),
+    colors: dart.finalFieldType(core.List$(ui.Color)),
+    stops: dart.finalFieldType(core.List$(core.double))
   }));
-  dart.setLibraryUri(draggable_scrollable_sheet.DraggableScrollableSheet, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet.DraggableScrollableSheet, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet.DraggableScrollableSheet.__proto__),
-    initialChildSize: dart.finalFieldType(core.double),
-    minChildSize: dart.finalFieldType(core.double),
-    maxChildSize: dart.finalFieldType(core.double),
-    expand: dart.finalFieldType(core.bool),
-    builder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, scroll_controller.ScrollController]))
-  }));
-  var extent$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableNotification.extent");
-  var minExtent$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableNotification.minExtent");
-  var maxExtent$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableNotification.maxExtent");
-  var initialExtent$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableNotification.initialExtent");
-  var context$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableNotification.context");
-  const Notification_ViewportNotificationMixin$36 = class Notification_ViewportNotificationMixin extends notification_listener.Notification {};
-  (Notification_ViewportNotificationMixin$36.new = function() {
-    scroll_notification.ViewportNotificationMixin[dart.mixinNew].call(this);
-    Notification_ViewportNotificationMixin$36.__proto__.new.call(this);
-  }).prototype = Notification_ViewportNotificationMixin$36.prototype;
-  dart.applyMixin(Notification_ViewportNotificationMixin$36, scroll_notification.ViewportNotificationMixin);
-  draggable_scrollable_sheet.DraggableScrollableNotification = class DraggableScrollableNotification extends Notification_ViewportNotificationMixin$36 {
-    get extent() {
-      return this[extent$];
-    }
-    set extent(value) {
-      super.extent = value;
-    }
-    get minExtent() {
-      return this[minExtent$];
-    }
-    set minExtent(value) {
-      super.minExtent = value;
-    }
-    get maxExtent() {
-      return this[maxExtent$];
-    }
-    set maxExtent(value) {
-      super.maxExtent = value;
-    }
-    get initialExtent() {
-      return this[initialExtent$];
-    }
-    set initialExtent(value) {
-      super.initialExtent = value;
-    }
-    get context() {
-      return this[context$];
-    }
-    set context(value) {
-      super.context = value;
-    }
-    debugFillDescription(description) {
-      if (description == null) dart.nullFailed(L0, 220, 42, "description");
-      super.debugFillDescription(description);
-      description[$add]("minExtent: " + dart.str(this.minExtent) + ", extent: " + dart.str(this.extent) + ", maxExtent: " + dart.str(this.maxExtent) + ", initialExtent: " + dart.str(this.initialExtent));
-    }
-  };
-  (draggable_scrollable_sheet.DraggableScrollableNotification.new = function(opts) {
-    let extent = opts && 'extent' in opts ? opts.extent : null;
-    if (extent == null) dart.nullFailed(L0, 183, 19, "extent");
-    let minExtent = opts && 'minExtent' in opts ? opts.minExtent : null;
-    if (minExtent == null) dart.nullFailed(L0, 184, 19, "minExtent");
-    let maxExtent = opts && 'maxExtent' in opts ? opts.maxExtent : null;
-    if (maxExtent == null) dart.nullFailed(L0, 185, 19, "maxExtent");
-    let initialExtent = opts && 'initialExtent' in opts ? opts.initialExtent : null;
-    if (initialExtent == null) dart.nullFailed(L0, 186, 19, "initialExtent");
-    let context = opts && 'context' in opts ? opts.context : null;
-    if (context == null) dart.nullFailed(L0, 187, 19, "context");
-    this[extent$] = extent;
-    this[minExtent$] = minExtent;
-    this[maxExtent$] = maxExtent;
-    this[initialExtent$] = initialExtent;
-    this[context$] = context;
-    if (!(extent != null)) dart.assertFailed(null, L0, 188, 15, "extent != null");
-    if (!(initialExtent != null)) dart.assertFailed(null, L0, 189, 15, "initialExtent != null");
-    if (!(minExtent != null)) dart.assertFailed(null, L0, 190, 15, "minExtent != null");
-    if (!(maxExtent != null)) dart.assertFailed(null, L0, 191, 15, "maxExtent != null");
-    if (!(0.0 <= dart.notNull(minExtent))) dart.assertFailed(null, L0, 192, 15, "0.0 <= minExtent");
-    if (!(dart.notNull(maxExtent) <= 1.0)) dart.assertFailed(null, L0, 193, 15, "maxExtent <= 1.0");
-    if (!(dart.notNull(minExtent) <= dart.notNull(extent))) dart.assertFailed(null, L0, 194, 15, "minExtent <= extent");
-    if (!(dart.notNull(minExtent) <= dart.notNull(initialExtent))) dart.assertFailed(null, L0, 195, 15, "minExtent <= initialExtent");
-    if (!(dart.notNull(extent) <= dart.notNull(maxExtent))) dart.assertFailed(null, L0, 196, 15, "extent <= maxExtent");
-    if (!(dart.notNull(initialExtent) <= dart.notNull(maxExtent))) dart.assertFailed(null, L0, 197, 15, "initialExtent <= maxExtent");
-    if (!(context != null)) dart.assertFailed(null, L0, 198, 15, "context != null");
-    draggable_scrollable_sheet.DraggableScrollableNotification.__proto__.new.call(this);
+  gradient.GradientTransform = class GradientTransform extends core.Object {};
+  (gradient.GradientTransform.new = function() {
     ;
-  }).prototype = draggable_scrollable_sheet.DraggableScrollableNotification.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet.DraggableScrollableNotification);
-  dart.addTypeCaches(draggable_scrollable_sheet.DraggableScrollableNotification);
-  dart.setLibraryUri(draggable_scrollable_sheet.DraggableScrollableNotification, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet.DraggableScrollableNotification, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet.DraggableScrollableNotification.__proto__),
-    extent: dart.finalFieldType(core.double),
-    minExtent: dart.finalFieldType(core.double),
-    maxExtent: dart.finalFieldType(core.double),
-    initialExtent: dart.finalFieldType(core.double),
-    context: dart.finalFieldType(framework.BuildContext)
-  }));
-  var _currentExtent = dart.privateName(draggable_scrollable_sheet, "_currentExtent");
-  draggable_scrollable_sheet._DraggableSheetExtent = class _DraggableSheetExtent extends core.Object {
-    get isAtMin() {
-      return dart.notNull(this.minExtent) >= dart.notNull(this[_currentExtent].value);
+  }).prototype = gradient.GradientTransform.prototype;
+  dart.addTypeTests(gradient.GradientTransform);
+  dart.addTypeCaches(gradient.GradientTransform);
+  dart.setLibraryUri(gradient.GradientTransform, L1);
+  var radians$ = dart.privateName(gradient, "GradientRotation.radians");
+  gradient.GradientRotation = class GradientRotation extends gradient.GradientTransform {
+    get radians() {
+      return this[radians$];
     }
-    get isAtMax() {
-      return dart.notNull(this.maxExtent) <= dart.notNull(this[_currentExtent].value);
+    set radians(value) {
+      super.radians = value;
     }
-    set currentExtent(value) {
-      if (value == null) dart.nullFailed(L0, 262, 28, "value");
-      if (!(value != null)) dart.assertFailed(null, L0, 263, 12, "value != null");
-      this[_currentExtent].value = value[$clamp](this.minExtent, this.maxExtent);
-    }
-    get currentExtent() {
-      return this[_currentExtent].value;
-    }
-    get additionalMinExtent() {
-      return dart.test(this.isAtMin) ? 0.0 : 1.0;
-    }
-    get additionalMaxExtent() {
-      return dart.test(this.isAtMax) ? 0.0 : 1.0;
-    }
-    addPixelDelta(delta, context) {
-      if (delta == null) dart.nullFailed(L0, 273, 29, "delta");
-      if (context == null) dart.nullFailed(L0, 273, 49, "context");
-      if (this.availablePixels === 0) {
-        return;
-      }
-      this.currentExtent = dart.notNull(this.currentExtent) + dart.notNull(delta) / dart.notNull(this.availablePixels) * dart.notNull(this.maxExtent);
-      new draggable_scrollable_sheet.DraggableScrollableNotification.new({minExtent: this.minExtent, maxExtent: this.maxExtent, extent: this.currentExtent, initialExtent: this.initialExtent, context: context}).dispatch(context);
-    }
-  };
-  (draggable_scrollable_sheet._DraggableSheetExtent.new = function(opts) {
-    let t0;
-    let minExtent = opts && 'minExtent' in opts ? opts.minExtent : null;
-    if (minExtent == null) dart.nullFailed(L0, 239, 19, "minExtent");
-    let maxExtent = opts && 'maxExtent' in opts ? opts.maxExtent : null;
-    if (maxExtent == null) dart.nullFailed(L0, 240, 19, "maxExtent");
-    let initialExtent = opts && 'initialExtent' in opts ? opts.initialExtent : null;
-    if (initialExtent == null) dart.nullFailed(L0, 241, 19, "initialExtent");
-    let listener = opts && 'listener' in opts ? opts.listener : null;
-    if (listener == null) dart.nullFailed(L0, 242, 27, "listener");
-    this.minExtent = minExtent;
-    this.maxExtent = maxExtent;
-    this.initialExtent = initialExtent;
-    if (!(minExtent != null)) dart.assertFailed(null, L0, 243, 15, "minExtent != null");
-    if (!(maxExtent != null)) dart.assertFailed(null, L0, 244, 15, "maxExtent != null");
-    if (!(initialExtent != null)) dart.assertFailed(null, L0, 245, 15, "initialExtent != null");
-    if (!(dart.notNull(minExtent) >= 0)) dart.assertFailed(null, L0, 246, 15, "minExtent >= 0");
-    if (!(dart.notNull(maxExtent) <= 1)) dart.assertFailed(null, L0, 247, 15, "maxExtent <= 1");
-    if (!(dart.notNull(minExtent) <= dart.notNull(initialExtent))) dart.assertFailed(null, L0, 248, 15, "minExtent <= initialExtent");
-    if (!(dart.notNull(initialExtent) <= dart.notNull(maxExtent))) dart.assertFailed(null, L0, 249, 15, "initialExtent <= maxExtent");
-    this[_currentExtent] = (t0 = new (ValueNotifierOfdouble()).new(initialExtent), (() => {
-      t0.addListener(listener);
-      return t0;
-    })());
-    this.availablePixels = 1 / 0;
-    ;
-  }).prototype = draggable_scrollable_sheet._DraggableSheetExtent.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet._DraggableSheetExtent);
-  dart.addTypeCaches(draggable_scrollable_sheet._DraggableSheetExtent);
-  dart.setMethodSignature(draggable_scrollable_sheet._DraggableSheetExtent, () => ({
-    __proto__: dart.getMethods(draggable_scrollable_sheet._DraggableSheetExtent.__proto__),
-    addPixelDelta: dart.fnType(dart.void, [core.double, framework.BuildContext])
-  }));
-  dart.setGetterSignature(draggable_scrollable_sheet._DraggableSheetExtent, () => ({
-    __proto__: dart.getGetters(draggable_scrollable_sheet._DraggableSheetExtent.__proto__),
-    isAtMin: core.bool,
-    isAtMax: core.bool,
-    currentExtent: core.double,
-    additionalMinExtent: core.double,
-    additionalMaxExtent: core.double
-  }));
-  dart.setSetterSignature(draggable_scrollable_sheet._DraggableSheetExtent, () => ({
-    __proto__: dart.getSetters(draggable_scrollable_sheet._DraggableSheetExtent.__proto__),
-    currentExtent: core.double
-  }));
-  dart.setLibraryUri(draggable_scrollable_sheet._DraggableSheetExtent, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet._DraggableSheetExtent, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet._DraggableSheetExtent.__proto__),
-    minExtent: dart.finalFieldType(core.double),
-    maxExtent: dart.finalFieldType(core.double),
-    initialExtent: dart.finalFieldType(core.double),
-    [_currentExtent]: dart.finalFieldType(change_notifier.ValueNotifier$(core.double)),
-    availablePixels: dart.fieldType(core.double)
-  }));
-  var ___DraggableScrollableSheetState__scrollController = dart.privateName(draggable_scrollable_sheet, "_#_DraggableScrollableSheetState#_scrollController");
-  var ___DraggableScrollableSheetState__scrollController_isSet = dart.privateName(draggable_scrollable_sheet, "_#_DraggableScrollableSheetState#_scrollController#isSet");
-  var ___DraggableScrollableSheetState__extent = dart.privateName(draggable_scrollable_sheet, "_#_DraggableScrollableSheetState#_extent");
-  var ___DraggableScrollableSheetState__extent_isSet = dart.privateName(draggable_scrollable_sheet, "_#_DraggableScrollableSheetState#_extent#isSet");
-  var _child = dart.privateName(draggable_scrollable_sheet, "_child");
-  var _scrollController = dart.privateName(draggable_scrollable_sheet, "_scrollController");
-  var _extent = dart.privateName(draggable_scrollable_sheet, "_extent");
-  var _updateExtent = dart.privateName(draggable_scrollable_sheet, "_updateExtent");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  var C0;
-  var _setExtent = dart.privateName(draggable_scrollable_sheet, "_setExtent");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var C3;
-  var C4;
-  var C5;
-  var C2;
-  var C1;
-  var C8;
-  var C7;
-  var C6;
-  var C11;
-  var C10;
-  var C9;
-  draggable_scrollable_sheet._DraggableScrollableSheetState = class _DraggableScrollableSheetState extends framework.State$(draggable_scrollable_sheet.DraggableScrollableSheet) {
-    get [_scrollController]() {
+    transform(bounds, opts) {
       let t0;
-      return dart.test(this[___DraggableScrollableSheetState__scrollController_isSet]) ? (t0 = this[___DraggableScrollableSheetState__scrollController], t0) : dart.throw(new _internal.LateError.fieldNI("_scrollController"));
-    }
-    set [_scrollController](t0) {
-      if (t0 == null) dart.nullFailed(L0, 289, 50, "null");
-      this[___DraggableScrollableSheetState__scrollController_isSet] = true;
-      this[___DraggableScrollableSheetState__scrollController] = t0;
-    }
-    get [_extent]() {
-      let t1;
-      return dart.test(this[___DraggableScrollableSheetState__extent_isSet]) ? (t1 = this[___DraggableScrollableSheetState__extent], t1) : dart.throw(new _internal.LateError.fieldNI("_extent"));
-    }
-    set [_extent](t1) {
-      if (t1 == null) dart.nullFailed(L0, 290, 30, "null");
-      this[___DraggableScrollableSheetState__extent_isSet] = true;
-      this[___DraggableScrollableSheetState__extent] = t1;
-    }
-    initState() {
-      super.initState();
-      this[_updateExtent]();
-    }
-    didChangeDependencies() {
-      let t4, t3, t2;
-      super.didChangeDependencies();
-      if (dart.test(draggable_scrollable_sheet._InheritedResetNotifier.shouldReset(this.context))) {
-        if (this[_scrollController].offset !== 0.0) {
-          this[_scrollController].animateTo(0.0, {duration: C0 || CT.C0, curve: curves.Curves.linear});
-        }
-        this[_extent][_currentExtent].value = this[_extent].initialExtent;
-      }
-      this[_child] = (t2 = this.widget, t3 = this.context, t4 = this[_scrollController], t2.builder(t3, t4));
-    }
-    didUpdateWidget(oldWidget) {
-      let t4, t3, t2;
-      draggable_scrollable_sheet.DraggableScrollableSheet.as(oldWidget);
-      if (oldWidget == null) dart.nullFailed(L0, 324, 49, "oldWidget");
-      super.didUpdateWidget(oldWidget);
-      this[_updateExtent]();
-      this[_child] = (t2 = this.widget, t3 = this.context, t4 = this[_scrollController], t2.builder(t3, t4));
-    }
-    [_updateExtent]() {
-      this[_extent] = new draggable_scrollable_sheet._DraggableSheetExtent.new({minExtent: this.widget.minChildSize, maxExtent: this.widget.maxChildSize, initialExtent: this.widget.initialChildSize, listener: dart.bind(this, _setExtent)});
-      this[_scrollController] = new draggable_scrollable_sheet._DraggableScrollableSheetScrollController.new({extent: this[_extent]});
-    }
-    [_setExtent]() {
-      this.setState(dart.fn(() => {
-      }, VoidTovoid()));
-    }
-    build(context) {
-      if (context == null) dart.nullFailed(L0, 350, 29, "context");
-      return new layout_builder.LayoutBuilder.new({builder: dart.fn((context, constraints) => {
-          if (context == null) dart.nullFailed(L0, 352, 30, "context");
-          if (constraints == null) dart.nullFailed(L0, 352, 54, "constraints");
-          this[_extent].availablePixels = dart.notNull(this.widget.maxChildSize) * dart.notNull(constraints.biggest.height);
-          let sheet = new basic.FractionallySizedBox.new({heightFactor: this[_extent].currentExtent, child: this[_child], alignment: alignment.Alignment.bottomCenter, $creationLocationd_0dea112b090073317d4: C1 || CT.C1});
-          return dart.test(this.widget.expand) ? new basic.SizedBox.expand({child: sheet, $creationLocationd_0dea112b090073317d4: C6 || CT.C6}) : sheet;
-        }, BuildContextAndBoxConstraintsToWidget()), $creationLocationd_0dea112b090073317d4: C9 || CT.C9});
-    }
-    dispose() {
-      this[_scrollController].dispose();
-      this[_child] = null;
-      super.dispose();
-    }
-  };
-  (draggable_scrollable_sheet._DraggableScrollableSheetState.new = function() {
-    this[___DraggableScrollableSheetState__scrollController] = null;
-    this[___DraggableScrollableSheetState__scrollController_isSet] = false;
-    this[___DraggableScrollableSheetState__extent] = null;
-    this[___DraggableScrollableSheetState__extent_isSet] = false;
-    this[_child] = null;
-    draggable_scrollable_sheet._DraggableScrollableSheetState.__proto__.new.call(this);
-    ;
-  }).prototype = draggable_scrollable_sheet._DraggableScrollableSheetState.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet._DraggableScrollableSheetState);
-  dart.addTypeCaches(draggable_scrollable_sheet._DraggableScrollableSheetState);
-  dart.setMethodSignature(draggable_scrollable_sheet._DraggableScrollableSheetState, () => ({
-    __proto__: dart.getMethods(draggable_scrollable_sheet._DraggableScrollableSheetState.__proto__),
-    [_updateExtent]: dart.fnType(dart.void, []),
-    [_setExtent]: dart.fnType(dart.void, []),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
-  }));
-  dart.setGetterSignature(draggable_scrollable_sheet._DraggableScrollableSheetState, () => ({
-    __proto__: dart.getGetters(draggable_scrollable_sheet._DraggableScrollableSheetState.__proto__),
-    [_scrollController]: draggable_scrollable_sheet._DraggableScrollableSheetScrollController,
-    [_extent]: draggable_scrollable_sheet._DraggableSheetExtent
-  }));
-  dart.setSetterSignature(draggable_scrollable_sheet._DraggableScrollableSheetState, () => ({
-    __proto__: dart.getSetters(draggable_scrollable_sheet._DraggableScrollableSheetState.__proto__),
-    [_scrollController]: draggable_scrollable_sheet._DraggableScrollableSheetScrollController,
-    [_extent]: draggable_scrollable_sheet._DraggableSheetExtent
-  }));
-  dart.setLibraryUri(draggable_scrollable_sheet._DraggableScrollableSheetState, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet._DraggableScrollableSheetState, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet._DraggableScrollableSheetState.__proto__),
-    [___DraggableScrollableSheetState__scrollController]: dart.fieldType(dart.nullable(draggable_scrollable_sheet._DraggableScrollableSheetScrollController)),
-    [___DraggableScrollableSheetState__scrollController_isSet]: dart.fieldType(core.bool),
-    [___DraggableScrollableSheetState__extent]: dart.fieldType(dart.nullable(draggable_scrollable_sheet._DraggableSheetExtent)),
-    [___DraggableScrollableSheetState__extent_isSet]: dart.fieldType(core.bool),
-    [_child]: dart.fieldType(dart.nullable(framework.Widget))
-  }));
-  draggable_scrollable_sheet._DraggableScrollableSheetScrollController = class _DraggableScrollableSheetScrollController extends scroll_controller.ScrollController {
-    createScrollPosition(physics, context, oldPosition) {
-      if (physics == null) dart.nullFailed(L0, 401, 19, "physics");
-      if (context == null) dart.nullFailed(L0, 402, 19, "context");
-      return new draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition.new({physics: physics, context: context, oldPosition: oldPosition, extent: this.extent});
-    }
-    debugFillDescription(description) {
-      if (description == null) dart.nullFailed(L0, 414, 42, "description");
-      super.debugFillDescription(description);
-      description[$add]("extent: " + dart.str(this.extent));
-    }
-  };
-  (draggable_scrollable_sheet._DraggableScrollableSheetScrollController.new = function(opts) {
-    let initialScrollOffset = opts && 'initialScrollOffset' in opts ? opts.initialScrollOffset : 0;
-    if (initialScrollOffset == null) dart.nullFailed(L0, 388, 12, "initialScrollOffset");
-    let debugLabel = opts && 'debugLabel' in opts ? opts.debugLabel : null;
-    let extent = opts && 'extent' in opts ? opts.extent : null;
-    if (extent == null) dart.nullFailed(L0, 390, 19, "extent");
-    this.extent = extent;
-    if (!(extent != null)) dart.assertFailed(null, L0, 391, 15, "extent != null");
-    draggable_scrollable_sheet._DraggableScrollableSheetScrollController.__proto__.new.call(this, {debugLabel: debugLabel, initialScrollOffset: initialScrollOffset});
-    ;
-  }).prototype = draggable_scrollable_sheet._DraggableScrollableSheetScrollController.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet._DraggableScrollableSheetScrollController);
-  dart.addTypeCaches(draggable_scrollable_sheet._DraggableScrollableSheetScrollController);
-  dart.setMethodSignature(draggable_scrollable_sheet._DraggableScrollableSheetScrollController, () => ({
-    __proto__: dart.getMethods(draggable_scrollable_sheet._DraggableScrollableSheetScrollController.__proto__),
-    createScrollPosition: dart.fnType(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition, [scroll_physics.ScrollPhysics, scroll_context.ScrollContext, dart.nullable(scroll_position.ScrollPosition)])
-  }));
-  dart.setLibraryUri(draggable_scrollable_sheet._DraggableScrollableSheetScrollController, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet._DraggableScrollableSheetScrollController, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet._DraggableScrollableSheetScrollController.__proto__),
-    extent: dart.finalFieldType(draggable_scrollable_sheet._DraggableSheetExtent)
-  }));
-  var _dragCancelCallback = dart.privateName(draggable_scrollable_sheet, "_dragCancelCallback");
-  draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition = class _DraggableScrollableSheetScrollPosition extends scroll_position_with_single_context.ScrollPositionWithSingleContext {
-    get listShouldScroll() {
-      return dart.notNull(this.pixels) > 0.0;
-    }
-    applyContentDimensions(minScrollExtent, maxScrollExtent) {
-      if (minScrollExtent == null) dart.nullFailed(L0, 457, 38, "minScrollExtent");
-      if (maxScrollExtent == null) dart.nullFailed(L0, 457, 62, "maxScrollExtent");
-      return super.applyContentDimensions(dart.notNull(minScrollExtent) - dart.notNull(this.extent.additionalMinExtent), dart.notNull(maxScrollExtent) + dart.notNull(this.extent.additionalMaxExtent));
-    }
-    applyUserOffset(delta) {
-      if (delta == null) dart.nullFailed(L0, 468, 31, "delta");
-      if (!dart.test(this.listShouldScroll) && (!(dart.test(this.extent.isAtMin) || dart.test(this.extent.isAtMax)) || dart.test(this.extent.isAtMin) && dart.notNull(delta) < 0 || dart.test(this.extent.isAtMax) && dart.notNull(delta) > 0)) {
-        this.extent.addPixelDelta(-dart.notNull(delta), dart.nullCheck(this.context.notificationContext));
-      } else {
-        super.applyUserOffset(delta);
-      }
-    }
-    goBallistic(velocity) {
-      let t2, t2$;
-      if (velocity == null) dart.nullFailed(L0, 480, 27, "velocity");
-      if (velocity === 0.0 || dart.notNull(velocity) < 0.0 && dart.test(this.listShouldScroll) || dart.notNull(velocity) > 0.0 && dart.test(this.extent.isAtMax)) {
-        super.goBallistic(velocity);
-        return;
-      }
-      t2 = this[_dragCancelCallback];
-      t2 == null ? null : t2();
-      this[_dragCancelCallback] = null;
-      let simulation = new scroll_simulation.ClampingScrollSimulation.new({position: this.extent.currentExtent, velocity: velocity, tolerance: this.physics.tolerance});
-      let ballisticController = new animation_controller.AnimationController.unbounded({debugLabel: object.objectRuntimeType(this, "_DraggableScrollableSheetPosition"), vsync: this.context.vsync});
-      let lastDelta = 0.0;
-      const _tick = () => {
-        let delta = dart.notNull(ballisticController.value) - dart.notNull(lastDelta);
-        lastDelta = ballisticController.value;
-        this.extent.addPixelDelta(delta, dart.nullCheck(this.context.notificationContext));
-        if (dart.notNull(velocity) > 0 && dart.test(this.extent.isAtMax) || dart.notNull(velocity) < 0 && dart.test(this.extent.isAtMin)) {
-          velocity = dart.notNull(ballisticController.velocity) + dart.notNull(this.physics.tolerance.velocity) * ballisticController.velocity[$sign];
-          super.goBallistic(velocity);
-          ballisticController.stop();
-        } else if (dart.test(ballisticController.isCompleted)) {
-          super.goBallistic(0.0);
-        }
-      };
-      dart.fn(_tick, VoidTovoid());
-      t2$ = ballisticController;
-      (() => {
-        t2$.addListener(_tick);
-        t2$.animateWith(simulation).whenCompleteOrCancel(dart.bind(ballisticController, 'dispose'));
-        return t2$;
+      if (bounds == null) dart.nullFailed(L0, 108, 26, "bounds");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      if (!(bounds != null)) dart.assertFailed(null, L0, 109, 12, "bounds != null");
+      let sinRadians = math.sin(this.radians);
+      let oneMinusCosRadians = 1 - math.cos(this.radians);
+      let center = bounds.center;
+      let originX = sinRadians * dart.notNull(center.dy) + oneMinusCosRadians * dart.notNull(center.dx);
+      let originY = -sinRadians * dart.notNull(center.dx) + oneMinusCosRadians * dart.notNull(center.dy);
+      t0 = vector_math_64.Matrix4.identity();
+      return (() => {
+        t0.translate(originX, originY);
+        t0.rotateZ(this.radians);
+        return t0;
       })();
     }
-    drag(details, dragCancelCallback) {
-      if (details == null) dart.nullFailed(L0, 528, 30, "details");
-      if (dragCancelCallback == null) dart.nullFailed(L0, 528, 52, "dragCancelCallback");
-      this[_dragCancelCallback] = dragCancelCallback;
-      return super.drag(details, dragCancelCallback);
+  };
+  (gradient.GradientRotation.new = function(radians) {
+    if (radians == null) dart.nullFailed(L0, 102, 31, "radians");
+    this[radians$] = radians;
+    gradient.GradientRotation.__proto__.new.call(this);
+    ;
+  }).prototype = gradient.GradientRotation.prototype;
+  dart.addTypeTests(gradient.GradientRotation);
+  dart.addTypeCaches(gradient.GradientRotation);
+  dart.setMethodSignature(gradient.GradientRotation, () => ({
+    __proto__: dart.getMethods(gradient.GradientRotation.__proto__),
+    transform: dart.fnType(vector_math_64.Matrix4, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {})
+  }));
+  dart.setLibraryUri(gradient.GradientRotation, L1);
+  dart.setFieldSignature(gradient.GradientRotation, () => ({
+    __proto__: dart.getFields(gradient.GradientRotation.__proto__),
+    radians: dart.finalFieldType(core.double)
+  }));
+  var _impliedStops = dart.privateName(gradient, "_impliedStops");
+  var _resolveTransform = dart.privateName(gradient, "_resolveTransform");
+  var colors$ = dart.privateName(gradient, "Gradient.colors");
+  var stops$ = dart.privateName(gradient, "Gradient.stops");
+  var transform$ = dart.privateName(gradient, "Gradient.transform");
+  gradient.Gradient = class Gradient extends core.Object {
+    get colors() {
+      return this[colors$];
+    }
+    set colors(value) {
+      super.colors = value;
+    }
+    get stops() {
+      return this[stops$];
+    }
+    set stops(value) {
+      super.stops = value;
+    }
+    get transform() {
+      return this[transform$];
+    }
+    set transform(value) {
+      super.transform = value;
+    }
+    [_impliedStops]() {
+      if (this.stops != null) return dart.nullCheck(this.stops);
+      if (!(dart.notNull(this.colors[$length]) >= 2)) dart.assertFailed("colors list must have at least two colors", L0, 189, 12, "colors.length >= 2");
+      let separation = 1.0 / (dart.notNull(this.colors[$length]) - 1);
+      return ListOfdouble().generate(this.colors[$length], dart.fn(index => {
+        if (index == null) dart.nullFailed(L0, 193, 12, "index");
+        return dart.notNull(index) * separation;
+      }, intTodouble()), {growable: false});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(L0, 244, 42, "t");
+      if (a == null) return this.scale(t);
+      return null;
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(L0, 275, 40, "t");
+      if (b == null) return this.scale(1.0 - dart.notNull(t));
+      return null;
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(L0, 289, 58, "t");
+      if (!(t != null)) dart.assertFailed(null, L0, 290, 12, "t != null");
+      let result = null;
+      if (b != null) result = b.lerpFrom(a, t);
+      if (result == null && a != null) result = a.lerpTo(b, t);
+      if (result != null) return result;
+      if (a == null && b == null) return null;
+      if (!(a != null && b != null)) dart.assertFailed(null, L0, 300, 12, "a != null && b != null");
+      return dart.notNull(t) < 0.5 ? dart.nullCheck(a).scale(1.0 - dart.notNull(t) * 2.0) : dart.nullCheck(b).scale((dart.notNull(t) - 0.5) * 2.0);
+    }
+    [_resolveTransform](bounds, textDirection) {
+      let t1, t0;
+      if (bounds == null) dart.nullFailed(L0, 304, 39, "bounds");
+      t0 = this.transform;
+      return t0 == null ? null : (t1 = t0.transform(bounds, {textDirection: textDirection}), t1 == null ? null : t1.storage);
     }
   };
-  (draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition.new = function(opts) {
-    let physics = opts && 'physics' in opts ? opts.physics : null;
-    if (physics == null) dart.nullFailed(L0, 435, 28, "physics");
-    let context = opts && 'context' in opts ? opts.context : null;
-    if (context == null) dart.nullFailed(L0, 436, 28, "context");
-    let initialPixels = opts && 'initialPixels' in opts ? opts.initialPixels : 0;
-    if (initialPixels == null) dart.nullFailed(L0, 437, 12, "initialPixels");
-    let keepScrollOffset = opts && 'keepScrollOffset' in opts ? opts.keepScrollOffset : true;
-    if (keepScrollOffset == null) dart.nullFailed(L0, 438, 10, "keepScrollOffset");
-    let oldPosition = opts && 'oldPosition' in opts ? opts.oldPosition : null;
-    let debugLabel = opts && 'debugLabel' in opts ? opts.debugLabel : null;
-    let extent = opts && 'extent' in opts ? opts.extent : null;
-    if (extent == null) dart.nullFailed(L0, 441, 19, "extent");
-    this[_dragCancelCallback] = null;
-    this.extent = extent;
-    if (!(extent != null)) dart.assertFailed(null, L0, 442, 16, "extent != null");
-    draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition.__proto__.new.call(this, {physics: physics, context: context, initialPixels: initialPixels, keepScrollOffset: keepScrollOffset, oldPosition: oldPosition, debugLabel: debugLabel});
+  (gradient.Gradient.new = function(opts) {
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(L0, 149, 19, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[colors$] = colors;
+    this[stops$] = stops;
+    this[transform$] = transform;
+    if (!(colors != null)) dart.assertFailed(null, L0, 152, 15, "colors != null");
     ;
-  }).prototype = draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition);
-  dart.addTypeCaches(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition);
-  dart.setGetterSignature(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition, () => ({
-    __proto__: dart.getGetters(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition.__proto__),
-    listShouldScroll: core.bool
+  }).prototype = gradient.Gradient.prototype;
+  dart.addTypeTests(gradient.Gradient);
+  dart.addTypeCaches(gradient.Gradient);
+  dart.setMethodSignature(gradient.Gradient, () => ({
+    __proto__: dart.getMethods(gradient.Gradient.__proto__),
+    [_impliedStops]: dart.fnType(core.List$(core.double), []),
+    lerpFrom: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
+    lerpTo: dart.fnType(dart.nullable(gradient.Gradient), [dart.nullable(gradient.Gradient), core.double]),
+    [_resolveTransform]: dart.fnType(dart.nullable(typed_data.Float64List), [ui.Rect, dart.nullable(ui.TextDirection)])
   }));
-  dart.setLibraryUri(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet._DraggableScrollableSheetScrollPosition.__proto__),
-    [_dragCancelCallback]: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    extent: dart.finalFieldType(draggable_scrollable_sheet._DraggableSheetExtent)
+  dart.setLibraryUri(gradient.Gradient, L1);
+  dart.setFieldSignature(gradient.Gradient, () => ({
+    __proto__: dart.getFields(gradient.Gradient.__proto__),
+    colors: dart.finalFieldType(core.List$(ui.Color)),
+    stops: dart.finalFieldType(dart.nullable(core.List$(core.double))),
+    transform: dart.finalFieldType(dart.nullable(gradient.GradientTransform))
   }));
-  var _notifier = dart.privateName(draggable_scrollable_sheet, "_notifier");
-  var _sendReset = dart.privateName(draggable_scrollable_sheet, "_sendReset");
-  var C14;
-  var C15;
-  var C13;
-  var C12;
-  var child$ = dart.privateName(draggable_scrollable_sheet, "DraggableScrollableActuator.child");
-  draggable_scrollable_sheet.DraggableScrollableActuator = class DraggableScrollableActuator extends framework.StatelessWidget {
-    get child() {
-      return this[child$];
+  var Alignment_y = dart.privateName(alignment, "Alignment.y");
+  var Alignment_x = dart.privateName(alignment, "Alignment.x");
+  var C0;
+  var C1;
+  var _name = dart.privateName(ui, "_name");
+  var C2;
+  var begin$ = dart.privateName(gradient, "LinearGradient.begin");
+  var end$ = dart.privateName(gradient, "LinearGradient.end");
+  var tileMode$ = dart.privateName(gradient, "LinearGradient.tileMode");
+  gradient.LinearGradient = class LinearGradient extends gradient.Gradient {
+    get begin() {
+      return this[begin$];
     }
-    set child(value) {
-      super.child = value;
+    set begin(value) {
+      super.begin = value;
     }
-    static reset(context) {
-      if (context == null) dart.nullFailed(L0, 566, 34, "context");
-      let notifier = context.dependOnInheritedWidgetOfExactType(draggable_scrollable_sheet._InheritedResetNotifier);
-      if (notifier == null) {
-        return false;
-      }
-      return notifier[_sendReset]();
+    get end() {
+      return this[end$];
     }
-    build(context) {
-      if (context == null) dart.nullFailed(L0, 575, 29, "context");
-      return new draggable_scrollable_sheet._InheritedResetNotifier.new({child: this.child, notifier: this[_notifier], $creationLocationd_0dea112b090073317d4: C12 || CT.C12});
+    set end(value) {
+      super.end = value;
+    }
+    get tileMode() {
+      return this[tileMode$];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    createShader(rect, opts) {
+      if (rect == null) dart.nullFailed(L0, 419, 28, "rect");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.linear(this.begin.resolve(textDirection).withinRect(rect), this.end.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection));
+    }
+    scale(factor) {
+      if (factor == null) dart.nullFailed(L0, 432, 31, "factor");
+      return new gradient.LinearGradient.new({begin: this.begin, end: this.end, colors: this.colors[$map](ui.Color, dart.fn(color => {
+          if (color == null) dart.nullFailed(L0, 436, 40, "color");
+          return dart.nullCheck(ui.Color.lerp(null, color, factor));
+        }, ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(L0, 443, 42, "t");
+      if (a == null || gradient.LinearGradient.is(a)) return gradient.LinearGradient.lerp(LinearGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(L0, 450, 40, "t");
+      if (b == null || gradient.LinearGradient.is(b)) return gradient.LinearGradient.lerp(this, LinearGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(L0, 475, 76, "t");
+      if (!(t != null)) dart.assertFailed(null, L0, 476, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - dart.notNull(t));
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.LinearGradient.new({begin: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.begin, b.begin, t)), end: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.end, b.end, t)), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return gradient.LinearGradient.is(other) && dart.equals(other.begin, this.begin) && dart.equals(other.end, this.end) && dart.equals(other.tileMode, this.tileMode) && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
+    }
+    get hashCode() {
+      return ui.hashValues(this.begin, this.end, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "LinearGradient")) + "(" + dart.str(this.begin) + ", " + dart.str(this.end) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
     }
   };
-  (draggable_scrollable_sheet.DraggableScrollableActuator.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(L0, 549, 19, "child");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_notifier] = new draggable_scrollable_sheet._ResetNotifier.new();
-    this[child$] = child;
-    draggable_scrollable_sheet.DraggableScrollableActuator.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (gradient.LinearGradient.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : C0 || CT.C0;
+    if (begin == null) dart.nullFailed(L0, 367, 10, "begin");
+    let end = opts && 'end' in opts ? opts.end : C1 || CT.C1;
+    if (end == null) dart.nullFailed(L0, 368, 10, "end");
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(L0, 369, 26, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C2 || CT.C2;
+    if (tileMode == null) dart.nullFailed(L0, 371, 10, "tileMode");
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[begin$] = begin;
+    this[end$] = end;
+    this[tileMode$] = tileMode;
+    if (!(begin != null)) dart.assertFailed(null, L0, 373, 15, "begin != null");
+    if (!(end != null)) dart.assertFailed(null, L0, 374, 15, "end != null");
+    if (!(tileMode != null)) dart.assertFailed(null, L0, 375, 15, "tileMode != null");
+    gradient.LinearGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
     ;
-  }).prototype = draggable_scrollable_sheet.DraggableScrollableActuator.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet.DraggableScrollableActuator);
-  dart.addTypeCaches(draggable_scrollable_sheet.DraggableScrollableActuator);
-  dart.setMethodSignature(draggable_scrollable_sheet.DraggableScrollableActuator, () => ({
-    __proto__: dart.getMethods(draggable_scrollable_sheet.DraggableScrollableActuator.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = gradient.LinearGradient.prototype;
+  dart.addTypeTests(gradient.LinearGradient);
+  dart.addTypeCaches(gradient.LinearGradient);
+  dart.setMethodSignature(gradient.LinearGradient, () => ({
+    __proto__: dart.getMethods(gradient.LinearGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.LinearGradient, [core.double])
   }));
-  dart.setLibraryUri(draggable_scrollable_sheet.DraggableScrollableActuator, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet.DraggableScrollableActuator, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet.DraggableScrollableActuator.__proto__),
-    child: dart.finalFieldType(framework.Widget),
-    [_notifier]: dart.finalFieldType(draggable_scrollable_sheet._ResetNotifier)
+  dart.setLibraryUri(gradient.LinearGradient, L1);
+  dart.setFieldSignature(gradient.LinearGradient, () => ({
+    __proto__: dart.getFields(gradient.LinearGradient.__proto__),
+    begin: dart.finalFieldType(alignment.AlignmentGeometry),
+    end: dart.finalFieldType(alignment.AlignmentGeometry),
+    tileMode: dart.finalFieldType(ui.TileMode)
   }));
-  var _wasCalled = dart.privateName(draggable_scrollable_sheet, "_wasCalled");
-  draggable_scrollable_sheet._ResetNotifier = class _ResetNotifier extends change_notifier.ChangeNotifier {
-    sendReset() {
-      if (!dart.test(this.hasListeners)) {
-        return false;
-      }
-      this[_wasCalled] = true;
-      this.notifyListeners();
-      return true;
+  dart.defineExtensionMethods(gradient.LinearGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.LinearGradient, ['hashCode']);
+  var C3;
+  var center$ = dart.privateName(gradient, "RadialGradient.center");
+  var radius$ = dart.privateName(gradient, "RadialGradient.radius");
+  var tileMode$0 = dart.privateName(gradient, "RadialGradient.tileMode");
+  var focal$ = dart.privateName(gradient, "RadialGradient.focal");
+  var focalRadius$ = dart.privateName(gradient, "RadialGradient.focalRadius");
+  gradient.RadialGradient = class RadialGradient extends gradient.Gradient {
+    get center() {
+      return this[center$];
+    }
+    set center(value) {
+      super.center = value;
+    }
+    get radius() {
+      return this[radius$];
+    }
+    set radius(value) {
+      super.radius = value;
+    }
+    get tileMode() {
+      return this[tileMode$0];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    get focal() {
+      return this[focal$];
+    }
+    set focal(value) {
+      super.focal = value;
+    }
+    get focalRadius() {
+      return this[focalRadius$];
+    }
+    set focalRadius(value) {
+      super.focalRadius = value;
+    }
+    createShader(rect, opts) {
+      if (rect == null) dart.nullFailed(L0, 672, 28, "rect");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.radial(this.center.resolve(textDirection).withinRect(rect), dart.notNull(this.radius) * dart.notNull(rect.shortestSide), this.colors, this[_impliedStops](), this.tileMode, this[_resolveTransform](rect, textDirection), this.focal == null ? null : dart.nullCheck(this.focal).resolve(textDirection).withinRect(rect), dart.notNull(this.focalRadius) * dart.notNull(rect.shortestSide));
+    }
+    scale(factor) {
+      if (factor == null) dart.nullFailed(L0, 688, 31, "factor");
+      return new gradient.RadialGradient.new({center: this.center, radius: this.radius, colors: this.colors[$map](ui.Color, dart.fn(color => {
+          if (color == null) dart.nullFailed(L0, 692, 40, "color");
+          return dart.nullCheck(ui.Color.lerp(null, color, factor));
+        }, ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode, focal: this.focal, focalRadius: this.focalRadius});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(L0, 701, 42, "t");
+      if (a == null || gradient.RadialGradient.is(a)) return gradient.RadialGradient.lerp(RadialGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(L0, 708, 40, "t");
+      if (b == null || gradient.RadialGradient.is(b)) return gradient.RadialGradient.lerp(this, RadialGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(L0, 733, 76, "t");
+      if (!(t != null)) dart.assertFailed(null, L0, 734, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - dart.notNull(t));
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.RadialGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), radius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.radius, b.radius, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode, focal: alignment.AlignmentGeometry.lerp(a.focal, b.focal, t), focalRadius: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.focalRadius, b.focalRadius, t)))});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return gradient.RadialGradient.is(other) && dart.equals(other.center, this.center) && other.radius == this.radius && dart.equals(other.tileMode, this.tileMode) && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops)) && dart.equals(other.focal, this.focal) && other.focalRadius == this.focalRadius;
+    }
+    get hashCode() {
+      return ui.hashValues(this.center, this.radius, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops), this.focal, this.focalRadius);
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "RadialGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.radius) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ", " + dart.str(this.focal) + ", " + dart.str(this.focalRadius) + ")";
     }
   };
-  (draggable_scrollable_sheet._ResetNotifier.new = function() {
-    this[_wasCalled] = false;
-    draggable_scrollable_sheet._ResetNotifier.__proto__.new.call(this);
+  (gradient.RadialGradient.new = function(opts) {
+    let center = opts && 'center' in opts ? opts.center : C3 || CT.C3;
+    if (center == null) dart.nullFailed(L0, 597, 10, "center");
+    let radius = opts && 'radius' in opts ? opts.radius : 0.5;
+    if (radius == null) dart.nullFailed(L0, 598, 10, "radius");
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(L0, 599, 26, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C2 || CT.C2;
+    if (tileMode == null) dart.nullFailed(L0, 601, 10, "tileMode");
+    let focal = opts && 'focal' in opts ? opts.focal : null;
+    let focalRadius = opts && 'focalRadius' in opts ? opts.focalRadius : 0;
+    if (focalRadius == null) dart.nullFailed(L0, 603, 10, "focalRadius");
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[center$] = center;
+    this[radius$] = radius;
+    this[tileMode$0] = tileMode;
+    this[focal$] = focal;
+    this[focalRadius$] = focalRadius;
+    if (!(center != null)) dart.assertFailed(null, L0, 605, 15, "center != null");
+    if (!(radius != null)) dart.assertFailed(null, L0, 606, 15, "radius != null");
+    if (!(tileMode != null)) dart.assertFailed(null, L0, 607, 15, "tileMode != null");
+    if (!(focalRadius != null)) dart.assertFailed(null, L0, 608, 15, "focalRadius != null");
+    gradient.RadialGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
     ;
-  }).prototype = draggable_scrollable_sheet._ResetNotifier.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet._ResetNotifier);
-  dart.addTypeCaches(draggable_scrollable_sheet._ResetNotifier);
-  dart.setMethodSignature(draggable_scrollable_sheet._ResetNotifier, () => ({
-    __proto__: dart.getMethods(draggable_scrollable_sheet._ResetNotifier.__proto__),
-    sendReset: dart.fnType(core.bool, [])
+  }).prototype = gradient.RadialGradient.prototype;
+  dart.addTypeTests(gradient.RadialGradient);
+  dart.addTypeCaches(gradient.RadialGradient);
+  dart.setMethodSignature(gradient.RadialGradient, () => ({
+    __proto__: dart.getMethods(gradient.RadialGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.RadialGradient, [core.double])
   }));
-  dart.setLibraryUri(draggable_scrollable_sheet._ResetNotifier, L1);
-  dart.setFieldSignature(draggable_scrollable_sheet._ResetNotifier, () => ({
-    __proto__: dart.getFields(draggable_scrollable_sheet._ResetNotifier.__proto__),
-    [_wasCalled]: dart.fieldType(core.bool)
+  dart.setLibraryUri(gradient.RadialGradient, L1);
+  dart.setFieldSignature(gradient.RadialGradient, () => ({
+    __proto__: dart.getFields(gradient.RadialGradient.__proto__),
+    center: dart.finalFieldType(alignment.AlignmentGeometry),
+    radius: dart.finalFieldType(core.double),
+    tileMode: dart.finalFieldType(ui.TileMode),
+    focal: dart.finalFieldType(dart.nullable(alignment.AlignmentGeometry)),
+    focalRadius: dart.finalFieldType(core.double)
   }));
-  draggable_scrollable_sheet._InheritedResetNotifier = class _InheritedResetNotifier extends inherited_notifier.InheritedNotifier$(draggable_scrollable_sheet._ResetNotifier) {
-    [_sendReset]() {
-      return dart.nullCheck(this.notifier).sendReset();
+  dart.defineExtensionMethods(gradient.RadialGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.RadialGradient, ['hashCode']);
+  var center$0 = dart.privateName(gradient, "SweepGradient.center");
+  var startAngle$ = dart.privateName(gradient, "SweepGradient.startAngle");
+  var endAngle$ = dart.privateName(gradient, "SweepGradient.endAngle");
+  var tileMode$1 = dart.privateName(gradient, "SweepGradient.tileMode");
+  gradient.SweepGradient = class SweepGradient extends gradient.Gradient {
+    get center() {
+      return this[center$0];
     }
-    static shouldReset(context) {
-      if (context == null) dart.nullFailed(L0, 618, 40, "context");
-      let widget = context.dependOnInheritedWidgetOfExactType(draggable_scrollable_sheet._InheritedResetNotifier);
-      if (widget == null) {
-        return false;
-      }
-      if (!draggable_scrollable_sheet._InheritedResetNotifier.is(widget)) dart.assertFailed(null, L0, 623, 12, "widget is _InheritedResetNotifier");
-      let inheritedNotifier = draggable_scrollable_sheet._InheritedResetNotifier.as(widget);
-      let wasCalled = dart.nullCheck(inheritedNotifier.notifier)[_wasCalled];
-      dart.nullCheck(inheritedNotifier.notifier)[_wasCalled] = false;
-      return wasCalled;
+    set center(value) {
+      super.center = value;
+    }
+    get startAngle() {
+      return this[startAngle$];
+    }
+    set startAngle(value) {
+      super.startAngle = value;
+    }
+    get endAngle() {
+      return this[endAngle$];
+    }
+    set endAngle(value) {
+      super.endAngle = value;
+    }
+    get tileMode() {
+      return this[tileMode$1];
+    }
+    set tileMode(value) {
+      super.tileMode = value;
+    }
+    createShader(rect, opts) {
+      if (rect == null) dart.nullFailed(L0, 922, 28, "rect");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      return ui.Gradient.sweep(this.center.resolve(textDirection).withinRect(rect), this.colors, this[_impliedStops](), this.tileMode, this.startAngle, this.endAngle, this[_resolveTransform](rect, textDirection));
+    }
+    scale(factor) {
+      if (factor == null) dart.nullFailed(L0, 937, 30, "factor");
+      return new gradient.SweepGradient.new({center: this.center, startAngle: this.startAngle, endAngle: this.endAngle, colors: this.colors[$map](ui.Color, dart.fn(color => {
+          if (color == null) dart.nullFailed(L0, 942, 40, "color");
+          return dart.nullCheck(ui.Color.lerp(null, color, factor));
+        }, ColorToColor()))[$toList](), stops: this.stops, tileMode: this.tileMode});
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(L0, 949, 42, "t");
+      if (a == null || gradient.SweepGradient.is(a)) return gradient.SweepGradient.lerp(SweepGradientN().as(a), this, t);
+      return super.lerpFrom(a, t);
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(L0, 956, 40, "t");
+      if (b == null || gradient.SweepGradient.is(b)) return gradient.SweepGradient.lerp(this, SweepGradientN().as(b), t);
+      return super.lerpTo(b, t);
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(L0, 980, 73, "t");
+      if (!(t != null)) dart.assertFailed(null, L0, 981, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - dart.notNull(t));
+      let interpolated = gradient._interpolateColorsAndStops(a.colors, a[_impliedStops](), b.colors, b[_impliedStops](), t);
+      return new gradient.SweepGradient.new({center: dart.nullCheck(alignment.AlignmentGeometry.lerp(a.center, b.center, t)), startAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.startAngle, b.startAngle, t))), endAngle: math.max(core.double, 0.0, dart.nullCheck(ui.lerpDouble(a.endAngle, b.endAngle, t))), colors: interpolated.colors, stops: interpolated.stops, tileMode: dart.notNull(t) < 0.5 ? a.tileMode : b.tileMode});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return gradient.SweepGradient.is(other) && dart.equals(other.center, this.center) && other.startAngle == this.startAngle && other.endAngle == this.endAngle && dart.equals(other.tileMode, this.tileMode) && dart.test(collections.listEquals(ui.Color, other.colors, this.colors)) && dart.test(collections.listEquals(core.double, other.stops, this.stops));
+    }
+    get hashCode() {
+      return ui.hashValues(this.center, this.startAngle, this.endAngle, this.tileMode, ui.hashList(this.colors), ui.hashList(this.stops));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "SweepGradient")) + "(" + dart.str(this.center) + ", " + dart.str(this.startAngle) + ", " + dart.str(this.endAngle) + ", " + dart.str(this.colors) + ", " + dart.str(this.stops) + ", " + dart.str(this.tileMode) + ")";
     }
   };
-  (draggable_scrollable_sheet._InheritedResetNotifier.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(L0, 608, 21, "child");
-    let notifier = opts && 'notifier' in opts ? opts.notifier : null;
-    if (notifier == null) dart.nullFailed(L0, 609, 29, "notifier");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    draggable_scrollable_sheet._InheritedResetNotifier.__proto__.new.call(this, {key: key, child: child, notifier: notifier, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (gradient.SweepGradient.new = function(opts) {
+    let center = opts && 'center' in opts ? opts.center : C3 || CT.C3;
+    if (center == null) dart.nullFailed(L0, 872, 10, "center");
+    let startAngle = opts && 'startAngle' in opts ? opts.startAngle : 0;
+    if (startAngle == null) dart.nullFailed(L0, 873, 10, "startAngle");
+    let endAngle = opts && 'endAngle' in opts ? opts.endAngle : 6.283185307179586;
+    if (endAngle == null) dart.nullFailed(L0, 874, 10, "endAngle");
+    let colors = opts && 'colors' in opts ? opts.colors : null;
+    if (colors == null) dart.nullFailed(L0, 875, 26, "colors");
+    let stops = opts && 'stops' in opts ? opts.stops : null;
+    let tileMode = opts && 'tileMode' in opts ? opts.tileMode : C2 || CT.C2;
+    if (tileMode == null) dart.nullFailed(L0, 877, 10, "tileMode");
+    let transform = opts && 'transform' in opts ? opts.transform : null;
+    this[center$0] = center;
+    this[startAngle$] = startAngle;
+    this[endAngle$] = endAngle;
+    this[tileMode$1] = tileMode;
+    if (!(center != null)) dart.assertFailed(null, L0, 879, 15, "center != null");
+    if (!(startAngle != null)) dart.assertFailed(null, L0, 880, 15, "startAngle != null");
+    if (!(endAngle != null)) dart.assertFailed(null, L0, 881, 15, "endAngle != null");
+    if (!(tileMode != null)) dart.assertFailed(null, L0, 882, 15, "tileMode != null");
+    gradient.SweepGradient.__proto__.new.call(this, {colors: colors, stops: stops, transform: transform});
     ;
-  }).prototype = draggable_scrollable_sheet._InheritedResetNotifier.prototype;
-  dart.addTypeTests(draggable_scrollable_sheet._InheritedResetNotifier);
-  dart.addTypeCaches(draggable_scrollable_sheet._InheritedResetNotifier);
-  dart.setMethodSignature(draggable_scrollable_sheet._InheritedResetNotifier, () => ({
-    __proto__: dart.getMethods(draggable_scrollable_sheet._InheritedResetNotifier.__proto__),
-    [_sendReset]: dart.fnType(core.bool, [])
+  }).prototype = gradient.SweepGradient.prototype;
+  dart.addTypeTests(gradient.SweepGradient);
+  dart.addTypeCaches(gradient.SweepGradient);
+  dart.setMethodSignature(gradient.SweepGradient, () => ({
+    __proto__: dart.getMethods(gradient.SweepGradient.__proto__),
+    createShader: dart.fnType(ui.Shader, [ui.Rect], {textDirection: dart.nullable(ui.TextDirection)}, {}),
+    scale: dart.fnType(gradient.SweepGradient, [core.double])
   }));
-  dart.setLibraryUri(draggable_scrollable_sheet._InheritedResetNotifier, L1);
-  dart.trackLibraries("packages/flutter/src/widgets/draggable_scrollable_sheet.dart", {
-    "package:flutter/src/widgets/draggable_scrollable_sheet.dart": draggable_scrollable_sheet
+  dart.setLibraryUri(gradient.SweepGradient, L1);
+  dart.setFieldSignature(gradient.SweepGradient, () => ({
+    __proto__: dart.getFields(gradient.SweepGradient.__proto__),
+    center: dart.finalFieldType(alignment.AlignmentGeometry),
+    startAngle: dart.finalFieldType(core.double),
+    endAngle: dart.finalFieldType(core.double),
+    tileMode: dart.finalFieldType(ui.TileMode)
+  }));
+  dart.defineExtensionMethods(gradient.SweepGradient, ['_equals', 'toString']);
+  dart.defineExtensionAccessors(gradient.SweepGradient, ['hashCode']);
+  gradient._sample = function _sample(colors, stops, t) {
+    if (colors == null) dart.nullFailed(L0, 24, 27, "colors");
+    if (stops == null) dart.nullFailed(L0, 24, 48, "stops");
+    if (t == null) dart.nullFailed(L0, 24, 62, "t");
+    if (!(colors != null)) dart.assertFailed(null, L0, 25, 10, "colors != null");
+    if (!dart.test(colors[$isNotEmpty])) dart.assertFailed(null, L0, 26, 10, "colors.isNotEmpty");
+    if (!(stops != null)) dart.assertFailed(null, L0, 27, 10, "stops != null");
+    if (!dart.test(stops[$isNotEmpty])) dart.assertFailed(null, L0, 28, 10, "stops.isNotEmpty");
+    if (!(t != null)) dart.assertFailed(null, L0, 29, 10, "t != null");
+    if (dart.notNull(t) <= dart.notNull(stops[$first])) return colors[$first];
+    if (dart.notNull(t) >= dart.notNull(stops[$last])) return colors[$last];
+    let index = stops[$lastIndexWhere](dart.fn(s => {
+      if (s == null) dart.nullFailed(L0, 34, 50, "s");
+      return dart.notNull(s) <= dart.notNull(t);
+    }, doubleTobool()));
+    if (!(index !== -1)) dart.assertFailed(null, L0, 35, 10, "index != -1");
+    return dart.nullCheck(ui.Color.lerp(colors[$_get](index), colors[$_get](dart.notNull(index) + 1), (dart.notNull(t) - dart.notNull(stops[$_get](index))) / (dart.notNull(stops[$_get](dart.notNull(index) + 1)) - dart.notNull(stops[$_get](index)))));
+  };
+  gradient._interpolateColorsAndStops = function _interpolateColorsAndStops(aColors, aStops, bColors, bStops, t) {
+    let t0;
+    if (aColors == null) dart.nullFailed(L0, 43, 15, "aColors");
+    if (aStops == null) dart.nullFailed(L0, 44, 16, "aStops");
+    if (bColors == null) dart.nullFailed(L0, 45, 15, "bColors");
+    if (bStops == null) dart.nullFailed(L0, 46, 16, "bStops");
+    if (t == null) dart.nullFailed(L0, 47, 10, "t");
+    if (!(dart.notNull(aColors[$length]) >= 2)) dart.assertFailed(null, L0, 49, 10, "aColors.length >= 2");
+    if (!(dart.notNull(bColors[$length]) >= 2)) dart.assertFailed(null, L0, 50, 10, "bColors.length >= 2");
+    if (!(aStops[$length] == aColors[$length])) dart.assertFailed(null, L0, 51, 10, "aStops.length == aColors.length");
+    if (!(bStops[$length] == bColors[$length])) dart.assertFailed(null, L0, 52, 10, "bStops.length == bColors.length");
+    let stops = (t0 = new (SplayTreeSetOfdouble()).new(), (() => {
+      t0.addAll(aStops);
+      t0.addAll(bStops);
+      return t0;
+    })());
+    let interpolatedStops = stops.toList({growable: false});
+    let interpolatedColors = interpolatedStops[$map](ui.Color, dart.fn(stop => {
+      if (stop == null) dart.nullFailed(L0, 58, 19, "stop");
+      return dart.nullCheck(ui.Color.lerp(gradient._sample(aColors, aStops, stop), gradient._sample(bColors, bStops, stop), t));
+    }, doubleToColor()))[$toList]({growable: false});
+    return new gradient._ColorsAndStops.new(interpolatedColors, interpolatedStops);
+  };
+  dart.trackLibraries("packages/flutter/src/painting/gradient.dart", {
+    "package:flutter/src/painting/gradient.dart": gradient
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["draggable_scrollable_sheet.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/widgets/draggable_scrollable_sheet.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["gradient.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/painting/gradient.dart.lib.js"}');
   // Exports:
   return {
-    src__widgets__draggable_scrollable_sheet: draggable_scrollable_sheet
+    src__painting__gradient: gradient
   };
 }));
 
-//# sourceMappingURL=draggable_scrollable_sheet.dart.lib.js.map
+//# sourceMappingURL=gradient.dart.lib.js.map
