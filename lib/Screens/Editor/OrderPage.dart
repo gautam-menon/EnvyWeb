@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:envyweb/Screens/Editor/SubmitPage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'dart:html' as html;
 
 class OrderPage extends StatefulWidget {
   final String orderId;
@@ -104,17 +104,14 @@ class _OrderPageState extends State<OrderPage> {
                                               onPressed: () async {
                                                 String imageUrl =
                                                     snapshot.data['rawBase64'];
-                                                // html.AnchorElement
-                                                //     anchorElement =
-                                                //     new html.AnchorElement(
-                                                //         href: imageUrl);
-                                                // anchorElement.download =
-                                                //     imageUrl;
-                                                // anchorElement.click();
-                                                var x =await get(imageUrl);
-                                                try {} catch (e) {
-                                                  print(e);
-                                                }
+
+                                                html.AnchorElement
+                                                    anchorElement =
+                                                    new html.AnchorElement(
+                                                        href: imageUrl);
+                                                anchorElement.download =
+                                                    imageUrl;
+                                                anchorElement.click();
                                               },
                                               child: Text("Download Image"),
                                             ),
