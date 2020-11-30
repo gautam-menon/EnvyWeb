@@ -1,385 +1,803 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/foundation/print.dart'], (function load__packages__flutter__src__gestures__force_press_dart(dart_sdk, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__foundation__print$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/envyweb/Services/FireStoreFunctions.dart', 'packages/cloud_firestore/cloud_firestore.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/async.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/painting/alignment.dart'], (function load__packages__envyweb__Screens__Admin__Status_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__envyweb__Services__FireStoreFunctions$46dart, packages__cloud_firestore__cloud_firestore$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__async$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__painting__alignment$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const async = dart_sdk.async;
   const ui = dart_sdk.ui;
-  const _internal = dart_sdk._internal;
+  const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
-  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
-  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
-  var force_press = Object.create(dart.library);
-  var $toString = dartx.toString;
-  var $isNaN = dartx.isNaN;
-  var $clamp = dartx.clamp;
-  var _ForceStateL = () => (_ForceStateL = dart.constFn(dart.legacy(force_press._ForceState)))();
-  var doubleAnddoubleAnddoubleTodouble = () => (doubleAnddoubleAnddoubleTodouble = dart.constFn(dart.fnType(core.double, [core.double, core.double, core.double])))();
-  var VoidTovoid = () => (VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))();
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const FireStoreFunctions = packages__envyweb__Services__FireStoreFunctions$46dart.Services__FireStoreFunctions;
+  const cloud_firestore = packages__cloud_firestore__cloud_firestore$46dart.cloud_firestore;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  var Status = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $map = dartx.map;
+  var $toList = dartx.toList;
+  var QuerySnapshotL = () => (QuerySnapshotL = dart.constFn(dart.legacy(cloud_firestore.QuerySnapshot)))();
+  var StreamOfQuerySnapshotL = () => (StreamOfQuerySnapshotL = dart.constFn(async.Stream$(QuerySnapshotL())))();
+  var StreamLOfQuerySnapshotL = () => (StreamLOfQuerySnapshotL = dart.constFn(dart.legacy(StreamOfQuerySnapshotL())))();
+  var VoidToNull = () => (VoidToNull = dart.constFn(dart.fnType(core.Null, [])))();
+  var dynamicToNull = () => (dynamicToNull = dart.constFn(dart.fnType(core.Null, [dart.dynamic])))();
+  var _LocationL = () => (_LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))();
+  var StreamBuilderOfQuerySnapshotL = () => (StreamBuilderOfQuerySnapshotL = dart.constFn(async$.StreamBuilder$(QuerySnapshotL())))();
+  var StatusTileL = () => (StatusTileL = dart.constFn(dart.legacy(Status.StatusTile)))();
+  var StringL = () => (StringL = dart.constFn(dart.legacy(core.String)))();
+  var intL = () => (intL = dart.constFn(dart.legacy(core.int)))();
+  var DocumentSnapshotL = () => (DocumentSnapshotL = dart.constFn(dart.legacy(cloud_firestore.DocumentSnapshot)))();
+  var DocumentSnapshotLToStatusTileL = () => (DocumentSnapshotLToStatusTileL = dart.constFn(dart.fnType(StatusTileL(), [DocumentSnapshotL()])))();
+  var WidgetL = () => (WidgetL = dart.constFn(dart.legacy(framework.Widget)))();
+  var BuildContextL = () => (BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))();
+  var AsyncSnapshotOfQuerySnapshotL = () => (AsyncSnapshotOfQuerySnapshotL = dart.constFn(async$.AsyncSnapshot$(QuerySnapshotL())))();
+  var AsyncSnapshotLOfQuerySnapshotL = () => (AsyncSnapshotLOfQuerySnapshotL = dart.constFn(dart.legacy(AsyncSnapshotOfQuerySnapshotL())))();
+  var BuildContextLAndAsyncSnapshotLOfQuerySnapshotLToWidgetL = () => (BuildContextLAndAsyncSnapshotLOfQuerySnapshotLToWidgetL = dart.constFn(dart.fnType(WidgetL(), [BuildContextL(), AsyncSnapshotLOfQuerySnapshotL()])))();
+  var JSArrayOfWidgetL = () => (JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(WidgetL())))();
   const CT = Object.create(null);
-  var L1 = "package:flutter/src/gestures/force_press.dart";
-  var L0 = "file:///C:/Users/HP/Downloads/flutter/packages/flutter/lib/src/gestures/force_press.dart";
+  var L0 = "package:envyweb/Screens/Admin/Status.dart";
   dart.defineLazy(CT, {
-    get C0() {
-      return C0 = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.ready",
-        index: 0
+    get C2() {
+      return C2 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 26,
+        [_Location_file]: null
       });
     },
     get C1() {
-      return C1 = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.possible",
-        index: 1
-      });
+      return C1 = dart.constList([C2 || CT.C2], _LocationL());
     },
-    get C2() {
-      return C2 = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.accepted",
-        index: 2
-      });
-    },
-    get C3() {
-      return C3 = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.started",
-        index: 3
-      });
-    },
-    get C4() {
-      return C4 = dart.const({
-        __proto__: force_press._ForceState.prototype,
-        [_name$]: "_ForceState.peaked",
-        index: 4
+    get C0() {
+      return C0 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C1 || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
       });
     },
     get C5() {
-      return C5 = dart.constList([C0 || CT.C0, C1 || CT.C1, C2 || CT.C2, C3 || CT.C3, C4 || CT.C4], _ForceStateL());
+      return C5 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
     },
     get C6() {
-      return C6 = dart.fn(force_press.ForcePressGestureRecognizer._inverseLerp, doubleAnddoubleAnddoubleTodouble());
+      return C6 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "centerTitle",
+        [_Location_column]: 11,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C4 = dart.constList([C5 || CT.C5, C6 || CT.C6], _LocationL());
+    },
+    get C3() {
+      return C3 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C4 || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C9() {
+      return C9 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C8 = dart.constList([C9 || CT.C9], _LocationL());
+    },
+    get C7() {
+      return C7 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C8 || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C11() {
+      return C11 = dart.constList([], _LocationL());
+    },
+    get C10() {
+      return C10 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C11 || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C14() {
+      return C14 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "content",
+        [_Location_column]: 21,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C15 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "date",
+        [_Location_column]: 21,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C13 = dart.constList([C14 || CT.C14, C15 || CT.C15], _LocationL());
+    },
+    get C12() {
+      return C12 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C13 || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 30,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C18() {
+      return C18 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C17 = dart.constList([C18 || CT.C18], _LocationL());
+    },
+    get C16() {
+      return C16 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C17 || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C21() {
+      return C21 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "stream",
+        [_Location_column]: 13,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C22 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 13,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C20 = dart.constList([C21 || CT.C21, C22 || CT.C22], _LocationL());
+    },
+    get C19() {
+      return C19 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C20 || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C25() {
+      return C25 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C24 = dart.constList([C25 || CT.C25], _LocationL());
+    },
+    get C23() {
+      return C23 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C24 || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C28() {
+      return C28 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C27 = dart.constList([C28 || CT.C28], _LocationL());
+    },
+    get C26() {
+      return C26 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C27 || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C31() {
+      return C31 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C32 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C30 = dart.constList([C31 || CT.C31, C32 || CT.C32], _LocationL());
+    },
+    get C29() {
+      return C29 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C30 || CT.C30,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C33() {
+      return C33 = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C36() {
+      return C36 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 27,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C37 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 19,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C35 = dart.constList([C36 || CT.C36, C37 || CT.C37], _LocationL());
+    },
+    get C34() {
+      return C34 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C35 || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C40() {
+      return C40 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 63,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C41() {
+      return C41 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C39() {
+      return C39 = dart.constList([C40 || CT.C40, C41 || CT.C41], _LocationL());
+    },
+    get C38() {
+      return C38 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C39 || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 86,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C44() {
+      return C44 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 19,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C45() {
+      return C45 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C43 = dart.constList([C44 || CT.C44, C45 || CT.C45], _LocationL());
+    },
+    get C42() {
+      return C42 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C43 || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C48() {
+      return C48 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 15,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C49 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C47 = dart.constList([C48 || CT.C48, C49 || CT.C49], _LocationL());
+    },
+    get C46() {
+      return C46 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C47 || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C52() {
+      return C52 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 13,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C53 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 75,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C54 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 13,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C55 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C51 = dart.constList([C52 || CT.C52, C53 || CT.C53, C54 || CT.C54, C55 || CT.C55], _LocationL());
+    },
+    get C50() {
+      return C50 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C51 || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 73,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C58() {
+      return C58 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 11,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C59 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C57 = dart.constList([C58 || CT.C58, C59 || CT.C59], _LocationL());
+    },
+    get C56() {
+      return C56 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C57 || CT.C57,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 71,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C62() {
+      return C62 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 9,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C63() {
+      return C63 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderRadius",
+        [_Location_column]: 9,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C64 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C61 = dart.constList([C62 || CT.C62, C63 || CT.C63, C64 || CT.C64], _LocationL());
+    },
+    get C60() {
+      return C60 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C61 || CT.C61,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 68,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
+    },
+    get C67() {
+      return C67 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C68() {
+      return C68 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 68,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C66 = dart.constList([C67 || CT.C67, C68 || CT.C68], _LocationL());
+    },
+    get C65() {
+      return C65 = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C66 || CT.C66,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 66,
+        [_Location_file]: "file:///C:/Users/HP/Desktop/EnvyWeb/EnvyWeb/lib/Screens/Admin/Status.dart"
+      });
     }
   }, false);
-  var _name$ = dart.privateName(force_press, "_name");
-  var C0;
-  var C1;
+  Status.Status = class Status$ extends framework.StatefulWidget {
+    createState() {
+      return new Status._StatusState.new();
+    }
+  };
+  (Status.Status.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    Status.Status.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Status.Status.prototype;
+  dart.addTypeTests(Status.Status);
+  dart.addTypeCaches(Status.Status);
+  dart.setMethodSignature(Status.Status, () => ({
+    __proto__: dart.getMethods(Status.Status.__proto__),
+    createState: dart.fnType(dart.legacy(Status._StatusState), [])
+  }));
+  dart.setLibraryUri(Status.Status, L0);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
   var C2;
-  var C3;
-  var C4;
+  var C1;
+  var C0;
   var C5;
-  force_press._ForceState = class _ForceState extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (force_press._ForceState.new = function(index, _name) {
-    if (index == null) dart.nullFailed(L0, 13, 6, "index");
-    if (_name == null) dart.nullFailed(L0, 13, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = force_press._ForceState.prototype;
-  dart.addTypeTests(force_press._ForceState);
-  dart.addTypeCaches(force_press._ForceState);
-  dart.setLibraryUri(force_press._ForceState, L1);
-  dart.setFieldSignature(force_press._ForceState, () => ({
-    __proto__: dart.getFields(force_press._ForceState.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(force_press._ForceState, ['toString']);
-  force_press._ForceState.ready = C0 || CT.C0;
-  force_press._ForceState.possible = C1 || CT.C1;
-  force_press._ForceState.accepted = C2 || CT.C2;
-  force_press._ForceState.started = C3 || CT.C3;
-  force_press._ForceState.peaked = C4 || CT.C4;
-  force_press._ForceState.values = C5 || CT.C5;
-  var globalPosition$ = dart.privateName(force_press, "ForcePressDetails.globalPosition");
-  var localPosition$ = dart.privateName(force_press, "ForcePressDetails.localPosition");
-  var pressure$ = dart.privateName(force_press, "ForcePressDetails.pressure");
-  force_press.ForcePressDetails = class ForcePressDetails extends core.Object {
-    get globalPosition() {
-      return this[globalPosition$];
-    }
-    set globalPosition(value) {
-      super.globalPosition = value;
-    }
-    get localPosition() {
-      return this[localPosition$];
-    }
-    set localPosition(value) {
-      super.localPosition = value;
-    }
-    get pressure() {
-      return this[pressure$];
-    }
-    set pressure(value) {
-      super.pressure = value;
-    }
-  };
-  (force_press.ForcePressDetails.new = function(opts) {
-    let t0;
-    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : null;
-    if (globalPosition == null) dart.nullFailed(L0, 51, 19, "globalPosition");
-    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
-    let pressure = opts && 'pressure' in opts ? opts.pressure : null;
-    if (pressure == null) dart.nullFailed(L0, 53, 19, "pressure");
-    this[globalPosition$] = globalPosition;
-    this[pressure$] = pressure;
-    if (!(globalPosition != null)) dart.assertFailed(null, L0, 54, 15, "globalPosition != null");
-    if (!(pressure != null)) dart.assertFailed(null, L0, 55, 15, "pressure != null");
-    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
-    ;
-  }).prototype = force_press.ForcePressDetails.prototype;
-  dart.addTypeTests(force_press.ForcePressDetails);
-  dart.addTypeCaches(force_press.ForcePressDetails);
-  dart.setLibraryUri(force_press.ForcePressDetails, L1);
-  dart.setFieldSignature(force_press.ForcePressDetails, () => ({
-    __proto__: dart.getFields(force_press.ForcePressDetails.__proto__),
-    globalPosition: dart.finalFieldType(ui.Offset),
-    localPosition: dart.finalFieldType(ui.Offset),
-    pressure: dart.finalFieldType(core.double)
-  }));
   var C6;
-  var __ForcePressGestureRecognizer__lastPosition = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPosition");
-  var __ForcePressGestureRecognizer__lastPosition_isSet = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPosition#isSet");
-  var __ForcePressGestureRecognizer__lastPressure = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPressure");
-  var __ForcePressGestureRecognizer__lastPressure_isSet = dart.privateName(force_press, "_#ForcePressGestureRecognizer#_lastPressure#isSet");
-  var _state = dart.privateName(force_press, "_state");
-  var _lastPosition = dart.privateName(force_press, "_lastPosition");
-  var _lastPressure = dart.privateName(force_press, "_lastPressure");
-  var onStart = dart.privateName(force_press, "ForcePressGestureRecognizer.onStart");
-  var onUpdate = dart.privateName(force_press, "ForcePressGestureRecognizer.onUpdate");
-  var onPeak = dart.privateName(force_press, "ForcePressGestureRecognizer.onPeak");
-  var onEnd = dart.privateName(force_press, "ForcePressGestureRecognizer.onEnd");
-  var startPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.startPressure");
-  var peakPressure$ = dart.privateName(force_press, "ForcePressGestureRecognizer.peakPressure");
-  var interpolation$ = dart.privateName(force_press, "ForcePressGestureRecognizer.interpolation");
-  force_press.ForcePressGestureRecognizer = class ForcePressGestureRecognizer extends recognizer.OneSequenceGestureRecognizer {
-    get onStart() {
-      return this[onStart];
+  var C4;
+  var C3;
+  var C9;
+  var C8;
+  var C7;
+  var C11;
+  var C10;
+  var C14;
+  var C15;
+  var C13;
+  var C12;
+  var C18;
+  var C17;
+  var C16;
+  var C21;
+  var C22;
+  var C20;
+  var C19;
+  var C25;
+  var C24;
+  var C23;
+  var C28;
+  var C27;
+  var C26;
+  var C31;
+  var C32;
+  var C30;
+  var C29;
+  Status._StatusState = class _StatusState extends framework.State$(dart.legacy(Status.Status)) {
+    initState() {
+      new FireStoreFunctions.FireStoreFunctions.new().getStatus().then(core.Null, dart.fn(data => {
+        this.setState(dart.fn(() => {
+          this.status = StreamLOfQuerySnapshotL().as(data);
+        }, VoidToNull()));
+      }, dynamicToNull()));
+      super.initState();
     }
-    set onStart(value) {
-      this[onStart] = value;
-    }
-    get onUpdate() {
-      return this[onUpdate];
-    }
-    set onUpdate(value) {
-      this[onUpdate] = value;
-    }
-    get onPeak() {
-      return this[onPeak];
-    }
-    set onPeak(value) {
-      this[onPeak] = value;
-    }
-    get onEnd() {
-      return this[onEnd];
-    }
-    set onEnd(value) {
-      this[onEnd] = value;
-    }
-    get startPressure() {
-      return this[startPressure$];
-    }
-    set startPressure(value) {
-      super.startPressure = value;
-    }
-    get peakPressure() {
-      return this[peakPressure$];
-    }
-    set peakPressure(value) {
-      super.peakPressure = value;
-    }
-    get interpolation() {
-      return this[interpolation$];
-    }
-    set interpolation(value) {
-      super.interpolation = value;
-    }
-    get [_lastPosition]() {
-      let t0;
-      return dart.test(this[__ForcePressGestureRecognizer__lastPosition_isSet]) ? (t0 = this[__ForcePressGestureRecognizer__lastPosition], t0) : dart.throw(new _internal.LateError.fieldNI("_lastPosition"));
-    }
-    set [_lastPosition](t0) {
-      if (t0 == null) dart.nullFailed(L0, 209, 19, "null");
-      this[__ForcePressGestureRecognizer__lastPosition_isSet] = true;
-      this[__ForcePressGestureRecognizer__lastPosition] = t0;
-    }
-    get [_lastPressure]() {
-      let t1;
-      return dart.test(this[__ForcePressGestureRecognizer__lastPressure_isSet]) ? (t1 = this[__ForcePressGestureRecognizer__lastPressure], t1) : dart.throw(new _internal.LateError.fieldNI("_lastPressure"));
-    }
-    set [_lastPressure](t1) {
-      if (t1 == null) dart.nullFailed(L0, 210, 15, "null");
-      this[__ForcePressGestureRecognizer__lastPressure_isSet] = true;
-      this[__ForcePressGestureRecognizer__lastPressure] = t1;
-    }
-    addAllowedPointer(event) {
-      if (event == null) dart.nullFailed(L0, 214, 39, "event");
-      if (!events.PointerUpEvent.is(event) && dart.notNull(event.pressureMax) <= 1.0) {
-        this.resolve(arena.GestureDisposition.rejected);
-      } else {
-        this.startTrackingPointer(event.pointer, event.transform);
-        if (dart.equals(this[_state], force_press._ForceState.ready)) {
-          this[_state] = force_press._ForceState.possible;
-          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-        }
-      }
-    }
-    handleEvent(event) {
-      let t4, t3, t2;
-      if (event == null) dart.nullFailed(L0, 230, 33, "event");
-      if (!!dart.equals(this[_state], force_press._ForceState.ready)) dart.assertFailed(null, L0, 231, 12, "_state != _ForceState.ready");
-      if (events.PointerMoveEvent.is(event) || events.PointerDownEvent.is(event)) {
-        if (dart.notNull(event.pressure) > dart.notNull(event.pressureMax) || dart.notNull(event.pressure) < dart.notNull(event.pressureMin)) {
-          print.debugPrint("The reported device pressure " + dart.toString(event.pressure) + " is outside of the device pressure range where: " + dart.toString(event.pressureMin) + " <= pressure <= " + dart.toString(event.pressureMax));
-        }
-        let pressure = (t2 = event.pressureMin, t3 = event.pressureMax, t4 = event.pressure, this.interpolation(t2, t3, t4));
-        if (!(dart.notNull(pressure) >= 0.0 && dart.notNull(pressure) <= 1.0 || pressure[$isNaN])) dart.assertFailed(null, L0, 244, 9, "(pressure >= 0.0 && pressure <= 1.0) || // Interpolated pressure must be between 1.0 and 0.0...\r\n        pressure.isNaN");
-        this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-        this[_lastPressure] = pressure;
-        if (dart.equals(this[_state], force_press._ForceState.possible)) {
-          if (dart.notNull(pressure) > dart.notNull(this.startPressure)) {
-            this[_state] = force_press._ForceState.started;
-            this.resolve(arena.GestureDisposition.accepted);
-          } else if (dart.notNull(event.delta.distanceSquared) > dart.notNull(events.computeHitSlop(event.kind))) {
-            this.resolve(arena.GestureDisposition.rejected);
-          }
-        }
-        if (dart.notNull(pressure) > dart.notNull(this.startPressure) && dart.equals(this[_state], force_press._ForceState.accepted)) {
-          this[_state] = force_press._ForceState.started;
-          if (this.onStart != null) {
-            this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), VoidTovoid()));
-          }
-        }
-        if (this.onPeak != null && dart.notNull(pressure) > dart.notNull(this.peakPressure) && dart.equals(this[_state], force_press._ForceState.started)) {
-          this[_state] = force_press._ForceState.peaked;
-          if (this.onPeak != null) {
-            this.invokeCallback(dart.void, "onPeak", dart.fn(() => dart.nullCheck(this.onPeak)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), VoidTovoid()));
-          }
-        }
-        if (this.onUpdate != null && !pressure[$isNaN] && (dart.equals(this[_state], force_press._ForceState.started) || dart.equals(this[_state], force_press._ForceState.peaked))) {
-          if (this.onUpdate != null) {
-            this.invokeCallback(dart.void, "onUpdate", dart.fn(() => dart.nullCheck(this.onUpdate)(new force_press.ForcePressDetails.new({pressure: pressure, globalPosition: event.position, localPosition: event.localPosition})), VoidTovoid()));
-          }
-        }
-      }
-      this.stopTrackingIfPointerNoLongerDown(event);
-    }
-    acceptGesture(pointer) {
-      if (pointer == null) dart.nullFailed(L0, 297, 26, "pointer");
-      if (dart.equals(this[_state], force_press._ForceState.possible)) this[_state] = force_press._ForceState.accepted;
-      if (this.onStart != null && dart.equals(this[_state], force_press._ForceState.started)) {
-        this.invokeCallback(dart.void, "onStart", dart.fn(() => dart.nullCheck(this.onStart)(new force_press.ForcePressDetails.new({pressure: this[_lastPressure], globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), VoidTovoid()));
-      }
-    }
-    didStopTrackingLastPointer(pointer) {
-      if (pointer == null) dart.nullFailed(L0, 311, 39, "pointer");
-      let wasAccepted = dart.equals(this[_state], force_press._ForceState.started) || dart.equals(this[_state], force_press._ForceState.peaked);
-      if (dart.equals(this[_state], force_press._ForceState.possible)) {
-        this.resolve(arena.GestureDisposition.rejected);
-        return;
-      }
-      if (wasAccepted && this.onEnd != null) {
-        if (this.onEnd != null) {
-          this.invokeCallback(dart.void, "onEnd", dart.fn(() => dart.nullCheck(this.onEnd)(new force_press.ForcePressDetails.new({pressure: 0.0, globalPosition: this[_lastPosition].global, localPosition: this[_lastPosition].local})), VoidTovoid()));
-        }
-      }
-      this[_state] = force_press._ForceState.ready;
-    }
-    rejectGesture(pointer) {
-      if (pointer == null) dart.nullFailed(L0, 330, 26, "pointer");
-      this.stopTrackingPointer(pointer);
-      this.didStopTrackingLastPointer(pointer);
-    }
-    static _inverseLerp(min, max, t) {
-      if (min == null) dart.nullFailed(L0, 335, 37, "min");
-      if (max == null) dart.nullFailed(L0, 335, 49, "max");
-      if (t == null) dart.nullFailed(L0, 335, 61, "t");
-      if (!(dart.notNull(min) <= dart.notNull(max))) dart.assertFailed(null, L0, 336, 12, "min <= max");
-      let value = (dart.notNull(t) - dart.notNull(min)) / (dart.notNull(max) - dart.notNull(min));
-      if (!value[$isNaN]) value = value[$clamp](0.0, 1.0);
-      return value;
-    }
-    get debugDescription() {
-      return "force press";
+    build(context) {
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Status", {$creationLocationd_0dea112b090073317d4: C0 || CT.C0}), centerTitle: true, $creationLocationd_0dea112b090073317d4: C3 || CT.C3}), body: new container.Container.new({child: new basic.Center.new({child: new (StreamBuilderOfQuerySnapshotL()).new({stream: this.status, builder: dart.fn((context, snapshot) => {
+                if (dart.test(snapshot.hasError)) {
+                  return new text.Text.new("Something went wrong", {$creationLocationd_0dea112b090073317d4: C7 || CT.C7});
+                }
+                if (dart.equals(snapshot.connectionState, async$.ConnectionState.waiting)) {
+                  return new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C10 || CT.C10});
+                }
+                return new scroll_view.ListView.new({children: snapshot.data.docs[$map](StatusTileL(), dart.fn(document => new Status.StatusTile.new({content: StringL().as(document.data()[$_get]("message")), date: intL().as(document.data()[$_get]("time")), $creationLocationd_0dea112b090073317d4: C12 || CT.C12}), DocumentSnapshotLToStatusTileL()))[$toList](), $creationLocationd_0dea112b090073317d4: C16 || CT.C16});
+              }, BuildContextLAndAsyncSnapshotLOfQuerySnapshotLToWidgetL()), $creationLocationd_0dea112b090073317d4: C19 || CT.C19}), $creationLocationd_0dea112b090073317d4: C23 || CT.C23}), $creationLocationd_0dea112b090073317d4: C26 || CT.C26}), $creationLocationd_0dea112b090073317d4: C29 || CT.C29});
     }
   };
-  (force_press.ForcePressGestureRecognizer.new = function(opts) {
-    let startPressure = opts && 'startPressure' in opts ? opts.startPressure : 0.4;
-    if (startPressure == null) dart.nullFailed(L0, 125, 10, "startPressure");
-    let peakPressure = opts && 'peakPressure' in opts ? opts.peakPressure : 0.85;
-    if (peakPressure == null) dart.nullFailed(L0, 126, 10, "peakPressure");
-    let interpolation = opts && 'interpolation' in opts ? opts.interpolation : C6 || CT.C6;
-    if (interpolation == null) dart.nullFailed(L0, 127, 10, "interpolation");
-    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
-    let kind = opts && 'kind' in opts ? opts.kind : null;
-    this[onStart] = null;
-    this[onUpdate] = null;
-    this[onPeak] = null;
-    this[onEnd] = null;
-    this[__ForcePressGestureRecognizer__lastPosition] = null;
-    this[__ForcePressGestureRecognizer__lastPosition_isSet] = false;
-    this[__ForcePressGestureRecognizer__lastPressure] = null;
-    this[__ForcePressGestureRecognizer__lastPressure_isSet] = false;
-    this[_state] = force_press._ForceState.ready;
-    this[startPressure$] = startPressure;
-    this[peakPressure$] = peakPressure;
-    this[interpolation$] = interpolation;
-    if (!(startPressure != null)) dart.assertFailed(null, L0, 130, 15, "startPressure != null");
-    if (!(peakPressure != null)) dart.assertFailed(null, L0, 131, 15, "peakPressure != null");
-    if (!(interpolation != null)) dart.assertFailed(null, L0, 132, 15, "interpolation != null");
-    if (!(dart.notNull(peakPressure) > dart.notNull(startPressure))) dart.assertFailed(null, L0, 133, 15, "peakPressure > startPressure");
-    force_press.ForcePressGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+  (Status._StatusState.new = function() {
+    this.status = null;
+    Status._StatusState.__proto__.new.call(this);
     ;
-  }).prototype = force_press.ForcePressGestureRecognizer.prototype;
-  dart.addTypeTests(force_press.ForcePressGestureRecognizer);
-  dart.addTypeCaches(force_press.ForcePressGestureRecognizer);
-  dart.setMethodSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getMethods(force_press.ForcePressGestureRecognizer.__proto__),
-    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
-    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
-    didStopTrackingLastPointer: dart.fnType(dart.void, [core.int])
+  }).prototype = Status._StatusState.prototype;
+  dart.addTypeTests(Status._StatusState);
+  dart.addTypeCaches(Status._StatusState);
+  dart.setMethodSignature(Status._StatusState, () => ({
+    __proto__: dart.getMethods(Status._StatusState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
   }));
-  dart.setGetterSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getGetters(force_press.ForcePressGestureRecognizer.__proto__),
-    [_lastPosition]: recognizer.OffsetPair,
-    [_lastPressure]: core.double,
-    debugDescription: core.String
+  dart.setLibraryUri(Status._StatusState, L0);
+  dart.setFieldSignature(Status._StatusState, () => ({
+    __proto__: dart.getFields(Status._StatusState.__proto__),
+    status: dart.fieldType(dart.legacy(async.Stream$(dart.legacy(cloud_firestore.QuerySnapshot))))
   }));
-  dart.setSetterSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getSetters(force_press.ForcePressGestureRecognizer.__proto__),
-    [_lastPosition]: recognizer.OffsetPair,
-    [_lastPressure]: core.double
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  var C33;
+  var C36;
+  var C37;
+  var C35;
+  var C34;
+  var C40;
+  var C41;
+  var C39;
+  var C38;
+  var C44;
+  var C45;
+  var C43;
+  var C42;
+  var C48;
+  var C49;
+  var C47;
+  var C46;
+  var C52;
+  var C53;
+  var C54;
+  var C55;
+  var C51;
+  var C50;
+  var C58;
+  var C59;
+  var C57;
+  var C56;
+  var C62;
+  var C63;
+  var C64;
+  var C61;
+  var C60;
+  var C67;
+  var C68;
+  var C66;
+  var C65;
+  var content$ = dart.privateName(Status, "StatusTile.content");
+  var date$ = dart.privateName(Status, "StatusTile.date");
+  Status.StatusTile = class StatusTile extends framework.StatelessWidget {
+    get content() {
+      return this[content$];
+    }
+    set content(value) {
+      super.content = value;
+    }
+    get date() {
+      return this[date$];
+    }
+    set date(value) {
+      super.date = value;
+    }
+    build(context) {
+      let t0;
+      let screen = media_query.MediaQuery.of(context).size;
+      return new basic.Padding.new({padding: C33 || CT.C33, child: new material.Material.new({elevation: 10.0, borderRadius: new border_radius.BorderRadius.circular(30.0), child: new basic.Padding.new({padding: C33 || CT.C33, child: new container.Container.new({height: dart.notNull(screen.height) * 0.18, width: dart.notNull(screen.width) * 0.95, decoration: new box_decoration.BoxDecoration.new(), child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.spaceEvenly, children: JSArrayOfWidgetL().of([new text.Text.new((t0 = this.content, t0 == null ? "" : t0), {style: new text_style.TextStyle.new({fontSize: 20.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C34 || CT.C34}), new basic.Align.new({alignment: alignment.Alignment.bottomRight, child: new text.Text.new(new core.DateTime.fromMillisecondsSinceEpoch(this.date).toString(), {style: new text_style.TextStyle.new({fontSize: 15.0}), $creationLocationd_0dea112b090073317d4: C38 || CT.C38}), $creationLocationd_0dea112b090073317d4: C42 || CT.C42})]), $creationLocationd_0dea112b090073317d4: C46 || CT.C46}), $creationLocationd_0dea112b090073317d4: C50 || CT.C50}), $creationLocationd_0dea112b090073317d4: C56 || CT.C56}), $creationLocationd_0dea112b090073317d4: C60 || CT.C60}), $creationLocationd_0dea112b090073317d4: C65 || CT.C65});
+    }
+  };
+  (Status.StatusTile.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let content = opts && 'content' in opts ? opts.content : null;
+    let date = opts && 'date' in opts ? opts.date : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[content$] = content;
+    this[date$] = date;
+    Status.StatusTile.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = Status.StatusTile.prototype;
+  dart.addTypeTests(Status.StatusTile);
+  dart.addTypeCaches(Status.StatusTile);
+  dart.setMethodSignature(Status.StatusTile, () => ({
+    __proto__: dart.getMethods(Status.StatusTile.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
   }));
-  dart.setLibraryUri(force_press.ForcePressGestureRecognizer, L1);
-  dart.setFieldSignature(force_press.ForcePressGestureRecognizer, () => ({
-    __proto__: dart.getFields(force_press.ForcePressGestureRecognizer.__proto__),
-    onStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    onUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    onPeak: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    onEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [force_press.ForcePressDetails]))),
-    startPressure: dart.finalFieldType(core.double),
-    peakPressure: dart.finalFieldType(core.double),
-    interpolation: dart.finalFieldType(dart.fnType(core.double, [core.double, core.double, core.double])),
-    [__ForcePressGestureRecognizer__lastPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
-    [__ForcePressGestureRecognizer__lastPosition_isSet]: dart.fieldType(core.bool),
-    [__ForcePressGestureRecognizer__lastPressure]: dart.fieldType(dart.nullable(core.double)),
-    [__ForcePressGestureRecognizer__lastPressure_isSet]: dart.fieldType(core.bool),
-    [_state]: dart.fieldType(force_press._ForceState)
+  dart.setLibraryUri(Status.StatusTile, L0);
+  dart.setFieldSignature(Status.StatusTile, () => ({
+    __proto__: dart.getFields(Status.StatusTile.__proto__),
+    content: dart.finalFieldType(dart.legacy(core.String)),
+    date: dart.finalFieldType(dart.legacy(core.int))
   }));
-  dart.trackLibraries("packages/flutter/src/gestures/force_press.dart", {
-    "package:flutter/src/gestures/force_press.dart": force_press
+  dart.trackLibraries("packages/envyweb/Screens/Admin/Status.dart", {
+    "package:envyweb/Screens/Admin/Status.dart": Status
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["force_press.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../packages/flutter/src/gestures/force_press.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["Status.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAMgC;IAAc;;;;;;EAC9C;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AASM,MAJF,AAAqB,AAAY,4EAAK,QAAC;AAGnC,QAFF,cAAS;AACM,wBAAb,6BAAS,IAAI;;;AAGA,MAAX;IACR;UAI0B;AACxB,YAAO,oCACK,+BACC,kBAAK,+EACC,mEAET,oCACG,6BACI,mDACD,sBAEJ,SAAc,SAAsC;AACtD,8BAAI,AAAS,QAAD;AACV,wBAAO,mBAAK;;AAGd,oBAA6B,YAAzB,AAAS,QAAD,kBAAoC;AAC9C,wBAAO;;AAGT,sBAAW,yCACC,AAAS,AAAK,AAAK,AAK1B,QALe,gCAAe,QAAkB,YACtC,iDACA,AAAS,AAAM,QAAP,eAAQ,6BACnB,AAAS,AAAM,QAAP,eAAQ;;IAOxC;;;IAjCsB;;;EAkCxB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAGe;;;;;;IACH;;;;;;UAKgB;;AACpB,mBAAoB,AAAY,0BAAT,OAAO;AAClC,YAAO,uDAEE,sCACM,oBACgB,wCAAS,cAC7B,sDAEE,qCACiB,aAAd,AAAO,MAAD,WAAU,aACJ,aAAb,AAAO,MAAD,UAAS,kBACV,+CACL,yCACgC,8CAC3B,uBACR,mBACU,yBAAR,OAAW,kBACJ,wCAAoB,kBAA2B,+EAExD,gCACuB,wCACd,kBACI,AAAiC,6CAAN,+BAC7B,wCAAoB;IAS7C;;;QApCsB;QAAoB;QAAc;;IAAd;IAAc;AAClD,qDAAW,GAAG;;EAAC","file":"../../../../../../../../packages/envyweb/Screens/Admin/Status.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__force_press: force_press
+    Screens__Admin__Status: Status
   };
 }));
 
-//# sourceMappingURL=force_press.dart.lib.js.map
+//# sourceMappingURL=Status.dart.lib.js.map

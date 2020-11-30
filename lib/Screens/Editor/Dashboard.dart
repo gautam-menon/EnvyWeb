@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:envyweb/Services/Auth.dart';
+import 'package:envyweb/Services/FireStoreFunctions.dart';
 import 'package:envyweb/Services/Widgets/DrawerItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class _EditorPageState extends State<EditorPage> {
                           builder: (context) =>
                               EditorPage(uid: widget.uid, name: widget.name)));
                 }),
-                Customize("Profile", () {
+                Customize("Profile", () async {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -117,10 +118,10 @@ class _EditorPageState extends State<EditorPage> {
                                 : snapshot.data.length,
                             itemBuilder: (context, index) {
                               return EditorOrderFunction(
-                                orderID: snapshot.data[index]['orderID'],
+                                orderID: snapshot.data[index]['orderid'],
                                 uid: widget.uid,
-                                date: snapshot.data[index]['startTime'],
-                                deadline: snapshot.data[index]['endTime'],
+                                imageUrl: snapshot.data[index]['rawBase64'],
+                                deadline: snapshot.data[index]['deadline'],
                               );
                             },
                           )
@@ -139,11 +140,11 @@ class _EditorPageState extends State<EditorPage> {
 class EditorOrderFunction extends StatefulWidget {
   final String orderID;
   final String uid;
-  final int date;
-  final deadline;
+  final String imageUrl;
+  final int deadline;
 
   const EditorOrderFunction(
-      {Key key, @required this.orderID, this.date, this.deadline, this.uid})
+      {Key key, @required this.orderID, this.deadline, this.uid, this.imageUrl})
       : super(key: key);
 
   @override
@@ -154,6 +155,9 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
   @override
   Widget build(BuildContext context) {
     var _media = MediaQuery.of(context).size;
+    var remainingTime =
+        ((widget.deadline - DateTime.now().millisecondsSinceEpoch) / 3600000)
+            .round();
     return Material(
         elevation: 10,
         shadowColor: Colors.grey,
@@ -173,12 +177,23 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(children: [
+                    SizedBox(
+                        child: CachedNetworkImage(
+                          placeholder: (context, url) =>
+                              CircularProgressIndicator(),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                          imageUrl: widget.imageUrl ??
+                              "https://wallpaperaccess.com/full/2109.jpg",
+                        ),
+                        height: _media.height * 0.2,
+                        width: _media.width * 0.1),
                     Text('Deadline',
                         style: TextStyle(
                             color: Colors.grey,
                             fontSize: 25,
                             fontWeight: FontWeight.bold)),
-                    Text(widget.deadline.toString()),
+                    Text(remainingTime.toString() + " hours left"),
                   ]),
                 ],
               ),
@@ -192,6 +207,8 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                       bool response = await ApiFunctionsEditors()
                           .orderConfirmation(true, widget.orderID);
                       if (response) {
+                        await FireStoreFunctions().addStatus(
+                            "accepted", "", widget.uid, widget.orderID);
                         setState(() {});
                         showSuccessDialog(context);
                       } else {
@@ -295,21 +312,13 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                                                                               int.parse(snapshot.data['tierId'])) ??
                                                                           "Tier"),
                                                                       Text(
-                                                                          "Date of ordering",
-                                                                          style: TextStyle(
-                                                                              fontSize: 20,
-                                                                              fontWeight: FontWeight.bold)),
-                                                                      Text(snapshot
-                                                                              .data['timestamp'] ??
-                                                                          "Timestamp"),
-                                                                      Text(
                                                                           "Deadline",
                                                                           style: TextStyle(
                                                                               fontSize: 20,
                                                                               fontWeight: FontWeight.bold)),
-                                                                      Text(snapshot
-                                                                              .data['endTime'] ??
-                                                                          "5"),
+                                                                      Text(remainingTime.toString() +
+                                                                              " hours left" ??
+                                                                          "0"),
                                                                       Container(
                                                                           height: _media.height *
                                                                               0.2,
@@ -346,7 +355,6 @@ class _EditorOrderFunctionState extends State<EditorOrderFunction> {
                     onPressed: () async {
                       bool response = await ApiFunctionsEditors()
                           .orderConfirmation(false, widget.orderID);
-
                       if (response) {
                         showSuccessDialog(context);
                       } else {

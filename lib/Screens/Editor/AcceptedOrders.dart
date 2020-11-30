@@ -43,11 +43,11 @@ class _AcceptedOrdersState extends State<AcceptedOrders> {
                                       itemBuilder: (context, index) {
                                         return AcceptedOrderTile(
                                           orderId: snapshot.data[index]
-                                              ['orderID'],
+                                              ['orderid'],
                                           date: snapshot.data[index]
                                               ['startTime'],
                                           deadline: snapshot.data[index]
-                                              ['endTime'],
+                                              ['deadline'],
                                           uid: widget.uid,
                                         );
                                       },
@@ -68,7 +68,7 @@ class _AcceptedOrdersState extends State<AcceptedOrders> {
 class AcceptedOrderTile extends StatelessWidget {
   final String orderId;
   final int date;
-  final deadline;
+  final int deadline;
   final String uid;
 
   const AcceptedOrderTile(
@@ -76,6 +76,9 @@ class AcceptedOrderTile extends StatelessWidget {
       : super(key: key);
   @override
   Widget build(BuildContext context) {
+      int remainingTime =
+        ((deadline - DateTime.now().millisecondsSinceEpoch) / 3600000)
+            .round();
     var screenSize = MediaQuery.of(context).size;
     return Container(
       height: screenSize.height / 6,
@@ -92,7 +95,7 @@ class AcceptedOrderTile extends StatelessWidget {
                       color: Colors.grey,
                       fontSize: 25,
                       fontWeight: FontWeight.bold)),
-              Text(deadline.toString()),
+            Text(remainingTime.toString() + " hours left"),
             ]),
             RaisedButton(
               child: Text('Proceed'),

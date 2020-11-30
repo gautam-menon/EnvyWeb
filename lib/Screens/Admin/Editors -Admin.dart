@@ -39,7 +39,7 @@ class _EditorListState extends State<EditorList> {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
-                                      'Tier',
+                                      'Plan',
                                       style: TextStyle(
                                           color: Colors.grey,
                                           fontSize: 25,

@@ -37,20 +37,13 @@ class _AdminPageState extends State<AdminPage> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => AdminPage()));
               }),
-              // Customize("Pending Orders", () {      Navigator.push(
-              //       context, MaterialPageRoute(builder: (context) => OnGoingOrders()));}),
               Customize("Status", () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Status()));
               }),
-
               Customize("Editors", () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => EditorList(
-                   
-                            )));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => EditorList()));
               }),
               Customize("Add Editor", () {
                 Navigator.push(context,
@@ -168,8 +161,9 @@ class _AdminPageState extends State<AdminPage> {
                                     status: snapshot.data[index]['isComplete'],
                                     date: int.parse(
                                         snapshot.data[index]['timestamp']),
-                                    price: int.parse(
-                                        snapshot.data[index]['timestamp']),
+                                    deadline: snapshot.data[index]['deadline'],
+                                    paymentDetails: 
+                                        snapshot.data[index]['paymentDetails'],
                                     tierId: int.parse(
                                         snapshot.data[index]['tierId']),
                                     imgUrl: snapshot.data[index]['rawBase64'],
@@ -210,19 +204,21 @@ class _AdminPageState extends State<AdminPage> {
 class OrderFunction extends StatefulWidget {
   final String orderID;
   final String status;
-  final int price;
+  final String paymentDetails;
   final int date;
   final int tierId;
   final String imgUrl;
+  final int deadline;
 
   const OrderFunction(
       {Key key,
       @required this.orderID,
       this.status,
-      this.price,
+      this.paymentDetails,
       this.date,
       this.tierId,
-      this.imgUrl})
+      this.imgUrl,
+      this.deadline})
       : super(key: key);
 
   @override
@@ -233,6 +229,9 @@ class _OrderFunctionState extends State<OrderFunction> {
   @override
   Widget build(BuildContext context) {
     var _media = MediaQuery.of(context).size;
+    var remainingTime =
+        ((widget.deadline - DateTime.now().millisecondsSinceEpoch) / 3600000)
+            .round();
     return Material(
         elevation: 10,
         shadowColor: Colors.grey,
@@ -260,35 +259,45 @@ class _OrderFunctionState extends State<OrderFunction> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  // Column(
+                  //   children: [
+                  //     Text('Status',
+                  //         style: TextStyle(
+                  //             color: Colors.grey,
+                  //             fontSize: 25,
+                  //             fontWeight: FontWeight.bold)),
+                  //     Text(widget.status),
+                  //   ],
+                  // ),
+                  // Column(
+                  //   children: [
+                  //     Text('Payment',
+                  //         style: TextStyle(
+                  //             color: Colors.grey,
+                  //             fontSize: 25,
+                  //             fontWeight: FontWeight.bold)),
+                  //     Text(widget.price.toString()),
+                  //   ],
+                  // ),
                   Column(
                     children: [
-                      Text('Status',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold)),
-                      Text(widget.status),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text('Payment',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold)),
-                      Text(widget.price.toString()),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Text('Date',
+                      Text('Date of ordering',
                           style: TextStyle(
                               color: Colors.grey,
                               fontSize: 25,
                               fontWeight: FontWeight.bold)),
                       Text(DateTime.fromMillisecondsSinceEpoch(widget.date)
                           .toString()),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text('Deadline',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold)),
+                      Text(remainingTime.toString() + " hours left"),
                     ],
                   ),
                 ],

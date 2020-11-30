@@ -22,23 +22,27 @@ class _OrderPageState extends State<OrderPage> {
     return Scaffold(
       appBar: AppBar(title: Text('Order Details'), centerTitle: true),
       body: Container(
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  child: FutureBuilder(
-                      future:
-                          ApiFunctionsEditors().getOrderDetails(widget.orderId),
-                      builder: (context, snapshot) {
-                        List features =
-                            snapshot.hasData && snapshot.data != false
-                                ? json.decode(snapshot.data['features'])
-                                : [];
-                        return snapshot.hasData
-                            ? snapshot.data != false
-                                ? Column(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                child: FutureBuilder(
+                    future:
+                        ApiFunctionsEditors().getOrderDetails(widget.orderId),
+                    builder: (context, snapshot) {
+                      List features =
+                          snapshot.hasData && snapshot.data != false
+                              ? json.decode(snapshot.data['features'])
+                              : [];
+                      int remainingTime = ((snapshot.data['deadline'] -
+                                  DateTime.now().millisecondsSinceEpoch) /
+                              3600000)
+                          .round();
+                      return snapshot.hasData
+                          ? snapshot.data != false
+                              ? SingleChildScrollView(
+                                                              child: Column(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
@@ -90,7 +94,8 @@ class _OrderPageState extends State<OrderPage> {
                                             style: TextStyle(
                                                 fontSize: 20,
                                                 fontWeight: FontWeight.bold)),
-                                        Text(snapshot.data['endTime'] ?? "5"),
+                                        Text(remainingTime.toString() +
+                                            " hours left"),
                                         Container(
                                             color: Colors.grey[100],
                                             height: _media.height * 0.15,
@@ -245,19 +250,19 @@ class _OrderPageState extends State<OrderPage> {
                                             ),
                                           ],
                                         )
-                                      ])
-                                : Center(
-                                    child: Text(
-                                    "Order details unavailable",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 30),
-                                  ))
-                            : CircularProgressIndicator();
-                      }),
-                )
-              ],
-            ),
+                                      ]),
+                              )
+                              : Center(
+                                  child: Text(
+                                  "Order details unavailable",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 30),
+                                ))
+                          : CircularProgressIndicator();
+                    }),
+              )
+            ],
           ),
         ),
       ),

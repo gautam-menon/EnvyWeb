@@ -57,7 +57,12 @@ class ApiFunctionsAdmin {
 
   Future addAdmin(
       String name, String email, String password, String phoneNo) async {
-    var body = {"name": name, "email": email, "phoneNo": phoneNo, "password": password};
+    var body = {
+      "name": name,
+      "email": email,
+      "phoneNo": phoneNo,
+      "password": password
+    };
     print(body);
     var response = await http.post(addAdminUrl, body: body);
     print(response);
@@ -121,8 +126,8 @@ class ApiFunctionsAdmin {
     }
   }
 
-  Future<bool> assignToEditor(String uid, orderID, tier) async {
-    var body = {"uid": uid, "orderID": orderID, "tier": tier};
+  Future<bool> assignToEditor(String uid, orderId, tier) async {
+    var body = {"uid": uid, "orderId": orderId, "tier": tier};
     var response = await http.post(assignToEditorUrl, body: body);
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
