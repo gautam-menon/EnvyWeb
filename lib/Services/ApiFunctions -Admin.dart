@@ -34,6 +34,8 @@ class ApiFunctionsAdmin {
       "https://envytestserver.herokuapp.com/AdminPage/loginCheckEditor";
   String loginCheckAdminUrl =
       "https://envytestserver.herokuapp.com/AdminPage/loginCheckAdmin";
+  String sendNotificationUrl =
+      "https://envytestserver.herokuapp.com/AdminPage/sendNotification";
 
   Future addEditor(String name, String email, String password, String tier,
       String phoneNo) async {
@@ -237,6 +239,29 @@ class ApiFunctionsAdmin {
       var temp = json.decode(response.body);
       if (temp['status'] == true) {
         UserModel data = UserModel.fromJson(temp['req']);
+        return data;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
+
+  Future sendNotificationtoUser(
+      String editorName, String uid, String chatMessageData) async {
+    print(1);
+    var response = await http.post(sendNotificationUrl, body: {
+      "editorName": editorName,
+      'uid': uid,
+      'message': chatMessageData
+    });
+    print(2);
+    if (response.statusCode == 200) {
+      var temp = json.decode(response.body);
+      if (temp['status'] == true) {
+        UserModel data = UserModel.fromJson(temp['req']);
+        print(3);
         return data;
       } else {
         return null;

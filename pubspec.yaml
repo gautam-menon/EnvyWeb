@@ -20,6 +20,8 @@ dependencies:
   cloud_firestore: ^0.14.3+1
   cached_network_image: any
   http_parser: ^3.1.4
+  flutter_chat_bubble: ^1.0.2
+  get_it: ^5.0.3
   
 
 dev_dependencies:

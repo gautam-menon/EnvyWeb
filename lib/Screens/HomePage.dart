@@ -1,3 +1,4 @@
+import 'package:envyweb/Models/UserModel.dart';
 import 'package:envyweb/Screens/LoginPage.dart';
 import 'package:flutter/material.dart';
 import 'Admin/Dashboard.dart';
@@ -38,10 +39,14 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(width: screenSize.width / 20),
                       InkWell(
                         onTap: () {
+                          UserModel user = UserModel(
+                              '1', 'admin1', 'email', 'Basic', 993059372);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => AdminPage()));
+                                  builder: (context) => AdminPage(
+                                        editorObj: user,
+                                      )));
                         },
                         child: Text(
                           'Contact Us',

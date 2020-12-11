@@ -1,5 +1,0 @@
-2020/11/29-13:05:57.157 1024 Reusing MANIFEST C:\Users\HP\AppData\Local\Temp\flutter_tools.35b1d8a1\flutter_tools_chrome_device.bc8189a5\Default\IndexedDB\http_localhost_52406.indexeddb.leveldb/MANIFEST-000001
-2020/11/29-13:05:57.672 1c94 Level-0 table #5: started
-2020/11/29-13:05:57.759 1c94 Level-0 table #5: 1198 bytes OK
-2020/11/29-13:05:57.869 1c94 Delete type=0 #3
-2020/11/29-13:05:57.870 1c94 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

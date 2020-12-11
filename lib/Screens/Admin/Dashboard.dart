@@ -1,4 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:envyweb/Models/UserModel.dart';
+import 'package:envyweb/Screens/Admin/AllOrders.dart';
 import 'package:envyweb/Screens/Admin/Status.dart';
 import 'package:envyweb/Screens/HomePage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Admin.dart';
@@ -12,9 +14,10 @@ import 'AssignStatus.dart';
 import 'Editors -Admin.dart';
 
 class AdminPage extends StatefulWidget {
-  final String name;
+  final UserModel editorObj;
 
-  const AdminPage({Key key, this.name, String uid}) : super(key: key);
+  const AdminPage({Key key, String uid, @required this.editorObj})
+      : super(key: key);
   @override
   _AdminPageState createState() => _AdminPageState();
 }
@@ -23,6 +26,7 @@ class _AdminPageState extends State<AdminPage> {
   bool isLoading = true;
   @override
   Widget build(BuildContext context) {
+    widget.editorObj ?? UserModel('1', 'admin1', 'email', 'Basic', 993059372);
     return Scaffold(
       appBar: AppBar(
         title: Text("Dashboard"),
@@ -34,8 +38,11 @@ class _AdminPageState extends State<AdminPage> {
           child: ListView(
             children: [
               Customize("Dashboard", () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AdminPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            AdminPage(editorObj: widget.editorObj)));
               }),
               Customize("Status", () {
                 Navigator.push(
@@ -44,6 +51,14 @@ class _AdminPageState extends State<AdminPage> {
               Customize("Editors", () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => EditorList()));
+              }),
+              Customize("All Orders", () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => AllOrders(
+                              editor: widget.editorObj,
+                            )));
               }),
               Customize("Add Editor", () {
                 Navigator.push(context,
@@ -76,7 +91,7 @@ class _AdminPageState extends State<AdminPage> {
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Admin, " + widget.name.toString(),
+                        "Admin, " + widget.editorObj.name.toString(),
                         style: TextStyle(
                             fontSize: 35,
                             color: Colors.black,
@@ -158,15 +173,18 @@ class _AdminPageState extends State<AdminPage> {
                                 itemBuilder: (context, index) {
                                   return OrderFunction(
                                     orderID: snapshot.data[index]['orderid'],
-                                    status: snapshot.data[index]['isComplete'],
+                                    status: snapshot.data[index]['isComplete']
+                                        .toString(),
                                     date: int.parse(
-                                        snapshot.data[index]['timestamp']),
+                                        // snapshot.data[index]['timestamp']
+                                        '394859393'),
                                     deadline: snapshot.data[index]['deadline'],
-                                    paymentDetails: 
-                                        snapshot.data[index]['paymentDetails'],
+                                    paymentDetails: snapshot.data[index]
+                                        ['paymentStatus'],
                                     tierId: int.parse(
                                         snapshot.data[index]['tierId']),
                                     imgUrl: snapshot.data[index]['rawBase64'],
+                                    userModel: widget.editorObj,
                                   );
                                 },
                               )
@@ -209,6 +227,7 @@ class OrderFunction extends StatefulWidget {
   final int tierId;
   final String imgUrl;
   final int deadline;
+  final UserModel userModel;
 
   const OrderFunction(
       {Key key,
@@ -218,7 +237,8 @@ class OrderFunction extends StatefulWidget {
       this.date,
       this.tierId,
       this.imgUrl,
-      this.deadline})
+      this.deadline,
+      this.userModel})
       : super(key: key);
 
   @override
@@ -353,7 +373,8 @@ class _OrderFunctionState extends State<OrderFunction> {
                                                                 ['tier'],
                                                             snapshot.data[index]
                                                                 ['email'],
-                                                            context);
+                                                            context,
+                                                            widget.userModel);
                                                       },
                                                     )
                                                   : Center(
@@ -415,7 +436,7 @@ class _OrderFunctionState extends State<OrderFunction> {
   }
 
   Widget editors(String name, String id, String orderid, String tier,
-      String email, context) {
+      String email, context, userModel) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -437,8 +458,8 @@ class _OrderFunctionState extends State<OrderFunction> {
                 if (response == true) {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              AssignStatus(status: response)),
+                          builder: (BuildContext context) => AssignStatus(
+                              status: response, userModel: userModel)),
                       (Route<dynamic> route) => false);
                 }
               },

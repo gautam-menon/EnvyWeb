@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:envyweb/Models/UserModel.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:envyweb/Services/Auth.dart';
 import 'package:envyweb/Services/FireStoreFunctions.dart';
@@ -12,10 +13,9 @@ import 'ProfilePage.dart';
 import 'AcceptedOrders.dart';
 
 class EditorPage extends StatefulWidget {
-  final String name;
-  final String uid;
+  final UserModel user;
 
-  const EditorPage({Key key, this.name, this.uid}) : super(key: key);
+  const EditorPage({Key key, @required this.user}) : super(key: key);
   @override
   _EditorPageState createState() => _EditorPageState();
 }
@@ -34,15 +34,16 @@ class _EditorPageState extends State<EditorPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              EditorPage(uid: widget.uid, name: widget.name)));
+                          builder: (context) => EditorPage(
+                                user: widget.user,
+                              )));
                 }),
                 Customize("Profile", () async {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => ProfilePage(
-                                uid: widget.uid,
+                                uid: widget.user.uid,
                               )));
                 }),
                 Customize("Accepted Orders", () {
@@ -50,7 +51,7 @@ class _EditorPageState extends State<EditorPage> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => AcceptedOrders(
-                                uid: widget.uid ?? "1",
+                                user: widget.user ?? "1",
                               )));
                 }),
                 Customize("Log out", () async {
@@ -75,7 +76,7 @@ class _EditorPageState extends State<EditorPage> {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "Editor, " + widget.name.toString(),
+                            "Editor, " + widget.user.name.toString(),
                             style: TextStyle(
                                 fontSize: 35,
                                 color: Colors.black,
@@ -102,8 +103,8 @@ class _EditorPageState extends State<EditorPage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: FutureBuilder(
-          future:
-              ApiFunctionsEditors().getUnconfirmedWorkOrders(widget.uid ?? "1"),
+          future: ApiFunctionsEditors()
+              .getUnconfirmedWorkOrders(widget.user.uid ?? "1"),
           builder: (context, snapshot) {
             return snapshot.hasData
                 ? Container(
@@ -119,7 +120,7 @@ class _EditorPageState extends State<EditorPage> {
                             itemBuilder: (context, index) {
                               return EditorOrderFunction(
                                 orderID: snapshot.data[index]['orderid'],
-                                uid: widget.uid,
+                                uid: widget.user.uid,
                                 imageUrl: snapshot.data[index]['rawBase64'],
                                 deadline: snapshot.data[index]['deadline'],
                               );

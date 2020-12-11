@@ -60,9 +60,14 @@ class ApiFunctionsEditors {
     }
   }
 
-  Future submitOrder(String imgUrl, String orderId, String userId) async {
-    var response = await http.post(submitOrderUrl,
-        body: {"imageUrl": imgUrl, "orderId": orderId, "uid": userId});
+  Future submitOrder(
+      String imgUrl, String orderId, String userId, String editorId) async {
+    var response = await http.post(submitOrderUrl, body: {
+      "imageUrl": imgUrl,
+      "orderId": orderId,
+      "uid": userId ?? "",
+      'editorId': editorId ?? ""
+    });
     if (response.statusCode == 200) {
       var data = json.decode(response.body);
       return data;

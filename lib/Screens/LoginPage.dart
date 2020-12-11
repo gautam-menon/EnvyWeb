@@ -44,8 +44,9 @@ class _LoginPageState extends State<LoginPage> {
       } else {
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    EditorPage(name: result.name, uid: result.uid)),
+                builder: (BuildContext context) => EditorPage(
+                      user: result,
+                    )),
             (Route<dynamic> route) => false);
       }
     } else {
@@ -59,8 +60,9 @@ class _LoginPageState extends State<LoginPage> {
       } else {
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    AdminPage(name: result.name, uid: result.uid)),
+                builder: (BuildContext context) => AdminPage(
+                      editorObj: result,
+                    )),
             (Route<dynamic> route) => false);
       }
     }
@@ -119,7 +121,6 @@ class _LoginPageState extends State<LoginPage> {
                                   Colors.purple
                                 ],
                               )),
-                            
                               height: 400,
                               width: 400,
                               child: Padding(

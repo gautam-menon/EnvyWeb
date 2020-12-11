@@ -1,12 +1,12 @@
+import 'package:envyweb/Models/UserModel.dart';
+import 'package:envyweb/Screens/Editor/ChatPage.dart';
 import 'package:envyweb/Services/ApiFunctions%20-Editor.dart';
 import 'package:flutter/material.dart';
 
-import 'OrderPage.dart';
-
 class AcceptedOrders extends StatefulWidget {
-  final String uid;
+  final UserModel user;
 
-  const AcceptedOrders({Key key, this.uid}) : super(key: key);
+  const AcceptedOrders({Key key, @required this.user}) : super(key: key);
   @override
   _AcceptedOrdersState createState() => _AcceptedOrdersState();
 }
@@ -27,7 +27,7 @@ class _AcceptedOrdersState extends State<AcceptedOrders> {
               children: [
                 FutureBuilder(
                     future: ApiFunctionsEditors()
-                        .getconfirmedWorkOrders(widget.uid),
+                        .getconfirmedWorkOrders(widget.user.uid),
                     builder: (context, snapshot) {
                       return snapshot.hasData
                           ? Container(
@@ -48,7 +48,8 @@ class _AcceptedOrdersState extends State<AcceptedOrders> {
                                               ['startTime'],
                                           deadline: snapshot.data[index]
                                               ['deadline'],
-                                          uid: widget.uid,
+                                          user: widget.user,
+                                          userId: snapshot.data[index]['uid'],
                                         );
                                       },
                                     )
@@ -69,16 +70,21 @@ class AcceptedOrderTile extends StatelessWidget {
   final String orderId;
   final int date;
   final int deadline;
-  final String uid;
+  final UserModel user;
+  final String userId;
 
   const AcceptedOrderTile(
-      {Key key, this.orderId, this.date, this.deadline, this.uid})
+      {Key key,
+      this.orderId,
+      this.date,
+      this.deadline,
+      this.user,
+      @required this.userId})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-      int remainingTime =
-        ((deadline - DateTime.now().millisecondsSinceEpoch) / 3600000)
-            .round();
+    int remainingTime =
+        ((deadline - DateTime.now().millisecondsSinceEpoch) / 3600000).round();
     var screenSize = MediaQuery.of(context).size;
     return Container(
       height: screenSize.height / 6,
@@ -88,14 +94,13 @@ class AcceptedOrderTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-         
             Column(children: [
               Text('Deadline',
                   style: TextStyle(
                       color: Colors.grey,
                       fontSize: 25,
                       fontWeight: FontWeight.bold)),
-            Text(remainingTime.toString() + " hours left"),
+              Text(remainingTime.toString() + " hours left"),
             ]),
             RaisedButton(
               child: Text('Proceed'),
@@ -104,8 +109,15 @@ class AcceptedOrderTile extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>
-                            OrderPage(orderId: orderId??"1", uid: uid??"1")));
+                        builder: (context) => OrderChat(
+                            userId: userId,
+                            orderid: orderId ?? "1",
+                            user: user ?? "1")));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //         builder: (context) => OrderPage(
+                //             orderId: orderId ?? "1", uid: uid ?? "1")));
               },
             )
           ],

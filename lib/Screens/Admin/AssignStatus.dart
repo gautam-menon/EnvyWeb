@@ -1,11 +1,14 @@
+import 'package:envyweb/Models/UserModel.dart';
 import 'package:flutter/material.dart';
 
 import 'Dashboard.dart';
 
 class AssignStatus extends StatelessWidget {
   final bool status;
+  final UserModel userModel;
 
-  const AssignStatus({Key key, this.status}) : super(key: key);
+  const AssignStatus({Key key, this.status, @required this.userModel})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return status
@@ -13,8 +16,8 @@ class AssignStatus extends StatelessWidget {
             backgroundColor: Colors.white,
             body: Container(
                 child: Center(
-                  child: Column(
-              children: [
+              child: Column(
+                children: [
                   Icon(
                     Icons.done,
                     size: MediaQuery.of(context).size.height / 2,
@@ -24,12 +27,14 @@ class AssignStatus extends StatelessWidget {
                     child: Text("Okay"),
                     onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                            builder: (BuildContext context) => AdminPage()),
+                            builder: (BuildContext context) => AdminPage(
+                                  editorObj: userModel,
+                                )),
                         (Route<dynamic> route) => false),
                   )
-              ],
-            ),
-                )),
+                ],
+              ),
+            )),
           )
         : Container(
             child: Column(
@@ -43,7 +48,9 @@ class AssignStatus extends StatelessWidget {
                   child: Text("Okay"),
                   onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
-                          builder: (BuildContext context) => AdminPage()),
+                          builder: (BuildContext context) => AdminPage(
+                                editorObj: userModel,
+                              )),
                       (Route<dynamic> route) => false),
                 )
               ],
